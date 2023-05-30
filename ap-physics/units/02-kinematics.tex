@@ -1,4 +1,4 @@
-\documentclass[main.tex]{subfiles}
+\documentclass[main-ap-physics.tex]{subfiles}
 
 \begin{document}
 
@@ -371,6 +371,122 @@ We convert miles per minutes to meters per second using dimensional analysis as 
     \times \frac{\text{1 minute}}{\text{60 seconds}} = \SI{20}{m/s}
 \end{equation*}
 
+\subsection{Acceleration}
+
+% Figure
+
+In everyday conversation, to accelerate means to speed up. The accelerator in a car can in fact cause it to speed up. The greater the acceleration, the greater the change in velocity over a given time. The formal definition of acceleration is consistent with these notions, but more inclusive.
+
+\begin{mdframed}[backgroundcolor=black!10]
+    Average Acceleration is the rate at which velocity changes,
+
+    \begin{equation}
+        \bar{a} = \frac{\Delta v}{\Delta t} = \frac{v_f - v_0}{t_f - t_0} 
+    \end{equation}
+
+    where \bar{a} is average acceleration, $v$ is velocity, and $t$is time. (The bar over the $a$ means average acceleration.)
+\end{mdframed}
+
+Because acceleration is velocity in m/s divided by time in s, the SI units for acceleration are \SI{}{m/s^2}, meters per second squared or meters per second per second, which literally means by how many meters per second the velocity changes every second.
+
+\vspace{1em}
+
+Recall that velocity is a vector---it has both magnitude and direction. This means that a change in velocity can be a change in magnitude (or speed), but it can also be a change in direction. For example, if a car turns a corner at constant speed, it is accelerating because its direction is changing. The quicker you turn, the greater the acceleration. So there is an acceleration when velocity changes either in magnitude (an increase or decrease in speed) or in direction, or both.
+
+\begin{mdframed}[backgroundcolor=black!10]
+    \textbf{Acceleration as a vector}
+
+    \vspace{1ex}
+
+    Acceleration is a vector in the same direction as the change in velocity, $Δv$. Since velocity is a vector, it can change either in magnitude or in direction. Acceleration is therefore a change in either speed or direction, or both.
+\end{mdframed}
+
+Keep in mind that although acceleration is in the direction of the change in velocity, it is not always in the direction of motion. When an object slows down, its acceleration is opposite to the direction of its motion. This is known as \gls{deceleration}.
+
+\vspace{1em} % Figure
+
+\begin{mdframed}[backgroundcolor=yellow!10]
+    \textbf{Misconception alert: Deceleration vs.~negative acceleration}
+
+    \vspace{1ex}
+
+    Deceleration always refers to acceleration in the direction opposite to the direction of the velocity. Deceleration always reduces speed. Negative acceleration, however, is acceleration \textit{in the negative direction in the chosen coordinate system}. Negative acceleration may or may not be deceleration, and deceleration may or may not be considered negative acceleration. For example, consider Figure ?.??
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (4,0) {\mycar};
+                \draw (6,0) node[left=-3mm] {\textcolor{black!15}{\mycar}}
+                node[left=-5mm] {\textcolor{black!30}{\mycar}}
+                node {\mycar};
+                \draw[->] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(a) Speeding Up};
+                \draw[->] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}%
+        \hspace{1cm}
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (6,0) {\mycar};
+                \draw (4,0) node[left=-3mm] {\textcolor{black!15}{\mycar}}
+                node[left=-5mm] {\textcolor{black!30}{\mycar}}
+                node {\mycar};
+                \draw[->] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(b) Slowing Down};
+                \draw[<-] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}
+
+        \vspace{2em}
+
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (4,0) {\mycarleft};
+                \draw (6,0) node[right=-1.5mm] {\textcolor{black!15}{\mycarleft}}
+                node[right=-3.5mm] {\textcolor{black!30}{\mycarleft}}
+                node {\mycarleft};
+                \draw[<-] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(c) Slowing Down};
+                \draw[->] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}%
+        \hspace{1cm}
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (6,0) {\mycarleft};
+                \draw (4,0) node[right=-1.5mm] {\textcolor{black!15}{\mycarleft}}
+                node[right=-3.5mm] {\textcolor{black!30}{\mycarleft}}
+                node {\mycarleft};
+                \draw[<-] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(d) Speeding Up};
+                \draw[<-] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}
+        \captionsetup{type=figure,margin=1in,font=scriptsize}
+        \captionof{figure}{(a) This car is speeding up as it moves toward the right. It therefore has positive acceleration in our coordinate system. (b) This car is slowing down as it moves toward the right. Therefore, it has negative acceleration in our coordinate system, because its acceleration is toward the left. The car is also decelerating: the direction of its acceleration is opposite to its direction of motion. (c) This car is moving toward the left, but slowing down over time. Therefore, its acceleration is positive in our coordinate system because it is toward the right. However, the car is decelerating because its acceleration is opposite to its motion. (d) This car is speeding up as it moves toward the left. It has negative acceleration because it is accelerating toward the left. However, because its acceleration is in the same direction as its motion, it is speeding up (not decelerating).}
+    \end{center}
+    
+\end{mdframed}
 
 
 \end{document}

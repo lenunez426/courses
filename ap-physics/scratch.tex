@@ -1,27 +1,82 @@
 \documentclass{article}
 \input{preamble}
 
+\def\mycarleft{\huge\usym{1F697}}%modiying symbol of car
+
 \begin{document}
 
-\begin{center}
-    \begin{tikzpicture}
-    \begin{axis}[width=15cm,
-        axis lines = left,
-        axis y line=none,
-        xlabel = {Position (m)},
-        ymin=0, ymax=12, 
-        xmin=-4, xmax=4,
-        %xtick={-10,-8,...,12},
-        ticks=none,
-        clip=false,
-        ]
-        \node[right] at (4,0) {E ($+x$)};
-        \node[left] at (-4,0) {W ($-x$)};
-        \node[above] at (0,0) {\huge \faBicycle};
-        \draw[->] (0,1) node[gray,right] {$x_0$} -- ++(axis direction cs: -3,0) node[above,pos=0.5] {$\Delta{x_1} = -\SI{3.0}{km}$};
-        \draw[->] (-3,1.75) -- ++(axis direction cs: 2,0) node[above,pos=0.5] {$\Delta{x_2} = +\SI{2.0}{m}$} node[gray,right] {$x_f$};
-    \end{axis}
-    \end{tikzpicture}
-\end{center}
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (4,0) {\mycar};
+                \draw (6,0) node[left=-3mm] {\textcolor{black!15}{\mycar}}
+                node[left=-5mm] {\textcolor{black!30}{\mycar}}
+                node {\mycar};
+                \draw[->] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(a) Speeding Up};
+                \draw[->] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}%
+        \hspace{1cm}
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (6,0) {\mycar};
+                \draw (4,0) node[left=-3mm] {\textcolor{black!15}{\mycar}}
+                node[left=-5mm] {\textcolor{black!30}{\mycar}}
+                node {\mycar};
+                \draw[->] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(b) Slowing Down};
+                \draw[<-] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}
+
+        \vspace{2em}
+
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (4,0) {\mycarleft};
+                \draw (6,0) node[right=-1.5mm] {\textcolor{black!15}{\mycarleft}}
+                node[right=-3.5mm] {\textcolor{black!30}{\mycarleft}}
+                node {\mycarleft};
+                \draw[<-] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(c) Slowing Down};
+                \draw[->] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}%
+        \hspace{1cm}
+        \begin{tikzpicture}
+            \begin{axis}[width=8cm,height=2.5cm,
+                xmin=2,xmax=8,
+                ymin=0,ymax=12,
+                ticks=none,
+                axis line style={draw=none}, 
+                clip=false,
+            ]
+                \node at (6,0) {\mycarleft};
+                \draw (4,0) node[right=-1.5mm] {\textcolor{black!15}{\mycarleft}}
+                node[right=-3.5mm] {\textcolor{black!30}{\mycarleft}}
+                node {\mycarleft};
+                \draw[<-] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(d) Speeding Up};
+                \draw[<-] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
+            \end{axis}
+        \end{tikzpicture}
+        \captionsetup{type=figure,margin=1in,font=scriptsize}
+        \captionof{figure}{(a) This car is speeding up as it moves toward the right. It therefore has positive acceleration in our coordinate system. (b) This car is slowing down as it moves toward the right. Therefore, it has negative acceleration in our coordinate system, because its acceleration is toward the left. The car is also decelerating: the direction of its acceleration is opposite to its direction of motion. (c) This car is moving toward the left, but slowing down over time. Therefore, its acceleration is positive in our coordinate system because it is toward the right. However, the car is decelerating because its acceleration is opposite to its motion. (d) This car is speeding up as it moves toward the left. It has negative acceleration because it is accelerating toward the left. However, because its acceleration is in the same direction as its motion, it is speeding up (not decelerating).}
+    \end{center}
 
 \end{document}
