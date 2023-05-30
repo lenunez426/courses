@@ -7,3 +7,9 @@ main-physics.synctex.gz
 main-physics.toc
 main-physics.pdf
 *.pdf
+*.aux
+*.log
+*.out
+*.gz
+*.toc
+*.pdf
