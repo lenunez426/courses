@@ -1,0 +1,233 @@
+\documentclass[addpoints]{exam}
+\usepackage{preamble}
+\sisetup{group-separator = {,}}
+\usepackage{exam-randomizechoices}
+
+\def\one{10}
+\def\two{2}
+\def\three{3}
+\def\four{4}
+
+\def\testVersion{\one} % Edit Version number here only.
+
+\setrandomizerseed{\testVersion}
+
+\pagestyle{headandfoot}
+\runningheadrule
+
+\firstpagefooter{Access for free at \href{\openstax}{\openstax}}{}{}
+\runningfooter{Access for free at \href{\openstax}{\openstax}}{}{}
+\firstpageheader{Astronomy}{Study Guide for Unit 7: Stars}{Version 1}
+
+\CorrectChoiceEmphasis{\color{red}\bfseries}
+\SolutionEmphasis{\color{red}}
+
+\printanswers
+
+\begin{document}
+\begin{questions}
+
+\question
+What is a star?
+
+\begin{randomizechoices}
+\correctchoice a massive ball of gas, consisting mostly of hydrogen and helium, that produces its own light
+\choice a low-mass object that has exhausted most or all of its nuclear fuel and has collapsed to a very small size
+\choice the rate at which a star or other object emits electromagnetic energy into space
+\choice a stellar explosion produced at the endpoint of the evolution of stars
+\end{randomizechoices}
+
+\question
+About how many stars are in our Milky Way Galaxy?
+
+\begin{randomizechoices}
+\choice 1 million ($10^6$)
+\correctchoice 100 billion ($10^{11}$)
+\choice 10 thousand ($10^4$)
+\choice 100 million ($10^8$) 
+\end{randomizechoices}
+
+\question
+There are an estimated 10 thousand billion billion ($10^{22}$) stars in the observable universe---and this is just a lower estimate! What is this number in decimal form?
+
+\begin{randomizechoices}
+\correctchoice \SI{10000000000000000000000}{} stars
+\choice \SI{22000000000}{} stars
+\choice \SI{1000000000000000000}{} stars
+\choice \SI{22000000000000000000}{} stars
+\end{randomizechoices}
+
+\question
+The Sun is much bigger than Earth. How many Earths, aligned side-by-side in a line, would it take to span the entire diameter of the Sun?
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    width=4cm,
+    height=4cm,
+    clip=false,
+    ticks=none,
+    axis lines=center,
+    xmin=-1,xmax=1,ymin=-1,ymax=1,
+    axis line style={draw=none},
+]
+    \draw[lightgray] (0,0) circle (1);
+    \node[above] at (0,1) {Sun};
+    \draw [thick,dash pattern={on 1pt off 1pt}] (-1,0) -- (1,0);
+    \node[above] at (0,0) {\footnotesize $\leftarrow$ Earths $\rightarrow$};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{randomizechoices}
+\choice \SI{330000}{}
+\choice 26
+\choice 10 thousand
+\correctchoice 109 
+\end{randomizechoices}
+
+\question
+True or false? The Sun is the biggest star in the universe.
+
+\begin{randomizechoices}
+\choice True
+\correctchoice False
+\end{randomizechoices}
+
+\question
+All stars can be classified into one of 7 categories according to their stellar spectra. what are these 7 classes?
+
+\begin{randomizechoices}
+\correctchoice OBAFGKM
+\choice MKGFABO
+\choice  ROYGBIV
+\choice OBAMKFG
+\end{randomizechoices}
+
+\clearpage
+\question
+Which property of a star is related to its color?
+
+\begin{randomizechoices}
+\correctchoice temperature
+\choice mass
+\choice brightness
+\choice size
+\end{randomizechoices}
+
+\question
+The hottest stars are \fillin\ .
+
+\begin{randomizechoices}
+\correctchoice blue
+\choice red
+\choice white
+\choice yellow
+\end{randomizechoices}
+
+\question
+The coolest stars are \fillin\ .
+
+\begin{randomizechoices}
+\choice blue
+\correctchoice red
+\choice white
+\choice yellow
+\end{randomizechoices}
+
+\question
+Which of the following is closest to the temperature of the Sun in Fahrenheit? 
+
+\begin{randomizechoices}
+\correctchoice \SI{10000}{\degree F}
+\choice \SI{5000}{\degree F}
+\choice \SI{6000000}{\degree F}
+\choice \SI{990}{\degree F}
+\end{randomizechoices}
+
+\question
+What is a white dwarf?
+
+\begin{randomizechoices}
+\correctchoice a low-mass star that has lost its fuel and has collapsed to about the size of Earth
+\choice a high-mass star that has lost its fuel and has collapsed to about the size of a city
+\choice white stars that are some of the biggest in the galaxy
+\choice another name for neutron stars
+\end{randomizechoices}
+
+\question
+True or false? In billions of years, toward the end of its life, our Sun is fated to become a white dwarf.
+
+\begin{randomizechoices}
+\correctchoice True
+\choice False
+\end{randomizechoices}
+
+\question 
+Recall that, by definition, the mass of the Sun is $\SI{1}{M_{\odot}}$. When they eventually die, stars with masses between \fillin[][4cm]\ will leave behind a white dwarf.
+
+\begin{randomizechoices}
+\choice $\SI{10}{M_{\odot}}$ and $\SI{40}{M_{\odot}}$
+\correctchoice $\SI{0.08}{M_{\odot}}$ and $\SI{10}{M_{\odot}}$
+\choice $\SI{40}{M_{\odot}}$ and $\SI{55}{M_{\odot}}$
+\choice $\SI{55}{M_{\odot}}$ and $\SI{100}{M_{\odot}}$
+\end{randomizechoices}
+
+\question
+A white dwarf is approximately the size of \fillin\ .
+
+\begin{randomizechoices}
+\choice a city
+\correctchoice the Earth
+\choice the Sun
+\choice an atom
+\end{randomizechoices}
+
+\clearpage
+\question
+What is a neutron star?
+
+\begin{randomizechoices}
+\correctchoice an extremely dense and compact collapsed star made mostly of neutrons
+\choice another name for a white dwarf
+\choice the explosion of massive star
+\choice another name for a black hole
+\end{randomizechoices}
+
+\question
+Neutrons are the subatomic particles found in the nucleus of atoms. Approximately what percentage of a neutron star is composed of neutrons?
+
+\begin{randomizechoices}
+\correctchoice 95\%
+\choice 100\%
+\choice 50\%
+\choice 5\%
+\end{randomizechoices}
+
+\question 
+Recall that, by definition, the mass of the Sun is $\SI{1}{M_{\odot}}$. When they eventually die, stars with masses between \fillin[][4cm]\ will leave behind a neutron star.
+
+\begin{randomizechoices}
+\correctchoice $\SI{10}{M_{\odot}}$ and $\SI{40}{M_{\odot}}$
+\choice $\SI{0.08}{M_{\odot}}$ and $\SI{10}{M_{\odot}}$
+\choice $\SI{40}{M_{\odot}}$ and $\SI{55}{M_{\odot}}$
+\choice $\SI{55}{M_{\odot}}$ and $\SI{100}{M_{\odot}}$
+\end{randomizechoices}
+
+\question
+A neutron star is approximately the size of \fillin\ .
+
+\begin{randomizechoices}
+\correctchoice a city
+\choice the Earth
+\choice the Sun
+\choice an atom
+\end{randomizechoices}
+
+
+\clearpage
+\ifprintanswers
+    \printkeytable
+\fi
+\end{questions}
+\end{document}

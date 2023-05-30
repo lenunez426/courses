@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{preamble}
+\usepackage{listings}
+\setlength\parskip{5pt}
+
+
+\makeglossaries
+
+\begin{document}
+
+\section*{\textit{Stellarium}}
+
+\subsection*{Downloading \textit{Stellarium} at CFISD}
+
+As of August 2022, the \texttt{Ivanti Portal} enabled the download of \texttt{Stellarium v0.14.3}.
+
+\subsection*{Downloading \textit{Stellarium} Independently}
+Download \textit{Stellarium} from \href{https://stellarium.org/}{stellarium.org} and install it on your computer.
+
+When you open it, it's possible that the resolution of the GUI is too low---that is, the windows appear excessively zoomed in. This issue is fixed as follows. In the Windows search box, search for and open the program called \texttt{Command Prompt}. In the \texttt{Command Prompt}, type the following line and hit enter:
+
+\begin{center}
+    \verb|"C:\Program Files\Stellarium\stellarium.exe" --scale-gui 0.75 -platform windows:altgr|
+\end{center}
+
+Hitting enter should boot the program with a more appropriate GUI scale factor.
+
+
+
+
+
+
+
+
+\printglossaries
+\end{document}

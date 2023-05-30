@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usepackage{amsmath}
+
+\begin{filecontents*}{temp.dat}
+RA	     DEC	Brightness
+101.29	-16.72	7.54
+104.66	-28.97	4.58
+107.10	-26.39	4.24
+95.67	-17.96	4.11
+111.02	-29.30	3.63
+95.08	-30.06	3.09
+105.76	-23.83	3.06
+105.43	-27.93	2.61
+108.70	-26.77	2.26
+95.53	-33.44	2.23
+103.53	-24.18	2.21
+102.46	-32.51	2.19
+99.17	-19.26	2.17
+103.55	-12.04	2.00
+105.94	-15.63	1.96
+97.96	-23.42	1.75
+104.03	-17.05	1.70
+109.68	-24.95	1.68
+99.47	-18.24	1.65
+97.04	-32.58	1.60
+98.76	-22.96	1.58
+108.56	-26.35	1.43
+103.91	-20.14	1.42
+109.15	-23.32	1.29
+103.39	-20.22	1.25
+109.67	-24.56	1.13
+104.03	-14.04	0.99
+101.12	-31.07	0.91
+101.71	-14.43	0.81
+99.10	-18.66	0.39
+103.76	-20.40	0.29
+108.05	-25.94	0.18
+101.76	-21.02	0.00
+\end{filecontents*}
+
+\begin{document}
+\begin{tikzpicture}
+
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    % xlabel={RA (hours)},
+    % ylabel={DEC (deg.)},
+    % title=Canis Majoris,
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/3},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {temp.dat};
+\end{axis}
+\end{tikzpicture}%
+\end{document}

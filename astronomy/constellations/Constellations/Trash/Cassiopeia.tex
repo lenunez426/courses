@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usetikzlibrary{plotmarks}
+\usepackage{amsmath}
+
+\begin{filecontents*}{temp.dat}
+RA 	    DEC	    Brightness
+0.68	56.54	5.26
+0.15	59.15	5.22
+0.95	60.72	5.10
+1.43	60.24	4.81
+1.91	63.67	4.12
+0.82	57.82	4.05
+0.62	53.90	3.83
+2.06	72.42	3.55
+0.55	62.93	3.33
+1.19	55.15	3.16
+0.75	48.28	2.99
+2.03	70.91	2.95
+-0.09	57.50	2.90
+0.94	59.18	2.87
+1.57	59.23	2.81
+1.43	68.13	2.76
+0.70	50.51	2.68
+0.92	58.97	2.67
+-0.89	59.42	2.65
+-0.22	58.65	2.62
+0.81	50.97	2.60
+0.72	47.02	2.54
+-0.59	62.28	2.54
+1.93	68.69	2.52
+1.33	58.23	2.51
+1.14	54.92	2.32
+1.72	70.62	2.32
+2.09	76.12	2.27
+2.09	77.28	2.22
+1.64	73.04	2.21
+1.18	68.78	2.18
+0.41	61.83	2.11
+0.80	74.85	2.08
+1.19	65.02	1.93
+0.11	64.20	1.90
+1.71	68.04	1.90
+2.05	64.39	1.88
+0.74	47.86	1.84
+0.76	74.99	1.84
+-0.84	59.33	1.81
+1.72	60.55	1.73
+0.07	62.29	1.61
+2.05	64.90	1.50
+2.24	66.52	1.42
+0.52	66.52	1.33
+1.35	64.66	1.17
+0.57	66.75	1.02
+2.10	74.58	0.00
+\end{filecontents*}
+
+
+
+\begin{document}
+\begin{tikzpicture}
+
+\begin{axis}[%
+    height=8cm,width=8cm,
+    x dir=reverse,
+    % enlarge x limits = 0.2,
+    % enlarge y limits = 0.2,
+    % xlabel={RA (hours)},
+    % ylabel={DEC (deg.)},
+    % title=Cassiopeia,
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {temp.dat};
+\end{axis}
+\end{tikzpicture}%
+\end{document}

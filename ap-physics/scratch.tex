@@ -1,0 +1,27 @@
+\documentclass{article}
+\input{preamble}
+
+\begin{document}
+
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=15cm,
+        axis lines = left,
+        axis y line=none,
+        xlabel = {Position (m)},
+        ymin=0, ymax=12, 
+        xmin=-4, xmax=4,
+        %xtick={-10,-8,...,12},
+        ticks=none,
+        clip=false,
+        ]
+        \node[right] at (4,0) {E ($+x$)};
+        \node[left] at (-4,0) {W ($-x$)};
+        \node[above] at (0,0) {\huge \faBicycle};
+        \draw[->] (0,1) node[gray,right] {$x_0$} -- ++(axis direction cs: -3,0) node[above,pos=0.5] {$\Delta{x_1} = -\SI{3.0}{km}$};
+        \draw[->] (-3,1.75) -- ++(axis direction cs: 2,0) node[above,pos=0.5] {$\Delta{x_2} = +\SI{2.0}{m}$} node[gray,right] {$x_f$};
+    \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\end{document}

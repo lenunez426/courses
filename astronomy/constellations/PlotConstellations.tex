@@ -1,0 +1,487 @@
+\documentclass{article}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=newest}
+% \usetikzlibrary{plotmarks}
+% \usepackage{amsmath}
+\usepackage{preamble}
+
+\usepackage{etoolbox}
+
+\providetoggle{printlines}
+\settoggle{printlines}{false}
+
+\providetoggle{printstars}
+\settoggle{printstars}{true}
+
+\begin{document}
+
+\begin{multicols}{2}
+\centering
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Auriga.dat};
+
+\iftoggle{printlines}{
+\draw 
+(5.28, 46.00) -- 
+(5.99,44.95) --
+(6.00,37.21) --
+(5.44,28.61) --
+(4.95,33.17) --
+(5.03,43.82) --
+(5.28, 46.00)
+;
+}{}
+
+\iftoggle{printstars}{
+\node[above right] at (5.28, 46.00) {\footnotesize Capella};
+}{}
+
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Bootes.dat};
+
+\iftoggle{printstars}{
+\node[below] at (14.26, 19.18) {\footnotesize Arcturus};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(14.32,13.00) --
+(14.26, 19.18) -- % Arcturus
+(13.91,18.40) -- % Muphrid
+(13.82,15.80) 
+(14.26, 19.18) -- % Arcturus
+(14.75,27.07) -- % Izar
+(15.26,33.31) -- 
+(15.03,40.39) -- 
+(14.53,38.31) --
+(14.53,30.37) --
+(14.26, 19.18) % Arcturus
+;
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/CanisMajoris.dat};
+
+\iftoggle{printstars}{
+\node[above right=2pt] at (6.75,-16.72) {\footnotesize Sirius};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(7.40,-29.30) -- 
+(7.25,-26.77) -- 
+(7.14,-26.39) -- % Wezen
+(7.03,-27.93) --
+(6.98,-28.97) -- 
+(6.83,-32.51)
+(6.98,-28.97) -- 
+(6.34,-30.06)
+(7.14,-26.39) -- % Wezen
+(7.05,-23.83) --
+(6.75,-16.72) -- % Sirius
+(6.94,-17.05) -- 
+(7.06,-15.63) -- 
+(6.90,-12.04) -- 
+(6.94,-17.05)
+(6.75,-16.72) -- % Sirius
+(6.61,-19.26) --
+(6.58,-22.96)
+(6.38,-17.96) -- 
+(6.61,-19.26) --
+(6.90,-24.18) -- 
+(7.03,-27.93)
+;
+}{}
+
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Cassiopeia.dat};
+
+\iftoggle{printstars}{
+\node[above] at (0.95,60.72) {\footnotesize Navi};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(1.91,63.67) --
+(1.43,60.24) --
+(0.95,60.72) --
+(0.68,56.54) -- 
+(0.15,59.15);
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Hercules.dat};
+
+\iftoggle{printlines}{
+\draw
+(16.37,19.15) --
+(16.50,21.49) -- % Kornephoros
+(16.69,31.60) -- 
+(16.71,38.92) -- 
+(16.57,42.44) --
+(16.33,46.31) --
+(15.88,42.45)
+(16.69,31.60) -- 
+(17.00,30.93) --
+(17.51,26.11) --
+(17.25,24.84)
+(17.51,26.11) --
+(17.77,27.72) --
+(17.96,29.25) -- 
+(18.13,28.76)
+(17.00,30.93) --
+(17.25,36.81) --
+(17.29,37.29) --
+(17.39,37.15) --
+(17.94,37.25) --
+(17.66,46.01)
+(17.25,36.81) --
+(16.71,38.92)
+;
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Leo.dat};
+
+\iftoggle{printstars}{
+\node[below] at (10.14,11.97) {\footnotesize Regulus};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(11.82,14.57) --
+(11.24,20.52) -- 
+(10.33,19.84) -- % Algieba
+(10.28,23.42) -- 
+(9.88,26.01) -- 
+(9.76,23.77) 
+(10.33,19.84) -- % Algieba
+(10.12,16.76) --
+(10.14,11.97) -- % Regulus
+(11.24,15.43) -- 
+(11.82,14.57)
+(11.24,15.43) -- 
+(11.24,20.52)
+;
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Orion.dat};
+
+\iftoggle{printstars}{
+\node[right=2pt] at (5.24,-8.20) {\footnotesize Rigel};
+\node[left=2pt] at (5.92,7.41) {\footnotesize Betelgeuse};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(6.06,19.69) --
+(6.20,14.21) --
+(6.13,14.77)
+(6.20,14.21) --
+(6.04,9.65)
+(5.91,20.28) --
+(6.13,14.77) --
+(6.04,9.65) --
+(5.92,7.41) --
+(5.68,-1.94) --
+(5.60,-1.20) --
+(5.53,-0.30)
+(5.68,-1.94) --
+(5.80,-9.67) --
+(5.24,-8.20) --
+(5.53,-0.30) --
+(5.42,6.35) -- % Bellatrix
+(5.59,9.93) --
+(5.92,7.41)
+(5.42,6.35) --
+(4.83,6.96) % Tabit
+(4.91,10.15) --
+(4.84,8.90) --
+(4.83,6.96) --% Tabit
+(4.85,5.61) --
+(4.90,2.44) --
+(4.98,1.71)
+;
+
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Scorpius.dat};
+
+\iftoggle{printstars}{
+\node[below right=-2pt] at (16.49,-26.43) {\footnotesize Antares};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(17.56,-37.10) -- % Shaula
+(17.71,-39.03) --
+(17.79,-40.13) --
+(17.62,-43.00) -- % Sargas
+(17.20,-43.24) --
+(16.91,-42.36) -- % Grafias
+(16.87,-38.02) --
+(16.84,-34.29) --
+(16.60,-28.22) -- % Alniyat
+(16.49,-26.43) -- % Antares
+(16.09,-19.81) % Acrab
+(16.49,-26.43) -- % Antares
+(16.01,-22.62) % Dschubba
+(16.49,-26.43) -- % Antares
+(15.98,-26.11)
+;
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/Taurus.dat};
+
+\iftoggle{printstars}{
+\node[left=2pt] at (4.60,16.51) {\footnotesize Aldeberan};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(5.63,21.14) -- 
+(4.60,16.51) -- % Aldeberan
+(4.48,15.87) -- 
+(4.33,15.63) -- 
+(4.01,12.49) --
+(3.41,9.03)
+(4.33,15.63) -- 
+(4.38,17.54) -- 
+(4.48,19.18) -- 
+(4.70,22.96) --
+(5.44,28.61)
+(4.38,17.54) --
+(3.79,24.11)
+;
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/UrsaMajor.dat};
+
+\iftoggle{printstars}{
+\node[below right=-2pt] at (13.40,54.93) {\footnotesize Mizar};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(13.79,49.31) -- % Alkaid
+(13.40,54.93) -- % Mizar
+(12.90,55.96) -- % Alioth
+(12.26,57.03) -- % Megrez
+(11.90,53.69) -- % Phad
+(11.77,47.78) -- 
+(11.16,44.50) --
+(10.37,41.50)
+(11.16,44.50) --
+(10.28,42.91)
+(12.26,57.03) -- % Megrez
+(11.06,61.75) -- % Dubhe
+(11.03,56.38) % Merak
+(11.06,61.75) -- % Dubhe
+(9.53,63.06) -- 
+(8.50,60.72) --
+(9.85,59.04) --
+(9.87,54.06) -- %
+(9.55,51.68) --
+(9.06,47.16)
+(9.55,51.68) --
+(8.99,48.04)
+(11.90,53.69) -- % Phad
+(11.03,56.38) -- % Merak
+(9.87,54.06);
+}{}
+\end{axis}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{axis}[%
+    height=8cm, width=8cm,
+    x dir=reverse,
+    %axis line style={draw=none},
+    ticks=none,
+]
+\addplot[%
+    scatter=true,
+    only marks,
+    mark=*,
+    point meta=explicit symbolic,
+    scatter/@pre marker code/.style={/tikz/mark size=\pgfplotspointmeta/4},
+    scatter/@post marker code/.style={}
+] table [meta index=2] {Constellations/UrsaMinor.dat};
+
+\iftoggle{printstars}{
+\node[right=2pt] at (17.94,89.9) {\footnotesize Polaris};
+}{}
+
+\iftoggle{printlines}{
+\draw
+(17.94,89.9) -- % Polaris. Coordinates modified to fit plot.
+(17.54,86.59) -- 
+(16.77,82.04) --
+(15.73,77.79) -- 
+(14.85,74.16) -- % Kochab
+(15.35,71.83) -- 
+(16.18,75.88) -- 
+(15.73,77.79);
+}{}
+\end{axis}
+\end{tikzpicture}
+
+
+
+\end{multicols}
+\end{document}
