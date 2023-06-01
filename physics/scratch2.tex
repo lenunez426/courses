@@ -1,0 +1,33 @@
+\documentclass{article}
+\input{preamble}
+
+\begin{document}
+
+
+\begin{center}
+    \begin{tikzpicture}[
+        declare function={f(\x,\yi,\vi,\thetai)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);}, %equation of path
+        declare function={R(\vi,\thetai) = \vi^2 * sin(2*\thetai) / \grav;}, % maximum range
+        declare function={h(\vi,\thetai) = (\vi*sin(\thetai))^2/(2*\grav);} %maximum height
+    ]
+    \tikzmath{
+        \grav=9.8;
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=8cm,height=8cm,ticks=none,
+        axis lines = center,
+        axis line style={draw=none},
+        clip=false,
+        xmin=0, xmax={R(18,80)*1.1},
+        ymin=0, ymax={h(18,80)*1.1},
+        ]
+        \draw[thick,blue,domain=0:{R(18,80)},variable=\x,samples=200] plot ({\x},{f(\x,0,18,80)});
+        \node[rotate=72,blue] at (2,7) {trajectory};
+        \draw (0.6,0) arc (0:35:2) node[pos=0.8,right=2pt] {\ang{80}};
+        \draw[<->,dashed] (0,0) -- ++(axis direction cs: {R(18,80)},0) node[pos=0.8,below] {maximum range};
+        \draw[<->,dashed] ({R(18,80)/2},0) -- ++(axis direction cs: 0,{h(18,80)}) node[above] {maximum height};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\end{document}
