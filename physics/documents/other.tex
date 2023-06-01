@@ -1659,4 +1659,503 @@ tangential speed is \SI{6}{m/s}, radius of curvature is \SI{20}{m}, mass is \SI{
 
 
 \clearpage
+
+\section{Projectile Motion}
+
+The following four steps are used to analyze projectile motion:
+
+\vspace{1em}
+
+\textbf{Step 1}: Separate the motion into horizontal and vertical components along the $x$- and $y$-axes. These axes are perpendicular, so the Pythagorean theorem, $A^2 = A_x^2 + A_y^2$ is used. The magnitudes of the displacement $d$ along $x$- and $y$-axes are called $x$ and  $y$. The magnitude of the velocity is $v$, and the magnitudes of the components of the velocity, $v_x$ and $v_y$, relate to $v$ also by the Pythagorean theorem. Initial values are denoted with a subscript 0.
+
+\vspace{1em}
+
+\textbf{Step 2}: Treat the motion as two independent one dimensional motions, one horizontal and the other vertical. The kinematic equations for horizontal motion take the following forms under the condition that horizontal acceleration is zero ($a_x = 0$):
+
+\begin{align}
+    x &= x_0 + v_x t \label{7fMAPG}\\[0.5ex]
+    v_x &= v_{0x} = \text{velocity is a constant} \label{dCvDf4}
+\end{align}
+
+For vertical motion, the kinematic equations take the following forms under the condition that vertical acceleration is $a_y = -g = \SI{-9.80}{m/s^2}$:
+
+\begin{align}
+    y &= y_0 + \frac{1}{2}\left(v_{0y} + v_y\right)t\\[0.5ex]
+    v_y &= v_{0y} - gt \label{SjYaoE} \\[0.5ex]
+    y &= y_0 + v_{0y}t - \frac{1}{2}  g t^2  \label{36YuvF} \\[0.5ex]
+    v_y^2 &= v_{0y}^2 - 2 g (y - y_0) \label{wROSXN}
+\end{align}
+
+\vspace{1em}
+
+\textbf{Step 3}: Solve for the unknowns in the two separate motions (one horizontal and one vertical). Note that the only common variable between the motions is time $t$. The problem solving procedures here are the same as for one-dimensional kinematics.
+
+\vspace{1em}
+
+\textbf{Step 4}: Recombine the two motions to find the total displacement $d$ and velocity $v$. These are related to their components via the Pythagorean theorem as shown below:
+
+\begin{align}
+    d &= \sqrt{x^2 + y^2}\\[0.5ex]
+    v &= \sqrt{v_x^2 + v_y^2}
+\end{align}
+
+
+\begin{example} \label{4Dn9PW}
+    During a fireworks display like the one illustrated in Figure \ref{ZxjpEr}, a shell is shot into the air with an initial speed of \SI{70.0}{m/s} at an angle of \ang{75} above the horizontal. The fuse is timed to ignite the shell just as it reaches its highest point above the ground. Calculate the height at which the shell explodes. (This peak vertical position is defined as \gls{maximum height}.)
+\end{example}
+
+\begin{center}
+    \begin{tikzpicture}[
+        declare function={f(\x)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);},
+        declare function={t(\x)=\x/(\vi*cos(\thetai));}
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \vi = 70;
+        \yi = 0.0;
+        \thetai = 75.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*\tmax;
+        \sf = 0.25; %scale factor for vector components
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=8cm,height=8cm,ticks=none,
+        axis lines = center,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=175,
+        ymin=0, ymax=275,
+        ]
+        \draw[domain=0:\xmax,variable=\x,samples=250] plot ({\x},{f(\x)});
+        \draw (10,0) arc (0:35:30) node[pos=0.8,right=2pt] {$\theta = \ang{75}$};
+        \draw[dashed] (0,\ymax) node[left] {$h$} -- ++(\xmax,0);
+        \draw[dashed] (\xmax,0) -- ++(0,\ymax);
+        \draw[ultra thick,violet,->] (0,0) -- ++({\vi*cos(\thetai)},{\vi*sin(\thetai)}) node[left] {$v$};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{The diagram shows the trajectory of a fireworks shell.}
+    \label{ZxjpEr}
+\end{center}
+
+\Solution We are given the initial speed and launch angle: $v_0 = \SI{70}{m/s}$ and $\theta_0 = \ang{75}$. We know the magnitude of the acceleration due to gravity is $g = \SI{9.8}{m/s^2}$. Since horizontal and vertical motions are independent, we start by analyzing only the vertical motion. The $y$-component of the initial velocity is given by
+
+\begin{equation*}
+    v_{0y} = v_0 \sin{\theta_0} = 70 \sin{(\ang{75})} = 67.61
+\end{equation*}
+
+If we assume the firework starts at the origin, its initial vertical position is zero: $y_0 = 0$.
+
+\vspace{1em}
+
+The unknown we are looking for is final vertical position (or height above $y_0$): $y =\ ?$ 
+
+\vspace{1em}
+
+The key to solving this problem is the following fact: From Figure ?.?? we see that at the highest point in the trajectory, the $y$-component of velocity is zero: $v_y = 0$. Therefore, at the highest point, the given and unknown quantities are related by Equation \eqref{wROSXN}:
+
+\begin{equation*}
+    v_y^2 = v_{0y}^2 - 2 g \left(y-y_0\right)
+\end{equation*}
+
+Substituting known values leads to
+
+\begin{equation*}
+    0^2 = \left(67.6\right)^2 - 2 (9.8) \left(y - 0\right)
+\end{equation*}
+
+or, more simply, to
+
+\begin{equation*}
+    0 = 67.6^2 - 19.6 y
+\end{equation*}
+
+We can solve this equation for height $y$ as follows:
+
+\begin{align*}
+    \textbf{Add $19.6 y$} \qquad & 0 \redplus \textcolor{red}{19.6 y} = 67.6^2 - \cancel{19.6 y} \redplus \textcolor{red}{\cancel{19.6 y}}\\[1ex]
+    \textbf{Simplify} \qquad & 19.6 y = 67.6^2\\[1ex]
+    \textbf{Divide by 19.6} \qquad & \frac{\cancel{19.6} y}{\textcolor{red}{\cancel{19.6}}} = \frac{67.6^2}{\textcolor{red}{19.6}}\\[1ex]
+    \textbf{Simplify} \qquad & y = 233
+\end{align*}
+
+Therefore, the maximum height of the firework is 233 meters.
+
+\endsolution
+
+\begin{example} \label{t57osh}
+    How much time passed between the launch of the shell in Example \ref{4Dn9PW} and the explosion?
+\end{example}
+
+\Solution
+Upon solving Example \ref{4Dn9PW}, we learned that initial and final vertical velocities associated with a launch to maximum height are
+
+\begin{equation*}
+    v_{0y} = \SI{67.6}{m/s} \quad \text{and} \quad v_y = \SI{0}{m/s}
+\end{equation*}
+
+Furthermore, gravitational acceleration is always $g = \SI{9.8}{m/s^2}$. Since we are now looking for how long it took the firework to reach maximum height, the unknown is time: $t =\ ?$
+
+\vspace{1em}
+
+The given and unknown quantities are now related by Equation \eqref{SjYaoE} as 
+
+\begin{equation*}
+    v_y = v_{0y} - gt
+\end{equation*}
+
+Substituting known values leads to
+
+\begin{equation*}
+    0 = 67.6 - 9.8 t
+\end{equation*}
+
+Let's solve this equation as follows:
+
+\begin{align*}
+    \textbf{Add $9.8 t$} \qquad & 0 \redplus \textcolor{red}{9.8 t} = 67.6 - \cancel{9.8 t} \redplus \cancel{\textcolor{red}{9.8 t}}\\[1ex]
+    \textbf{Simplify} \qquad & 9.8 t = 67.6\\[1ex]
+    \textbf{Divide by 9.8} \qquad & \frac{\cancel{9.8} t}{\cancel{\textcolor{red}{9.8}}} = \frac{67.6}{\textcolor{red}{9.8}}\\[1ex]
+    \textbf{Simplify} \qquad & t = 6.90
+\end{align*}
+
+Therefore, from the launch of the firework to its explosion at maximum height, a total of 6.90 seconds elapsed.
+
+\endsolution
+
+\begin{example} 
+    What is the horizontal displacement of the shell in Example \ref{4Dn9PW} when it explodes?
+\end{example}
+
+\Solution In this example, since we are asked to find horizontal displacement, we analyze only the horizontal motion. Assuming the firework is launched from the origin, its initial position is $x_0 = 0$. Since the initial speed and launch angle are $v_0 = \SI{70}{m/s}$ and $\theta_0 = \ang{75}$,  the horizontal component of initial velocity is
+
+\begin{equation*}
+    v_{0x} = v_0 \cos{\theta_0} = 70 \cos{(\ang{75})} = \SI{18.1}{m/s}
+\end{equation*}
+
+In horizontal motion, by Equation \eqref{dCvDf4}, velocity is a constant, meaning that the projectile, throughout its trajectory, will maintain a constant horizontal speed of 
+
+\begin{equation*}
+    v_x = v_{0x} = \SI{18.1}{m/s}
+\end{equation*}
+
+
+Furthermore, in Example \ref{t57osh}, we concluded that the time from launch to maximum height is $t = \SI{6.90}{s}$. Finally, the unknown we are looking for is displacement from the origin: $x =\ ?$.
+
+\vspace{1em}
+
+The known and unknown quantities are related by Equation \eqref{7fMAPG} as
+
+\begin{equation*}
+    x = x_0 + v_x t
+\end{equation*}
+
+Substituting known values leads to 
+
+\begin{equation*}
+    x = 0 + (18.1)(6.90) = 125 
+\end{equation*}
+
+Therefore, the firework was horizontally displaced by 125 meters.
+
+\endsolution
+
+\begin{example}
+    \href{https://youtu.be/9Ijev8RHF04}{Brynden the Blackfish} uses a bow to launch an arrow at a speed of \SI{39}{m/s}. The arrow's trajectory looks like those shown in Figure \ref{6hKQ2Y}. If the launch angle is \ang{56}, what is the arrow's range? Ignore air resistance (which, actually, \textit{could} affect the motion of the arrow.) 
+\end{example}
+
+\Solution We are given the initial speed and launch anlge: $v_0 = \SI{39}{m/s}$ and $\theta_0 = \ang{56}$. Acceleration due to gravity always has a magnitude of $g = \SI{9.8}{m/s^2}$. 
+
+\vspace{1em}
+
+The unknown we are looking for is range, which is given by Equation \eqref{GqvaN1} as
+
+\begin{equation*}
+    R = \frac{v_0^2 \sin{2\theta_0}}{g}
+\end{equation*}
+
+Substituting known values leads to
+
+\begin{equation*}
+    R = \frac{39^2 \sin{(2 \cdot \ang{56})}}{9.8} = 144
+\end{equation*}
+
+Therefore, the range of the arrow is 144 meters. That's how far it can travel horizontally.
+
+\endsolution
+
+\begin{example} \label{9XXF9X}
+    George drops a rock from rest from the top of an \SI{82}{m} tall cliff. Calculate how long it will take the rock to impact the ground. 
+\end{example}
+
+\Solution We are given the rock's initial velocity (``from rest''): $v_{0y} = 0$. Taking the rock's initial vertical position to be the origin, then we are also given its initial and final positions: $y_0 = 0$ and $y = \SI{-82}{m}$. Furthermore, we know the magnitude of gravitational acceleration is $g = \SI{9.8}{m/s^2}$. 
+
+\vspace{1em}
+
+The unknown we are looking for is time: $t =\ ?$
+
+\vspace{1em}
+
+The given and unknown quantities are related by Equation \eqref{36YuvF}:
+
+\begin{equation*}
+    y = y_0 + v_{0y}t - \frac{1}{2}  g t^2
+\end{equation*}
+
+Substituting given values leads to 
+
+\begin{equation*}
+    -82 = 0 + (0) t - \frac{1}{2} g t^2
+\end{equation*}
+
+or, more simply, to
+
+\begin{equation*}
+    -82 = - 4.9 t^2
+\end{equation*}
+
+Since we are solving this equation for time, $t$, we should write the unknown variable on the left:
+
+\begin{equation*}
+    -4.9 t^2 = -82
+\end{equation*}
+
+This equation is solved as follows:
+
+\begin{align*}
+    \textbf{Divide by $-4.9$} \qquad & \frac{\cancel{-4.9} t^2}{\cancel{\redminus \textcolor{red}{4.9}}} = \frac{-82}{\redminus \textcolor{red}{4.9}}\\[1ex]
+    \textbf{Simplify} \qquad & t^2 = \frac{82}{4.9}\\[1ex]
+    \textbf{Take square root} \qquad & \sqrt{t^2} = \sqrt{\frac{82}{4.9}}\\[1ex]
+    \textbf{Simplify} \qquad & t = 4.09
+\end{align*}
+
+Therefore, dropping from rest, it takes this rock 4.09 seconds to strike the ground.
+
+\endsolution
+
+
+\begin{example} \label{lB7EDG}
+    A cannon is aimed at a right angle to the horizontal, perfectly upwards, next to a 76-meter-tall redwood tree. The cannon fires a cannonball at a speed of \SI{42}{m/s}. How much time after launch does it take the cannonball to reach the top of the tree, if the projectile has passed maximum height and is on its way down?
+\end{example}
+
+\Solution Since the cannonball's motion is strictly vertical, we will work with equations governing vertical motion only. We are given the cannonball's initial speed: $v_{0y} = \SI{42.0}{m/s}$. Gravitational acceleration always has a magnitude of $g = \SI{9.80}{m/s^2}$. If we assume the cannonball starts at the origin, then we know its initial and final positions: $y_0 = 0$ and $y = \SI{76.0}{m}$. The unknown we are looking for is the time: $t =\ ?$.
+
+\vspace{1em}
+
+The given and unknown quantities are related by Equation \eqref{36YuvF}:
+
+\begin{equation*}
+    y = y_0 + v_{0y}t - \frac{1}{2}  g t^2
+\end{equation*}
+
+Substituting given values leads to 
+
+\begin{equation*}
+    76 =  0 + 42 t -\frac{1}{2}(9.8) t^2\ ,
+\end{equation*}
+
+or, more simply, to
+
+\begin{equation*}
+    76 = 42 t - 4.9 t^2
+\end{equation*}
+
+We may solve for time, $t$, as follows:
+
+\begin{align*}
+    \textbf{Add $4.9 t^2$} \qquad & 76 \redplus \textcolor{red}{4.9 t^2} = 42 t - 4.9 t^2 \redplus \textcolor{red}{4.9 t^2}\\[1ex]
+    \textbf{Simplify} \qquad & 76 + 4.9 t^2 = 42 t\\[1ex]
+    \textbf{Subtract $42 t$} \qquad & 76 + 4.9 t^2 \redminus \textcolor{red}{42 t} = 42 t \redminus \textcolor{red}{42 t}\\[1ex]
+    \textbf{Simplify} \qquad & 76 + 4.9 t^2 - 42 t = 0
+\end{align*}
+
+The last equation may be rearranged as 
+
+\begin{equation} \label{LScbXD}
+    4.9 t^2 - 42 t + 76 = 0
+\end{equation}
+
+so that it resembles the quadratic form
+
+\begin{equation} \label{WsGUny}
+    ax^2 + bx + c = 0
+\end{equation}
+
+whose two solutions are given by the quadratic equation
+
+\begin{equation} \label{BMWMHy}
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+
+Setting the coefficients in Equation \eqref{LScbXD} to match the symbols in Equation \eqref{WsGUny} leads to 
+
+\begin{equation*}
+    a = 4.9\ , \quad b = -42\ ,\quad c = 76
+\end{equation*}
+
+Substituting these coefficients into Equation \eqref{BMWMHy} leads to the first solution of time:
+
+\begin{equation*}
+    t_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} = \frac{-(-42) + \sqrt{(-42)^2 - 4 (4.9)(76)}}{2(4.9)} = \SI{5.98}{s}
+\end{equation*}
+
+Likewise, the second solution of time is given by
+
+\begin{equation*}
+    t_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a} = \SI{2.60}{s}
+\end{equation*}
+
+Since the second solution, $t_2 = \SI{2.60}{s}$, is less than the first, it must correspond to the cannonball reaching the top of the tree ($y=\SI{76}{m}$) on the way \textit{up}. The first solution ($t_1 = \SI{5.98}{s}$) corresponds to the projectile reaching the same point on its way back down. Therefore, the cannonball will reach the top of the tree, on its way back down, 5.98 seconds after the initial launch.
+
+\endsolution
+
+
+\begin{example} \label{pyn6Go}
+    George, from Example \ref{9XXF9X}, this time throws a rock downwards at a speed of \SI{17.00}{m/s} from the top of the same \SI{82}{m} tall cliff. Calculate how long it will take the rock to impact the ground now.
+\end{example}
+
+\Solution We are given initial velocity: $v_{0y} = \SI{-17.00}{m/s}$. Assuming that the rock's initial vertical position is zero, then we are given the following initial and final positions: $y_0 = 0$ and $y = \SI{-82}{m}$. Also, we know the magnitude of gravitational acceleration is always $g = \SI{9.8}{m/s^2}$. 
+
+\vspace{1em}
+
+The unknown we are looking for is time: $t =\ ?$
+
+\vspace{1em}
+
+The given and unknown quantities are related by Equation \eqref{36YuvF}:
+
+\begin{equation*}
+    y = y_0 + v_{0y}t - \frac{1}{2}  g t^2
+\end{equation*}
+
+This is the same equation and unknown that was referred to in Example \ref{lB7EDG}, so the current solution will develop almost exactly like the one from Example \ref{lB7EDG}, even though the two examples involve different trajectories.
+
+
+\vspace{1em}
+
+Substituting given values leads to 
+
+\begin{equation*}
+    -82 =  0 - 17 t -\frac{1}{2}(9.8) t^2\ ,
+\end{equation*}
+
+or, more simply, to
+
+\begin{equation*}
+     -82 = - 17 t -4.9 t^2
+\end{equation*}
+
+Let's rearrange this equation as follows:
+
+\begin{align*}
+    \textbf{Add $17t$} \qquad & - 82 \redplus \textcolor{red}{17t} = -17t \redplus \textcolor{red}{17t} - 4.9 t^2 \\[1ex]
+    \textbf{Simplify} \qquad & -82 + 17t = -4.9t^2\\[1ex]
+    \textbf{Add $4.9 t^2$} \qquad & -82 + 17t \redplus \textcolor{red}{4.9 t^2} = -4.9t^2 \redplus \textcolor{red}{4.9 t^2}\\[1ex]
+    \textbf{Simplify} \qquad & -82 + 17t + 4.9t^2 = 0
+\end{align*}
+
+The last equation is rearranged as 
+
+\begin{equation} \label{dw27jh}
+    4.9 t^2 + 17t - 82 = 0
+\end{equation}
+
+so that it fits the quadratic form $ax^2 + bx + c = 0$, which has two solutions given by the quadratic equation \eqref{BMWMHy}. Let the coefficients in Equation \eqref{dw27jh} be
+
+\begin{equation*}
+    a = 4.9\ , \quad b = 17\ ,\quad c = -82
+\end{equation*}
+
+so that the first root of time is
+
+\begin{equation*}
+    t_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a} = \frac{-17 + \sqrt{17^2 - 4(4.9)(-82)}}{2(4.9)} = \SI{2.71}{s}
+\end{equation*}
+
+The second solution is found similarly as
+
+\begin{equation*}
+    t_2 = \frac{-b - \sqrt{b^2 - 4ac}}{2a} = \SI{-6.18}{s}
+\end{equation*}
+
+Since the rock must strike the ground \textit{after} it is thrown, we take the first solution of time as the answer to this exercise: the rock strikes the ground 2.71 seconds after it is launched. 
+
+\endsolution
+
+\begin{example}
+    Suppose a large rock is ejected from a volcano, as illustrated in Figure ?.??, with a speed of  \SI{25.0}{m/s} and at an angle \ang{35} above the horizontal. The rock strikes the side of the volcano at an altitude 20.0 m lower than its starting point. Calculate the time it takes the rock to follow this path.
+\end{example}
+
+\begin{center}
+    \begin{tikzpicture}[
+        declare function={f(\x)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);},
+        declare function={t(\x)=\x/(\vi*cos(\thetai));}
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \vi = 25;
+        \yi = 0.0;
+        \thetai = 35.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*3.96; %t = 3.96 s
+        \sf = 0.5; %scale factor for vector components
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=12cm,height=7cm,ticks=none,
+        axis lines = center,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=100,
+        ymin=-30, ymax=10,
+        ]
+        \draw[domain=0:\xmax,variable=\x,samples=250] plot ({\x},{f(\x)});
+        \draw[ultra thick,violet,->] (0,0) -- ++(axis direction cs: {\sf*\vix},{\sf*\viy}) node[above=-1pt] {$\SI{25}{m/s}$};
+        \draw (5,0) arc (0:35:5) node[pos=0.1,right=-1pt] {\ang{35}};
+        \draw[dashed] (\xmax,-20) -- ++(axis direction cs: 0,20) node[pos=0.5,right] {-\SI{20}{m}};
+        \draw[fill=black] (\xmax,-20) circle (2pt);
+        \draw (\xmax,-20) -- ++(axis direction cs: 12,0);
+        \draw[,ultra thick,->,violet] (\xmax,-20) -- ++(axis direction cs: {\sf*\vix},{\sf*(\viy -\grav*3.96)}) node[below=-2pt] {$v$};
+        \draw (\xmax+5,-20) arc (0:-48:5) node[pos=0.1,right=-1pt] {$\theta$};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{The diagram represents the projectile motion of a large rock from a volcano.}
+\end{center}
+
+\Solution Recall the most important concept in projectile motion: horizontal and vertical motions are independent. Since they don't influence one another, we can analyze them separately. For this problem, we can ignore calculations related to the horizontal motion and focus only on the vertical motion. As such, the solution to this example will develop like Examples \ref{lB7EDG} and \ref{pyn6Go}. 
+
+\vspace{1em}
+
+We are given the initial speed and launch angle: $v_0 = \SI{25.0}{m/s}$ and $\theta_0 = \ang{35}$. If we set the origin to be the rock's initial position, then the initial and final vertical positions are $y_0 = 0$ and $y = \SI{-20.0}{m}$. The magnitude of gravitational acceleration is $g = \SI{-9.8}{m/s^2}$.
+
+\vspace{1em}
+
+Since we are analyzing vertical motion only, we get the $y$-component of initial velocity by
+
+\begin{equation*}
+    v_{0y} = v_0 \sin{\theta_0} = 25 \sin{(\ang{35})} = 14.34
+\end{equation*}
+
+ The unknown quantity we are looking for is time: $t =\ ?$ These given and unknown quantities are related by Equation \eqref{36YuvF}
+
+\begin{equation*}
+    y = y_0 + v_{0y}t - \frac{1}{2} g t^2
+\end{equation*}
+
+At this point, this example is solved like the solutions to Examples \ref{lB7EDG} and \ref{pyn6Go}. As shown previously, we can define the coefficients $a$, $b$, and $c$ to fit the given quantities from this example. Then, applying the quadratic formula \eqref{BMWMHy} with those coefficients leads to the two solutions (roots) of time:
+
+\begin{equation*}
+    t_1 = \SI{3.96}{s} \quad \text{and} \quad t_2 = \SI{-1.03}{s}
+\end{equation*}
+
+Choosing the positive solution, we conclude that the rock will strike the ground 3.96 seconds after launch.
+
 \end{document}
