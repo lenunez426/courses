@@ -180,7 +180,7 @@ In order to describe the direction of a vector quantity, you must designate a co
 
 \endsolution
 
-\subsection{Time, Velocity, and Speed}
+\subsection{Time, Velocity, and Speed} \label{3hdww6}
 
 There is more to motion than distance and displacement. Questions such as, ``How long does a foot race take?'' and ``What was the runner's speed?'' cannot be answered without an understanding of other concepts. In this section we add definitions of time, velocity, and speed to expand our description of motion.
 
@@ -380,7 +380,7 @@ In everyday conversation, to accelerate means to speed up. The accelerator in a 
 \begin{mdframed}[backgroundcolor=black!10]
     Average Acceleration is the rate at which velocity changes,
 
-    \begin{equation}
+    \begin{equation} \label{vdyjX5}
         \bar{a} = \frac{\Delta v}{\Delta t} = \frac{v_f - v_0}{t_f - t_0} 
     \end{equation}
 
@@ -485,8 +485,169 @@ Keep in mind that although acceleration is in the direction of the change in vel
         \captionsetup{type=figure,margin=1in,font=scriptsize}
         \captionof{figure}{(a) This car is speeding up as it moves toward the right. It therefore has positive acceleration in our coordinate system. (b) This car is slowing down as it moves toward the right. Therefore, it has negative acceleration in our coordinate system, because its acceleration is toward the left. The car is also decelerating: the direction of its acceleration is opposite to its direction of motion. (c) This car is moving toward the left, but slowing down over time. Therefore, its acceleration is positive in our coordinate system because it is toward the right. However, the car is decelerating because its acceleration is opposite to its motion. (d) This car is speeding up as it moves toward the left. It has negative acceleration because it is accelerating toward the left. However, because its acceleration is in the same direction as its motion, it is speeding up (not decelerating).}
     \end{center}
-    
 \end{mdframed}
+
+\begin{example}
+    A racehorse coming out of the gate accelerates from rest to a velocity of \SI{15.0}{m/s} due west in \SI{1.80}{s}. What is its average acceleration?
+\end{example}
+
+\Solution First we draw a sketch and assign a coordinate system to the problem. This is a simple problem, but it always helps to visualize it. Notice that we assign east as positive and west as negative. Thus, in this case, we have negative velocity.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=4cm,
+            height=4cm,
+            xmin=-1,xmax=1,
+            ymin=-1,ymax=1,
+            ticks=none,
+            axis line style={draw=none},
+            clip=false
+            ]
+            
+            \draw[<->] (-1,0) node[left] {W ($-x$)} -- (1,0) node[right] {E ($+x$)};
+            \draw[<->] (0,-1) node[below] {S ($-y$)} -- (0,1) node[above] {N ($+y$)};
+
+            \begin{scope}[shift={(axis direction cs: -4,0)}]
+                \draw[fill=black] (0,0) circle (2pt) node[below]{$v_0 = 0$};
+                \draw[thick,->] (-1.5,0) -- ++(axis direction cs: -3,0) node[pos=0.5,below] {$v_f = -\SI{15}{m/s}$}; 
+                \draw[violet,thick,->] (-0.5,0.8) -- ++(axis direction cs: -2,0) node[pos=0.5,above] {$a =\ ?$};
+                
+            \end{scope}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+We are given initial velocity (``from rest''), final velocity, and elapsed time: $v_0 = 0$, $v_f = -\SI{15}{m/s}$, and $\Delta{t} = \SI{1.80}{s}$. (The negative sign on $v_f$ indicates direction toward the west.)
+
+\vspace{1em}
+
+The unknown we are looking for is acceleration: $a =\ ?$ By Equation \eqref{vdyjX5}, average acceleration is
+
+\begin{equation*}
+    \bar{a} = \frac{\Delta{v}}{\Delta{t}}
+\end{equation*}
+
+where the horse's change in velocity is
+
+\begin{equation*}
+    \Delta{v} = v_f - v_0 = -\SI{15}{m/s} - 0 = \SI{-15}{m/s}
+\end{equation*}
+
+Therefore, the average acceleration is
+
+\begin{equation*}
+    \bar{a} = \frac{\Delta v}{\Delta t} = \frac{-\SI{15}{m/s}}{\SI{1.80}{s}} = -\SI{8.33}{m/s^2}
+\end{equation*}
+
+The negative sign for acceleration indicates that acceleration is toward the west. An acceleration of \SI{8.33}{m/s^2} due west means that the horse increases its velocity by \SI{8.33}{m/s} due west each second, that is, 8.33 meters per second per second, which we write as \SI{8.33}{m/s^2}. This is truly an average acceleration, because the ride is not smooth. We shall see later that an acceleration of this magnitude would require the rider to hang on with a force nearly equal to his weight.
+
+\endsolution
+
+\Gls{instantaneous acceleration} $a$, or the \textit{acceleration at a specific instant in time}, is obtained by the same process as discussed for instantaneous velocity in \nameref{3hdww6}---that is, by considering an infinitesimally small interval of time. How do we find instantaneous acceleration using only algebra? The answer is that we choose an average acceleration that is representative of the motion. Figure \ref{6040uO} shows graphs of instantaneous acceleration versus time for two very different motions. In Figure \ref{6040uO}(a), the acceleration varies slightly and the average over the entire interval is nearly the same as the instantaneous acceleration at any time. In this case, we should treat this motion as if it had a constant acceleration equal to the average (in this case about \SI{1.8}{m/s^2}). In Figure \ref{6040uO}(b), the acceleration varies drastically over time. In such situations it is best to consider smaller time intervals and choose an average acceleration for each. For example, we could consider motion over the time intervals from 0 to \SI{1.0}{s} and from 1.0 to \SI{3.0}{s} as separate motions with accelerations of $+\SI{3.0}{m/s^2}$ and $-\SI{2.0}{m/s^2}$, respectively.
+
+\begin{center}
+\begin{minipage}{7cm}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm, height=3cm,
+            xmin=0,xmax=5,
+            ymin=0,ymax=2,
+            xtick={0,1,...,5},
+            ytick={0,1,2},
+            xlabel={$t$ (s)},
+            ylabel={$a$ (\SI{}{m/s^2})},
+            axis lines=center,
+            y label style={at={(axis description cs:0,1)},above=2mm},
+            x label style={at={(axis description cs:1,0.0)},right=2mm},
+            clip=false,
+            ]
+            \draw[thick,violet] plot[,domain=0:5,variable=\x,samples=100] (\x,{0.5*sin(125*\x) + 1.8});
+            \draw[thick,dashed] (0,1.8) -- ++(axis direction cs: 5,0) node[pos=1.1,above] {$\bar{a} = \text{average}$};
+        \end{axis}
+    \end{tikzpicture}
+    
+    \vspace{2em}
+    (a)
+\end{minipage}%
+\begin{minipage}{7cm}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            axis lines=left,
+            xmin=0,xmax=6.5,
+            ymin=-5,ymax=5,
+            xtick={0,1,...,6},
+            ytick={-5,-4,...,5},
+            axis lines = center,
+            xlabel={$t$ (s)},
+            ylabel={$a$ (\SI{}{m/s^2})},
+            y label style={at={(axis description cs:0,1)},above=2mm},
+            x label style={at={(axis description cs:1,0.5)},right=2mm},
+        ]
+        \addplot[violet,mark=none,thick]
+            coordinates{
+                (0,3)(1,3)(1,-2)(3,-2)(3,0)(4.2,0)(4.2,1)(4.9,1)
+                (4.9,5)(5.5,5)(5.5,-4)(6,-4)(6,-1.5)
+            };
+        \end{axis}
+    \end{tikzpicture}
+    
+    (b)
+\end{minipage}%
+\end{center}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{Graphs of instantaneous acceleration versus time for two different one-dimensional motions. (a) Here acceleration varies only slightly and is always in the same direction, since it is positive. The average over the interval is nearly the same as the acceleration at any given time. (b) Here the acceleration varies greatly, perhaps representing a package on a post office conveyor belt that is accelerated forward and backward as it bumps along. It is necessary to consider small time intervals (such as from 0 to \SI{1.0}{s}) with constant or nearly constant acceleration in such a situation.}
+\label{6040uO}
+
+The next several examples consider the motion of the subway train shown in Figure ?.??. In (a) the shuttle moves to the right, and in (b) it moves to the left. The examples are designed to further illustrate aspects of motion and to illustrate some of the reasoning that goes into solving problems.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=14cm,
+            height=3cm,
+            ymin=0,ymax=10,
+            xmin=0,xmax=8,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$ (km),
+            %ticks=none,
+            ytick=\empty,
+            clip=false,
+            xtick={4.7, 6.7}, 
+            xticklabels = {\strut $x_0=\SI{4.70}{km}$, \strut $x_f = \SI{6.70}{km}$}, 
+            ]
+            \draw (4.7,0) node[above left] {\mytrain};
+            \draw[dashed] (4.7,0) -- ++(axis direction cs: 0,10);
+            \draw[dashed] (6.7,0) -- ++(axis direction cs: 0,10);
+            \draw[thick,->] (4.7,6) -- ++(axis direction cs: 2,0) node[pos=0.5,above] {$\Delta x = \SI{2.00}{km}$};
+        \end{axis}
+    \end{tikzpicture}
+
+    \vspace{1em}
+    
+    \begin{tikzpicture}
+        \begin{axis}[width=14cm,
+            height=3cm,
+            ymin=0,ymax=10,
+            xmin=0,xmax=8,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$ (km),
+            %ticks=none,
+            ytick=\empty,
+            clip=false,
+            xtick={3.75, 5.25}, 
+            xticklabels = {\strut $x_f^{\prime}=\SI{3.75}{km}$, \strut $x_0^{\prime} = \SI{5.25}{km}$}, 
+            ]
+            \draw (5.25,0) node[above right] {\mytrainleft};
+            \draw[dashed] (3.75,0) -- ++(axis direction cs: 0,10);
+            \draw[dashed] (5.25,0) -- ++(axis direction cs: 0,10);
+            \draw[thick,->] (5.25,6) -- ++(axis direction cs: -1.5,0) node[pos=0.5,above] {\small $\Delta x = -\SI{1.50}{km}$};
+        \end{axis}
+    \end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{One-dimensional motion of a subway train considered in the Examples below. Here we have chosen the $x$ axis so that $+$ means to the right and $-$ means to the left for displacements, velocities, and accelerations. (a) The subway train moves to the right from $x_0$ to $x_f$. Its displacement $\Delta x$ is $+\SI{2.0}{km}$. (b) The train moves to the left from $x_0^{\prime}$ to $x_f^{\prime}$. Its displacement $\Delta x^{\prime}$ is $-\SI{1.50}{km}$. (Note that the prime symbol ($\prime$) is used simply to distinguish between displacement in the two different situations. The distances of travel and the size of the cars are on different scales to fit everything into the diagram.)}
+\end{center}
 
 
 \end{document}

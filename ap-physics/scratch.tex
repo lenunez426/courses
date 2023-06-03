@@ -1,82 +1,57 @@
 \documentclass{article}
 \input{preamble}
 
-\def\mycarleft{\huge\usym{1F697}}%modiying symbol of car
-
 \begin{document}
 
-    \begin{center}
-        \begin{tikzpicture}
-            \begin{axis}[width=8cm,height=2.5cm,
-                xmin=2,xmax=8,
-                ymin=0,ymax=12,
-                ticks=none,
-                axis line style={draw=none}, 
-                clip=false,
-            ]
-                \node at (4,0) {\mycar};
-                \draw (6,0) node[left=-3mm] {\textcolor{black!15}{\mycar}}
-                node[left=-5mm] {\textcolor{black!30}{\mycar}}
-                node {\mycar};
-                \draw[->] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(a) Speeding Up};
-                \draw[->] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
-            \end{axis}
-        \end{tikzpicture}%
-        \hspace{1cm}
-        \begin{tikzpicture}
-            \begin{axis}[width=8cm,height=2.5cm,
-                xmin=2,xmax=8,
-                ymin=0,ymax=12,
-                ticks=none,
-                axis line style={draw=none}, 
-                clip=false,
-            ]
-                \node at (6,0) {\mycar};
-                \draw (4,0) node[left=-3mm] {\textcolor{black!15}{\mycar}}
-                node[left=-5mm] {\textcolor{black!30}{\mycar}}
-                node {\mycar};
-                \draw[->] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(b) Slowing Down};
-                \draw[<-] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
-            \end{axis}
-        \end{tikzpicture}
+The next several examples consider the motion of the subway train shown in Figure ?.??. In (a) the shuttle moves to the right, and in (b) it moves to the left. The examples are designed to further illustrate aspects of motion and to illustrate some of the reasoning that goes into solving problems.
 
-        \vspace{2em}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=14cm,
+            height=3cm,
+            ymin=0,ymax=10,
+            xmin=0,xmax=8,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$ (km),
+            %ticks=none,
+            ytick=\empty,
+            clip=false,
+            xtick={4.7, 6.7}, 
+            xticklabels = {\strut $x_0=\SI{4.70}{km}$, \strut $x_f = \SI{6.70}{km}$}, 
+            ]
+            \draw (4.7,0) node[above left] {\mytrain};
+            \draw[dashed] (4.7,0) -- ++(axis direction cs: 0,10);
+            \draw[dashed] (6.7,0) -- ++(axis direction cs: 0,10);
+            \draw[thick,->] (4.7,6) -- ++(axis direction cs: 2,0) node[pos=0.5,above] {$\Delta x = \SI{2.00}{km}$};
+        \end{axis}
+    \end{tikzpicture}
 
-        \begin{tikzpicture}
-            \begin{axis}[width=8cm,height=2.5cm,
-                xmin=2,xmax=8,
-                ymin=0,ymax=12,
-                ticks=none,
-                axis line style={draw=none}, 
-                clip=false,
+    \vspace{1em}
+    
+    \begin{tikzpicture}
+        \begin{axis}[width=14cm,
+            height=3cm,
+            ymin=0,ymax=10,
+            xmin=0,xmax=8,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$ (km),
+            %ticks=none,
+            ytick=\empty,
+            clip=false,
+            xtick={3.75, 5.25}, 
+            xticklabels = {\strut $x_f^{\prime}=\SI{3.75}{km}$, \strut $x_0^{\prime} = \SI{5.25}{km}$}, 
             ]
-                \node at (4,0) {\mycarleft};
-                \draw (6,0) node[right=-1.5mm] {\textcolor{black!15}{\mycarleft}}
-                node[right=-3.5mm] {\textcolor{black!30}{\mycarleft}}
-                node {\mycarleft};
-                \draw[<-] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(c) Slowing Down};
-                \draw[->] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
-            \end{axis}
-        \end{tikzpicture}%
-        \hspace{1cm}
-        \begin{tikzpicture}
-            \begin{axis}[width=8cm,height=2.5cm,
-                xmin=2,xmax=8,
-                ymin=0,ymax=12,
-                ticks=none,
-                axis line style={draw=none}, 
-                clip=false,
-            ]
-                \node at (6,0) {\mycarleft};
-                \draw (4,0) node[right=-1.5mm] {\textcolor{black!15}{\mycarleft}}
-                node[right=-3.5mm] {\textcolor{black!30}{\mycarleft}}
-                node {\mycarleft};
-                \draw[<-] (3.5,12) -- ++(axis direction cs: 2,0) node[right] {$v$} node[above=2mm,pos=0.5] {(d) Speeding Up};
-                \draw[<-] (4,8) -- ++(axis direction cs: 1,0) node[right] {$a$};
-            \end{axis}
-        \end{tikzpicture}
-        \captionsetup{type=figure,margin=1in,font=scriptsize}
-        \captionof{figure}{(a) This car is speeding up as it moves toward the right. It therefore has positive acceleration in our coordinate system. (b) This car is slowing down as it moves toward the right. Therefore, it has negative acceleration in our coordinate system, because its acceleration is toward the left. The car is also decelerating: the direction of its acceleration is opposite to its direction of motion. (c) This car is moving toward the left, but slowing down over time. Therefore, its acceleration is positive in our coordinate system because it is toward the right. However, the car is decelerating because its acceleration is opposite to its motion. (d) This car is speeding up as it moves toward the left. It has negative acceleration because it is accelerating toward the left. However, because its acceleration is in the same direction as its motion, it is speeding up (not decelerating).}
-    \end{center}
+            \draw (5.25,0) node[above right] {\mytrainleft};
+            \draw[dashed] (3.75,0) -- ++(axis direction cs: 0,10);
+            \draw[dashed] (5.25,0) -- ++(axis direction cs: 0,10);
+            \draw[thick,->] (5.25,6) -- ++(axis direction cs: -1.5,0) node[pos=0.5,above] {\small $\Delta x = -\SI{1.50}{km}$};
+        \end{axis}
+    \end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{One-dimensional motion of a subway train considered in the Examples below. Here we have chosen the $x$ axis so that $+$ means to the right and $-$ means to the left for displacements, velocities, and accelerations. (a) The subway train moves to the right from $x_0$ to $x_f$. Its displacement $\Delta x$ is $+\SI{2.0}{km}$. (b) The train moves to the left from $x_0^{\prime}$ to $x_f^{\prime}$. Its displacement $\Delta x^{\prime}$ is $-\SI{1.50}{km}$. (Note that the prime symbol ($\prime$) is used simply to distinguish between displacement in the two different situations. The distances of travel and the size of the cars are on different scales to fit everything into the diagram.)}
+\end{center}
+
 
 \end{document}
