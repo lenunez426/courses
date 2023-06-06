@@ -1,57 +1,38 @@
 \documentclass{article}
 \input{preamble}
+\usepackage{booktabs}
+\usepackage{multirow}
 
 \begin{document}
 
-The next several examples consider the motion of the subway train shown in Figure ?.??. In (a) the shuttle moves to the right, and in (b) it moves to the left. The examples are designed to further illustrate aspects of motion and to illustrate some of the reasoning that goes into solving problems.
 
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=14cm,
-            height=3cm,
-            ymin=0,ymax=10,
-            xmin=0,xmax=8,
-            axis lines=center,
-            ylabel=$y$,
-            xlabel=$x$ (km),
-            %ticks=none,
-            ytick=\empty,
-            clip=false,
-            xtick={4.7, 6.7}, 
-            xticklabels = {\strut $x_0=\SI{4.70}{km}$, \strut $x_f = \SI{6.70}{km}$}, 
-            ]
-            \draw (4.7,0) node[above left] {\mytrain};
-            \draw[dashed] (4.7,0) -- ++(axis direction cs: 0,10);
-            \draw[dashed] (6.7,0) -- ++(axis direction cs: 0,10);
-            \draw[thick,->] (4.7,6) -- ++(axis direction cs: 2,0) node[pos=0.5,above] {$\Delta x = \SI{2.00}{km}$};
-        \end{axis}
-    \end{tikzpicture}
-
-    \vspace{1em}
-    
-    \begin{tikzpicture}
-        \begin{axis}[width=14cm,
-            height=3cm,
-            ymin=0,ymax=10,
-            xmin=0,xmax=8,
-            axis lines=center,
-            ylabel=$y$,
-            xlabel=$x$ (km),
-            %ticks=none,
-            ytick=\empty,
-            clip=false,
-            xtick={3.75, 5.25}, 
-            xticklabels = {\strut $x_f^{\prime}=\SI{3.75}{km}$, \strut $x_0^{\prime} = \SI{5.25}{km}$}, 
-            ]
-            \draw (5.25,0) node[above right] {\mytrainleft};
-            \draw[dashed] (3.75,0) -- ++(axis direction cs: 0,10);
-            \draw[dashed] (5.25,0) -- ++(axis direction cs: 0,10);
-            \draw[thick,->] (5.25,6) -- ++(axis direction cs: -1.5,0) node[pos=0.5,above] {\small $\Delta x = -\SI{1.50}{km}$};
-        \end{axis}
-    \end{tikzpicture}
-\captionsetup{type=figure,margin=1in,font=scriptsize}
-\captionof{figure}{One-dimensional motion of a subway train considered in the Examples below. Here we have chosen the $x$ axis so that $+$ means to the right and $-$ means to the left for displacements, velocities, and accelerations. (a) The subway train moves to the right from $x_0$ to $x_f$. Its displacement $\Delta x$ is $+\SI{2.0}{km}$. (b) The train moves to the left from $x_0^{\prime}$ to $x_f^{\prime}$. Its displacement $\Delta x^{\prime}$ is $-\SI{1.50}{km}$. (Note that the prime symbol ($\prime$) is used simply to distinguish between displacement in the two different situations. The distances of travel and the size of the cars are on different scales to fit everything into the diagram.)}
-\end{center}
-
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|}
+        \hline
+        \thead{Prefix} & \thead{Symbol} & \thead{Value} & \thead{Example} &&& \\
+        \hline
+        exa & E & $10^{18}$ & exameter & Em & $10^{18}\,\text{m}$& distance light travels in a century\\ 
+        peta & P & $10^{15}$ & petasecond & Ps & $10^{15}\,\text{s}$ & 300 million years\\ 
+        tera & T & $10^{12}$ & terawatt & TW & $10^{12}\,\text{W}$  & powerful laswer output\\ 
+        giga & G & $10^9$ & gigahertz & GHz & $10^9\,\text{Hz}$ & a microwave frequency \\ 
+        mega & M & $10^6$ & megacurie & MCi & $10^6\,\text{Ci}$ & high radioactivity \\ 
+        kilo & k & $10^3$ & kilometer & km & $10^3\,\text{m}$ & about 6/10 mile\\ 
+        hecto & h & $10^2$ & hectoliter & hL & $10^2\,\text{L}$ & 26 gallons\\ 
+        deka & da & $10^1$ & dekagram & dag & $10^1\,\text{g}$ & teaspoon of butter\\ 
+        - & - & $10^0 = 1$ & & & &\\ 
+        deci & d & $10^{-1}$ & deciliter & dL & $10^{-1}\,\text{L}$ & less than half a soda\\ 
+        centi & c & $10^{-2}$ & centimeter & cm & $10^{-2}\,\text{m}$ & fingertip thickness\\ 
+        milli & m & $10^{-3}$ & millimeter & mm & $10^{-3}\,\text{m}$ & flea at its shoulders\\ 
+        micro & $\mymu$ & $10^{-6}$ & micrometer & $\mymu$m & $10^{-6}\,\text{m}$ & detail in microscope\\
+        nano & n & $10^{-9}$ & nanogram & ng & $10^{-9}\,\text{g}$ & small speck of dust\\ 
+        pico & p & $10^{-12}$ & picofarad & pF & $10^{-12}\,\text{F}$ & small capacitor in radio\\ 
+        femto & f & $10^{-15}$ & femtometer & fm & $10^{-15}\,\text{m}$ & size of a proton\\ 
+        atto & a & $10^{-18}$ & attosecond & as & $10^{-18}\,\text{s}$ & time light crosses an atom\\ \hline
+    \end{tabular}
+    \captionsetup{type=table,margin=1in,font=scriptsize}
+    \captionof{table}{Metric Prefixes for Powers of 10 and their Symbols}
+\end{table}
 
 \end{document}
+
