@@ -1446,7 +1446,7 @@ In the following examples, we further explore one-dimensional motion, but in sit
     x &= x_0 + \bar{v} t \label{X0SPQW} \\[1ex]
     \bar{v} &= \frac{v_0 + v}{2} \\[1ex]
     v &= v_0 + at \\[1ex]
-    x &= x_0 + v_0t + \frac{1}{2} a t^2 \\[1ex]
+    x &= x_0 + v_0t + \frac{1}{2} a t^2 \label{eo2SPc} \\[1ex]
     v^2 &= v_0^2 + 2a (x - x_0) \label{EEJoew}
 \end{align}
 
@@ -1550,6 +1550,97 @@ Add the displacement during the reaction time to the displacement when braking:
 
 \endsolution
 
+\begin{example}
+    \textit{Calculating Time: A Car Merges into Traffic}. Suppose a car merges into freeway traffic on a 200-m-long ramp. If its initial velocity is 10.0 m/s and it accelerates at \SI{2.00}{m/s^2}, how long does it take to travel the 200 m up the ramp? (Such information might be useful to a traffic engineer.)
+\end{example}
+
+\Solution Draw a sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->,thick,RoyalBlue] (0,0) node[below,black] {$x_0 = 0$} -- ++(5,0) node[below,black] {$x = \SI{200}{m}$} node[black,pos=0.5,above=5mm] {$t=\ ?$};
+        \draw[->,red,thick] (-1,-1) -- ++(2,0) node[pos=0.5,below,black] {$v_0 = \SI{10.0}{m/s}$}; 
+        \draw[->,red,thick] (3,-1) -- ++(4,0) node[pos=0.5,below,black] {$v =\ ?$};
+        \draw[->,Green,thick] (1,-2) -- ++(3,0) node[pos=0.5,below,black] {$a = \SI{2.00}{m/s^2}$};
+    \end{tikzpicture}
+\end{center}
+
+We are asked to solve for the time $t$. As before, we identify the known quantities in order to choose a convenient physical relationship (that is, an equation with one unknown, $t$).
+
+\vspace{1em}
+
+We identify the givens and what we want to solve for. We know initial velocity, acceleration, and displacement: $v_0 = \SI{10}{m/s}$, $a = \SI{2.00}{m/s^2}$, $x = \SI{200}{m}$. 
+
+\vspace{1em}
+
+We need to solve for time: $t =\ ?$ Choose the best equation. Equation \eqref{eo2SPc}, $x = x_0 + v_0 t + \frac{1}{2} a t^2$, works best because the only unknown in the equation is the variable $t$ for which we need to solve.
+
+\vspace{1em}
+
+We will need to rearrange the equation to solve for $t$. It will be easier to plug in the knowns first. Substituting known values leads to 
+
+\begin{equation*}
+    \SI{200}{m} = \SI{0}{m} + \left(\SI{10}{m/s}\right) t + \frac{1}{2}\left(\SI{2.00}{m/s^2}\right) t^2
+\end{equation*}
+
+Simplify the equation. The units of meters (m) cancel because they are in each term. We can get the units of seconds (s) to cancel by taking  $t = t\,\text{s}$, where $t$ is the magnitude of time and s is the unit. Doing so leaves
+
+\begin{equation*}
+    200 = 10t + t^2
+\end{equation*}
+
+Next, we use the quadratic formula to solve for $t$. We rearrange the equation to get 0 on one side of the equation, as follows:
+
+\begin{align*}
+    \textbf{Swap equation sides} \qquad & t^2 + 10t = 200\\[1ex]
+    \textbf{Subtract 200} \qquad & t^2 + 10t \redminus \textcolor{red}{200} = 200 \redminus \textcolor{red}{200}\\[1ex]
+    \textbf{Simplify} \qquad & t^2 + 10t - 200 = 0
+\end{align*}
+
+This equation
+
+\begin{equation} \label{uIBlB1}
+    t^2 + 10t - 200 = 0
+\end{equation}
+
+is a quadratic equation of the form
+
+\begin{equation}
+    a t^2 + bt + c = 0
+\end{equation}
+
+where the constants are $a = 1.00$, $b = 10.0$, and $c = -200$. The solutions to Equation \eqref{uIBlB1} are given by the quadratic formula:
+
+\begin{equation}
+    t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation}
+
+This yields two solutions for $t$, which are
+
+\begin{equation*}
+    t = 10.0 \quad \text{and} \quad -20.0
+\end{equation*}
+
+In this case, then, the time is $t = t$ in seconds, or
+
+\begin{equation*}
+     t = \SI{10.0}{s} \quad \text{and} \quad -\SI{20.0}{s}
+\end{equation*}
+
+A negative value for time is unreasonable, since it would mean that the event happened \SI{20}{s} before the motion began. We can discard that solution. Thus,
+
+\begin{equation*}
+    t = \SI{10.0}{s}
+\end{equation*}
+
+\textbf{Discussion}: Whenever an equation contains an unknown squared, there will be two solutions. In some problems both solutions are meaningful, but in others, such as the above, only one solution is reasonable. The \SI{10.0}{s} answer seems reasonable for a typical freeway on-ramp.
+
+\endsolution
+
+\vspace{1em}
+
+With the basics of kinematics established, we can go on to many other interesting examples and applications. In the process of developing kinematics, we have also glimpsed a general approach to problem solving that produces both correct answers and insights into physical relationships. ``Problem-Solving Basics'' discusses problem-solving basics and outlines an approach that will help you succeed in this invaluable task.
+
 
 \clearpage
 
@@ -1567,6 +1658,12 @@ Add the displacement during the reaction time to the displacement when braking:
     An airplane lands on a runway traveling east. Describe its acceleration.
 \end{exercise}
 
+\subsubsection*{\nameref{WbwyTy}} %Motion Equations
+
+\begin{exercise} \label{HbNHjj}
+A rocket accelerates at a rate of \SI{20}{m/s^2} during launch. How long does it take the rocket to reach a velocity of \SI{400}{m/s}?
+\end{exercise}
+
 \subsection{Answers to Select Exercises}
 
 \subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
@@ -1576,5 +1673,8 @@ Add the displacement during the reaction time to the displacement when braking:
 \subsubsection*{\nameref{LgXYss}} %Acceleration
 
 \ref{OKpKf5}. If we take east to be positive, then the airplane has negative acceleration, as it is accelerating toward the west. It is also decelerating: its acceleration is opposite in direction to its velocity.\\
+
+\subsubsection*{\nameref{WbwyTy}} %Motion Equations
+\ref{HbNHjj}. \SI{20}{s}\\
 
 \end{document}
