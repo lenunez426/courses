@@ -1443,14 +1443,113 @@ In the following examples, we further explore one-dimensional motion, but in sit
 \vspace{-2em}
 
 \begin{align}
-    x &= x_0 + \bar{v} t \\[1ex]
+    x &= x_0 + \bar{v} t \label{X0SPQW} \\[1ex]
     \bar{v} &= \frac{v_0 + v}{2} \\[1ex]
     v &= v_0 + at \\[1ex]
     x &= x_0 + v_0t + \frac{1}{2} a t^2 \\[1ex]
-    v^2 &= v_0^2 + 2a (x - x_0)
+    v^2 &= v_0^2 + 2a (x - x_0) \label{EEJoew}
 \end{align}
 
 \cyanhrule
+
+\begin{example}
+    \textit{Calculating Displacement: How Far Does a Car Go When Coming to a Halt?} On dry concrete, a car can decelerate at a rate of \SI{7.00}{m/s^2}, whereas on wet concrete it can decelerate at only \SI{5.00}{m/s^2}. Find the distances necessary to stop a car moving at \SI{30.0}{m/s} (about \SI{110}{km/h}) (a) on dry concrete and (b) on wet concrete. (c) Repeat both calculations, finding the displacement from the point where the driver sees a traffic light turn red, taking into account his reaction time of \SI{0.500}{s} to get his foot on the brake.
+\end{example}
+
+\Solution Draw a sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[->,RoyalBlue,thick] (0,0) -- ++(5,0) node[above,pos=0.5,black] {$\Delta x$};
+        \draw[->,red] (-1,-0.5) -- ++(2,0) node[below,pos=0.5,black] {$v_0 = \SI{30.0}{m/s}$};
+        \fill[red] (5,-0.5) circle (2pt) node[below,black] {$v_f = \SI{0}{m/s}$};
+        \draw (2.5,-1.5) node {$a_{\text{dry}} = -\SI{7.00}{m/s^2}$} 
+            node[below=3pt] {$a_{\text{wet}} = -\SI{5.00}{m/s^2}$};
+    \end{tikzpicture}
+\end{center}
+
+In order to determine which equations are best to use, we need to list all of the known values and identify exactly what we need to solve for. We shall do this explicitly in the next several examples, using tables to set them off.
+
+\vspace{1em}
+
+(a) Let's identify the knowns and what we want to solve for. We are given initial velocity, final velocity, and acceleration: $v_0 = \SI{30.0}{m/s}$, $v= 0$, and $a = \SI{-7.00}{m/s^2}$ ($a$ is negative because it is in a direction opposite to velocity). Also, we take $x_0$ to be zero. The unknown we are looking for is displacement: $\Delta x$, or $x-x_0$.
+
+\vspace{1em}
+
+Next, we identify the equation that will help up solve the problem. The best equation to use is Equation \eqref{EEJoew}:
+
+\begin{equation*}
+    v^2 = v_0^2 + 2a(x-x_0)
+\end{equation*}
+
+This equation is best because it includes only one unknown, $x$. We know the values of all the other variables in this equation. (There are other equations that would allow us to solve for $x$, but they require us to know the stopping time, $t$, which we do not know. We could use them but it would entail additional calculations.)
+
+\vspace{1em}
+
+Substituting known values into Equation \eqref{EEJoew} (and omitting units) leads to 
+
+\begin{equation*}
+    0^2 = 30^2 + 2\left(-7\right) \left(x-0\right)
+\end{equation*}
+
+or, more simply, to 
+
+\begin{equation*}
+    0 = 30^2 - 14 x
+\end{equation*}
+
+Now we can rearrange the equation to solve for $x$, as follows:
+
+\begin{align*}
+    \textbf{Add $14x$} \qquad & 0 \redplus \textcolor{red}{14x} = 30^2 -14x \redplus \textcolor{red}{14x}\\[1ex]
+    \textbf{Simplify} \qquad & 14x = 30^2\\[1ex]
+    \textbf{Divide by 14} \qquad & \frac{\cancel{14}x}{\textcolor{red}{\cancel{14}}} = \frac{30^2}{\textcolor{red}{14}}\\[1ex]
+    \textbf{Simplify} \qquad & x = \frac{30^2}{14} \\[1ex]
+    \textbf{Compute} \qquad & x = 64.3
+\end{align*}
+
+Therefore, displacement is $x = \SI{64.3}{m}$ on dry concrete.
+
+\vspace{1em}
+
+(b) This part can be solved in exactly the same manner as Part A. The only difference is that the deceleration is $-\SI{5.00}{m/s^2}$. The result is $x = \SI{90.0}{m}$ on wet concrete.
+
+\vspace{1em}
+
+(c) Once the driver reacts, the stopping distance is the same as it is in Parts A and B for dry and wet concrete. So to answer this question, we need to calculate how far the car travels during the reaction time, and then add that to the stopping time. It is reasonable to assume that the velocity remains constant during the driver’s reaction time.
+
+\vspace{1em}
+
+We identify the knowns and what we want to solve for. We are given average velocity, reaction time, and acceleration during reaction: $\bar{v} = \SI{30}{m/s}$, $t_{\text{reaction}} = \SI{0.500}{m/s}$, and $a_{\text{reaction}} = 0$.  We take $x_{0,\text{reaction}}$ to be 0. We are looking for $x_{\text{reaction}}$. 
+
+\vspace{1em} 
+
+Now we identify the best equation to use. Equation \eqref{X0SPQW}, $x = x_0 + \bar{v} t$, works well because the only unknown value is $x$, which is what we want to solve for. 
+
+\vspace{1em}
+
+Substituting given values leads to 
+
+\begin{equation*}
+    x = x_0 + \bar{v} t = 0 + \left(\SI{30.0}{m/s}\right) \left(\SI{0.500}{s}\right) = \SI{15.0}{m}
+\end{equation*}
+
+This means the car travels 15.0 meters while the driver reacts, making the total displacements in the two cases of dry and wet concrete \SI{15.0}{m} greater than if he reacted instantly.
+
+\vspace{1em}
+
+Add the displacement during the reaction time to the displacement when braking:
+
+\begin{align*}
+    x_{\text{braking}} + x_{\text{reaction}} &= x_{\text{final}}\\[1ex]
+    \SI{64.3}{m} + \SI{15.0}{m} &= \SI{79.3}{m} \quad \text{when dry}\\
+    \SI{90.0}{m} + \SI{15.0}{m} &= \SI{105}{m} \quad \text{when wet}
+\end{align*}
+
+\textbf{Discussion}: The displacements found in this example seem reasonable for stopping a fast-moving car. It should take longer to stop a car on wet rather than dry pavement. It is interesting that reaction time adds significantly to the displacements. But more important is the general approach to solving problems. We identify the knowns and the quantities to be determined and then find an appropriate equation. There is often more than one way to solve a problem. The various parts of this example can in fact be solved by other methods, but the solutions presented above are the shortest.
+
+\endsolution
+
 
 \clearpage
 

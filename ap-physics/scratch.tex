@@ -1,368 +1,108 @@
 \documentclass[dvipsnames]{article}
 \input{preamble}
 
-\def\xydirection{
-        \begin{axis}[width=2.4cm,
-            height=2.4cm,
-            ticks=none,
-            axis lines=center,
-            ylabel=$y$,
-            xlabel=$x$
-        ]
-        \end{axis}
-}
-
 
 \begin{document}
 
-Equation \eqref{FokTWv}, $x = x_0 + \bar{v} t$, gives insight into the relationship between displacement, average velocity, and time. It shows, for example, that displacement is a linear function of average velocity. (By linear function, we mean that displacement depends on $\bar{v}$ rather than on $\bar{v}$ raised to some other power, such as $\bar{v}^2$. When graphed, linear functions look like straight lines with a constant slope.) On a car trip, for example, we will get twice as far in a given time if we average \SI{90}{km/h} than if we average \SI{45}{km/h}.
-
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[axis lines=left,
-            width=6cm,
-            height=6cm,
-            ticks=none,
-            ylabel={Displacement, $\Delta x$ (m)},
-            xlabel={Average velocity, $\bar{v}$ (m/s)},
-            title={Displacement vs~Velocity for a given time, $t$},
-            xmin=0,xmax=7,
-            ymin=0,ymax=7,
-        ]
-        \addplot[black,mark=*]
-            coordinates{
-                (0,0)(1,1)(2,2)(3,3)(4,4)(5,5)
-            };
-        \end{axis}
-    \end{tikzpicture}
-\captionsetup{type=figure,margin=1in,font=scriptsize}
-\captionof{figure}{There is a linear relationship between displacement and average velocity. For a given time $t$, an object moving twice as fast as another object will move twice as far as the other object.}
-\end{center}
-
-\cyanhrule
-
-\vspace{1ex}
-
-\textbf{Solving for final velocity}\\
-We can derive another useful equation by manipulating the definition of acceleration, Equation \eqref{vdyjX5}.
-
-\begin{equation*}
-    a = \frac{\Delta v}{\Delta t}
-\end{equation*}
-
-Substituting the simplified notation for $\Delta v$ and $\Delta t$ give us
-
-\begin{equation*}
-    a = \frac{v - v_0}{t}
-\end{equation*}
-
-Solving for $v$ yields
-
-\begin{equation} \label{0bbOYZ}
-    v = v_0 + a t
-\end{equation}
-
-\cyanhrule
-
-\vspace{1em}
-
 \begin{example}
-    \textit{Calculating Final Velocity: An Airplane Slowing Down after Landing}. An airplane lands with an initial velocity of \SI{70.0}{m/s} and then decelerates at \SI{1.50}{m/s^2} for \SI{40.0}{s}. What is its final velocity?
-\end{example}
-
-\Solution Draw a sketch. We draw the acceleration vector in the direction opposite the velocity vector because the plane is decelerating.
-
-
-\begin{center}
-    \begin{tikzpicture}
-        \draw[thick,red,->] (0,1.2) -- ++(3,0) node[black,below,pos=0.5] {$v_0 = \SI{70}{m/s}$};
-        \draw[thick,red,->] (4.5,1.2) -- ++(1,0) node[black,below,pos=0.5] {$v_f =\ ?$};
-        \draw (1.5,0) node{\large \StopWatchStart} node[below=2mm] {\SI{0.0}{s}};
-        \draw (5,0) node{\large \StopWatchEnd} node[below=2mm] {\SI{40.0}{s}};
-        \draw[<-,thick,Green] (2,-1.2) -- ++(3,0) node[below,pos=0.5,black] {$a=-\SI{1.50}{m/s^2}$};
-        \hspace{8cm}
-        \begin{axis}[width=2.4cm,
-            height=2.4cm,
-            ticks=none,
-            axis lines=center,
-            ylabel=$y$,
-            xlabel=$x$
-        ]
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-1. Identify the knowns. We are given initial velocity, acceleration, and time: $v_0 = \SI{70.0}{m/s}$, $a = -\SI{1.50}{m/s^2}$, and $t = \SI{40.0}{s}$. 
-
-\vspace{1ex}
-
-2. Identify the unknown. In this case, it is final velocity, $v_f$.
-
-\vspace{1ex}
-
-3. Determine which equation to use. We can calculate the final velocity using Equation \eqref{0bbOYZ}:
-
-\begin{equation*}
-    v = v_0 + at
-\end{equation*}
-
-4. Plug in the known values and solve.
-
-\begin{equation*}
-    v = v_0 + at = \SI{70.0}{m/s} + \left(-\SI{1.50}{m/s^2}\right)\left(\SI{40.0}{s}\right) = \SI{10.0}{m/s}
-\end{equation*}
-
-The final velocity is much less than the initial velocity, as desired when slowing down, but still positive. With jet engines, reverse thrust could be maintained long enough to stop the plane and start moving it backward. That would be indicated by a negative final velocity, which is not the case here.
-
-\endsolution 
-
-In addition to being useful in problem solving, the equation \eqref{0bbOYZ} $v = v_0 + at$ gives us insight into the relationships among velocity, acceleration, and time. From it we can see, for example, that
-
-\begin{itemize}
-    \item final velocity depends on how large the acceleration is and how long it lasts
-    \item if the acceleration is zero, then the final velocity equals the initial velocity ($v=v_0$), as expected (i.e., velocity is constant)
-    \item if $a$ is negative, then the final velocity is less than the initial velocity
-\end{itemize}
-
-(All of these observations fit our intuition, and it is always useful to examine basic equations in light of our intuition and experiences to check that they do indeed describe nature accurately.)
-
-% Skip MAKING CONNECTIONS: REAL-WORLD CONNECTION
-
-\vspace{1em}
-
-\cyanhrule
-
-\vspace{1ex}
-
-\texttt{SOLVING FOR FINAL POSITION WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
-
-\vspace{1ex}
-
-We can combine the equations above to find a third equation that allows us to calculate the final position of an object experiencing constant acceleration. We start with Equation \eqref{0bbOYZ}:
-
-\begin{equation*}
-    v = v_0 + a t
-\end{equation*}
-
-Adding $v_0$ to each side of this equation and dividing by 2 gives
-
-\begin{equation*}
-    \frac{v_0 + v}{2} = v_0 + \frac{1}{2} a t
-\end{equation*}
-
-Since
-
-\begin{equation*}
-    \frac{v_0 + v}{2} = \bar{v}
-\end{equation*}
-
-for constant acceleration, then 
-
-\begin{equation*}
-    \bar{v} = v_0 + \frac{1}{2} a t^2 
-\end{equation*}
-
-Now we substitute this expression for $\bar{v}$ into the equation for displacement, Equation \eqref{FokTWv}, $x = x_0 + \bar{v} t$, yielding
-
-\begin{equation} \label{03Tfzm}
-    x = x_0 + v_0 t + \frac{1}{2} a t^2
-\end{equation}
-
-which assumes constant $a$.
-
-\vspace{1em}
-
-\cyanhrule
-
-\begin{example} \label{7ddBPA}
-    \textit{Calculating Displacement of an Accelerating Object: Dragsters}. Dragsters can achieve average accelerations of \SI{26.0}{m/s^2}. Suppose such a dragster accelerates from rest at this rate for \SI{5.56}{s}. How far does it travel in this time?
+    \textit{Calculating Displacement: How Far Does a Car Go When Coming to a Halt?} On dry concrete, a car can decelerate at a rate of \SI{7.00}{m/s^2}, whereas on wet concrete it can decelerate at only \SI{5.00}{m/s^2}. Find the distances necessary to stop a car moving at \SI{30.0}{m/s} (about \SI{110}{km/h}) (a) on dry concrete and (b) on wet concrete. (c) Repeat both calculations, finding the displacement from the point where the driver sees a traffic light turn red, taking into account his reaction time of \SI{0.500}{s} to get his foot on the brake.
 \end{example}
 
 \Solution Draw a sketch.
 
 \begin{center}
     \begin{tikzpicture}
-        \begin{axis}[width=5cm,height=5cm,
-            xmin=0,xmax=10,
-            ymin=0,ymax=10,
-            axis y line=none,
-            axis x line=left,
-            clip=false,
-            xtick={0,10},
-            xticklabels={$x_0$,$x=\ ?$},
-        ]
-        \draw[->,thick,Green] (2,-2) -- ++ (5,0) node[black,below,pos=0.5] {$a = \SI{26.0}{m/s^2}$};
-        \end{axis}
-        \hspace{5cm}
-        \xydirection
+        \draw[->,RoyalBlue,thick] (0,0) -- ++(5,0) node[above,pos=0.5,black] {$\Delta x$};
+        \draw[->,red] (-1,-0.5) -- ++(2,0) node[below,pos=0.5,black] {$v_0 = \SI{30.0}{m/s}$};
+        \fill[red] (5,-0.5) circle (2pt) node[below,black] {$v_f = \SI{0}{m/s}$};
+        \draw (2.5,-1.5) node {$a_{\text{dry}} = -\SI{7.00}{m/s^2}$} 
+            node[below=3pt] {$a_{\text{wet}} = -\SI{5.00}{m/s^2}$};
     \end{tikzpicture}
 \end{center}
 
-We are asked to find displacement, which is $x$ if we take $x_0$ to be zero. (Think about it like the starting line of a race. It can be anywhere, but we call it 0 and measure all other positions relative to it.) We can use Equation \eqref{03Tfzm} $x = x_0 + v_0 t + \frac{1}{2} a t^2$ once we identify $v_0$, $a$, and $t$ from the statement of the problem.
+In order to determine which equations are best to use, we need to list all of the known values and identify exactly what we need to solve for. We shall do this explicitly in the next several examples, using tables to set them off.
 
 \vspace{1em}
 
-1. Identify the knowns. Starting from rest means that $v_0 = 0$, $a$ is given as $\SI{26.0}{m/s^2}$, and $t$ is given as \SI{5.56}{s}. 
+(a) Let's identify the knowns and what we want to solve for. We are given initial velocity, final velocity, and acceleration: $v_0 = \SI{30.0}{m/s}$, $v= 0$, and $a = \SI{-7.00}{m/s^2}$ ($a$ is negative because it is in a direction opposite to velocity). Also, we take $x_0$ to be zero. The unknown we are looking for is displacement: $\Delta x$, or $x-x_0$.
 
 \vspace{1em}
 
-2. Plug the known values into the equation to solve for the unknown $x$. 
+Next, we identify the equation that will help up solve the problem. The best equation to use is Equation \eqref{EEJoew}:
 
 \begin{equation*}
-    x = x_0 + v_0 t + \frac{1}{2} a t^2
+    v^2 = v_0^2 + 2a(x-x_0)
 \end{equation*}
 
-Since the initial position and velocity are both zero, this simplifies to
+This equation is best because it includes only one unknown, $x$. We know the values of all the other variables in this equation. (There are other equations that would allow us to solve for $x$, but they require us to know the stopping time, $t$, which we do not know. We could use them but it would entail additional calculations.)
+
+\vspace{1em}
+
+Substituting known values into Equation \eqref{EEJoew} (and omitting units) leads to 
 
 \begin{equation*}
-    x = \frac{1}{2} a t^2 
+    0^2 = 30^2 + 2\left(-7\right) \left(x-0\right)
 \end{equation*}
 
-Substituting the identified values of $a$ and $t$ gives
+or, more simply, to 
 
 \begin{equation*}
-    x = \frac{1}{2}\left(\SI{26.0}{m/s^2}\right)\left(\SI{5.56}{s}\right)^2
+    0 = 30^2 - 14 x
 \end{equation*}
 
-yielding
+Now we can rearrange the equation to solve for $x$, as follows:
+
+\begin{align*}
+    \textbf{Add $14x$} \qquad & 0 \redplus \textcolor{red}{14x} = 30^2 -14x \redplus \textcolor{red}{14x}\\[1ex]
+    \textbf{Simplify} \qquad & 14x = 30^2\\[1ex]
+    \textbf{Divide by 14} \qquad & \frac{\cancel{14}x}{\textcolor{red}{\cancel{14}}} = \frac{30^2}{\textcolor{red}{14}}\\[1ex]
+    \textbf{Simplify} \qquad & x = \frac{30^2}{14} \\[1ex]
+    \textbf{Compute} \qquad & x = 64.3
+\end{align*}
+
+Therefore, displacement is $x = \SI{64.3}{m}$ on dry concrete.
+
+\vspace{1em}
+
+(b) This part can be solved in exactly the same manner as Part A. The only difference is that the deceleration is $-\SI{5.00}{m/s^2}$. The result is $x = \SI{90.0}{m}$ on wet concrete.
+
+\vspace{1em}
+
+(c) Once the driver reacts, the stopping distance is the same as it is in Parts A and B for dry and wet concrete. So to answer this question, we need to calculate how far the car travels during the reaction time, and then add that to the stopping time. It is reasonable to assume that the velocity remains constant during the driver’s reaction time.
+
+\vspace{1em}
+
+We identify the knowns and what we want to solve for. We are given average velocity, reaction time, and acceleration during reaction: $\bar{v} = \SI{30}{m/s}$, $t_{\text{reaction}} = \SI{0.500}{m/s}$, and $a_{\text{reaction}} = 0$.  We take $x_{0,\text{reaction}}$ to be 0. We are looking for $x_{\text{reaction}}$. 
+
+\vspace{1em} 
+
+Now we identify the best equation to use. Equation \eqref{X0SPQW}, $x = x_0 + \bar{v} t$, works well because the only unknown value is $x$, which is what we want to solve for. 
+
+\vspace{1em}
+
+Substituting given values leads to 
 
 \begin{equation*}
-    x = \SI{402}{m}
+    x = x_0 + \bar{v} t = 0 + \left(\SI{30.0}{m/s}\right) \left(\SI{0.500}{s}\right) = \SI{15.0}{m}
 \end{equation*}
 
-\textbf{Discussion}: If we convert \SI{402}{m} to miles, we find that the distance covered is very close to one quarter of a mile, the standard distance for drag racing. So the answer is reasonable. This is an impressive displacement in only \SI{5.56}{s}, but top-notch dragsters can do a quarter mile in even less time than this.
+This means the car travels 15.0 meters while the driver reacts, making the total displacements in the two cases of dry and wet concrete \SI{15.0}{m} greater than if he reacted instantly.
+
+\vspace{1em}
+
+Add the displacement during the reaction time to the displacement when braking:
+
+\begin{align*}
+    x_{\text{braking}} + x_{\text{reaction}} &= x_{\text{final}}\\[1ex]
+    \SI{64.3}{m} + \SI{15.0}{m} &= \SI{79.3}{m} \quad \text{when dry}\\
+    \SI{90.0}{m} + \SI{15.0}{m} &= \SI{105}{m} \quad \text{when wet}
+\end{align*}
+
+\textbf{Discussion}: The displacements found in this example seem reasonable for stopping a fast-moving car. It should take longer to stop a car on wet rather than dry pavement. It is interesting that reaction time adds significantly to the displacements. But more important is the general approach to solving problems. We identify the knowns and the quantities to be determined and then find an appropriate equation. There is often more than one way to solve a problem. The various parts of this example can in fact be solved by other methods, but the solutions presented above are the shortest.
 
 \endsolution
-
-\vspace{1em}
-
-What else can we learn by examining the Equation \eqref{03Tfzm} $x = x_0 + v_0 t + \frac{1}{2} a t^2$ ? We see that:
-
-\begin{itemize}
-    \item displacement depends on the square of the elapsed time when acceleration is not zero. In Example \ref{7ddBPA}, the dragster covers only one fourth of the total distance in the first half of the elapsed time
-    \item if acceleration is zero, then the initial velocity equals average velocity ($v_0 = \bar{v}$) and $x = x_0 + v_0 t + \frac{1}{2} a t^2$ (Eq.~\ref{03Tfzm}) becomes $x = x_0 + v_0 t$ (Eq.~\ref{FokTWv}).
-\end{itemize}
-
-\cyanhrule
-
-\vspace{1em}
-
-\texttt{SOLVING FOR FINAL VELOCITY WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
-
-\vspace{1em}
-
-A fourth useful equation can be obtained from another algebraic manipulation of previous equations.
-
-\vspace{1em}
-
-If we solve $v = v_0 + a t$ (Equation \ref{0bbOYZ}) for $t$ , we get
-
-\begin{equation*}
-    t = \frac{v - v_0}{a} 
-\end{equation*}
-
-Substituting this and $\bar{v} = \frac{v_0 + v}{2}$ into $x = x_0 + \bar{v} t$, we get 
-
-\begin{equation} \label{jIcda3}
-    v^2 = v_0^2 + 2 a (x-x_0)
-\end{equation}
-
-\cyanhrule
-
-\vspace{1em}
-
-\begin{example}
-    \textit{Calculating Final Velocity: Dragsters}. Calculate the final velocity of the dragster in Example \ref{7ddBPA} without using information about time.
-\end{example}
-
-\Solution We draw the same sketch.
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=5cm,height=5cm,
-            xmin=0,xmax=10,
-            ymin=0,ymax=10,
-            axis y line=none,
-            axis x line=left,
-            clip=false,
-            xtick={0,10},
-            xticklabels={$x_0$,$x=\ ?$},
-        ]
-        \draw[->,thick,Green] (2,-2) -- ++ (5,0) node[black,below,pos=0.5] {$a = \SI{26.0}{m/s^2}$};
-        \end{axis}
-        \hspace{5cm}
-        \xydirection
-    \end{tikzpicture}
-\end{center}
-
-The equation \eqref{jIcda3} $v^2 = v_0^2 + 2a(x-x_0)$ is ideally suited to this task because it relates velocities, acceleration, and displacement, and no time information is required.
-
-\vspace{1em}
-
-1. Identify the known values. We know that $v_0 = 0$, since the dragster starts from rest. Then we note that $x - x_0 = \SI{402}{m}$ (this was the answer in Example \ref{7ddBPA}). Finally, the average acceleration was given to be $a=\SI{26.0}{m/s^2}$.
-
-\vspace{1em}
-
-2. Plug the knowns into the equation \eqref{jIcda3} $v^2 = v_0^2 + 2a(x-x_0)$ and solve for $v$. 
-
-\begin{equation*}
-    v^2 = 0 + 2\left(\SI{26.0}{m/s^2})\right)\left(\SI{402}{m}\right)
-\end{equation*}
-
-Thus
-
-\begin{equation*}
-    v^2 = \SI{2.09e4}{m^2/s^2}
-\end{equation*}
-
-To get $v$, we take the square root
-
-\begin{equation*}
-    v = \sqrt{\SI{2.09e4}{m^2/s^2}} = \SI{145}{m/s}
-\end{equation*}
-
-\textbf{Discussion}: \SI{145}{m/s} is about \SI{522}{km/h} or about \SI{324}{mi/h}, but even this breakneck speed is short of the record for the quarter mile. Also, note that a square root has two values; we took the positive value to indicate a velocity in the same direction as the acceleration.
-
-\endsolution
-
-\vspace{1em}
-
-An examination of the equation $v^2 = v_0^2 + 2a(x-x_0)$ can produce further insights into the general relationships among physical quantities:
-
-\begin{itemize}
-    \item The final velocity depends on how large the acceleration is and the distance over which it acts
-    \item For a fixed deceleration, a car that is going twice as fast doesn't simply stop in twice the distance---it takes much further to stop. (This is why we have reduced speed zones near schools.)
-\end{itemize}
-
-\subsubsection*{Putting Equations Together}
-
-In the following examples, we further explore one-dimensional motion, but in situations requiring slightly more algebraic manipulation. The examples also give insight into problem-solving techniques. The box below provides easy reference to the equations needed.
-
-\vspace{1em}
-
-\cyanhrule
-
-\begin{center}
-    \texttt{SUMMARY OF KINEMATIC EQUATIONS (CONSTANT $a$)}
-\end{center}
-
-\vspace{-2em}
-
-\begin{align}
-    x &= x_0 + \bar{v} t \\[1ex]
-    \bar{v} &= \frac{v_0 + v}{2} \\[1ex]
-    v &= v_0 + at \\[1ex]
-    x &= x_0 + v_0t + \frac{1}{2} a t^2 \\[1ex]
-    v^2 &= v_0^2 + 2a (x - x_0)
-\end{align}
-
-\cyanhrule
-
-
-
-
-
-
+ 
 \end{document}
+
+
 
