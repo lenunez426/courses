@@ -10,7 +10,7 @@
 
 In order to describe the motion of an object, you must first be able to describe its \gls{position}---where it is at any particular time. More precisely, you need to specify its position relative to a convenient reference frame. Earth is often used as a reference frame, and we often describe the position of an object as it relates to stationary objects in that reference frame. For example, a rocket launch would be described in terms of the position of the rocket with respect to the Earth as a whole, while a professor's position could be described in terms of where she is in relation to the nearby white board. (See Figure ?.??.) In other cases, we use reference frames that are not stationary but are in motion relative to the Earth. To describe the position of a person in an airplane, for example, we use the airplane, not the Earth, as the reference frame. (See Figure ??.?.)
 
-\subsubsection*{Displacement}
+\subsubsection*{Displacement} \label{awplYI}
 
 If an object moves relative to a reference frame (for example, if a professor moves to the right relative to a white board or a passenger moves toward the rear of an airplane), then the object's position changes. This change in position is known as \gls{displacement}. The word ``displacement'' implies that an object has moved, or has been displaced.
 
@@ -140,7 +140,7 @@ Since taking the absolute value is effectively dropping the negative sign, the m
 
 \endsolution
 
-\subsection{Vectors, Scalars, and Coordinate Systems}
+\subsection{Vectors, Scalars, and Coordinate Systems} \label{1QLrzP}
 
 What is the difference between distance and displacement? Whereas displacement is defined by both direction and magnitude, distance is defined only by magnitude. Displacement is an example of a vector quantity. Distance is an example of a scalar quantity. A \gls{vector} is any quantity with both magnitude and direction. Other examples of vectors include a velocity of \SI{90}{km/h} east and a force of \SI{500}{newtons} straight down.
 
@@ -223,7 +223,7 @@ Your notion of velocity is probably the same as its scientific definition. You k
 \begin{mdframed}[backgroundcolor=black!10]
     \Gls{average velocity} is displacement (change in position) divided by the time of travel,
 
-    \begin{equation}
+    \begin{equation} \label{yHaY2u}
         \bar{v} = \frac{\Delta x}{\Delta t} = \frac{x_f - x_0}{t_f - t_0}
     \end{equation}
 
@@ -371,7 +371,7 @@ We convert miles per minutes to meters per second using dimensional analysis as 
     \times \frac{\text{1 minute}}{\text{60 seconds}} = \SI{20}{m/s}
 \end{equation*}
 
-\subsection{Acceleration}
+\subsection{Acceleration} \label{LgXYss}
 
 % Figure
 
@@ -510,7 +510,7 @@ Keep in mind that although acceleration is in the direction of the change in vel
             \begin{scope}[shift={(axis direction cs: -4,0)}]
                 \draw[fill=black] (0,0) circle (2pt) node[below]{$v_0 = 0$};
                 \draw[thick,->] (-1.5,0) -- ++(axis direction cs: -3,0) node[pos=0.5,below] {$v_f = -\SI{15}{m/s}$}; 
-                \draw[violet,thick,->] (-0.5,0.8) -- ++(axis direction cs: -2,0) node[pos=0.5,above] {$a =\ ?$};
+                \draw[Green,thick,->] (-0.5,0.8) -- ++(axis direction cs: -2,0) node[pos=0.5,above] {$a =\ ?$};
                 
             \end{scope}
         \end{axis}
@@ -561,7 +561,7 @@ The negative sign for acceleration indicates that acceleration is toward the wes
             x label style={at={(axis description cs:1,0.0)},right=2mm},
             clip=false,
             ]
-            \draw[thick,violet] plot[,domain=0:5,variable=\x,samples=100] (\x,{0.5*sin(125*\x) + 1.8});
+            \draw[thick,Green] plot[,domain=0:5,variable=\x,samples=100] (\x,{0.5*sin(125*\x) + 1.8});
             \draw[thick,dashed] (0,1.8) -- ++(axis direction cs: 5,0) node[pos=1.1,above] {$\bar{a} = \text{average}$};
         \end{axis}
     \end{tikzpicture}
@@ -584,7 +584,7 @@ The negative sign for acceleration indicates that acceleration is toward the wes
             y label style={at={(axis description cs:0,1)},above=2mm},
             x label style={at={(axis description cs:1,0.5)},right=2mm},
         ]
-        \addplot[violet,mark=none,thick]
+        \addplot[Green,mark=none,thick]
             coordinates{
                 (0,3)(1,3)(1,-2)(3,-2)(3,0)(4.2,0)(4.2,1)(4.9,1)
                 (4.9,5)(5.5,5)(5.5,-4)(6,-4)(6,-1.5)
@@ -599,7 +599,7 @@ The negative sign for acceleration indicates that acceleration is toward the wes
 \captionof{figure}{Graphs of instantaneous acceleration versus time for two different one-dimensional motions. (a) Here acceleration varies only slightly and is always in the same direction, since it is positive. The average over the interval is nearly the same as the acceleration at any given time. (b) Here the acceleration varies greatly, perhaps representing a package on a post office conveyor belt that is accelerated forward and backward as it bumps along. It is necessary to consider small time intervals (such as from 0 to \SI{1.0}{s}) with constant or nearly constant acceleration in such a situation.}
 \label{6040uO}
 
-The next several examples consider the motion of the subway train shown in Figure ?.??. In (a) the shuttle moves to the right, and in (b) it moves to the left. The examples are designed to further illustrate aspects of motion and to illustrate some of the reasoning that goes into solving problems.
+The next several examples consider the motion of the subway train shown in Figure \ref{GMa3RN}. In (a) the shuttle moves to the right, and in (b) it moves to the left. The examples are designed to further illustrate aspects of motion and to illustrate some of the reasoning that goes into solving problems.
 
 \begin{center}
     \begin{tikzpicture}
@@ -617,6 +617,7 @@ The next several examples consider the motion of the subway train shown in Figur
             xticklabels = {\strut $x_0=\SI{4.70}{km}$, \strut $x_f = \SI{6.70}{km}$}, 
             ]
             \draw (4.7,0) node[above left] {\mytrain};
+            \draw (0.5,2) node {(a)};
             \draw[dashed] (4.7,0) -- ++(axis direction cs: 0,10);
             \draw[dashed] (6.7,0) -- ++(axis direction cs: 0,10);
             \draw[thick,->] (4.7,6) -- ++(axis direction cs: 2,0) node[pos=0.5,above] {$\Delta x = \SI{2.00}{km}$};
@@ -640,6 +641,7 @@ The next several examples consider the motion of the subway train shown in Figur
             xticklabels = {\strut $x_f^{\prime}=\SI{3.75}{km}$, \strut $x_0^{\prime} = \SI{5.25}{km}$}, 
             ]
             \draw (5.25,0) node[above right] {\mytrainleft};
+            \draw (0.5,2) node {(b)};
             \draw[dashed] (3.75,0) -- ++(axis direction cs: 0,10);
             \draw[dashed] (5.25,0) -- ++(axis direction cs: 0,10);
             \draw[thick,->] (5.25,6) -- ++(axis direction cs: -1.5,0) node[pos=0.5,above] {\small $\Delta x = -\SI{1.50}{km}$};
@@ -647,7 +649,833 @@ The next several examples consider the motion of the subway train shown in Figur
     \end{tikzpicture}
 \captionsetup{type=figure,margin=1in,font=scriptsize}
 \captionof{figure}{One-dimensional motion of a subway train considered in the Examples below. Here we have chosen the $x$ axis so that $+$ means to the right and $-$ means to the left for displacements, velocities, and accelerations. (a) The subway train moves to the right from $x_0$ to $x_f$. Its displacement $\Delta x$ is $+\SI{2.0}{km}$. (b) The train moves to the left from $x_0^{\prime}$ to $x_f^{\prime}$. Its displacement $\Delta x^{\prime}$ is $-\SI{1.50}{km}$. (Note that the prime symbol ($\prime$) is used simply to distinguish between displacement in the two different situations. The distances of travel and the size of the cars are on different scales to fit everything into the diagram.)}
+\label{GMa3RN}
 \end{center}
 
+\begin{example} \label{Zg8Ig4}
+    \textit{Calculating Displacement: A Subway Train}. What are the magnitude and sign of displacements for the motions of the subway train shown in parts (a) and (b) of Figure \ref{GMa3RN}.
+\end{example}
+
+\Solution Our strategy: A drawing with a coordinate system is already provided, so we don't need to make a sketch, but we should analyze it to make sure we understand what it is showing. Pay particular attention to the coordinate system. To find displacement, we use Equation \eqref{PhLnzc}, $\Delta{x} = x_f - x_0$. This is straightforward since the initial and final positions are given.
+
+\vspace{1em}
+
+We are given the initial and final positions for both parts:
+
+\begin{equation*}
+    x_f = \SI{6.70}{km}\ ,\ x_0=\SI{4.70}{km} \quad
+    \text{and} \quad
+    x_f^{\prime}=\SI{3.75}{km}\ ,\ x_0^{\prime} = \SI{5.25}{km}
+\end{equation*}
+
+Therefore, the displacements are
+
+\begin{equation*}
+    \Delta x = x_f - x_0 = \SI{6.70}{km} - \SI{4.70}{km} = +\SI{2.00}{km}
+\end{equation*}
+
+and
+
+\begin{equation*}
+    \Delta x^{\prime} = x_f^{\prime} - x_0^{\prime} = \SI{3.75}{km} - \SI{5.25}{km} = -\SI{1.50}{km}
+\end{equation*}
+
+The direction of the motion in (a) is to the right and therefore its displacement has a positive sign, whereas motion in (b) is to the left and thus has a negative sign.
+
+\endsolution
+
+\begin{example}
+    \textit{Comparing Distance Traveled with Displacement: A Subway Train}. What are the distances traveled for the motions shown in parts (a) and (b) of the subway train in Figure \ref{GMa3RN}?
+\end{example}
+
+\Solution To answer this question, think about the definitions of distance and distance traveled, and how they are related to displacement. Distance between two positions is defined to be the magnitude of displacement, which was found in Example \ref{Zg8Ig4}. Distance traveled is the total length of the path traveled between the two positions. (See \nameref{awplYI}.) In the case of the subway train shown in Figure \ref{GMa3RN}, the distance traveled is the same as the distance between the initial and final positions of the train.
+
+\vspace{1em}
+
+The displacement for part (a) was $+\SI{2.00}{km}$. Therefore, the distance between the initial and final positions was \SI{2.00}{km}, and the distance traveled was \SI{2.00}{km}.
+
+\vspace{1em}
+
+The displacement for part (b) was $-\SI{1.5}{km}$. Therefore, the distance between the initial and final positions was \SI{1.50}{km}, and the distance traveled was \SI{1.50}{km}.
+
+\vspace{1em}
+
+Distance is a scalar. It has magnitude but no sign to indicate direction.
+
+\endsolution
+
+\begin{example} \label{PLCGFI}
+    \textit{Calculating Acceleration: A Subway Train Speeding Up}. Suppose the train in Figure \ref{GMa3RN}(a) accelerates from rest to \SI{30.0}{km/h} in the first \SI{20.0}{s} of its motion. What is its average acceleration during that time interval?
+\end{example}
+
+\Solution It is worth it at this point to make a simple sketch:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=4cm,
+            height=4cm,
+            xmin=0,xmax=2,
+            ymin=0,ymax=2,
+            ticks=none,
+            axis line style={draw=none},
+            clip=false
+            ]
+            
+            \draw[thick,->] (0,0) -- (1,0) node[right] {$x$};
+            \draw[thick,->] (0,0) -- (0,1) node[above] {$y$};
+
+            \begin{scope}[shift={(axis direction cs: -6,1)}]
+                \draw[fill=black] (0,0.5) circle (2pt) node[below=2pt]{$v_0 = \SI{0}{km/h}$};
+                \draw (0,-0.5) node {\large \StopWatchStart} node[below=3mm] {\SI{0.0}{s}};
+                \draw[thick,->] (1.5,0.5) -- ++(axis direction cs: 3,0) node[pos=0.5,below=2pt] {$v_f = \SI{30}{km/h}$}; 
+                \draw (3,-0.5) node {\large \StopWatchEnd} node[below=3mm] {\SI{20.0}{s}};
+                \draw[Green,very thick,->] (0,-1.7) -- ++(axis direction cs: 3,0) node[pos=0.5,above] {$a =\ ?$};
+            \end{scope}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+This problem involves three steps. First we must determine the change in velocity, then we must determine the change in time, and finally we use these values to calculate the acceleration.
+
+\vspace{1em}
+
+We are given the initial velocity, final velocity, and elapsed time: $v_0 = 0$ (the train starts at rest), $v_f = \SI{30}{km/h}$, and $\Delta t = \SI{20.0}{s}$. The train's change in velocity is
+
+\begin{equation*}
+    \Delta v = v_f - v_0 = +\SI{30}{km/h}
+\end{equation*}
+
+where the plus sign means velocity to the right. This change is exactly what we expected since it starts from rest. Average acceleration, by Equation \eqref{vdyjX5}, is
+
+\begin{equation*}
+    \bar{a} = \frac{\Delta v}{\Delta t} = \frac{+\SI{30}{km/h}}{\SI{20.0}{s}}
+\end{equation*}
+
+Since the units are mixed (we have both hours and seconds for time), we need to convert everything into SI units of meters and seconds. (See \nameref{3vggy3} for more guidance.) 
+
+\begin{equation*}
+    \bar{a} = \left(\frac{+\SI[per-mode=fraction]{30}{\kilo\meter\per\hour}}{\SI{20.0}{s}}\right)
+        \left(\frac{10^3\,\text{m}}{\SI{1}{km}}\right)\left(\frac{\SI{1}{h}}{\SI{3600}{s}}\right) = +\SI{0.417}{m/s^2}
+\end{equation*}
+
+The plus sign means that acceleration is to the right. This is reasonable because the train starts from rest and ends up with a velocity to the right (also positive). So acceleration is in the same direction as the \textit{change} in velocity, as is always the case.
+
+\endsolution
+
+\begin{example} \label{dHBSwG}
+    \textit{Calculate Acceleration: A Subway Train Slowing Down}. Now suppose that at the end of its trip, the train in Figure \ref{}(a) slows to a stop from a speed of \SI{30.0}{km/h} in \SI{8.00}{s}. What is its average acceleration while stopping?
+\end{example}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=4cm,
+            height=4cm,
+            xmin=0,xmax=2,
+            ymin=0,ymax=2,
+            ticks=none,
+            axis line style={draw=none},
+            clip=false
+            ]
+            
+            \draw[thick,->] (0,0) -- (1,0) node[right] {$x$};
+            \draw[thick,->] (0,0) -- (0,1) node[above] {$y$};
+
+            \begin{scope}[shift={(axis direction cs: -6.5,1)}]
+                \draw[thick,->] (0,0.5) node[below=2pt]{$v_0 = \SI{30}{km/h}$} -- ++(axis direction cs: 3,0);
+                \draw (0,-0.5) node {\large \StopWatchStart} node[below=3mm] {\SI{0.0}{s}};
+                \fill (4.5,0.5) circle (2pt) node[below=2pt] {$v_f = \SI{0}{km/h}$}; 
+                \draw (4.5,-0.5) node {\large \StopWatchEnd} node[below=3mm] {\SI{8.00}{s}};
+                \draw[Green,very thick,<-] (0.5,-1.7) -- ++(axis direction cs: 4,0) node[pos=0.5,above] {$a =\ ?$};
+            \end{scope}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\Solution In this case, the train is decelerating and its acceleration is negative because it is toward the left. As in the previous example, we must find the change in velocity and the change in time and then solve for acceleration.
+
+\vspace{1em}
+
+We are given initial velocity, final velocity, and elapsed time: $v_0 = \SI{30}{km/h}$, $v_f = 0$ (the train is stopped, so its velocity is 0), and $\Delta t = \SI{8.00}{s}$. The train's change in velocity is
+
+\begin{equation*}
+    \Delta v = v_f - v_0 = 0 - \SI{30}{km/h} = -\SI{30}{km/h}
+\end{equation*}
+
+Substituting given values into Equation \ref{vdyjX5}, for average acceleration, leads to 
+
+\begin{equation*}
+    \bar{a} = \frac{\Delta v}{\Delta t} = \frac{-\SI{30}{km/h}}{\SI{8.00}{s}}
+\end{equation*}
+
+To convert the units to meters and seconds, we compute the following:
+
+\begin{equation*}
+    \bar{a} = \left(\frac{-\SI[per-mode=fraction]{30}{\kilo\meter\per\hour}}{\SI{8.00}{s}}\right)
+        \left(\frac{10^3\,\text{m}}{\SI{1}{km}}\right)\left(\frac{\SI{1}{h}}{\SI{3600}{s}}\right) = -\SI{1.04}{m/s^2}
+\end{equation*}
+
+The minus sign indicates that acceleration is to the left. This sign is reasonable because the train initially has a positive velocity in this problem, and a negative acceleration would oppose the motion. Again, acceleration is in the same direction as the \textit{change} in velocity, which is negative here. This acceleration can be called a deceleration because it has a direction opposite to the velocity.
+
+\endsolution   
+
+The graphs of position, velocity, and acceleration vs. time for the trains in Example \ref{PLCGFI} and Example \ref{dHBSwG} are displayed in Figure \ref{RfUcWn}. (We have taken the velocity to remain constant from 20 to \SI{40}{s}, after which the train decelerates.)
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            height=6cm,
+            axis lines=left,
+            ylabel={Position (m)},
+            xlabel={Time (s)},
+            ymin=0,ymax=300,
+            xmin=0,xmax=60,
+            ytick={0,50,...,300},
+            xtick={0,10,...,60},
+            clip=false,
+            ]
+            \draw[very thick,RoyalBlue] plot[domain=0:20,samples=50,variable=\x] (\x,0.5*0.4*\x^2);
+            \draw[very thick,RoyalBlue] plot[domain=20:40,samples=50,variable=\x] (\x,8*\x-80);
+            \draw[very thick,RoyalBlue] plot[domain=40:48,samples=50,variable=\x] (\x,{-80+8*\x-0.5*(\x-40)^2});
+        \end{axis}
+    \end{tikzpicture}
+
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            height=6cm,
+            axis lines=left,
+            ylabel={Velocity (m/s)},
+            xlabel={Time (s)},
+            ymin=0,ymax=9,
+            xmin=0,xmax=60,
+            ytick={0,1,...,9},
+            xtick={0,10,...,60},
+            clip=false,
+            ]
+            \addplot[very thick,red,mark=none]
+                coordinates{
+                    (0,0)(20,8)(40,8)(48,0)
+                };
+        \end{axis}
+    \end{tikzpicture}
+    
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            height=6cm,
+            axis lines=center,
+            ylabel={Acceleration (\SI{}{m/s^2})},
+            y label style={at={(axis description cs:0,1.05)}},
+            xlabel={Time (s)},
+            x label style={at={(axis description cs:0.65,-0.1)}},
+            ymin=-1.2,ymax=0.6,
+            xmin=0,xmax=60,
+            ytick={-1.2,-1,...,0.6},
+            xtick={0,10,...,60},
+            clip=false,
+            ]
+            \addplot[very thick,Green,mark=none]
+                coordinates{
+                    (0,0.4)(20,0.4)(20,0)(40,0)(40,-1)(48,-1)
+                };
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{(a) Position of the train over time. Notice that the train's position changes slowly at the beginning of the journey, then more and more quickly as it picks up speed. Its position then changes more slowly as it slows down at the end of the journey. In the middle of the journey, while the velocity remains constant, the position changes at a constant rate. (b) Velocity of the train over time. The train's velocity increases as it accelerates at the beginning of the journey. It remains the same in the middle of the journey (where there is no acceleration). It decreases as the train decelerates at the end of the journey. (c) The acceleration of the train over time. The train has positive acceleration as it speeds up at the beginning of the journey. It has no acceleration as it travels at constant velocity in the middle of the journey. Its acceleration is negative as it slows down at the end of the journey.}
+    \label{RfUcWn}
+\end{center}
+
+\begin{example}
+    \textit{Calculating Average Velocity: The Subway Train}. What is the average velocity of the train in part b of Example \ref{Zg8Ig4} if it takes \SI{5.00}{min} to make its trip? (See Figure \ref{GMa3RN}(b) for the picture.)
+\end{example}
+
+\Solution Recall that, by Equation \eqref{yHaY2u}, average velocity is displacement divided by time. It will be negative here, since the train moves to the left and has a negative displacement.
+
+\vspace{1em}
+
+We are given the initial and final positions and the elapsed time: $x_0^{\prime} = \SI{5.25}{km}$, $x_f^{\prime} = \SI{3.75}{km}$, and $\Delta t = \SI{5.00}{min}$. Also, we found displacement to be $\Delta x^{\prime} = -\SI{1.5}{km}$ in Example \ref{Zg8Ig4}. 
+
+\vspace{1em}
+
+Average velocity is
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x^{\prime}}{\Delta t} = \frac{-\SI{1.5}{km}}{\SI{5.00}{min}} 
+\end{equation*}
+
+We covert units as follows:
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x^{\prime}}{\Delta t} = \left(\frac{-\SI{1.5}{km}}{\SI{5.00}{min}}\right)
+        \left(\frac{\SI{60}{min}}{\SI{1}{h}}\right) = -\SI{18}{km/h}
+\end{equation*}
+
+The negative velocity indicates motion to the left.
+
+\endsolution
+
+\begin{example} \label{2453yE}
+    \textit{Calculating Deceleration: The Subway Train}. Finally, suppose the train in Figure \ref{GMa3RN}(b) slows to a stop from a velocity of \SI{20.0}{km/h} in \SI{10.0}{s}. What is its average acceleration?
+\end{example}
+
+\Solution Once again, let's draw a sketch:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=4cm,
+            height=4cm,
+            xmin=0,xmax=2,
+            ymin=0,ymax=2,
+            ticks=none,
+            axis line style={draw=none},
+            clip=false
+            ]
+            
+            \draw[thick,->] (0,0) -- (1,0) node[right] {$x$};
+            \draw[thick,->] (0,0) -- (0,1) node[above] {$y$};
+
+            \begin{scope}[shift={(axis direction cs: -6,1)}]
+                \draw[fill=black] (0,0.5) circle (2pt) node[below=2pt]{$v_f = \SI{0}{km/h}$};
+                \draw (0,-0.5) node {\large \StopWatchEnd} node[below=3mm] {\SI{10.0}{s}};
+                \draw[thick,<-] (1.5,0.5) -- ++(axis direction cs: 3,0) node[pos=0.5,below=2pt] {$v_0 = -\SI{20}{km/h}$}; 
+                \draw (3,-0.5) node {\large \StopWatchStart} node[below=3mm] {\SI{0.0}{s}};
+                \draw[Green,very thick,->] (0,-1.7) -- ++(axis direction cs: 3,0) node[pos=0.5,above] {$a =\ ?$};
+            \end{scope}
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+As before, we must find the change in velocity and the change in time to calculate average acceleration.
+
+\vspace{1em}
+
+We are given initial velocity, final velocity, and elapsed time: $v_0 = -\SI{20}{km/h}$, $v_f = \SI{0}{km/h}$, and $\Delta t = \SI{10.0}{s}$. Next, we calculate $\Delta v$. The change in velocity here is actually positive, since
+
+\begin{equation*}
+    \Delta v = v_f - v_0 = 0 - \left(-\SI{20}{km/h}\right) = +\SI{20}{km/h}
+\end{equation*}
+
+Finally we solve for $\bar{a}$. By Equation \ref{vdyjX5}, average acceleration is
+
+\begin{equation*}
+    \bar{a} = \frac{\Delta v}{\Delta t} = \frac{+\SI{20}{km/h}}{\SI{10.0}{s}}
+\end{equation*}
+
+We convert units as follows:
+
+\begin{equation*}
+    \bar{a} = \left(\frac{+\SI[per-mode=fraction]{20}{\kilo\meter\per\hour}}{\SI{10.0}{s}}\right)
+        \left(\frac{10^3\,\text{m}}{\SI{1}{km}}\right)\left(\frac{\SI{1}{h}}{\SI{3600}{s}}\right) = +\SI{0.556}{m/s^2}
+\end{equation*}
+
+The plus sign means that acceleration is to the right. This is reasonable because the train initially has a negative velocity (to the left) in this problem and a positive acceleration opposes the motion (and so it is to the right). Again, acceleration is in the same direction as the change in velocity, which is positive here. As in Example \ref{dHBSwG}, this acceleration can be called a deceleration since it is in the direction opposite to the velocity.
+
+\endsolution
+
+\subsubsection*{Sign and Direction}
+
+Perhaps the most important thing to note about these examples is the signs of the answers. In our chosen coordinate system, plus means the quantity is to the right and minus means it is to the left. This is easy to imagine for displacement and velocity. But it is a little less obvious for acceleration. Most people interpret negative acceleration as the slowing of an object. This was not the case in Example \ref{2453yE}, where a positive acceleration slowed a negative velocity. The crucial distinction was that the acceleration was in the opposite direction from the velocity. In fact, a negative acceleration will increase a negative velocity. For example, the train moving to the left in Figure \ref{GMa3RN}(b) is sped up by an acceleration to the left. In that case, both $v$ and $a$ are negative. The plus and minus signs give the directions of the accelerations. If acceleration has the same sign as the velocity, the object is speeding up. If acceleration has the opposite sign as the velocity, the object is slowing down.
+
+\subsection{Motion Equations for Constant Acceleration in One Dimension} \label{WbwyTy}
+
+We might know that the greater the acceleration of, say, a car moving away from a stop sign, the greater the displacement in a given time. But we have not developed a specific equation that relates acceleration and displacement. In this section, we develop some convenient equations for kinematic relationships, starting from the definitions of displacement, velocity, and acceleration already covered.
+
+\subsection*{Notation: $t$, $x$, $v$, $a$}
+
+First, let us make some simplifications in notation. Taking the initial time to be zero, as if time is measured with a stopwatch, is a great simplification. Since elapsed time is $\Delta t = t_f - t_0$, taking $t_0 = 0$ means that $\Delta t = t_f$, the final time on the stopwatch. When initial time is taken to be zero, we use the subscript 0 to denote initial values of position and velocity. That is, $x_0$ \textit{is the initial position} and $v_0$ \textit{is the initial velocity}. We put no subscripts on the final values. That is, $t$ \textit{is the final time}, $x$ \textit{is the final position}, and $v$ \textit{is the final velocity}. This gives a simpler expression for elapsed time---now, $\Delta t = t$. It also simplifies the expression for displacement, which is now $\Delta x = x - x_0$. Also, it simplifies the expression for change in velocity, which is now $\Delta v = v - v_0$. To summarize, using the simplified notation, with the initial time taken to be zero,
+
+\begin{align} \label{sclrF2}
+    \Delta t &= t\\[0.5ex]
+    \Delta x &= x - x_0\\[0.5ex]
+    \Delta v &= v - v_0
+\end{align}
+
+where \textit{the subscript 0 denotes an initial value and the absence of a subscript denotes a final value} in whatever motion is under consideration.
+
+\vspace{1em}
+
+We now make the important assumption that \textit{acceleration is constant}. This assumption allows us to avoid using calculus to find instantaneous acceleration. Since acceleration is constant, the average and instantaneous accelerations are equal. That is,
+
+\begin{equation}
+    \bar{a} = a = \text{constant}
+\end{equation}
+
+so we use the symbol $a$ for acceleration at all times. Assuming acceleration to be constant does not seriously limit the situations we can study nor degrade the accuracy of our treatment. For one thing, acceleration is constant in a great number of situations. Furthermore, in many other situations we can accurately describe motion by assuming a constant acceleration equal to the average acceleration for that motion. Finally, in motions where acceleration changes drastically, such as a car accelerating to top speed and then braking to a stop, the motion can be considered in separate parts, each of which has its own constant acceleration.
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{center}
+\texttt{Solving for displacement ($\Delta x$) and final position ($x$) from average velocity when acceleration ($a$) is constant}
+\end{center}
+
+To get our first two new equations, we start with the definition of average velocity (Equation \ref{yHaY2u}): 
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t}
+\end{equation*}
+
+Substituting the simplified notation for $\Delta{x}$ and $\Delta{t}$ from Equations \eqref{sclrF2} yields 
+
+\begin{equation*}
+    \bar{v} = \frac{x - x_0}{t}
+\end{equation*}
+
+Solving for $x$ yields 
+
+\begin{equation} \label{FokTWv}
+    x = x_0 + \bar{v}t
+\end{equation}
+
+where the average velocity is
+
+\begin{equation}
+    \bar{v} = \frac{v_0 + v}{2} \qquad \text{(constant $a$)}
+\end{equation}
+
+\cyanhrule
+
+\vspace{1em}
+
+Equation \eqref{robof8}, $\bar{v} = \frac{v_0 + v}{2}$, reflects the fact that, when acceleration is constant, $v$ is just the simple average of the initial and final velocities. For example, if you steadily increase your velocity (that is, with constant acceleration) from 30 to \SI{60}{km/h}, then your average velocity during this steady increase is \SI{45}{km/h}. Using Equation \eqref{robof8} to check this, we see that 
+
+\begin{equation*}
+    \bar{v} = \frac{v_0 + v}{2} = \frac{\SI[per-mode=fraction]{30}{\kilo\meter\per\hour} + \SI[per-mode=fraction]{60}{\kilo\meter\per\hour}}{2} = \SI{45}{km/h}
+\end{equation*}
+
+which seems logical.
+
+\begin{example}
+    \textit{Calculating Displacement: How Far does the Jogger Run?} A jogger runs down a straight stretch of road with an average velocity of \SI{4.00}{m/s} for \SI{2.00}{min}. What is his final position, taking his initial position to be zero?
+\end{example}
+
+\Solution Let's draw a sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width=6cm,
+            height=6cm,
+            xmin=0,xmax=12,
+            ymin=0,ymax=12,
+            axis x line=left,
+            axis y line=none,
+            ytick=\empty,
+            clip=false,
+            xtick={0,10}, 
+            xticklabels = {$x_0$, $x =\ ?$}, 
+        ]
+
+        \draw[red,thick,->] (1.5,2) -- ++(6,0) node[pos=0.5,above,black] {$\bar{v} = \SI{4.00}{m/s}$};
+        \end{axis}
+        \hspace{6cm}
+        \begin{axis}[
+            width=2.4cm,
+            height=2.4cm,
+            xmin=0,xmax=1,
+            ymin=0,ymax=1,
+            axis lines=center,
+            ticks=none,
+            xlabel={$x$},
+            ylabel={$y$},
+        ]
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+The final position $x$ is given by Equation \eqref{FokTWv} as
+
+\begin{equation*}
+    x = x_0 + \bar{v} t
+\end{equation*}
+
+To find $x$, we identify the values of $x_0$, $\bar{v}$, and $t$, from the statement of the problem and substitute them into the equation.
+
+\vspace{1em}
+
+We are given average velocity, elapsed time, and initial position: 
+
+\begin{equation*}
+    \bar{v} = \SI{4.00}{m/s}\ , \quad \Delta t = \SI{2.00}{min}\ , \quad x_0 = 0
+\end{equation*}
+
+Substituting the given values into Equation \eqref{FokTWv} leads to 
+
+\begin{equation*}
+    x = x_0 + \bar{v} t = 0 + \left(\SI{4.00}{m/s}\right) \left(\SI{120}{s}\right) = \SI{480}{m}
+\end{equation*}
+
+Velocity and final displacement are both positive, which means they are in the same direction.
+
+\endsolution
+
+Equation \eqref{FokTWv}, $x = x_0 + \bar{v} t$, gives insight into the relationship between displacement, average velocity, and time. It shows, for example, that displacement is a linear function of average velocity. (By linear function, we mean that displacement depends on $\bar{v}$ rather than on $\bar{v}$ raised to some other power, such as $\bar{v}^2$. When graphed, linear functions look like straight lines with a constant slope.) On a car trip, for example, we will get twice as far in a given time if we average \SI{90}{km/h} than if we average \SI{45}{km/h}.
+
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=left,
+            width=6cm,
+            height=6cm,
+            ticks=none,
+            ylabel={Displacement, $\Delta x$ (m)},
+            xlabel={Average velocity, $\bar{v}$ (m/s)},
+            title={Displacement vs~Velocity for a given time, $t$},
+            xmin=0,xmax=7,
+            ymin=0,ymax=7,
+        ]
+        \addplot[black,mark=*]
+            coordinates{
+                (0,0)(1,1)(2,2)(3,3)(4,4)(5,5)
+            };
+        \end{axis}
+    \end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{There is a linear relationship between displacement and average velocity. For a given time $t$, an object moving twice as fast as another object will move twice as far as the other object.}
+\end{center}
+
+\cyanhrule
+
+\begin{center}
+   \texttt{Solving for final velocity} 
+\end{center}
+
+We can derive another useful equation by manipulating the definition of acceleration, Equation \eqref{vdyjX5}.
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t}
+\end{equation*}
+
+Substituting the simplified notation for $\Delta v$ and $\Delta t$ give us
+
+\begin{equation*}
+    a = \frac{v - v_0}{t}
+\end{equation*}
+
+Solving for $v$ yields
+
+\begin{equation} \label{0bbOYZ}
+    v = v_0 + a t
+\end{equation}
+
+\cyanhrule
+
+\vspace{1em}
+
+\begin{example}
+    \textit{Calculating Final Velocity: An Airplane Slowing Down after Landing}. An airplane lands with an initial velocity of \SI{70.0}{m/s} and then decelerates at \SI{1.50}{m/s^2} for \SI{40.0}{s}. What is its final velocity?
+\end{example}
+
+\Solution Draw a sketch. We draw the acceleration vector in the direction opposite the velocity vector because the plane is decelerating.
+
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[thick,red,->] (0,1.2) -- ++(3,0) node[black,below,pos=0.5] {$v_0 = \SI{70}{m/s}$};
+        \draw[thick,red,->] (4.5,1.2) -- ++(1,0) node[black,below,pos=0.5] {$v_f =\ ?$};
+        \draw (1.5,0) node{\large \StopWatchStart} node[below=2mm] {\SI{0.0}{s}};
+        \draw (5,0) node{\large \StopWatchEnd} node[below=2mm] {\SI{40.0}{s}};
+        \draw[<-,thick,Green] (2,-1.2) -- ++(3,0) node[below,pos=0.5,black] {$a=-\SI{1.50}{m/s^2}$};
+        \hspace{8cm}
+        \begin{axis}[width=2.4cm,
+            height=2.4cm,
+            ticks=none,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$
+        ]
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+1. Identify the knowns. We are given initial velocity, acceleration, and time: $v_0 = \SI{70.0}{m/s}$, $a = -\SI{1.50}{m/s^2}$, and $t = \SI{40.0}{s}$. 
+
+\vspace{1ex}
+
+2. Identify the unknown. In this case, it is final velocity, $v_f$.
+
+\vspace{1ex}
+
+3. Determine which equation to use. We can calculate the final velocity using Equation \eqref{0bbOYZ}:
+
+\begin{equation*}
+    v = v_0 + at
+\end{equation*}
+
+4. Plug in the known values and solve.
+
+\begin{equation*}
+    v = v_0 + at = \SI{70.0}{m/s} + \left(-\SI{1.50}{m/s^2}\right)\left(\SI{40.0}{s}\right) = \SI{10.0}{m/s}
+\end{equation*}
+
+The final velocity is much less than the initial velocity, as desired when slowing down, but still positive. With jet engines, reverse thrust could be maintained long enough to stop the plane and start moving it backward. That would be indicated by a negative final velocity, which is not the case here.
+
+\endsolution 
+
+In addition to being useful in problem solving, the equation \eqref{0bbOYZ} $v = v_0 + at$ gives us insight into the relationships among velocity, acceleration, and time. From it we can see, for example, that
+
+\begin{itemize}
+    \item final velocity depends on how large the acceleration is and how long it lasts
+    \item if the acceleration is zero, then the final velocity equals the initial velocity ($v=v_0$), as expected (i.e., velocity is constant)
+    \item if $a$ is negative, then the final velocity is less than the initial velocity
+\end{itemize}
+
+(All of these observations fit our intuition, and it is always useful to examine basic equations in light of our intuition and experiences to check that they do indeed describe nature accurately.)
+
+% Skip MAKING CONNECTIONS: REAL-WORLD CONNECTION
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{center}
+    \texttt{SOLVING FOR FINAL POSITION WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
+\end{center}
+
+
+We can combine the equations above to find a third equation that allows us to calculate the final position of an object experiencing constant acceleration. We start with Equation \eqref{0bbOYZ}:
+
+\begin{equation*}
+    v = v_0 + a t
+\end{equation*}
+
+Adding $v_0$ to each side of this equation and dividing by 2 gives
+
+\begin{equation*}
+    \frac{v_0 + v}{2} = v_0 + \frac{1}{2} a t
+\end{equation*}
+
+Since
+
+\begin{equation*}
+    \frac{v_0 + v}{2} = \bar{v}
+\end{equation*}
+
+for constant acceleration, then 
+
+\begin{equation*}
+    \bar{v} = v_0 + \frac{1}{2} a t^2 
+\end{equation*}
+
+Now we substitute this expression for $\bar{v}$ into the equation for displacement, Equation \eqref{FokTWv}, $x = x_0 + \bar{v} t$, yielding
+
+\begin{equation} \label{03Tfzm}
+    x = x_0 + v_0 t + \frac{1}{2} a t^2
+\end{equation}
+
+which assumes constant $a$.
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{example} \label{7ddBPA}
+    \textit{Calculating Displacement of an Accelerating Object: Dragsters}. Dragsters can achieve average accelerations of \SI{26.0}{m/s^2}. Suppose such a dragster accelerates from rest at this rate for \SI{5.56}{s}. How far does it travel in this time?
+\end{example}
+
+\Solution Draw a sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5cm,height=5cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            axis y line=none,
+            axis x line=left,
+            clip=false,
+            xtick={0,10},
+            xticklabels={$x_0$,$x=\ ?$},
+        ]
+        \draw[->,thick,Green] (2,-2) -- ++ (5,0) node[black,below,pos=0.5] {$a = \SI{26.0}{m/s^2}$};
+        \end{axis}
+        \hspace{5cm}
+        \xydirection
+    \end{tikzpicture}
+\end{center}
+
+We are asked to find displacement, which is $x$ if we take $x_0$ to be zero. (Think about it like the starting line of a race. It can be anywhere, but we call it 0 and measure all other positions relative to it.) We can use Equation \eqref{03Tfzm} $x = x_0 + v_0 t + \frac{1}{2} a t^2$ once we identify $v_0$, $a$, and $t$ from the statement of the problem.
+
+\vspace{1em}
+
+1. Identify the knowns. Starting from rest means that $v_0 = 0$, $a$ is given as $\SI{26.0}{m/s^2}$, and $t$ is given as \SI{5.56}{s}. 
+
+\vspace{1em}
+
+2. Plug the known values into the equation to solve for the unknown $x$. 
+
+\begin{equation*}
+    x = x_0 + v_0 t + \frac{1}{2} a t^2
+\end{equation*}
+
+Since the initial position and velocity are both zero, this simplifies to
+
+\begin{equation*}
+    x = \frac{1}{2} a t^2 
+\end{equation*}
+
+Substituting the identified values of $a$ and $t$ gives
+
+\begin{equation*}
+    x = \frac{1}{2}\left(\SI{26.0}{m/s^2}\right)\left(\SI{5.56}{s}\right)^2
+\end{equation*}
+
+yielding
+
+\begin{equation*}
+    x = \SI{402}{m}
+\end{equation*}
+
+\textbf{Discussion}: If we convert \SI{402}{m} to miles, we find that the distance covered is very close to one quarter of a mile, the standard distance for drag racing. So the answer is reasonable. This is an impressive displacement in only \SI{5.56}{s}, but top-notch dragsters can do a quarter mile in even less time than this.
+
+\endsolution
+
+\vspace{1em}
+
+What else can we learn by examining the Equation \eqref{03Tfzm} $x = x_0 + v_0 t + \frac{1}{2} a t^2$ ? We see that:
+
+\begin{itemize}
+    \item displacement depends on the square of the elapsed time when acceleration is not zero. In Example \ref{7ddBPA}, the dragster covers only one fourth of the total distance in the first half of the elapsed time
+    \item if acceleration is zero, then the initial velocity equals average velocity ($v_0 = \bar{v}$) and $x = x_0 + v_0 t + \frac{1}{2} a t^2$ (Eq.~\ref{03Tfzm}) becomes $x = x_0 + v_0 t$ (Eq.~\ref{FokTWv}).
+\end{itemize}
+
+\cyanhrule
+
+\vspace{1em}
+
+\texttt{SOLVING FOR FINAL VELOCITY WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
+
+\vspace{1em}
+
+A fourth useful equation can be obtained from another algebraic manipulation of previous equations.
+
+\vspace{1em}
+
+If we solve $v = v_0 + a t$ (Equation \ref{0bbOYZ}) for $t$ , we get
+
+\begin{equation*}
+    t = \frac{v - v_0}{a} 
+\end{equation*}
+
+Substituting this and $\bar{v} = \frac{v_0 + v}{2}$ into $x = x_0 + \bar{v} t$, we get 
+
+\begin{equation} \label{jIcda3}
+    v^2 = v_0^2 + 2 a (x-x_0)
+\end{equation}
+
+\cyanhrule
+
+\vspace{1em}
+
+\begin{example}
+    \textit{Calculating Final Velocity: Dragsters}. Calculate the final velocity of the dragster in Example \ref{7ddBPA} without using information about time.
+\end{example}
+
+\Solution We draw the same sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5cm,height=5cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            axis y line=none,
+            axis x line=left,
+            clip=false,
+            xtick={0,10},
+            xticklabels={$x_0$,$x=\ ?$},
+        ]
+        \draw[->,thick,Green] (2,-2) -- ++ (5,0) node[black,below,pos=0.5] {$a = \SI{26.0}{m/s^2}$};
+        \end{axis}
+        \hspace{5cm}
+        \xydirection
+    \end{tikzpicture}
+\end{center}
+
+The equation \eqref{jIcda3} $v^2 = v_0^2 + 2a(x-x_0)$ is ideally suited to this task because it relates velocities, acceleration, and displacement, and no time information is required.
+
+\vspace{1em}
+
+1. Identify the known values. We know that $v_0 = 0$, since the dragster starts from rest. Then we note that $x - x_0 = \SI{402}{m}$ (this was the answer in Example \ref{7ddBPA}). Finally, the average acceleration was given to be $a=\SI{26.0}{m/s^2}$.
+
+\vspace{1em}
+
+2. Plug the knowns into the equation \eqref{jIcda3} $v^2 = v_0^2 + 2a(x-x_0)$ and solve for $v$. 
+
+\begin{equation*}
+    v^2 = 0 + 2\left(\SI{26.0}{m/s^2})\right)\left(\SI{402}{m}\right)
+\end{equation*}
+
+Thus
+
+\begin{equation*}
+    v^2 = \SI{2.09e4}{m^2/s^2}
+\end{equation*}
+
+To get $v$, we take the square root
+
+\begin{equation*}
+    v = \sqrt{\SI{2.09e4}{m^2/s^2}} = \SI{145}{m/s}
+\end{equation*}
+
+\textbf{Discussion}: \SI{145}{m/s} is about \SI{522}{km/h} or about \SI{324}{mi/h}, but even this breakneck speed is short of the record for the quarter mile. Also, note that a square root has two values; we took the positive value to indicate a velocity in the same direction as the acceleration.
+
+\endsolution
+
+\vspace{1em}
+
+An examination of the equation $v^2 = v_0^2 + 2a(x-x_0)$ can produce further insights into the general relationships among physical quantities:
+
+\begin{itemize}
+    \item The final velocity depends on how large the acceleration is and the distance over which it acts
+    \item For a fixed deceleration, a car that is going twice as fast doesn't simply stop in twice the distance---it takes much further to stop. (This is why we have reduced speed zones near schools.)
+\end{itemize}
+
+\subsection*{Putting Equations Together}
+
+In the following examples, we further explore one-dimensional motion, but in situations requiring slightly more algebraic manipulation. The examples also give insight into problem-solving techniques. The box below provides easy reference to the equations needed.
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{center}
+    \texttt{SUMMARY OF KINEMATIC EQUATIONS (CONSTANT $a$)}
+\end{center}
+
+\vspace{-2em}
+
+\begin{align}
+    x &= x_0 + \bar{v} t \\[1ex]
+    \bar{v} &= \frac{v_0 + v}{2} \\[1ex]
+    v &= v_0 + at \\[1ex]
+    x &= x_0 + v_0t + \frac{1}{2} a t^2 \\[1ex]
+    v^2 &= v_0^2 + 2a (x - x_0)
+\end{align}
+
+\cyanhrule
+
+\clearpage
+
+\subsection{Exercises}
+
+\subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
+
+\begin{exercise} \label{hJNNqd}
+    A person's speed can stay the same as they round a corner and changes direction. Given this information, is speed a scalar or a vector quantity? Explain.
+\end{exercise}
+
+\subsubsection*{\nameref{LgXYss}} %Acceleration
+
+\begin{exercise} \label{OKpKf5}
+    An airplane lands on a runway traveling east. Describe its acceleration.
+\end{exercise}
+
+\subsection{Answers to Select Exercises}
+
+\subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
+
+\ref{hJNNqd}. Speed is a scalar quantity. It does not change at all with direction changes; therefore, it has magnitude only. If it were a vector quantity, it would change as direction changes (even if its magnitude remained constant).\\
+
+\subsubsection*{\nameref{LgXYss}} %Acceleration
+
+\ref{OKpKf5}. If we take east to be positive, then the airplane has negative acceleration, as it is accelerating toward the west. It is also decelerating: its acceleration is opposite in direction to its velocity.\\
 
 \end{document}

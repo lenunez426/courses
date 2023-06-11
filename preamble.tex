@@ -35,6 +35,7 @@
 \usepackage{tikzsymbols}
 \usepackage{fontawesome}
 \usepackage{linearb} %for \BPwheel symbol in Unit 6
+\usepackage[clock]{ifsym} %for clock and stopwatch symbols
 \usepackage{multicol}
 \usepackage{glossaries}
 \usepackage{cancel}
@@ -121,6 +122,18 @@ color(50.00000000000000bp)=(violet)
 \usepackage{nameref}
 
 \setenumerate{itemsep=-2pt,topsep=0pt,leftmargin=4em}
+\setitemize{itemsep=-2pt,topsep=0pt,leftmargin=4em}
+
+\def\xydirection{
+        \begin{axis}[width=2.4cm,
+            height=2.4cm,
+            ticks=none,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$
+        ]
+        \end{axis}
+}
 
 
 

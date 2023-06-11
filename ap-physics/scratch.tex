@@ -1,38 +1,368 @@
-\documentclass{article}
+\documentclass[dvipsnames]{article}
 \input{preamble}
-\usepackage{booktabs}
-\usepackage{multirow}
+
+\def\xydirection{
+        \begin{axis}[width=2.4cm,
+            height=2.4cm,
+            ticks=none,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$
+        ]
+        \end{axis}
+}
+
 
 \begin{document}
 
+Equation \eqref{FokTWv}, $x = x_0 + \bar{v} t$, gives insight into the relationship between displacement, average velocity, and time. It shows, for example, that displacement is a linear function of average velocity. (By linear function, we mean that displacement depends on $\bar{v}$ rather than on $\bar{v}$ raised to some other power, such as $\bar{v}^2$. When graphed, linear functions look like straight lines with a constant slope.) On a car trip, for example, we will get twice as far in a given time if we average \SI{90}{km/h} than if we average \SI{45}{km/h}.
 
-\begin{table}[!htbp]
-    \centering
-    \begin{tabular}{|l|l|l|l|l|l|l|}
-        \hline
-        \thead{Prefix} & \thead{Symbol} & \thead{Value} & \thead{Example} &&& \\
-        \hline
-        exa & E & $10^{18}$ & exameter & Em & $10^{18}\,\text{m}$& distance light travels in a century\\ 
-        peta & P & $10^{15}$ & petasecond & Ps & $10^{15}\,\text{s}$ & 300 million years\\ 
-        tera & T & $10^{12}$ & terawatt & TW & $10^{12}\,\text{W}$  & powerful laswer output\\ 
-        giga & G & $10^9$ & gigahertz & GHz & $10^9\,\text{Hz}$ & a microwave frequency \\ 
-        mega & M & $10^6$ & megacurie & MCi & $10^6\,\text{Ci}$ & high radioactivity \\ 
-        kilo & k & $10^3$ & kilometer & km & $10^3\,\text{m}$ & about 6/10 mile\\ 
-        hecto & h & $10^2$ & hectoliter & hL & $10^2\,\text{L}$ & 26 gallons\\ 
-        deka & da & $10^1$ & dekagram & dag & $10^1\,\text{g}$ & teaspoon of butter\\ 
-        - & - & $10^0 = 1$ & & & &\\ 
-        deci & d & $10^{-1}$ & deciliter & dL & $10^{-1}\,\text{L}$ & less than half a soda\\ 
-        centi & c & $10^{-2}$ & centimeter & cm & $10^{-2}\,\text{m}$ & fingertip thickness\\ 
-        milli & m & $10^{-3}$ & millimeter & mm & $10^{-3}\,\text{m}$ & flea at its shoulders\\ 
-        micro & $\mymu$ & $10^{-6}$ & micrometer & $\mymu$m & $10^{-6}\,\text{m}$ & detail in microscope\\
-        nano & n & $10^{-9}$ & nanogram & ng & $10^{-9}\,\text{g}$ & small speck of dust\\ 
-        pico & p & $10^{-12}$ & picofarad & pF & $10^{-12}\,\text{F}$ & small capacitor in radio\\ 
-        femto & f & $10^{-15}$ & femtometer & fm & $10^{-15}\,\text{m}$ & size of a proton\\ 
-        atto & a & $10^{-18}$ & attosecond & as & $10^{-18}\,\text{s}$ & time light crosses an atom\\ \hline
-    \end{tabular}
-    \captionsetup{type=table,margin=1in,font=scriptsize}
-    \captionof{table}{Metric Prefixes for Powers of 10 and their Symbols}
-\end{table}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[axis lines=left,
+            width=6cm,
+            height=6cm,
+            ticks=none,
+            ylabel={Displacement, $\Delta x$ (m)},
+            xlabel={Average velocity, $\bar{v}$ (m/s)},
+            title={Displacement vs~Velocity for a given time, $t$},
+            xmin=0,xmax=7,
+            ymin=0,ymax=7,
+        ]
+        \addplot[black,mark=*]
+            coordinates{
+                (0,0)(1,1)(2,2)(3,3)(4,4)(5,5)
+            };
+        \end{axis}
+    \end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{There is a linear relationship between displacement and average velocity. For a given time $t$, an object moving twice as fast as another object will move twice as far as the other object.}
+\end{center}
+
+\cyanhrule
+
+\vspace{1ex}
+
+\textbf{Solving for final velocity}\\
+We can derive another useful equation by manipulating the definition of acceleration, Equation \eqref{vdyjX5}.
+
+\begin{equation*}
+    a = \frac{\Delta v}{\Delta t}
+\end{equation*}
+
+Substituting the simplified notation for $\Delta v$ and $\Delta t$ give us
+
+\begin{equation*}
+    a = \frac{v - v_0}{t}
+\end{equation*}
+
+Solving for $v$ yields
+
+\begin{equation} \label{0bbOYZ}
+    v = v_0 + a t
+\end{equation}
+
+\cyanhrule
+
+\vspace{1em}
+
+\begin{example}
+    \textit{Calculating Final Velocity: An Airplane Slowing Down after Landing}. An airplane lands with an initial velocity of \SI{70.0}{m/s} and then decelerates at \SI{1.50}{m/s^2} for \SI{40.0}{s}. What is its final velocity?
+\end{example}
+
+\Solution Draw a sketch. We draw the acceleration vector in the direction opposite the velocity vector because the plane is decelerating.
+
+
+\begin{center}
+    \begin{tikzpicture}
+        \draw[thick,red,->] (0,1.2) -- ++(3,0) node[black,below,pos=0.5] {$v_0 = \SI{70}{m/s}$};
+        \draw[thick,red,->] (4.5,1.2) -- ++(1,0) node[black,below,pos=0.5] {$v_f =\ ?$};
+        \draw (1.5,0) node{\large \StopWatchStart} node[below=2mm] {\SI{0.0}{s}};
+        \draw (5,0) node{\large \StopWatchEnd} node[below=2mm] {\SI{40.0}{s}};
+        \draw[<-,thick,Green] (2,-1.2) -- ++(3,0) node[below,pos=0.5,black] {$a=-\SI{1.50}{m/s^2}$};
+        \hspace{8cm}
+        \begin{axis}[width=2.4cm,
+            height=2.4cm,
+            ticks=none,
+            axis lines=center,
+            ylabel=$y$,
+            xlabel=$x$
+        ]
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+1. Identify the knowns. We are given initial velocity, acceleration, and time: $v_0 = \SI{70.0}{m/s}$, $a = -\SI{1.50}{m/s^2}$, and $t = \SI{40.0}{s}$. 
+
+\vspace{1ex}
+
+2. Identify the unknown. In this case, it is final velocity, $v_f$.
+
+\vspace{1ex}
+
+3. Determine which equation to use. We can calculate the final velocity using Equation \eqref{0bbOYZ}:
+
+\begin{equation*}
+    v = v_0 + at
+\end{equation*}
+
+4. Plug in the known values and solve.
+
+\begin{equation*}
+    v = v_0 + at = \SI{70.0}{m/s} + \left(-\SI{1.50}{m/s^2}\right)\left(\SI{40.0}{s}\right) = \SI{10.0}{m/s}
+\end{equation*}
+
+The final velocity is much less than the initial velocity, as desired when slowing down, but still positive. With jet engines, reverse thrust could be maintained long enough to stop the plane and start moving it backward. That would be indicated by a negative final velocity, which is not the case here.
+
+\endsolution 
+
+In addition to being useful in problem solving, the equation \eqref{0bbOYZ} $v = v_0 + at$ gives us insight into the relationships among velocity, acceleration, and time. From it we can see, for example, that
+
+\begin{itemize}
+    \item final velocity depends on how large the acceleration is and how long it lasts
+    \item if the acceleration is zero, then the final velocity equals the initial velocity ($v=v_0$), as expected (i.e., velocity is constant)
+    \item if $a$ is negative, then the final velocity is less than the initial velocity
+\end{itemize}
+
+(All of these observations fit our intuition, and it is always useful to examine basic equations in light of our intuition and experiences to check that they do indeed describe nature accurately.)
+
+% Skip MAKING CONNECTIONS: REAL-WORLD CONNECTION
+
+\vspace{1em}
+
+\cyanhrule
+
+\vspace{1ex}
+
+\texttt{SOLVING FOR FINAL POSITION WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
+
+\vspace{1ex}
+
+We can combine the equations above to find a third equation that allows us to calculate the final position of an object experiencing constant acceleration. We start with Equation \eqref{0bbOYZ}:
+
+\begin{equation*}
+    v = v_0 + a t
+\end{equation*}
+
+Adding $v_0$ to each side of this equation and dividing by 2 gives
+
+\begin{equation*}
+    \frac{v_0 + v}{2} = v_0 + \frac{1}{2} a t
+\end{equation*}
+
+Since
+
+\begin{equation*}
+    \frac{v_0 + v}{2} = \bar{v}
+\end{equation*}
+
+for constant acceleration, then 
+
+\begin{equation*}
+    \bar{v} = v_0 + \frac{1}{2} a t^2 
+\end{equation*}
+
+Now we substitute this expression for $\bar{v}$ into the equation for displacement, Equation \eqref{FokTWv}, $x = x_0 + \bar{v} t$, yielding
+
+\begin{equation} \label{03Tfzm}
+    x = x_0 + v_0 t + \frac{1}{2} a t^2
+\end{equation}
+
+which assumes constant $a$.
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{example} \label{7ddBPA}
+    \textit{Calculating Displacement of an Accelerating Object: Dragsters}. Dragsters can achieve average accelerations of \SI{26.0}{m/s^2}. Suppose such a dragster accelerates from rest at this rate for \SI{5.56}{s}. How far does it travel in this time?
+\end{example}
+
+\Solution Draw a sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5cm,height=5cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            axis y line=none,
+            axis x line=left,
+            clip=false,
+            xtick={0,10},
+            xticklabels={$x_0$,$x=\ ?$},
+        ]
+        \draw[->,thick,Green] (2,-2) -- ++ (5,0) node[black,below,pos=0.5] {$a = \SI{26.0}{m/s^2}$};
+        \end{axis}
+        \hspace{5cm}
+        \xydirection
+    \end{tikzpicture}
+\end{center}
+
+We are asked to find displacement, which is $x$ if we take $x_0$ to be zero. (Think about it like the starting line of a race. It can be anywhere, but we call it 0 and measure all other positions relative to it.) We can use Equation \eqref{03Tfzm} $x = x_0 + v_0 t + \frac{1}{2} a t^2$ once we identify $v_0$, $a$, and $t$ from the statement of the problem.
+
+\vspace{1em}
+
+1. Identify the knowns. Starting from rest means that $v_0 = 0$, $a$ is given as $\SI{26.0}{m/s^2}$, and $t$ is given as \SI{5.56}{s}. 
+
+\vspace{1em}
+
+2. Plug the known values into the equation to solve for the unknown $x$. 
+
+\begin{equation*}
+    x = x_0 + v_0 t + \frac{1}{2} a t^2
+\end{equation*}
+
+Since the initial position and velocity are both zero, this simplifies to
+
+\begin{equation*}
+    x = \frac{1}{2} a t^2 
+\end{equation*}
+
+Substituting the identified values of $a$ and $t$ gives
+
+\begin{equation*}
+    x = \frac{1}{2}\left(\SI{26.0}{m/s^2}\right)\left(\SI{5.56}{s}\right)^2
+\end{equation*}
+
+yielding
+
+\begin{equation*}
+    x = \SI{402}{m}
+\end{equation*}
+
+\textbf{Discussion}: If we convert \SI{402}{m} to miles, we find that the distance covered is very close to one quarter of a mile, the standard distance for drag racing. So the answer is reasonable. This is an impressive displacement in only \SI{5.56}{s}, but top-notch dragsters can do a quarter mile in even less time than this.
+
+\endsolution
+
+\vspace{1em}
+
+What else can we learn by examining the Equation \eqref{03Tfzm} $x = x_0 + v_0 t + \frac{1}{2} a t^2$ ? We see that:
+
+\begin{itemize}
+    \item displacement depends on the square of the elapsed time when acceleration is not zero. In Example \ref{7ddBPA}, the dragster covers only one fourth of the total distance in the first half of the elapsed time
+    \item if acceleration is zero, then the initial velocity equals average velocity ($v_0 = \bar{v}$) and $x = x_0 + v_0 t + \frac{1}{2} a t^2$ (Eq.~\ref{03Tfzm}) becomes $x = x_0 + v_0 t$ (Eq.~\ref{FokTWv}).
+\end{itemize}
+
+\cyanhrule
+
+\vspace{1em}
+
+\texttt{SOLVING FOR FINAL VELOCITY WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
+
+\vspace{1em}
+
+A fourth useful equation can be obtained from another algebraic manipulation of previous equations.
+
+\vspace{1em}
+
+If we solve $v = v_0 + a t$ (Equation \ref{0bbOYZ}) for $t$ , we get
+
+\begin{equation*}
+    t = \frac{v - v_0}{a} 
+\end{equation*}
+
+Substituting this and $\bar{v} = \frac{v_0 + v}{2}$ into $x = x_0 + \bar{v} t$, we get 
+
+\begin{equation} \label{jIcda3}
+    v^2 = v_0^2 + 2 a (x-x_0)
+\end{equation}
+
+\cyanhrule
+
+\vspace{1em}
+
+\begin{example}
+    \textit{Calculating Final Velocity: Dragsters}. Calculate the final velocity of the dragster in Example \ref{7ddBPA} without using information about time.
+\end{example}
+
+\Solution We draw the same sketch.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5cm,height=5cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            axis y line=none,
+            axis x line=left,
+            clip=false,
+            xtick={0,10},
+            xticklabels={$x_0$,$x=\ ?$},
+        ]
+        \draw[->,thick,Green] (2,-2) -- ++ (5,0) node[black,below,pos=0.5] {$a = \SI{26.0}{m/s^2}$};
+        \end{axis}
+        \hspace{5cm}
+        \xydirection
+    \end{tikzpicture}
+\end{center}
+
+The equation \eqref{jIcda3} $v^2 = v_0^2 + 2a(x-x_0)$ is ideally suited to this task because it relates velocities, acceleration, and displacement, and no time information is required.
+
+\vspace{1em}
+
+1. Identify the known values. We know that $v_0 = 0$, since the dragster starts from rest. Then we note that $x - x_0 = \SI{402}{m}$ (this was the answer in Example \ref{7ddBPA}). Finally, the average acceleration was given to be $a=\SI{26.0}{m/s^2}$.
+
+\vspace{1em}
+
+2. Plug the knowns into the equation \eqref{jIcda3} $v^2 = v_0^2 + 2a(x-x_0)$ and solve for $v$. 
+
+\begin{equation*}
+    v^2 = 0 + 2\left(\SI{26.0}{m/s^2})\right)\left(\SI{402}{m}\right)
+\end{equation*}
+
+Thus
+
+\begin{equation*}
+    v^2 = \SI{2.09e4}{m^2/s^2}
+\end{equation*}
+
+To get $v$, we take the square root
+
+\begin{equation*}
+    v = \sqrt{\SI{2.09e4}{m^2/s^2}} = \SI{145}{m/s}
+\end{equation*}
+
+\textbf{Discussion}: \SI{145}{m/s} is about \SI{522}{km/h} or about \SI{324}{mi/h}, but even this breakneck speed is short of the record for the quarter mile. Also, note that a square root has two values; we took the positive value to indicate a velocity in the same direction as the acceleration.
+
+\endsolution
+
+\vspace{1em}
+
+An examination of the equation $v^2 = v_0^2 + 2a(x-x_0)$ can produce further insights into the general relationships among physical quantities:
+
+\begin{itemize}
+    \item The final velocity depends on how large the acceleration is and the distance over which it acts
+    \item For a fixed deceleration, a car that is going twice as fast doesn't simply stop in twice the distance---it takes much further to stop. (This is why we have reduced speed zones near schools.)
+\end{itemize}
+
+\subsubsection*{Putting Equations Together}
+
+In the following examples, we further explore one-dimensional motion, but in situations requiring slightly more algebraic manipulation. The examples also give insight into problem-solving techniques. The box below provides easy reference to the equations needed.
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{center}
+    \texttt{SUMMARY OF KINEMATIC EQUATIONS (CONSTANT $a$)}
+\end{center}
+
+\vspace{-2em}
+
+\begin{align}
+    x &= x_0 + \bar{v} t \\[1ex]
+    \bar{v} &= \frac{v_0 + v}{2} \\[1ex]
+    v &= v_0 + at \\[1ex]
+    x &= x_0 + v_0t + \frac{1}{2} a t^2 \\[1ex]
+    v^2 &= v_0^2 + 2a (x - x_0)
+\end{align}
+
+\cyanhrule
+
+
+
+
+
 
 \end{document}
 
