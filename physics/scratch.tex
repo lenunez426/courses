@@ -5,58 +5,21 @@
 
 \begin{document}
 
-\textbf{\ref{X0YL6f}--\ref{4gdNXl}} A pebble is launched horizontally at an initial velocity and height that are indicated in the Figure \ref{kv6ULK} below. All questions below correspond to the point at which the pebble impacts the ground $(x,y)$.
-
 \begin{center}
-    \begin{tikzpicture}[
-        declare function={f(\x)= 15 - 9.8*\x^2/(2*(23^2);}
-    ]
-        \begin{axis}[width=6cm,height=6cm,ticks=none,
-        axis lines = center,
-        %axis line style={draw=none},
-        clip=false,
-        % ylabel = $y$,
-        % xlabel = $x$,
-        xmin=0, xmax=45,
-        ymin=0, ymax=18,
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,height=7cm,
+            ticks=none,
+            xmin=0,xmax=32,
+            ymin=0,ymax=15,
+            clip=false,
+            axis lines=left,
         ]
-        \draw[dashed,domain=0:40.22,variable=\x,samples=100] plot ({\x},{f(\x)});
-        \draw[fill=black!25] (-0.8,0) rectangle ++(-3,15) node[pos=0.5,left=3mm] {\SI{15}{m}};
-        \fill (0,{f(0)}) circle (2pt) node[above left] {$(x_0,y_0)$};
-        \draw[thick,->] (0,{f(0)}) -- ++(axis direction cs: 10,0) node[right] {\SI{23}{m/s}};
-        \fill (40.22,{f(40.22)}) circle (2pt) node[below] {$(x,y)$};
+            \draw[dashed,domain=0:28.15,variable=\x,samples=100] plot(\x,{patheq(\x,12,18,0)}) node[below] {$t =\ ?$} node[below=4mm] {\StopWatchEnd}; 
+            \fill (0,{patheq(0,12,18,0)}) circle (3pt) node[left=2pt] {$t_0 = 0$} node[below left=2mm] {\StopWatchStart};
+            \draw[red,thick,->] (0,{patheq(0,12,18,0)}) -- ++(6,0) node[right] {\SI{18}{m/s}};
         \end{axis}
     \end{tikzpicture}
-    \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{A pebble is launched from a height of 15 meters at an initial speed of 23 meters per second. It impacts the ground some time later.}
-    \label{kv6ULK}
 \end{center}
-
-\begin{exercise} \label{X0YL6f}
-    What is the vertical displacement?
-\end{exercise}
-
-\begin{exercise} \label{9w3tAm}
-    Calculate the amount of time it takes the object to strike the ground.
-\end{exercise}
-
-\begin{exercise} \label{k9Vh0r}
-    Calculate the horizontal displacement. 
-\end{exercise}
-
-\begin{exercise} \label{jCKHLv}
-    What is the pebble's total displacement?
-\end{exercise}
-
-\begin{exercise} \label{4gdNXl}
-    Calculate the magnitude of the pebble's impact velocity.
-\end{exercise}
-
-\ref{X0YL6f}. $-\SI{15}{m}$\\
-\ref{9w3tAm}. \SI{1.75}{s}\\
-\ref{k9Vh0r}. \SI{40.2}{m}\\
-\ref{jCKHLv}. \SI{42.9}{m}\\
-\ref{4gdNXl}. \SI{28.7}{m/s}\\
 
 
 

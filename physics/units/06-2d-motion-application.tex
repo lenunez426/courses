@@ -45,7 +45,6 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
 
 \begin{center}
     \begin{tikzpicture}[
-        declare function={f(\x,\yi,\vi,\thetai)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);}, %equation of path
         declare function={R(\vi,\thetai) = \vi^2 * sin(2*\thetai) / \grav;}, % maximum range
         declare function={h(\vi,\thetai) = (\vi*sin(\thetai))^2/(2*\grav);} %maximum height
     ]
@@ -60,7 +59,7 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
         xmin=0, xmax={R(18,80)*1.1},
         ymin=0, ymax={h(18,80)*1.1},
         ]
-        \draw[thick,blue,domain=0:{R(18,80)},variable=\x,samples=200] plot ({\x},{f(\x,0,18,80)});
+        \draw[thick,RoyalBlue,domain=0:{R(18,80)},variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,80)});
         \node[left] at (0,0) {origin};
         \node[rotate=72,blue] at (2,7) {trajectory};
         \draw (0.6,0) arc (0:35:2) node[pos=0.8,right=2pt] {\ang{80}};
@@ -147,9 +146,7 @@ The most important concept in projectile motion is that when air resistance is i
 Since vertical and horizontal motions are independent, we can analyze them separately, along perpendicular axes. To do this, we separate projectile motion into the two components of its motion, one along the horizontal axis and the other along the vertical.
 
 \begin{center}
-    \begin{tikzpicture}[
-        declare function={f(\x)= 60 - 9.8*\x^2/(2*(28.6^2);}
-    ]
+    \begin{tikzpicture}
         \begin{axis}[width=10cm,height=10cm,ticks=none,
         axis lines = center,
         axis line style={draw=none},
@@ -159,18 +156,18 @@ Since vertical and horizontal motions are independent, we can analyze them separ
         xmin=0, xmax=120,
         ymin=0, ymax=70,
         ]
-        \draw[dashed,domain=0:100,variable=\x,samples=200] plot ({\x},{f(\x)});
-        \draw[dashed] (0,{f(0)}) -- ++(100,0);
-        \draw[dashed] (0,{f(0)}) -- ++(0,-{f(0)});
+        \draw[dashed,domain=0:100,variable=\x,samples=200] plot ({\x},{patheq(\x,60,28.6,0)});
+        \draw[dashed] (0,{patheq(0,60,28.6,0)}) -- ++(100,0);
+        \draw[dashed] (0,{patheq(0,60,28.6,0)}) -- ++(0,-{patheq(0,60,28.6,0)});
 
-        \fill (0,{f(0)}) circle (3pt);
+        \fill (0,{patheq(0,60,28.6,0)}) circle (3pt);
         
         \pgfplotsinvokeforeach{20,40,60,80,100}{
-            \fill (#1,{f(#1)}) circle (3pt);
-            \draw[dashed] (#1,{f(0)}) -- ++(0,{-(f(0)-f(#1))});
-            \fill[cyan] (#1,{f(0)}) circle (3pt);
-            \draw[dashed] (0,{f(#1)}) -- ++(#1,0);
-            \fill[red] (0,{f(#1)}) circle (3pt);
+            \fill (#1,{patheq(#1,60,28.6,0)}) circle (3pt);
+            \draw[dashed] (#1,{patheq(0,60,28.6,0)}) -- ++(0,{-(patheq(0,60,28.6,0)-patheq(#1,60,28.6,0))});
+            \fill[cyan] (#1,{patheq(0,60,28.6,0)}) circle (3pt);
+            \draw[dashed] (0,{patheq(#1,60,28.6,0)}) -- ++(#1,0);
+            \fill[red] (0,{patheq(#1,60,28.6,0)}) circle (3pt);
         }
         \begin{scope}[shift={(-10,59.4)}]
             \draw[very thick,black!80] (0,0) -- (-5,-2);
@@ -193,26 +190,19 @@ We'll call the horizontal axis the $x$-axis and the vertical axis the $y$-axis. 
 
 \begin{center}
     \begin{tikzpicture} 
-    \tikzmath{
-        \vi = 18.0;
-        \yi = 0;
-        \thetai = 70.0;
-    }
-    \tikzset{declare function={f(\x)=\yi + tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);}} %equation of path
-    \pgfplotsset{compat=1.11}
         \begin{axis}[width=8cm,height=8cm,ticks=none,
-        axis lines = center,
-        clip=false,
-        ylabel = $y$,
-        xlabel = $x$,
-        xmin=0, xmax=20,
-        ymin=0, ymax=18,
+            axis lines = center,
+            clip=false,
+            ylabel = $y$,
+            xlabel = $x$,
+            xmin=0, xmax=20,
+            ymin=0, ymax=18,
         ]
         \node at (15.6,0.35) {$\square$};
-        \draw[dashed,domain=0:16,variable=\x,samples=200] plot ({\x},{f(\x)}) node[above left=-4pt] {\faSoccerBallO};
-        \draw[->,thick] (0,0) -- ++(16,{f(16)}) node[pos=0.5,above=3pt]{$d$};
+        \draw[dashed,domain=0:16,variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,70)}) node[above left=-4pt] {\faSoccerBallO};
+        \draw[->,thick] (0,0) -- ++(16,{patheq(16,0,18,70)}) node[pos=0.5,above=3pt]{$d$};
         \draw[->,dashed,thick,blue] (0,0) -- ++(16,0) node[pos=0.5,below] {$x$};
-        \draw[->,dashed,thick,red] (16,0) -- ++(0,{f(16)}) node[pos=0.5,right] {$y$};
+        \draw[->,dashed,thick,red] (16,0) -- ++(0,{patheq(16,0,18,70)}) node[pos=0.5,right] {$y$};
         \node at (2.5,0.65) {$\theta$};
         \draw (1.5,0) arc (0:35:1.5);
         \draw (0,0) node[left] {\Strichmaxerl[3]};
@@ -321,10 +311,7 @@ For vertical motion, the kinematic equations take the following forms under the 
 
 
 \begin{center}
-    \begin{tikzpicture}[
-        declare function={f(\x)=\yi + tan(\thetai)*\x - 10*\x^2/(2*(\vi*cos(\thetai))^2);},
-        declare function={t(\x)=\x/(\vi*cos(\thetai));}
-    ]
+    \begin{tikzpicture}[declare function={t(\x)=\x/(\vi*cos(\thetai));}]
     \tikzmath{
         \grav = 10;
         \vi = 20;
@@ -354,29 +341,29 @@ For vertical motion, the kinematic equations take the following forms under the 
         \draw (1,0) arc (0:75:0.6) node[midway,right=-1pt] {$\theta_0$};
         
         \pgfplotsinvokeforeach{5,10,15}{
-                \draw[fill=black] (#1,{f(#1)}) circle (2pt);
-                \draw[thick,dashed,red,->] (#1,{f(#1)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v_y$};
-                \draw[thick,dashed,cyan,->] (#1,{f(#1)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
-                \draw[thick,violet,->] (#1,{f(#1)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v$};
+                \draw[fill=black] (#1,{patheq(#1,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (#1,{patheq(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v_y$};
+                \draw[thick,dashed,cyan,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
+                \draw[thick,violet,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v$};
                 }
                 
         \draw[fill=black] (\xmax,\ymax) circle (2pt);
         \draw[thick,violet,->] (\xmax,\ymax) -- ++(\vix*\sf,0) node[right=-2pt] {$v = v_x$};
         
         \pgfplotsinvokeforeach{25,30,35,45}{
-                \draw[fill=black] (#1,{f(#1)}) circle (2pt);
-                \draw[thick,dashed,red,->] (#1,{f(#1)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v_y$};
-                \draw[thick,dashed,cyan,->] (#1,{f(#1)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
-                \draw[thick,violet,->] (#1,{f(#1)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v$};
+                \draw[fill=black] (#1,{patheq(#1,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (#1,{patheq(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v_y$};
+                \draw[thick,dashed,cyan,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
+                \draw[thick,violet,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v$};
                 }
 
-                \draw[fill=black] (40,{f(40)}) circle (2pt);
-                \draw[thick,dashed,red,->] (40,{f(40)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[left=-2pt] {$v_y=-v_{0y}$};
-                \draw[thick,dashed,cyan,->] (40,{f(40)}) -- ++(\vix*\sf,0) node[above=-2pt] {$v_x$};
-                \draw[thick,violet,->] (40,{f(40)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[below=-2pt] {$v$};
+                \draw[fill=black] (40,{patheq(40,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (40,{patheq(40,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[left=-2pt] {$v_y=-v_{0y}$};
+                \draw[thick,dashed,cyan,->] (40,{patheq(40,0,20,45)}) -- ++(\vix*\sf,0) node[above=-2pt] {$v_x$};
+                \draw[thick,violet,->] (40,{patheq(40,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[below=-2pt] {$v$};
                 \draw (40.8,0) arc (0:-\thetai:0.8) node[midway,right=-1pt] {$\theta =-\theta_0$};
 
-                \draw (5.8,{f(5)}) arc (0:40:0.8) node[midway,right] {$\theta$};
+                \draw (5.8,{patheq(5,0,20,45)}) arc (0:40:0.8) node[midway,right] {$\theta$};
         \end{axis}
     \end{tikzpicture}
     \captionsetup{type=figure,font=scriptsize}
@@ -393,7 +380,26 @@ For vertical motion, the kinematic equations take the following forms under the 
     Suppose the cannonball from Figure \ref{lTQ6jX} is launched horizontally from a height of \SI{12.0}{m} at a speed of \SI{18.0}{m/s}. How much time will it take the projectile to strike the ground?
 \end{example}
 
-\Solution Our strategy is that the motion can be broken into horizontal and vertical motions in which $a_x = 0$ and $a_y = \SI{-9.80}{m/s^2}$. Let's define given variables and the unknown. First, define initial positions as $x_0 = 0$ and $y_0 = 0$. Thus, the cannonball's final vertical position will be $y = -\SI{12.0}{m}$ (the negative sign indicating that the projectile will be displacement downwards at the moment of impact).
+\Solution Our strategy is based on the fact that the motion can be broken into horizontal and vertical motions in which $a_x = 0$ and $a_y = \SI{-9.80}{m/s^2}$. Start by drawing a sketch:
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,height=7cm,
+            ticks=none,
+            xmin=0,xmax=32,
+            ymin=0,ymax=15,
+            clip=false,
+            axis lines=left,
+        ]
+            \draw[dashed,domain=0:28.15,variable=\x,samples=100] plot(\x,{patheq(\x,12,18,0)}) node[below] {$t =\ ?$} node[below=4mm] {\StopWatchEnd}; 
+            \fill (0,{patheq(0,12,18,0)}) circle (3pt) node[left=2pt] {$t_0 = 0$} node[below left=2mm] {\StopWatchStart};
+            \draw[red,thick,->] (0,{patheq(0,12,18,0)}) -- ++(6,0) node[right] {\SI{18}{m/s}};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+
+Let's define given variables and the unknown. First, define initial positions as $x_0 = 0$ and $y_0 = 0$. Thus, the cannonball's final vertical position will be $y = -\SI{12.0}{m}$ (the negative sign indicating that the projectile will be displacement downwards at the moment of impact).
 
 \vspace{1em}
 
@@ -487,9 +493,7 @@ Therefore, the cannonball is horizontally displaced by 28.2 meters from its orig
 as shown in the figure below.
 
 \begin{center}
-    \begin{tikzpicture}[
-        declare function={f(\x)= 12 - 9.8*\x^2/(2*(18^2);}
-    ]
+    \begin{tikzpicture}
         \begin{axis}[width=7cm,height=7cm,
         ticks=none,
         axis lines = center,
@@ -500,10 +504,10 @@ as shown in the figure below.
         xmin=0, xmax=35,
         ymin=0, ymax=15,
         ]
-        \draw[dashed,domain=0:28.15,variable=\x,samples=200] plot ({\x},{f(\x)});
-        \fill (0,{f(0)}) circle (2pt) node[left] {$(0,0)$};
-        \fill (28.15,{f(28.15)}) circle (2pt) node[below] {$(28.2,-12)$};
-        \draw[thick,->] (0,{f(0)}) -- (28,{f(28)}) node[pos=0.5,below left] {$d$};
+        \draw[dashed,domain=0:28.15,variable=\x,samples=200] plot ({\x},{patheq(\x,12,18,0)});
+        \fill (0,{patheq(0,12,18,0)}) circle (2pt) node[left] {$(0,0)$};
+        \fill (28.15,{patheq(28.15,12,18,0)}) circle (2pt) node[below] {$(28.2,-12)$};
+        \draw[thick,->] (0,{patheq(0,12,18,0)}) -- (28,{patheq(28,12,18,0)}) node[pos=0.5,below left] {$d$};
         \end{axis}
     \end{tikzpicture}
 \end{center}
@@ -567,9 +571,7 @@ the negative sign indicating that vertical velocity is, as we expect, pointing d
 Therefore, the impact velocity is 23.6 meters per second down and to the right.
 
 \begin{center}
-    \begin{tikzpicture}[
-        declare function={f(\x)= 12 - 9.8*\x^2/(2*(18^2);}
-    ]
+    \begin{tikzpicture}
         \begin{axis}[width=6cm,height=6cm,
         ticks=none,
         axis lines = center,
@@ -580,9 +582,9 @@ Therefore, the impact velocity is 23.6 meters per second down and to the right.
         xmin=0, xmax=35,
         ymin=0, ymax=15,
         ]
-        \draw[dashed,domain=0:28.15,variable=\x,samples=200] plot ({\x},{f(\x)});
-        \fill (28.15,{f(28.15)}) circle (2pt);
-        \draw[thick,->,red] (28.15,{f(28.15)}) -- ++(axis direction cs: 0.3*18,-0.3*15.3) node[right,black] {$v = \SI{23.6}{m/s}$};
+        \draw[dashed,domain=0:28.15,variable=\x,samples=200] plot ({\x},{patheq(\x,12,18,0)});
+        \fill (28.15,{patheq(28.15,12,18,0)}) circle (2pt);
+        \draw[thick,->,red] (28.15,{patheq(28.15,12,18,0)}) -- ++(axis direction cs: 0.3*18,-0.3*15.3) node[right,black] {$v = \SI{23.6}{m/s}$};
         \end{axis}
     \end{tikzpicture}
 \end{center}
@@ -596,7 +598,6 @@ The fact that vertical and horizontal motions are independent of each other lets
 
 \begin{center}
     \begin{tikzpicture}[
-        declare function={f(\x,\yi,\vi,\thetai)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);}, %equation of path
         declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
         declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
     ]
@@ -614,11 +615,11 @@ The fact that vertical and horizontal motions are independent of each other lets
         ymin=0, ymax={h(50,45)*1.1},
         ]
         \draw[Green,thick,->] (0,0) -- ++({50*cos(45)},{50*sin(45)}) node[above left=-5pt] {\SI{50}{m/s}};;
-        \draw[Green,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{f(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
+        \draw[Green,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
         \draw[violet,thick,->] (0,0) -- ++({40*cos(45)},{40*sin(45)}) node[pos=0.93,right=2.7mm] {\SI{40}{m/s}};;
-        \draw[violet,thick,domain=0:{R(40,45)},variable=\x,samples=250] plot ({\x},{f(\x,0,40,45)}) node[black,below] {$R = \SI{163}{m}$};
+        \draw[violet,thick,domain=0:{R(40,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,40,45)}) node[black,below] {$R = \SI{163}{m}$};
         \draw[red,thick,->] (0,0) -- ++({30*cos(45)},{30*sin(45)}) node[pos=0.4,right=3pt] {\SI{30}{m/s}, \ang{45}};
-        \draw[red,thick,domain=0:{R(30,45)},variable=\x,samples=250] plot ({\x},{f(\x,0,30,45)})
+        \draw[red,thick,domain=0:{R(30,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,30,45)})
     node[black,below] {$R = \SI{91.8}{m}$};;
         \end{axis}
     \end{tikzpicture}
@@ -626,7 +627,6 @@ The fact that vertical and horizontal motions are independent of each other lets
     \vspace{1em}
 
     \begin{tikzpicture}[
-        declare function={f(\x,\yi,\vi,\thetai)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);}, %equation of path
         declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
         declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
     ]
@@ -644,11 +644,11 @@ The fact that vertical and horizontal motions are independent of each other lets
         ymin=0, ymax={h(50,75)*1.1},
         ]
         \draw[Green,thick,->] (0,0) -- ++({50*cos(75)},{50*sin(75)}) node[pos=1.7,rotate=58] {\SI{50}{m/s}, \ang{75}};;
-        \draw[Green,thick,domain=0:{R(50,75)},variable=\x,samples=250] plot ({\x},{f(\x,0,50,75)}) node[black,below] {$R = \SI{128}{m}$};
+        \draw[Green,thick,domain=0:{R(50,75)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,75)}) node[black,below] {$R = \SI{128}{m}$};
         \draw[violet,thick,->] (0,0) -- ++({50*cos(45)},{50*sin(45)}) node[pos=1.6,rotate=20,below=-6pt] {\SI{50}{m/s}, \ang{45}};;
-        \draw[violet,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{f(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
+        \draw[violet,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
         \draw[red,thick,->] (0,0) -- ++({50*cos(15)},{50*sin(15)}) node[pos=1.5] {\SI{50}{m/s}, \ang{15}};;
-        \draw[red,thick,domain=0:{R(50,15)},variable=\x,samples=250] plot ({\x},{f(\x,0,50,15)});
+        \draw[red,thick,domain=0:{R(50,15)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,15)});
         \end{axis}
     \end{tikzpicture}
     \captionsetup{type=figure,margin=1in,font=scriptsize}
@@ -934,9 +934,7 @@ The centripetal force is 2304 newtons inward.
 \textbf{\ref{X0YL6f}--\ref{4gdNXl}} A pebble is launched horizontally at an initial velocity and height that are indicated in the Figure \ref{kv6ULK} below. All questions below correspond to the point at which the pebble impacts the ground $(x,y)$.
 
 \begin{center}
-    \begin{tikzpicture}[
-        declare function={f(\x)= 15 - 9.8*\x^2/(2*(23^2);}
-    ]
+    \begin{tikzpicture}
         \begin{axis}[width=6cm,height=6cm,ticks=none,
         axis lines = center,
         %axis line style={draw=none},
@@ -946,11 +944,11 @@ The centripetal force is 2304 newtons inward.
         xmin=0, xmax=45,
         ymin=0, ymax=18,
         ]
-        \draw[dashed,domain=0:40.22,variable=\x,samples=100] plot ({\x},{f(\x)});
+        \draw[dashed,domain=0:40.22,variable=\x,samples=100] plot ({\x},{patheq(\x,15,23,0)});
         \draw[fill=black!25] (-0.8,0) rectangle ++(-3,15) node[pos=0.5,left=3mm] {\SI{15}{m}};
-        \fill (0,{f(0)}) circle (2pt) node[above left] {$(x_0,y_0)$};
-        \draw[thick,->] (0,{f(0)}) -- ++(axis direction cs: 10,0) node[right] {\SI{23}{m/s}};
-        \fill (40.22,{f(40.22)}) circle (2pt) node[below] {$(x,y)$};
+        \fill (0,{patheq(0,15,23,0)}) circle (2pt) node[above left] {$(x_0,y_0)$};
+        \draw[thick,->] (0,{patheq(0,15,23,0)}) -- ++(axis direction cs: 10,0) node[right] {\SI{23}{m/s}};
+        \fill (40.22,{patheq(40.22,15,23,0)}) circle (2pt) node[below] {$(x,y)$};
         \end{axis}
     \end{tikzpicture}
     \captionsetup{type=figure,margin=1in,font=scriptsize}

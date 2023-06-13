@@ -4,92 +4,88 @@
 
 \begin{document}
 
-\begin{example}
-    \textit{Calculating Time: A Car Merges into Traffic}. Suppose a car merges into freeway traffic on a 200-m-long ramp. If its initial velocity is 10.0 m/s and it accelerates at \SI{2.00}{m/s^2}, how long does it take to travel the 200 m up the ramp? (Such information might be useful to a traffic engineer.)
-\end{example}
+\subsection{Problem-Solving Basics for One-Dimensional Kinematics}
 
-\Solution Draw a sketch.
+Problem-solving skills are obviously essential to success in a quantitative course in physics. More importantly, the ability to apply broad physical principles, usually represented by equations, to specific situations is a very powerful form of knowledge. It is much more powerful than memorizing a list of facts. Analytical skills and problem-solving abilities can be applied to new situations, whereas a list of facts cannot be made long enough to contain every possible circumstance. Such analytical skills are useful both for solving problems in this text and for applying physics in everyday and professional life.
 
-\begin{center}
-    \begin{tikzpicture}
-        \draw[->,thick,RoyalBlue] (0,0) node[below,black] {$x_0 = 0$} -- ++(5,0) node[below,black] {$x = \SI{200}{m}$} node[black,pos=0.5,above=5mm] {$t=\ ?$};
-        \draw[->,red,thick] (-1,-1) -- ++(2,0) node[pos=0.5,below,black] {$v_0 = \SI{10.0}{m/s}$}; 
-        \draw[->,red,thick] (3,-1) -- ++(4,0) node[pos=0.5,below,black] {$v =\ ?$};
-        \draw[->,Green,thick] (1,-2) -- ++(3,0) node[pos=0.5,below,black] {$a = \SI{2.00}{m/s^2}$};
-    \end{tikzpicture}
-\end{center}
+\subsubsection*{Problem-Solving Steps}
 
-We are asked to solve for the time $t$. As before, we identify the known quantities in order to choose a convenient physical relationship (that is, an equation with one unknown, $t$).
+While there is no simple step-by-step method that works for every problem, the following general procedures facilitate problem solving and make it more meaningful. A certain amount of creativity and insight is required as well.
 
 \vspace{1em}
 
-We identify the givens and what we want to solve for. We know initial velocity, acceleration, and displacement: $v_0 = \SI{10}{m/s}$, $a = \SI{2.00}{m/s^2}$, $x = \SI{200}{m}$. 
+\textbf{Step 1}\\
+\textit{Examine the situation to determine which physical principles are involved}. It often helps to \textit{draw a simple sketch} at the outset. You will also need to decide which direction is positive and note that on your sketch. Once you have identified the physical principles, it is much easier to find and apply the equations representing those principles. Although finding the correct equation is essential, keep in mind that equations represent physical principles, laws of nature, and relationships among physical quantities. Without a conceptual understanding of a problem, a numerical solution is meaningless.
 
 \vspace{1em}
 
-We need to solve for time: $t =\ ?$ Choose the best equation. Equation \eqref{eo2SPc}, $x = x_0 + v_0 t + \frac{1}{2} a t^2$, works best because the only unknown in the equation is the variable $t$ for which we need to solve.
+\textbf{Step 2}\\
+\textit{Make a list of what is given or can be inferred from the problem as stated (identify the knowns)}. Many problems are stated very succinctly and require some inspection to determine what is known. A sketch can also be very useful at this point. Formally identifying the knowns is of particular importance in applying physics to real-world situations. Remember, ``stopped'' means velocity is zero, and we often can take initial time and position as zero.
 
 \vspace{1em}
 
-We will need to rearrange the equation to solve for $t$. It will be easier to plug in the knowns first. Substituting known values leads to 
+\textbf{Step 3}\\
+\textit{Identify exactly what needs to be determined in the problem (identify the unknowns}). In complex problems, especially, it is not always obvious what needs to be found or in what sequence. Making a list can help.
+
+\vspace{1em}
+
+\textbf{Step 4}\\
+\textit{Find an equation or set of equations that can help you solve the problem}. Your list of knowns and unknowns can help here. It is easiest if you can find equations that contain only one unknown---that is, all of the other variables are known, so you can easily solve for the unknown. If the equation contains more than one unknown, then an additional equation is needed to solve the problem. In some problems, several unknowns must be determined to get at the one needed most. In such problems it is especially important to keep physical principles in mind to avoid going astray in a sea of equations. You may have to use two (or more) different equations to get the final answer.
+
+\vspace{1em}
+
+\textbf{Step 5}\\
+\textit{Substitute the knowns along with their units into the appropriate equation, and obtain numerical solutions complete with units}. This step produces the numerical answer; it also provides a check on units that can help you find errors. If the units of the answer are incorrect, then an error has been made. However, be warned that correct units do not guarantee that the numerical part of the answer is also correct.
+
+\vspace{1em}
+
+\textbf{Step 6}\\
+\textit{Check the answer to see if it is reasonable: Does it make sense}? This final step is extremely important---the goal of physics is to accurately describe nature. To see if the answer is reasonable, check both its magnitude and its sign, in addition to its units. Your judgment will improve as you solve more and more physics problems, and it will become possible for you to make finer and finer judgments regarding whether nature is adequately described by the answer to a problem. This step brings the problem back to its conceptual meaning. If you can judge whether the answer is reasonable, you have a deeper understanding of physics than just being able to mechanically solve a problem.
+
+\vspace{1em}
+
+When solving problems, we often perform these steps in different order, and we also tend to do several steps simultaneously. There is no rigid procedure that will work every time. Creativity and insight grow with experience, and the basics of problem solving become almost automatic. One way to get practice is to work out the text's examples for yourself as you read. Another is to work as many end-of-section problems as possible, starting with the easiest to build confidence and progressing to the more difficult. Once you become involved in physics, you will see it all around you, and you can begin to apply it to situations you encounter outside the classroom, just as is done in many of the applications in this text.
+
+\subsubsection*{Unreasonable Results}
+
+Physics must describe nature accurately. Some problems have results that are unreasonable because one premise is unreasonable or because certain premises are inconsistent with one another. The physical principle applied correctly then produces an unreasonable result. For example, if a person starting a foot race accelerates at \SI{0.40}{m/s^2}, for 100 s, his final speed will be \SI{40}{m/s} (about \SI{150}{km/h})---clearly unreasonable because the time of \SI{100}{s} is an unreasonable premise. The physics is correct in a sense, but there is more to describing nature than just manipulating equations correctly. Checking the result of a problem to see if it is reasonable does more than help uncover errors in problem solving---it also builds intuition in judging whether nature is being accurately described.
+
+\vspace{1em}
+
+Use the following strategies to determine whether an answer is reasonable and, if it is not, to determine what is the cause.
+
+\vspace{1em}
+
+\textbf{Step 1}\\
+\textit{Solve the problem using strategies as outlined and in the format followed in the worked examples in the text}. In the example given in the preceding paragraph, you would identify the givens as the acceleration and time and use the equation below to find the unknown final velocity. That is,
 
 \begin{equation*}
-    \SI{200}{m} = \SI{0}{m} + \left(\SI{10}{m/s}\right) t + \frac{1}{2}\left(\SI{2.00}{m/s^2}\right) t^2
+    v = v_0 + at = 0 + \left(\SI{0.40}{m/s^2}\right) \left(\SI{100}{s}\right) = \SI{40}{m/s}
 \end{equation*}
 
-Simplify the equation. The units of meters (m) cancel because they are in each term. We can get the units of seconds (s) to cancel by taking  $t = t\,\text{s}$, where $t$ is the magnitude of time and s is the unit. Doing so leaves
+\textbf{Step 2}\\
+\textit{Check to see if the answer is reasonable}. Is it too large or too small, or does it have the wrong sign, improper units, \ldots ? In this case, you may need to convert meters per second into a more familiar unit, such as miles per hour.
 
 \begin{equation*}
-    200 = 10t + t^2
+    \left(\frac{\SI{40}{m}}{\SI{}{s}}\right)
+    \left(\frac{\SI{3.28}{ft}}{\SI{}{m}}\right)
+    \left(\frac{\SI{1}{mi}}{\SI{5280}{ft}}\right)
+    \left(\frac{\SI{60}{s}}{\SI{1}{min}}\right)
+    \left(\frac{\SI{60}{min}}{\SI{1}{h}}\right)
+    = \SI{89}{mph}
 \end{equation*}
 
-Next, we use the quadratic formula to solve for $t$. We rearrange the equation to get 0 on one side of the equation, as follows:
+This velocity is about four times greater than a person can run---so it is too large.
 
-\begin{align*}
-    \textbf{Swap equation sides} \qquad & t^2 + 10t = 200\\[1ex]
-    \textbf{Subtract 200} \qquad & t^2 + 10t \redminus \textcolor{red}{200} = 200 \redminus \textcolor{red}{200}\\[1ex]
-    \textbf{Simplify} \qquad & t^2 + 10t - 200 = 0
-\end{align*}
+\vspace{1em}
 
-This equation
+\textbf{Step 3}\\
+\textit{If the answer is unreasonable, look for what specifically could cause the identified difficulty}. In the example of the runner, there are only two assumptions that are suspect. The acceleration could be too great or the time too long. First look at the acceleration and think about what the number means. If someone accelerates at \SI{0.40}{m/s^2}, their velocity is increasing by 0.4 m/s each second. Does this seem reasonable? If so, the time must be too long. It is not possible for someone to accelerate at a constant rate of \SI{0.40}{m/s^2} for 100 s (almost two minutes).
+ 
 
-\begin{equation} \label{uIBlB1}
-    t^2 + 10t - 200 = 0
-\end{equation}
 
-is a quadratic equation of the form
+ 
 
-\begin{equation}
-    a t^2 + bt + c = 0
-\end{equation}
-
-where the constants are $a = 1.00$, $b = 10.0$, and $c = -200$. The solutions to Equation \eqref{uIBlB1} are given by the quadratic formula:
-
-\begin{equation}
-    t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
-\end{equation}
-
-This yields two solutions for $t$, which are
-
-\begin{equation*}
-    t = 10.0 \quad \text{and} \quad -20.0
-\end{equation*}
-
-In this case, then, the time is $t = t$ in seconds, or
-
-\begin{equation*}
-     t = \SI{10.0}{s} \quad \text{and} \quad -\SI{20.0}{s}
-\end{equation*}
-
-A negative value for time is unreasonable, since it would mean that the event happened \SI{20}{s} before the motion began. We can discard that solution. Thus,
-
-\begin{equation*}
-    t = \SI{10.0}{s}
-\end{equation*}
-
-\textbf{Discussion}: Whenever an equation contains an unknown squared, there will be two solutions. In some problems both solutions are meaningful, but in others, such as the above, only one solution is reasonable. The \SI{10.0}{s} answer seems reasonable for a typical freeway on-ramp.
-
-\endsolution
  
 \end{document}
 

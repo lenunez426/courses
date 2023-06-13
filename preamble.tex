@@ -135,5 +135,7 @@ color(50.00000000000000bp)=(violet)
         \end{axis}
 }
 
+\tikzset{declare function = {patheq(\x,\yi,\vi,\thetai)= \yi + tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);}}
+
 
 
