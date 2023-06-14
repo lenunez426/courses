@@ -12,15 +12,77 @@
 
 \openstaxfooter
 
+
 \begin{document}
 
 \setcounter{section}{5} % Comment out if recompiling from main-physics.tex
 \section{Two-Dimensional Motion Application}
 
+In this unit, we explore two types of two-dimensional motion: projectile motion and uniform circular motion (UCM). The first 10 lessons address projectile motion; the last 8 lessons, UCM.
 
-\subsection{Lab: Introduction to Projectile Motion}
+\begin{mdframed}[backgroundcolor=black!10]
+\textbf{Note on Section Numbering}\\
+Subsections are labeled according to the Day in the Lesson Plan of this unit. For example, Section \ref{tMF7JY} corresponds to Day 3 of Unit 6.
+\end{mdframed}
 
-Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{click here}). Click the \texttt[red]{Lab} panel. We bring to your attention three functions of this simulation, namely the fire button, the first measuring tool, and the reset button, which are shown below:
+\vspace{1ex}
+
+\cyanhrule
+
+\vspace{1em}
+
+\Gls{projectile motion} is the motion of an object thrown (projected) into the air when, after the initial force that launches the object, air resistance is negligible and the only other force that object experiences is the force of gravity. The object is called a \gls{projectile}, and its path is called its \gls{trajectory}. \Gls{air resistance} is a frictional force that slows its motion and can significantly alter the trajectory of the motion. Due to the difficulty in calculation, only situations in which the deviation from projectile motion is negligible and \textit{air resistance can be ignored} are considered in this unit. That approximation is often quite accurate.
+
+\vspace{1em}
+
+\begin{center}
+    \begin{tikzpicture}[declare function={t(\x)=\x/(\vi*cos(\thetai));}]
+    \tikzmath{
+        \grav = 10;
+        \vi = 20;
+        \yi = 0;
+        \thetai = 45.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*\tmax;
+        \sf = 0.3; %scale factor for vector components
+    }
+    % \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,height=9cm,ticks=none,
+        axis lines = none,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=50,
+        ymin=0, ymax=15,
+        ]
+        \draw[red,domain=0:45,samples=100,variable=\x] plot(\x,{patheqten(\x,0,20,45)});
+        \draw[->] (0,0) -- ++(\vix*\sf,\viy*\sf) node[above=3mm,pos=0.8] {$v_0$};
+        \draw[dashed,->] (0,0) -- ++(0,{\sf*\vi*sin(\thetai)}) node[above] {$v_{0y}$};
+        \draw[dashed,->] (0,0) -- ++(\vix*\sf,0) node[right] {$v_{0x}$};
+
+        \draw[fill=black] (\xmax,\ymax) circle (2pt);
+        \draw[thick,->] (\xmax,\ymax) -- ++(\vix*\sf,0);
+        
+        \pgfplotsinvokeforeach{0,5,10,15,25,30,35,40,45}{
+                \draw[fill=black] (#1,{patheqten(#1,0,20,45)}) circle (2pt);
+                \draw[dashed,->] (#1,{patheqten(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))});
+                \draw[dashed,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,0);
+                \draw[thick,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))});
+                }
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+
+\clearpage
+\subsection{Relevant Application: Factors that Affect Path and Hang Time} \label{1hGIbN}
+
+\begin{mdframed}[backgroundcolor=Green!10]
+    \textbf{Warm-Up}. Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{click here}). Click the \texttt[red]{Lab} panel. Locate the following three functions on your screen: the fire button, the first measuring tool, and the reset button, which are shown below:
+\end{mdframed}
 
 \begin{center}
     \begin{tikzpicture}
@@ -41,7 +103,7 @@ Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://ph
     \end{tikzpicture}
 \end{center}
 
-When you press the \texttt[red]{Fire} button, a projectile is launched through the air. The path of the projectile, which is indicated by the blue curve, is called the trajectory. Three points on the trajectory are worth mentioning. First, the origin, which is where the cannon is positioned, defines the initial horizontal and vertical positions of the projectile as zero: $x_0=0$ and $y_0 = 0$. Second, the maximum height occurs when the projectile reaches its largest vertical displacement. Third, maximum range occurs when the projectile impacts the ground. The \texttt[red]{Tool \#1} measures time, range, and height at several points on the path of the projectile. \texttt[red]{Time} is the time elapsed since the launch of the projectile, \texttt[red]{Range} is the projectile's horizontal displacement from the origin, and \texttt[red]{Height} is the projectile's vertical displacement from the origin. 
+When you press the \texttt[red]{Fire} button, a projectile is launched through the air. The path of the projectile, which is indicated by the blue curve, is called the trajectory. Three points on the trajectory are worth mentioning. First, the origin is where the cannon is positioned. Second, the maximum height occurs when the projectile reaches its largest vertical displacement. Third, maximum range occurs when the projectile impacts the ground. The \texttt[red]{Tool \#1} measures time, range, and height at several points on the path of the projectile. \texttt[red]{Time} is the time elapsed since the launch of the projectile, \texttt[red]{Range} is the projectile's horizontal displacement from the origin, and \texttt[red]{Height} is the projectile's vertical displacement from the origin. 
 
 \begin{center}
     \begin{tikzpicture}[
@@ -52,7 +114,7 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
         \grav=9.8;
     }
     \pgfplotsset{compat=1.11}
-        \begin{axis}[width=7cm,height=7cm,ticks=none,
+        \begin{axis}[width=6cm,height=6cm,ticks=none,
         axis lines = center,
         axis line style={draw=none},
         clip=false,
@@ -61,8 +123,8 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
         ]
         \draw[thick,RoyalBlue,domain=0:{R(18,80)},variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,80)});
         \node[left] at (0,0) {origin};
-        \node[rotate=72,blue] at (2,7) {trajectory};
-        \draw (0.6,0) arc (0:35:2) node[pos=0.8,right=2pt] {\ang{80}};
+        \node[rotate=72,RoyalBlue] at (2,7) {trajectory};
+        \draw (0.6,0) arc (0:35:2) node[pos=1.2,right=2mm,align=left] {launch\\ angle};
         \draw[<->,dashed] (0,0) -- ++(axis direction cs: {R(18,80)},0) node[pos=0.8,below] {maximum range};
         \draw[<->,dashed] ({R(18,80)/2},0) -- ++(axis direction cs: 0,{h(18,80)}) node[above] {maximum height};
         \end{axis}
@@ -88,7 +150,7 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
 
 \begin{enumerate}
     \item The \texttt[red]{Reset} button ($\boldsymbol{\circlearrowleft}$) is located at the bottom right corner. It resets all settings to the default, as you found the page when you first opened it. Click the $\boldsymbol{\circlearrowleft}$ button.
-    \item Click the \texttt[red]{Fire} button to launch a cannonball. Observe the same path, or the so-called trajectory, as before.
+    \item Click the \texttt[red]{Fire} button to launch a cannonball. Observe the same path, or trajectory, as before.
     \item \label{thVv3G} The default mass of the cannonball is \SI{17.60}{kg}. Change the mass to \SI{3.00}{kg}, and fire the cannon again. Did the trajectory change? Record your observations. 
     \item Repeat Step \ref{thVv3G} using the following projectile masses: $m=\SI{10}{kg}$, \SI{25}{kg}, and \SI{31}{kg}. Record your observations for each case. Then answer the following question: How does changing the mass of a projectile affect its path?
 \end{enumerate}
@@ -99,13 +161,19 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
 \begin{enumerate}
     \item Click the \texttt[red]{Reset} ($\boldsymbol{\circlearrowleft}$) button.
     \item Click the \texttt[red]{Fire} button, noting the familiar trajectory in blue.
-    \item Locate the cannon, at the origin. The values \SI{0}{m} and \ang{80} next to the cannon indicate that the projectile is set to be launched from a height of zero meters and at angle of \ang{80} from the horizontal.
+    \item Locate the cannon at the origin. The values \SI{0}{m} and \ang{80} next to the cannon indicate that the projectile is set to be launched from a height of zero meters and at angle of \ang{80} from the horizontal.
     \item Locate the $\boldsymbol{+}$ symbol on the center of the cannon. Clicking and dragging this symbol upwards increases the launch height of the projectile. Change the launch height to 3 meters, fire the projectile at this height, and observe the new projectile path. Record your observations.
     \item Click-and-drag the $\boldsymbol{+}$ to change the launch height from 0 to 15 meters in increments of 3. In other words, from launch heights of \SI{0}{m}, \SI{3}{m}, \SI{6}{m}, \ldots, \SI{15}{m}. At each launch height, \texttt[red]{Fire} the projectile to observe the new trajectory. Record all your observations. 
     \item How does changing the launch height affect the path of a projectile? You may draw several sketches and use time, range, and height data from \texttt[red]{Tool \#1} to support your answer.
 \end{enumerate}
 
 \vspace{1em}
+
+\subsection{Relevant Application ({\small \textit{cont}.}): Launch Angle and Projectile Path}
+
+\begin{mdframed}[backgroundcolor=Green!10]
+    \textbf{Warm-Up}: See Warm-Up from Section \ref{1hGIbN}.
+\end{mdframed}
 
 \textbf{Part IV: How Launch Velocity Changes Projectile Path}
 
@@ -120,6 +188,8 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
 
 \vspace{1em}
 
+\clearpage
+
 \textbf{Part V: Launch Angle, Trajectory, and Hang Time}
 
 \begin{enumerate}
@@ -132,14 +202,22 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
     \item Which angle yields the largest possible maximum range? You may need to try launching the projectile at a variety of angles by trial-and-error to arrive at your conclusion.
 \end{enumerate}
 
+\subsection{Vertical \& Horizontal Vectors of Position, Velocity, and Acceleration} \label{tMF7JY}
 
-\subsection{Projectile Motion} \label{tMF7JY}
+\begin{mdframed}[backgroundcolor=Green!10]
+    \textbf{Warm-Up}. List what you know about the following quantities, including their SI units. Then, list what you want to know about them in two-dimensional motion.
 
-\Gls{projectile motion} is the motion of an object thrown (projected) into the air when, after the initial force that launches the object, air resistance is negligible and the only other force that object experiences is the force of gravity. The object is called a \gls{projectile}, and its path is called its \gls{trajectory}. \Gls{air resistance} is a frictional force that slows its motion and can significantly alter the trajectory of the motion. Due to the difficulty in calculation, only situations in which the deviation from projectile motion is negligible and air resistance can be ignored are considered in introductory physics. That approximation is often quite accurate.
+    \begin{center}
+        \textbf{position} \hspace{2em}
+        \textbf{velocity} \hspace{2em}
+        \textbf{acceleration}
+    \end{center}
+\end{mdframed}
+
 
 \vspace{1em}
 
-The most important concept in projectile motion is that when air resistance is ignored, horizontal and vertical motions are independent, meaning that they don't influence one another. Figure ?.?? compares a cannonball in free fall (in blue) to a cannonball launched horizontally in projectile motion (in red). You can see that the cannonball in free fall falls at the same rate as the cannonball in projectile motion. Keep in mind that if the cannon launched the ball with any vertical component to the velocity, the vertical displacements would not line up perfectly.
+The most important concept in projectile motion is that when air resistance is ignored, horizontal and vertical motions are independent, meaning that they don't influence one another. Figure \ref{lTQ6jX} compares a cannonball in free fall (in red) to a cannonball launched horizontally in projectile motion (in black). You can see that \textit{the cannonball in free fall falls at the same rate as the cannonball in projectile motion}. Keep in mind that if the cannon launched the ball with any vertical component to the velocity, the vertical displacements would not line up perfectly.
 
 \vspace{1em}
 
@@ -201,8 +279,8 @@ We'll call the horizontal axis the $x$-axis and the vertical axis the $y$-axis. 
         \node at (15.6,0.35) {$\square$};
         \draw[dashed,domain=0:16,variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,70)}) node[above left=-4pt] {\faSoccerBallO};
         \draw[->,thick] (0,0) -- ++(16,{patheq(16,0,18,70)}) node[pos=0.5,above=3pt]{$d$};
-        \draw[->,dashed,thick,blue] (0,0) -- ++(16,0) node[pos=0.5,below] {$x$};
-        \draw[->,dashed,thick,red] (16,0) -- ++(0,{patheq(16,0,18,70)}) node[pos=0.5,right] {$y$};
+        \draw[->,dashed,ultra thick,RoyalBlue] (0,0) -- ++(16,0) node[pos=0.5,below] {$x$};
+        \draw[->,dashed,ultra thick,red] (16,0) -- ++(0,{patheq(16,0,18,70)}) node[pos=0.5,right] {$y$};
         \node at (2.5,0.65) {$\theta$};
         \draw (1.5,0) arc (0:35:1.5);
         \draw (0,0) node[left] {\Strichmaxerl[3]};
@@ -213,10 +291,173 @@ We'll call the horizontal axis the $x$-axis and the vertical axis the $y$-axis. 
     \label{i1Y7vV}
 \end{center}
 
+\subsubsection*{\ref{tMF7JY} Exercises}
+
+\begin{exercise} \label{KU3Mnf}
+Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{click here}). Click the \texttt[red]{Vectors} panel, and take the following steps:
+
+\begin{enumerate}
+    \item Un-check the \texttt[red]{Air Resistance} box. (Leave it blank.)
+    \item Raise the cannon to a height of \SI{11}{m}, change the launch angle to \ang{0} for a horizontal launch, and decrease the \texttt[red]{Initial Speed} to \SI{10}{m/s}.
+    \item Click the \texttt[red]{Components} option, and check the \texttt[red]{Velocity Vectors} box.
+    \item Press \texttt[red]{Pause} (\small \faPause).
+    \item Press the \texttt[red]{Fire} button. The initial velocity, which is entirely horizontal is displayed. Notice that vertical velocity is not shown because it's zero.
+    \item Sketch the horizontal and vertical velocity vectors of this snapshot in a motion map. 
+    \item To the right of the \texttt{Play} ({\small \faPlay}) button there is the \texttt[red]{Step} ({\small \mystep}) button. Press the \texttt[red]{Step} button several times to view the evolution of the horizontal and vertical velocity vectors. 
+    \item \label{LSagnx} Using {\small \mystep}, draw the the horizontal and vertical components of velocity in your motion map at 3 to 4 instances between the projectile being fired and its striking the ground.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+    Repeat Step \ref{LSagnx} of Exercise \ref{KU3Mnf}, drawing horizontal and vertical velocity components at 7 to 8 instances, but this time launch the cannon from ground level ($\text{height} = 0$), at an launch angle of \ang{70}, with an initial speed of \SI{15}{m/s}. Be sure to include the first point, the last point, and the point at which the projectile is at maximum height. Compare your finalized sketch to Figure \ref{xRbMxN}.
+\end{exercise}
+
+\begin{exercise} \label{nmtty2}
+    What is projectile motion?
+    
+    \begin{enumerate}[label=\Alph*.]
+        \item Projectile motion is the motion of an object projected into the air and moving under the influence of gravity.
+        \item Projectile motion is the motion of an object projected into the air and moving independently of gravity.
+        \item Projectile motion is the motion of an object projected vertically upward into the air and moving under the influence of gravity.
+        \item Projectile motion is the motion of an object projected horizontally into the air and moving independently of gravity.
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{uLtw6P}
+    What is the force experienced by a projectile after the initial force that launched it into the air in the absence of air resistance?
+
+    \begin{enumerate}[label=\Alph*.]
+        \item The nuclear force
+        \item The gravitational force
+        \item The electromagnetic force
+        \item The contact force
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{sy5RGT}
+    After a projectile is launched in the air, in which direction does it experience constant, non-zero acceleration, ignoring air resistance?
+
+    \begin{enumerate}[label=\Alph*.]
+        \item The x direction
+        \item The y direction
+        \item Both the x and y directions
+        \item Neither direction
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{90PABl}
+    What is the angle between the $x$ and $y$ components of a vector?
+
+    \begin{enumerate}[label=\Alph*.]
+        \item \ang{0}
+        \item \ang{90}
+        \item \ang{45}
+        \item \ang{180}
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{8I1QP6}
+    Horizontal and vertical motions of a projectile are independent of each other. What does this mean?
+
+\begin{enumerate}[label=\Alph*.]
+    \item All objects in projectile motion with the same initial vertical velocity fall at the same rate, regardless of their horizontal velocity.
+    \item All objects in projectile motion fall at different rates, regardless of their initial horizontal velocities.
+    \item Any object in projectile motion falls at the same rate as its initial vertical velocity, regardless of its initial horizontal velocity.
+    \item All objects in projectile motion fall at different rates and the rate of fall of the object is independent of the initial velocity.
+\end{enumerate}
+\end{exercise}
+
+\begin{center}
+    \begin{tikzpicture}[declare function={t(\x)=\x/(\vi*cos(\thetai));}]
+    \tikzmath{
+        \grav = 10;
+        \vi = 20;
+        \yi = 0;
+        \thetai = 45.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*\tmax;
+        \sf = 0.3; %scale factor for vector components
+    }
+    % \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,ticks=none,
+        axis lines = none,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=50,
+        ymin=0, ymax=15,
+        ]
+        \draw[gray,->] (0,0) -- ++(0,10) node[right] {$y$};
+        \draw[gray,->] (0,0) -- ++(48,0) node[above] {$x$};
+        \draw[fill=black] (0,0) circle (2pt);
+        \draw[thick,violet,->] (0,0) -- ++(\vix*\sf,\viy*\sf) node[below right] {$v_0$};
+        \draw[thick,dashed,red,->] (0,0) -- ++(0,{\sf*\vi*sin(\thetai)}) node[right=-2pt] {$v_{0y}$};
+        \draw[thick,dashed,RoyalBlue,->] (0,0) -- ++(\vix*\sf,0) node[pos=1.3, above=-2pt] {$v_{0x}$};
+        \draw (1,0) arc (0:75:0.6) node[midway,right=-1pt] {$\theta_0$};
+        
+        \pgfplotsinvokeforeach{5,10,15}{
+                \draw[fill=black] (#1,{patheqten(#1,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (#1,{patheqten(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v_y$};
+                \draw[thick,dashed,RoyalBlue,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
+                \draw[thick,violet,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v$};
+                }
+                
+        \draw[fill=black] (\xmax,\ymax) circle (2pt);
+        \draw[thick,violet,->] (\xmax,\ymax) -- ++(\vix*\sf,0) node[right=-2pt] {$v = v_x$};
+        
+        \pgfplotsinvokeforeach{25,30,35,45}{
+                \draw[fill=black] (#1,{patheqten(#1,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (#1,{patheqten(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v_y$};
+                \draw[thick,dashed,RoyalBlue,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
+                \draw[thick,violet,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v$};
+                }
+
+                \draw[fill=black] (40,{patheqten(40,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (40,{patheqten(40,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[left=-2pt] {$v_y=-v_{0y}$};
+                \draw[thick,dashed,RoyalBlue,->] (40,{patheqten(40,0,20,45)}) -- ++(\vix*\sf,0) node[above=-2pt] {$v_x$};
+                \draw[thick,violet,->] (40,{patheqten(40,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[below=-2pt] {$v$};
+                % \draw (40.8,0) arc (0:-\thetai:0.8) node[midway,right=-1pt] {$\theta =-\theta_0$};
+                \draw (5.8,{patheqten(5,0,20,45)}) arc (0:40:0.8) node[midway,right] {$\theta$};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,font=scriptsize}
+    \captionof{figure}{We analyze two-dimensional projectile motion by breaking it into two independent one-dimensional motions along the vertical and horizontal axes. The horizontal motion is constant. The velocity in the vertical direction begins to decrease, then becomes zero at the peak, then increases in the downward direction.}
+    \label{xRbMxN}
+\end{center}
+
+
+\subsection{Describing Vertical and Horizontal Motion}
+
+\begin{mdframed}[backgroundcolor=Green!10]
+    \textbf{Warm-Up}. Exercises \ref{MbIMKN}, \ref{tnuYO3}, and \ref{ObtV91}.
+
+    \vspace{1em}
+    
+    A boulder is dropped from rest from the top of a tall cliff. The boulder accelerates downwards at a rate of \SI{10}{m/s^2}.
+
+    \begin{exercise} \label{MbIMKN}
+        Create a table listing the boulder's speed at times $t = \SI{0}{s}$, \SI{1}{s}, \SI{2}{s}, \SI{3}{s}, \SI{4}{s}, and \SI{5}{s} after being dropped.
+    \end{exercise}
+
+    \begin{exercise} \label{tnuYO3}
+        The bolder has a mass of \SI{5}{kg}. (a) What is it's initial momentum? (b) What is its initial kinetic energy?
+    \end{exercise}
+
+    \begin{exercise} \label{ObtV91}
+        (a) Calculate the momentum of the 5-kg boulder 3 seconds into its free fall. (b) Calculate its kinetic energy at $t = \SI{1}{s}$.
+    \end{exercise}
+\end{mdframed}
+
+
+
+
 As usual, we use velocity, acceleration, and displacement to describe motion. We must also find the components of these variables along the $x$- and $y$-axes. The components of acceleration are then very simple. In the vertical direction,
 
 \begin{equation}
-    a_y = -g = -\SI{9.80}{m/s^2}
+    a_y = -g = -\SI{10}{m/s^2}
 \end{equation}
 
 Note that this definition defines the upwards direction as positive. In the horizontal direction, because gravity is vertical only,
@@ -225,7 +466,7 @@ Note that this definition defines the upwards direction as positive. In the hori
     a_x = 0
 \end{equation}
 
-Both accelerations are constant, so we can use the kinematic equations. For review, the kinematic equations from a previous chapter are summarized below.
+Both accelerations are constant, so we can use the kinematic equations. For review, the kinematic equations from previous units are summarized below.
 
 \begin{align}
     x &= x_0 + v_{\text{avg}} t\\[0.5ex]
@@ -237,30 +478,30 @@ Both accelerations are constant, so we can use the kinematic equations. For revi
 
 where $x$ is position, $x_0$ is initial position, $v$ is velocity, $v_{\text{avg}}$ is average velocity, $t$ is time, and $a$ is acceleration.
 
-\subsubsection*{Solve Problems Involving Projectile Motion}
+\subsection{How to Set-Up and Analyze Projectile Motion Problems}
 
 The following four steps are used to analyze projectile motion:
 
 \vspace{1em}
 
-\textbf{Step 1}: Know what each of the many variables mean; see Table \ref{zvgNdH}. Recall that a variable is used to represent a physical quantity. The magnitudes of the displacement $d$ along $x$- and $y$-axes are called $x$ and  $y$. The magnitude of the velocity is $v$, and the magnitudes of the components of the velocity, $v_x$ and $v_y$, relate to $v$ also by the Pythagorean theorem. Initial values are denoted with a subscript 0.
+\textbf{Step 1}: Know what each of the many variables means; see Table \ref{zvgNdH}. Recall that a variable is used to represent a physical quantity. The magnitudes of the displacement $d$ along $x$- and $y$-axes are called $x$ and  $y$. The magnitude of the velocity is $v$, and the magnitudes of the components of the velocity, $v_x$ and $v_y$, relate to $v$ also by the Pythagorean theorem. Initial values are denoted with a subscript 0.
 
 \vspace{1em}
 
-\textbf{Step 2}: Treat the motion as two independent one dimensional motions, one horizontal and the other vertical. The kinematic equations for horizontal motion take the following forms under the condition that horizontal acceleration is zero ($a_x = 0$):
+\textbf{Step 2}: Treat the motion as two independent one-dimensional motions, one horizontal and the other vertical. The kinematic equations for horizontal motion take the following forms under the condition that horizontal acceleration is zero ($a_x = 0$):
 
 \begin{align}
     x &= x_0 + v_x t \label{7fMAPG}\\[0.5ex]
     v_x &= v_{0x} = \text{velocity is a constant} \label{dCvDf4}
 \end{align}
 
-For vertical motion, the kinematic equations take the following forms under the condition that vertical acceleration is $a_y = -g = \SI{-9.80}{m/s^2}$:
+For vertical motion, the kinematic equations take the following forms under the condition that vertical acceleration is $a_y = -g = \SI{-10}{m/s^2}$:
 
 \begin{align}
     y &= y_0 + \frac{1}{2}\left(v_{0y} + v_y\right)t\\[0.5ex]
     v_y &= v_{0y} - gt \label{SjYaoE} \\[0.5ex]
     y &= y_0 + v_{0y}t - \frac{1}{2}  g t^2  \label{36YuvF} \\[0.5ex]
-    v_y^2 &= v_{0y}^2 - 2 g (y - y_0) \label{wROSXN}
+    % v_y^2 &= v_{0y}^2 - 2 g (y - y_0) \label{wROSXN}
 \end{align}
 
 \vspace{1em}
@@ -277,12 +518,11 @@ For vertical motion, the kinematic equations take the following forms under the 
 \end{align}
 
 \begin{mdframed}[backgroundcolor=black!10]
-    \textbf{Tips For Success}
-    
-    \vspace{1ex}
-    
+    \textbf{Tips For Success}\\
     For problems of projectile motion, it is important to set up a coordinate system. The first step is to choose an initial position for $x$ and $y$. Usually, it is simplest to set the initial position of the object so that $x_0 = 0$ and $y_0 = 0$.
 \end{mdframed}
+
+\vspace{1em}
 
 \begin{center}
     \begin{tabular}{cl|cl}
@@ -310,67 +550,6 @@ For vertical motion, the kinematic equations take the following forms under the 
 
 
 
-\begin{center}
-    \begin{tikzpicture}[declare function={t(\x)=\x/(\vi*cos(\thetai));}]
-    \tikzmath{
-        \grav = 10;
-        \vi = 20;
-        \yi = 0;
-        \thetai = 45.0;
-        \viy = \vi*sin(\thetai);
-        \ymax = (\viy^2)/(2*\grav);
-        \tmax = 2*\ymax/\viy;
-        \vix = \vi*cos(\thetai);
-        \xmax = \vix*\tmax;
-        \sf = 0.3; %scale factor for vector components
-    }
-    \pgfplotsset{compat=1.11}
-        \begin{axis}[width=12cm,height=12cm,ticks=none,
-        axis lines = center,
-        clip=false,
-        ylabel = $y$,
-        xlabel = $x$,
-        xmin=0, xmax=50,
-        ymin=0, ymax=15,
-        ]
-        
-        \draw[fill=black] (0,0) circle (2pt);
-        \draw[thick,violet,->] (0,0) -- ++(\vix*\sf,\viy*\sf) node[below right] {$v_0$};
-        \draw[thick,dashed,red,->] (0,0) -- ++(0,{\sf*\vi*sin(\thetai)}) node[right=-2pt] {$v_{0y}$};
-        \draw[thick,dashed,cyan,->] (0,0) -- ++(\vix*\sf,0) node[pos=1.3, above=-2pt] {$v_{0x}$};
-        \draw (1,0) arc (0:75:0.6) node[midway,right=-1pt] {$\theta_0$};
-        
-        \pgfplotsinvokeforeach{5,10,15}{
-                \draw[fill=black] (#1,{patheq(#1,0,20,45)}) circle (2pt);
-                \draw[thick,dashed,red,->] (#1,{patheq(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v_y$};
-                \draw[thick,dashed,cyan,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
-                \draw[thick,violet,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v$};
-                }
-                
-        \draw[fill=black] (\xmax,\ymax) circle (2pt);
-        \draw[thick,violet,->] (\xmax,\ymax) -- ++(\vix*\sf,0) node[right=-2pt] {$v = v_x$};
-        
-        \pgfplotsinvokeforeach{25,30,35,45}{
-                \draw[fill=black] (#1,{patheq(#1,0,20,45)}) circle (2pt);
-                \draw[thick,dashed,red,->] (#1,{patheq(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v_y$};
-                \draw[thick,dashed,cyan,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
-                \draw[thick,violet,->] (#1,{patheq(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v$};
-                }
-
-                \draw[fill=black] (40,{patheq(40,0,20,45)}) circle (2pt);
-                \draw[thick,dashed,red,->] (40,{patheq(40,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[left=-2pt] {$v_y=-v_{0y}$};
-                \draw[thick,dashed,cyan,->] (40,{patheq(40,0,20,45)}) -- ++(\vix*\sf,0) node[above=-2pt] {$v_x$};
-                \draw[thick,violet,->] (40,{patheq(40,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[below=-2pt] {$v$};
-                \draw (40.8,0) arc (0:-\thetai:0.8) node[midway,right=-1pt] {$\theta =-\theta_0$};
-
-                \draw (5.8,{patheq(5,0,20,45)}) arc (0:40:0.8) node[midway,right] {$\theta$};
-        \end{axis}
-    \end{tikzpicture}
-    \captionsetup{type=figure,font=scriptsize}
-    \captionof{figure}{We analyze two-dimensional projectile motion by breaking it into two independent one-dimensional motions along the vertical and horizontal axes. The horizontal motion is constant. The velocity in the vertical direction begins to decrease, then becomes zero at the peak, then increases in the downward direction.}
-    \label{xRbMxN}
-\end{center}
-
 \clearpage
 
 
@@ -380,7 +559,7 @@ For vertical motion, the kinematic equations take the following forms under the 
     Suppose the cannonball from Figure \ref{lTQ6jX} is launched horizontally from a height of \SI{12.0}{m} at a speed of \SI{18.0}{m/s}. How much time will it take the projectile to strike the ground?
 \end{example}
 
-\Solution Our strategy is based on the fact that the motion can be broken into horizontal and vertical motions in which $a_x = 0$ and $a_y = \SI{-9.80}{m/s^2}$. Start by drawing a sketch:
+\Solution Our strategy is based on the fact that the motion can be broken into horizontal and vertical motions in which $a_x = 0$ and $a_y = \SI{-10}{m/s^2}$. Start by drawing a sketch:
 
 \begin{center}
     \begin{tikzpicture}
@@ -391,25 +570,34 @@ For vertical motion, the kinematic equations take the following forms under the 
             clip=false,
             axis lines=left,
         ]
-            \draw[dashed,domain=0:28.15,variable=\x,samples=100] plot(\x,{patheq(\x,12,18,0)}) node[below] {$t =\ ?$} node[below=4mm] {\StopWatchEnd}; 
+            \draw[RoyalBlue,domain=0:28.15,variable=\x,samples=100] plot(\x,{patheq(\x,12,18,0)}) node[black,below] {$t =\ ?$} node[black,below=4mm] {\StopWatchEnd}; 
             \fill (0,{patheq(0,12,18,0)}) circle (3pt) node[left=2pt] {$t_0 = 0$} node[below left=2mm] {\StopWatchStart};
             \draw[red,thick,->] (0,{patheq(0,12,18,0)}) -- ++(6,0) node[right] {\SI{18}{m/s}};
+            \draw[<->,dashed] (1,0) -- ++(0,12) node[right,pos=0.5] {\SI{12}{m}};
         \end{axis}
     \end{tikzpicture}
 \end{center}
 
 
-Let's define given variables and the unknown. First, define initial positions as $x_0 = 0$ and $y_0 = 0$. Thus, the cannonball's final vertical position will be $y = -\SI{12.0}{m}$ (the negative sign indicating that the projectile will be displacement downwards at the moment of impact).
+Let's define given variables and the unknown. First, define initial positions as 
 
-\vspace{1em}
+\begin{equation*}
+    x_0 = \SI{0}{m} \quad \text{and} \quad y_0 = \SI{0}{m}
+\end{equation*}
 
-If a projectile is horizontally launched, then the vertical component of its initial velocity is zero:
+Thus, the cannonball's final vertical position will be
+
+\begin{equation*}
+    y = -\SI{12}{m}
+\end{equation*}
+
+(the negative sign indicating that the projectile will be displaced downwards at the moment of impact). In addition, if a projectile is horizontally launched, then the vertical component of its initial velocity is zero:
 
 \begin{equation*}
     v_{0y} = 0
 \end{equation*}
 
-The unknown variable is time: $t =\ ?$. The given and unknown variables are related by Equation \eqref{36YuvF}:
+The unknown variable is time: $t =\ ?$ These given and unknown variables are related by Equation \eqref{36YuvF}:
 
 \begin{equation*}
     y = y_0 + v_{0y}t - \frac{1}{2}  g t^2 
@@ -418,35 +606,37 @@ The unknown variable is time: $t =\ ?$. The given and unknown variables are rela
 Substituting known and unknown values leads to
 
 \begin{equation*}
-    -12 = 0 + (0) t - \frac{1}{2} (9.8) t^2
+    -12 = 0 + (0) t - \frac{1}{2} (10) t^2
 \end{equation*}
 
 or, more simply, to
 
 \begin{equation*}
-    -12 = -4.9 t^2
+    -12 = -5 t^2
 \end{equation*}
 
-Furthermore, the negative signs cancel out, leaving
+Furthermore, multiplying both sides by $-1$ results in the negative signs canceling out, leaving
 
 \begin{equation*}
-    12 = 4.9 t^2
+    12 = 5 t^2
 \end{equation*}
 
 To finish solving this equation for time ($t$), we take the following steps:
 
 \begin{align*}
-    \textbf{Write $t$ on left} \qquad & 4.9 t^2 = 12\\[1ex]
-    \textbf{Divide by 4.9} \qquad & \frac{\cancel{4.9} t^2}{\textcolor{red}{\cancel{4.9}}} = \frac{12}{\textcolor{red}{4.9}}\\[1ex]
-    \textbf{Simplify} \qquad & t^2 = \frac{12}{4.9}\\[1ex]
-    \textbf{Simplify} \qquad & t^2 = 2.45\\[1ex]
-    \textbf{Take square root} \qquad & \sqrt{t^2} = \sqrt{2.45}\\[1ex]
-    \textbf{Simplify} \qquad & t = 1.56
+    \textbf{Write $t$ on left} \qquad & 5 t^2 = 12\\[1ex]
+    \textbf{Divide by 5} \qquad & \frac{\cancel{5} t^2}{\textcolor{red}{\cancel{5}}} = \frac{12}{\textcolor{red}{5}}\\[1ex]
+    \textbf{Simplify} \qquad & t^2 = \frac{12}{5}\\[1ex]
+    \textbf{Simplify} \qquad & t^2 = 2.4\\[1ex]
+    \textbf{Take square root} \qquad & \sqrt{t^2} = \sqrt{2.4}\\[1ex]
+    \textbf{Simplify} \qquad & t = 1.5
 \end{align*}
 
-Therefore, it takes the cannonball 1.56 seconds after being launched by the cannon to strike the ground below. 
+Therefore, it takes the cannonball 1.5 seconds after being launched by the cannon to strike the ground below. 
 
 \endsolution
+
+\subsection{Solving Problems in Projectile Motion \texttt{(PART I)}}
 
 \begin{example} \label{jKndVF}
     What is the range of the projectile from Example \ref{ER19WG}? (Calculate the horizontal displacement from its origin.)
@@ -455,7 +645,7 @@ Therefore, it takes the cannonball 1.56 seconds after being launched by the cann
 \Solution In Example \ref{ER19WG}, we determined the initial position and hang time of the cannonball:
 
 \begin{equation*}
-    x_0 = 0 \quad \text{and} \quad t = \SI{1.56}{s}
+    x_0 = 0 \quad \text{and} \quad t = \SI{1.5}{s}
 \end{equation*}
 
 Also, we were given an initial horizontal velocity of \SI{18}{m/s}, and Equation \eqref{dCvDf4} implies that this horizontal velocity of the cannonball remains the same throughout the trajectory:
@@ -473,10 +663,10 @@ The unknown variable is range, or horizontal displacement, which in this case is
 Substituting given values leads to 
 
 \begin{equation*}
-    x = 0 + (\SI{18}{m/s})(\SI{1.56}{s}) = \SI{28.2}{m}
+    x = 0 + (\SI{18}{m/s})(\SI{1.5}{s}) = \SI{27}{m}
 \end{equation*}
 
-Therefore, the cannonball is horizontally displaced by 28.2 meters from its origin.
+Therefore, the cannonball is horizontally displaced by 27 meters from its origin.
 
 \endsolution
 
@@ -487,7 +677,7 @@ Therefore, the cannonball is horizontally displaced by 28.2 meters from its orig
 \Solution In Examples \ref{ER19WG} and \ref{jKndVF}, we defined the cannonball's origin as $x_0 = 0$ and $y_0 = 0$, and we determined that the vertical and horizontal positions at the point of impact are
 
 \begin{equation*}
-    \quad x = \SI{28.2}{m} \quad \text{and} \quad y = \SI{-12}{m}
+    \quad x = \SI{27}{m} \quad \text{and} \quad y = \SI{-12}{m}
 \end{equation*}
 
 as shown in the figure below.
@@ -506,8 +696,8 @@ as shown in the figure below.
         ]
         \draw[dashed,domain=0:28.15,variable=\x,samples=200] plot ({\x},{patheq(\x,12,18,0)});
         \fill (0,{patheq(0,12,18,0)}) circle (2pt) node[left] {$(0,0)$};
-        \fill (28.15,{patheq(28.15,12,18,0)}) circle (2pt) node[below] {$(28.2,-12)$};
-        \draw[thick,->] (0,{patheq(0,12,18,0)}) -- (28,{patheq(28,12,18,0)}) node[pos=0.5,below left] {$d$};
+        \fill (28.15,{patheq(28.15,12,18,0)}) circle (2pt) node[below] {$(27,-12)$};
+        \draw[thick,->,RoyalBlue] (0,{patheq(0,12,18,0)}) -- (28,{patheq(28,12,18,0)}) node[pos=0.5,below left] {$d$};
         \end{axis}
     \end{tikzpicture}
 \end{center}
@@ -521,12 +711,14 @@ By Equation \eqref{XvIie8}, the magnitude of displacement from the origin is giv
 Substituting known values leads to
 
 \begin{equation*}
-    d = \sqrt{\left(28.2\right)^2 + \left(-12\right)^2} = \SI{30.6}{m}
+    d = \sqrt{\left(27\right)^2 + \left(-12\right)^2} = \SI{30}{m}
 \end{equation*}
 
-Therefore, the magnitude of displacement is 30.6 meters from the origin.
+(rounded up from 29.5). Therefore, the magnitude of displacement is 30 meters from the origin.
 
 \endsolution
+
+\subsection{Solving Problems in Projectile Motion \texttt{(PART II)}}
 
 \begin{example}
     Calculate the magnitude of velocity of the projectile from Example \ref{ER19WG} the instant it strikes the ground. This is known as the impact velocity.
@@ -544,31 +736,31 @@ throughout the trajectory; this is the same value as $v_{0x}$. The unknown we ar
     v = \sqrt{v_x^2 + v_y^2}
 \end{equation*}
 
-Therefore, lets first calculate the vertical component of velocity at impact, $v_y$. It's given by Equation \eqref{SjYaoE} as
+Therefore, lets first calculate the vertical component of velocity at impact, $v_y$, which is given by Equation \eqref{SjYaoE} as
 
 \begin{equation*}
     v_y = v_{0y} - gt
 \end{equation*}
 
-where $g = \SI{9.8}{m/s^2}$. A projectile that is horizontally launched implies that $v_{0y} = 0$. Also, in Example \ref{ER19WG}, we calculated the following hang time of the cannonball:
+where $g = \SI{10}{m/s^2}$. A projectile that is horizontally launched implies that $v_{0y} = 0$. Also, in Example \ref{ER19WG}, we calculated the following hang time for the cannonball:
 
 \begin{equation*}
-    t = \SI{1.56}{s}
+    t = \SI{1.5}{s}
 \end{equation*}
 
-So, substituting known values leads to 
+So, substituting known values into Equation \eqref{SjYaoE} leads to 
 
 \begin{equation*}
-    v_y = 0 - (\SI{9.8}{m/s^2})(\SI{1.56}{s}) = -\SI{15.3}{m/s} 
+    v_y = 0 - (\SI{10}{m/s^2})(\SI{1.5}{s}) = -\SI{15}{m/s} 
 \end{equation*}
 
 the negative sign indicating that vertical velocity is, as we expect, pointing downwards, towards the ground. Finally, substituting the given horizontal and vertical velocity components into Equation \eqref{glASeI} leads to
 
 \begin{equation*}
-    v = \sqrt{v_x^2 + v_y^2} = \sqrt{18^2 + \left(-15.3\right)^2} = \SI{23.6}{m/s}
+    v = \sqrt{v_x^2 + v_y^2} = \sqrt{\left(\SI{18}{m/s}\right)^2 + \left(-\SI{15}{m/s}\right)^2} = \SI{23}{m/s}
 \end{equation*}
 
-Therefore, the impact velocity is 23.6 meters per second down and to the right.
+Therefore, the impact velocity is 23 meters per second, below and to the right.
 
 \begin{center}
     \begin{tikzpicture}
@@ -592,77 +784,199 @@ Therefore, the impact velocity is 23.6 meters per second down and to the right.
 \endsolution
 
 
-\subsubsection*{Range (K-level only)}
 
-The fact that vertical and horizontal motions are independent of each other lets us predict the range of a projectile. The \gls{range} is the horizontal distance $R$ traveled by a projectile on level ground, as illustrated in Figure \ref{6hKQ2Y}. Throughout history, people have been interested in finding the range of projectiles for practical purposes, such as aiming cannons.
+
+
+
+\subsection{Exercises}
+
+% \subsubsection*{\nameref{tMF7JY}}
+
+\begin{exercise} \label{EykTi8}
+    If an object is thrown horizontally, travels with an average $x$-component of its velocity equal to \SI{5}{m/s}, and does not hit the ground, what will be the $x$-component of the displacement after \SI{20}{s}? 
+
+    \begin{enumerate}[label=\Alph*.]
+        \item \SI{-100}{m}
+        \item \SI{-4}{m}
+        \item \SI{4}{m}
+        \item \SI{100}{m}
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{V9LJjv}
+    If a ball is thrown straight up with an initial velocity of \SI{20}{m/s} upward, what is the maximum height it will reach?
+
+    \begin{enumerate}[label=\Alph*.]
+        \item \SI{-20.4}{m}
+        \item \SI{-1.02}{m}
+        \item \SI{1.02}{m}
+        \item \SI{20.4}{m}
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{YYBBp5}
+    Using the conventional choice for positive and negative axes described in the text, what is the $y$-component of the acceleration of an object experiencing projectile motion?
+\end{exercise}
+
+% \begin{exercise}  \label{agp59Z}
+%     Two identical items, object 1 and object 2, are dropped from the top of a \SI{50.0}{m} building. Object 1 is dropped with an initial velocity of \SI{0}{m/s}, while object 2 is thrown straight downward with an initial velocity of \SI{13.0}{m/s}. What is the difference in time, in seconds rounded to the nearest tenth, between when the two objects hit the ground?
+% \end{exercise}
+
+% \begin{exercise} \label{Xu3FK9}
+%     A water balloon cannon is fired at \SI{30}{m/s} at an angle of \ang{50} above the horizontal. How far away will it fall?
+% \end{exercise}
+
+% \begin{exercise} \label{piJ9kJ}
+%     A person wants to fire a water balloon cannon such that it hits a target \SI{100}{m} away. If the cannon can only be launched at \ang{45} above the horizontal, what should be the initial speed at which it is launched?
+% \end{exercise}
+
+
+
+
+
+
+% \begin{exercise} \label{N0Bwou}
+%     A ball is thrown in the air at an angle of \ang{40}. If the maximum height it reaches is \SI{10}{m}, what must be its initial speed?
+% \end{exercise}
+
+% \begin{exercise} \label{lhjg95}
+%     A large rock is ejected from a volcano with a speed of \SI{30}{m/s} and at an angle \ang{60} above the horizontal. The rock strikes the side of the volcano at an altitude of \SI{10.0}{m} lower than its starting point. Calculate the horizontal displacement of the rock.
+% \end{exercise}
+
+\begin{exercise} \label{wlbvvu}
+    How can you express the velocity, $v$, of a projectile in terms of its initial velocity, $v_0$, acceleration, $g$, and time, $t$?
+\end{exercise}
+
+% \begin{exercise}
+%     In the equation for the maximum height of a projectile, what does $v_{0y}$ stand for?
+
+% \begin{equation*}
+%     h = \frac{v_{0y}^2}{2g}
+% \end{equation*}
+% \end{exercise}
+
+\begin{exercise} \label{xj6gln}
+    True or False? Range is defined as the maximum vertical distance travelled by a projectile. 
+\end{exercise}
+
+\begin{exercise} \label{5wfdN0}
+    For what angle of a projectile is its range equal to zero?
+\end{exercise}
+
+\begin{exercise} \label{DnqDpu}
+    Ignoring drag, what is the $x$-component of the acceleration of a projectile? Why?
+\end{exercise}
+
+\begin{exercise} \label{QsBUvP}
+    What is the optimum angle at which a projectile should be launched in order to cover the maximum distance?
+\end{exercise}
+
+\vspace{1em}
+
+\cyanhrule
+
+\vspace{1em}
+
+\textbf{\ref{X0YL6f}--\ref{4gdNXl}} A pebble is launched horizontally at an initial velocity and height that are indicated in the Figure \ref{kv6ULK} below. All questions below correspond to the point at which the pebble impacts the ground $(x,y)$.
 
 \begin{center}
-    \begin{tikzpicture}[
-        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
-        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
-    ]
-    \tikzmath{
-        \grav = 9.8;
-        \sf = 0.5; %scale factor for vector components
-    }
-    \pgfplotsset{compat=1.11}
-        \begin{axis}[width=12cm,height=5cm,ticks=none,
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,ticks=none,
         axis lines = center,
+        %axis line style={draw=none},
         clip=false,
-        ylabel = $y$,
-        xlabel = $x$,
-        xmin=0, xmax={R(50,45)*1.1},
-        ymin=0, ymax={h(50,45)*1.1},
+        % ylabel = $y$,
+        % xlabel = $x$,
+        xmin=0, xmax=45,
+        ymin=0, ymax=18,
         ]
-        \draw[Green,thick,->] (0,0) -- ++({50*cos(45)},{50*sin(45)}) node[above left=-5pt] {\SI{50}{m/s}};;
-        \draw[Green,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
-        \draw[violet,thick,->] (0,0) -- ++({40*cos(45)},{40*sin(45)}) node[pos=0.93,right=2.7mm] {\SI{40}{m/s}};;
-        \draw[violet,thick,domain=0:{R(40,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,40,45)}) node[black,below] {$R = \SI{163}{m}$};
-        \draw[red,thick,->] (0,0) -- ++({30*cos(45)},{30*sin(45)}) node[pos=0.4,right=3pt] {\SI{30}{m/s}, \ang{45}};
-        \draw[red,thick,domain=0:{R(30,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,30,45)})
-    node[black,below] {$R = \SI{91.8}{m}$};;
-        \end{axis}
-    \end{tikzpicture}
-
-    \vspace{1em}
-
-    \begin{tikzpicture}[
-        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
-        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
-    ]
-    \tikzmath{
-        \grav = 9.8;
-        \sf = 0.5; %scale factor for vector components
-    }
-    \pgfplotsset{compat=1.11}
-        \begin{axis}[width=12cm,height=5cm,ticks=none,
-        axis lines = center,
-        clip=false,
-        ylabel = $y$,
-        xlabel = $x$,
-        xmin=0, xmax={R(50,45)*1.1},
-        ymin=0, ymax={h(50,75)*1.1},
-        ]
-        \draw[Green,thick,->] (0,0) -- ++({50*cos(75)},{50*sin(75)}) node[pos=1.7,rotate=58] {\SI{50}{m/s}, \ang{75}};;
-        \draw[Green,thick,domain=0:{R(50,75)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,75)}) node[black,below] {$R = \SI{128}{m}$};
-        \draw[violet,thick,->] (0,0) -- ++({50*cos(45)},{50*sin(45)}) node[pos=1.6,rotate=20,below=-6pt] {\SI{50}{m/s}, \ang{45}};;
-        \draw[violet,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
-        \draw[red,thick,->] (0,0) -- ++({50*cos(15)},{50*sin(15)}) node[pos=1.5] {\SI{50}{m/s}, \ang{15}};;
-        \draw[red,thick,domain=0:{R(50,15)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,15)});
+        \draw[dashed,domain=0:40.22,variable=\x,samples=100] plot ({\x},{patheq(\x,15,23,0)});
+        \draw[fill=black!25] (-0.8,0) rectangle ++(-3,15) node[pos=0.5,left=3mm] {\SI{15}{m}};
+        \fill (0,{patheq(0,15,23,0)}) circle (2pt) node[above left] {$(x_0,y_0)$};
+        \draw[thick,->] (0,{patheq(0,15,23,0)}) -- ++(axis direction cs: 10,0) node[right] {\SI{23}{m/s}};
+        \fill (40.22,{patheq(40.22,15,23,0)}) circle (2pt) node[below] {$(x,y)$};
         \end{axis}
     \end{tikzpicture}
     \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{Trajectories of projectiles on level ground. \textit{Top plot}: The greater the initial speed,$v_0$, the greater the range for a given initial angle. \textit{Bottom plot}: The effect of initial angle, $\theta_0$, on the range of a projectile with a given initial speed. Note that any combination of trajectories that add to 90 degrees will have the same range in the absence of air resistance, although the maximum heights of those paths are different.}
-    \label{6hKQ2Y}
+    \captionof{figure}{A pebble is launched from a height of 15 meters at an initial speed of 23 meters per second. It impacts the ground some time later.}
+    \label{kv6ULK}
 \end{center}
 
-How does the initial velocity of a projectile affect its range? Obviously, the greater the initial speed $v_0$, the greater the range, as shown in the figure above. The initial angle $\theta_0$ also has a dramatic effect on the range. When air resistance is negligible, the range $R$ of a projectile on level ground is
+\begin{exercise} \label{X0YL6f}
+    What is the vertical displacement?
+\end{exercise}
 
-\begin{equation} \label{GqvaN1}
-    R = \frac{v_0^2 \sin{(2\theta_0)}}{g}
-\end{equation}
+\begin{exercise} \label{9w3tAm}
+    Calculate the amount of time it takes the object to strike the ground.
+\end{exercise}
 
-where $v_0$ is the initial speed and $\theta_0$ is the initial angle relative to the horizontal. It is important to note that the range doesn't apply to problems where the initial and final $y$ position are different, or to cases where the object is launched perfectly horizontally.
+\begin{exercise} \label{k9Vh0r}
+    Calculate the horizontal displacement. 
+\end{exercise}
+
+\begin{exercise} \label{jCKHLv}
+    What is the pebble's total displacement?
+\end{exercise}
+
+\begin{exercise} \label{4gdNXl}
+    Calculate the magnitude of the pebble's impact velocity.
+\end{exercise}
+
+
+\cyanhrule
+
+
+
+\clearpage
+
+\subsection{Key Terms}
+
+\printnoidxglossaries
+
+
+\clearpage
+
+\subsection{Answers to Select Exercises \texttt{(INSTRUCTORS ONLY)}}
+\ref{EykTi8}. D. \SI{100}{m}\\
+\ref{V9LJjv}. D. \SI{20.4}{m}\\
+\ref{nmtty2}. A. \\
+\ref{uLtw6P}. B.\\
+\ref{90PABl}. \ang{90}\\
+\ref{8I1QP6}. A.\\
+\ref{MbIMKN}. $v = \SI{0}{m/s}$, \SI{10}{m/s}, \SI{20}{m/s}, \SI{30}{m/s}, \SI{40}{m/s}, and \SI{50}{m/s}.\\
+\ref{tnuYO3}. (a) $p_0 = 0$; \hspace{1em} (b) $\text{KE}_0 = 0$\\
+\ref{ObtV91}. (a) \SI{150}{kg \cdot m/s}; \hspace{1em} (b) \SI{250}{J};\\
+\ref{YYBBp5}. \SI{-10}{m/s^2}\\
+% \ref{agp59Z}. \SI{1.1}{s}\\
+% \ref{Xu3FK9}. \SI{90.4}{m}\\
+% \ref{piJ9kJ}. \SI{31.3}{m/s}\\
+\ref{sy5RGT}. Vertical (or $y$)\\
+% \ref{N0Bwou}. \SI{21.8}{m/s}\\
+% \ref{lhjg95}. \SI{84.9}{m}\\
+\ref{wlbvvu}. See Equation \eqref{SjYaoE}\\
+\ref{xj6gln}. Range is horizontal.\\
+\ref{5wfdN0}. \ang{0} or \ang{90}\\
+\ref{DnqDpu}. \SI{0}{m/s^2}. Gravitational acceleration is vertical only.\\
+\ref{QsBUvP}. \ang{45}\\
+\ref{X0YL6f}. $-\SI{15}{m}$\\
+\ref{9w3tAm}. \SI{1.75}{s}\\
+\ref{k9Vh0r}. \SI{40.2}{m}\\
+\ref{jCKHLv}. \SI{42.9}{m}\\
+\ref{4gdNXl}. \SI{28.7}{m/s}
+
+
+
+
+
+\end{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \subsection{Uniform Circular Motion} \label{uPOucv}
 \subsubsection*{Centripetal Acceleration}
@@ -811,174 +1125,6 @@ The centripetal force is 2304 newtons inward.
 
 \endsolution
 
-\subsection{Exercises}
-
-\subsubsection*{\nameref{tMF7JY}}
-
-\begin{exercise} \label{EykTi8}
-    If an object is thrown horizontally, travels with an average $x$-component of its velocity equal to \SI{5}{m/s}, and does not hit the ground, what will be the $x$-component of the displacement after \SI{20}{s}? 
-
-    \begin{enumerate}[label=\Alph*.]
-        \item \SI{-100}{m}
-        \item \SI{-4}{m}
-        \item \SI{4}{m}
-        \item \SI{100}{m}
-    \end{enumerate}
-\end{exercise}
-
-\begin{exercise} \label{V9LJjv}
-    If a ball is thrown straight up with an initial velocity of \SI{20}{m/s} upward, what is the maximum height it will reach?
-
-    \begin{enumerate}[label=\Alph*.]
-        \item \SI{-20.4}{m}
-        \item \SI{-1.02}{m}
-        \item \SI{1.02}{m}
-        \item \SI{20.4}{m}
-    \end{enumerate}
-\end{exercise}
-
-\begin{exercise} \label{nmtty2}
-    What is projectile motion?
-    
-    \begin{enumerate}[label=\Alph*.]
-        \item Projectile motion is the motion of an object projected into the air and moving under the influence of gravity.
-        \item Projectile motion is the motion of an object projected into the air and moving independently of gravity.
-        \item Projectile motion is the motion of an object projected vertically upward into the air and moving under the influence of gravity.
-        \item Projectile motion is the motion of an object projected horizontally into the air and moving independently of gravity.
-    \end{enumerate}
-\end{exercise}
-
-\clearpage
-
-\begin{exercise} \label{uLtw6P}
-    What is the force experienced by a projectile after the initial force that launched it into the air in the absence of air resistance?
-
-    \begin{enumerate}[label=\Alph*.]
-        \item The nuclear force
-        \item The gravitational force
-        \item The electromagnetic force
-        \item The contact force
-    \end{enumerate}
-\end{exercise}
-
-\begin{exercise} \label{90PABl}
-    What is the angle between the $x$ and $y$ components of a vector?
-\end{exercise}
-
-\begin{exercise}
-    Horizontal and vertical motions of a projectile are independent of each other. What does this mean?
-\end{exercise}
-
-\begin{exercise} \label{YYBBp5}
-    Using the conventional choice for positive and negative axes described in the text, what is the $y$-component of the acceleration of an object experiencing projectile motion?
-\end{exercise}
-
-% \begin{exercise}  \label{agp59Z}
-%     Two identical items, object 1 and object 2, are dropped from the top of a \SI{50.0}{m} building. Object 1 is dropped with an initial velocity of \SI{0}{m/s}, while object 2 is thrown straight downward with an initial velocity of \SI{13.0}{m/s}. What is the difference in time, in seconds rounded to the nearest tenth, between when the two objects hit the ground?
-% \end{exercise}
-
-% \begin{exercise} \label{Xu3FK9}
-%     A water balloon cannon is fired at \SI{30}{m/s} at an angle of \ang{50} above the horizontal. How far away will it fall?
-% \end{exercise}
-
-% \begin{exercise} \label{piJ9kJ}
-%     A person wants to fire a water balloon cannon such that it hits a target \SI{100}{m} away. If the cannon can only be launched at \ang{45} above the horizontal, what should be the initial speed at which it is launched?
-% \end{exercise}
-
-\begin{exercise} \label{sy5RGT}
-    After a projectile is launched in the air, in which direction does it experience constant, non-zero acceleration, ignoring air resistance?
-\end{exercise}
-
-% \begin{exercise} \label{N0Bwou}
-%     A ball is thrown in the air at an angle of \ang{40}. If the maximum height it reaches is \SI{10}{m}, what must be its initial speed?
-% \end{exercise}
-
-% \begin{exercise} \label{lhjg95}
-%     A large rock is ejected from a volcano with a speed of \SI{30}{m/s} and at an angle \ang{60} above the horizontal. The rock strikes the side of the volcano at an altitude of \SI{10.0}{m} lower than its starting point. Calculate the horizontal displacement of the rock.
-% \end{exercise}
-
-\begin{exercise} \label{wlbvvu}
-    How can you express the velocity, $v$, of a projectile in terms of its initial velocity, $v_0$, acceleration, $g$, and time, $t$?
-\end{exercise}
-
-% \begin{exercise}
-%     In the equation for the maximum height of a projectile, what does $v_{0y}$ stand for?
-
-% \begin{equation*}
-%     h = \frac{v_{0y}^2}{2g}
-% \end{equation*}
-% \end{exercise}
-
-\begin{exercise} \label{xj6gln}
-    True or False? Range is defined as the maximum vertical distance travelled by a projectile. 
-\end{exercise}
-
-\begin{exercise} \label{5wfdN0}
-    For what angle of a projectile is its range equal to zero?
-\end{exercise}
-
-\begin{exercise} \label{DnqDpu}
-    Ignoring drag, what is the $x$-component of the acceleration of a projectile? Why?
-\end{exercise}
-
-\begin{exercise} \label{QsBUvP}
-    What is the optimum angle at which a projectile should be launched in order to cover the maximum distance?
-\end{exercise}
-
-\vspace{1em}
-
-\cyanhrule
-
-\vspace{1em}
-
-\textbf{\ref{X0YL6f}--\ref{4gdNXl}} A pebble is launched horizontally at an initial velocity and height that are indicated in the Figure \ref{kv6ULK} below. All questions below correspond to the point at which the pebble impacts the ground $(x,y)$.
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,ticks=none,
-        axis lines = center,
-        %axis line style={draw=none},
-        clip=false,
-        % ylabel = $y$,
-        % xlabel = $x$,
-        xmin=0, xmax=45,
-        ymin=0, ymax=18,
-        ]
-        \draw[dashed,domain=0:40.22,variable=\x,samples=100] plot ({\x},{patheq(\x,15,23,0)});
-        \draw[fill=black!25] (-0.8,0) rectangle ++(-3,15) node[pos=0.5,left=3mm] {\SI{15}{m}};
-        \fill (0,{patheq(0,15,23,0)}) circle (2pt) node[above left] {$(x_0,y_0)$};
-        \draw[thick,->] (0,{patheq(0,15,23,0)}) -- ++(axis direction cs: 10,0) node[right] {\SI{23}{m/s}};
-        \fill (40.22,{patheq(40.22,15,23,0)}) circle (2pt) node[below] {$(x,y)$};
-        \end{axis}
-    \end{tikzpicture}
-    \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{A pebble is launched from a height of 15 meters at an initial speed of 23 meters per second. It impacts the ground some time later.}
-    \label{kv6ULK}
-\end{center}
-
-\begin{exercise} \label{X0YL6f}
-    What is the vertical displacement?
-\end{exercise}
-
-\begin{exercise} \label{9w3tAm}
-    Calculate the amount of time it takes the object to strike the ground.
-\end{exercise}
-
-\begin{exercise} \label{k9Vh0r}
-    Calculate the horizontal displacement. 
-\end{exercise}
-
-\begin{exercise} \label{jCKHLv}
-    What is the pebble's total displacement?
-\end{exercise}
-
-\begin{exercise} \label{4gdNXl}
-    Calculate the magnitude of the pebble's impact velocity.
-\end{exercise}
-
-
-\cyanhrule
-
 \subsubsection*{\nameref{uPOucv}}
 
 \begin{exercise} \label{N066SF}
@@ -1077,41 +1223,6 @@ The centripetal force is 2304 newtons inward.
 An 89-kg system consisting of a bicycle and rider are rounding a turn at \SI{16}{m/s} on a path with a radius of curvature of \SI{25}{m}. (a) What is the centripetal acceleration on the system? (b) What is the centripetal force?
 \end{exercise}
 
-\clearpage
-
-\subsection{Key Terms}
-
-\printnoidxglossaries
-
-
-\clearpage
-
-\subsection{Answers to Select Exercises}
-\begin{multicols}{2}
-\subsubsection*{\nameref{tMF7JY}}
-\ref{EykTi8}. D. \SI{100}{m}\\
-\ref{V9LJjv}. D. \SI{20.4}{m}\\
-\ref{nmtty2}. A. \\
-\ref{uLtw6P}. B.\\
-\ref{90PABl}. \ang{90}\\
-\ref{YYBBp5}. \SI{-9.8}{m/s^2}\\
-% \ref{agp59Z}. \SI{1.1}{s}\\
-% \ref{Xu3FK9}. \SI{90.4}{m}\\
-% \ref{piJ9kJ}. \SI{31.3}{m/s}\\
-\ref{sy5RGT}. Vertical (or $y$)\\
-% \ref{N0Bwou}. \SI{21.8}{m/s}\\
-% \ref{lhjg95}. \SI{84.9}{m}\\
-\ref{wlbvvu}. See Equation \eqref{SjYaoE}\\
-\ref{xj6gln}. Range is horizontal.\\
-\ref{5wfdN0}. \ang{0} or \ang{90}\\
-\ref{DnqDpu}. \SI{0}{m/s^2}. Gravitational acceleration is vertical only.\\
-\ref{QsBUvP}. \ang{45}\\
-\ref{X0YL6f}. $-\SI{15}{m}$\\
-\ref{9w3tAm}. \SI{1.75}{s}\\
-\ref{k9Vh0r}. \SI{40.2}{m}\\
-\ref{jCKHLv}. \SI{42.9}{m}\\
-\ref{4gdNXl}. \SI{28.7}{m/s}
-
 \subsubsection*{\nameref{uPOucv}}
 \ref{x2YCzr}. Center-seeking\\
 \ref{S4rGIt}. (a) tangential \hspace{1em} (b) radially inward.\\
@@ -1132,9 +1243,3 @@ An 89-kg system consisting of a bicycle and rider are rounding a turn at \SI{16}
 \ref{IAjJBC}. Yes. Although the object is not speeding up or slowing down, the direction of the velocity vector continuously changes. \\
 \ref{G8I4Up}. In the direction of the tangential velocity at the instant the force was removed.\\
 \ref{Kv8Old}. (a) \SI{10.24}{m/s^2} \hspace{1em} (b) \SI{911}{N}\\
-\end{multicols}
-
-
-
-
-\end{document}

@@ -2123,4 +2123,76 @@ At this point, this example is solved like the solutions to Examples \ref{lB7EDG
 
 Choosing the positive solution, we conclude that the rock will strike the ground 3.96 seconds after launch.
 
+\subsubsection*{Range (K-level only)}
+
+The fact that vertical and horizontal motions are independent of each other lets us predict the range of a projectile. The \gls{range} is the horizontal distance $R$ traveled by a projectile on level ground, as illustrated in Figure \ref{6hKQ2Y}. Throughout history, people have been interested in finding the range of projectiles for practical purposes, such as aiming cannons.
+
+\begin{center}
+    \begin{tikzpicture}[
+        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
+        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \sf = 0.5; %scale factor for vector components
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=12cm,height=5cm,ticks=none,
+        axis lines = center,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax={R(50,45)*1.1},
+        ymin=0, ymax={h(50,45)*1.1},
+        ]
+        \draw[Green,thick,->] (0,0) -- ++({50*cos(45)},{50*sin(45)}) node[above left=-5pt] {\SI{50}{m/s}};;
+        \draw[Green,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
+        \draw[violet,thick,->] (0,0) -- ++({40*cos(45)},{40*sin(45)}) node[pos=0.93,right=2.7mm] {\SI{40}{m/s}};;
+        \draw[violet,thick,domain=0:{R(40,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,40,45)}) node[black,below] {$R = \SI{163}{m}$};
+        \draw[red,thick,->] (0,0) -- ++({30*cos(45)},{30*sin(45)}) node[pos=0.4,right=3pt] {\SI{30}{m/s}, \ang{45}};
+        \draw[red,thick,domain=0:{R(30,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,30,45)})
+    node[black,below] {$R = \SI{91.8}{m}$};;
+        \end{axis}
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    \begin{tikzpicture}[
+        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
+        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \sf = 0.5; %scale factor for vector components
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=12cm,height=5cm,ticks=none,
+        axis lines = center,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax={R(50,45)*1.1},
+        ymin=0, ymax={h(50,75)*1.1},
+        ]
+        \draw[Green,thick,->] (0,0) -- ++({50*cos(75)},{50*sin(75)}) node[pos=1.7,rotate=58] {\SI{50}{m/s}, \ang{75}};;
+        \draw[Green,thick,domain=0:{R(50,75)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,75)}) node[black,below] {$R = \SI{128}{m}$};
+        \draw[violet,thick,->] (0,0) -- ++({50*cos(45)},{50*sin(45)}) node[pos=1.6,rotate=20,below=-6pt] {\SI{50}{m/s}, \ang{45}};;
+        \draw[violet,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)}) node[black,below] {$R = \SI{225}{m}$};
+        \draw[red,thick,->] (0,0) -- ++({50*cos(15)},{50*sin(15)}) node[pos=1.5] {\SI{50}{m/s}, \ang{15}};;
+        \draw[red,thick,domain=0:{R(50,15)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,15)});
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{Trajectories of projectiles on level ground. \textit{Top plot}: The greater the initial speed,$v_0$, the greater the range for a given initial angle. \textit{Bottom plot}: The effect of initial angle, $\theta_0$, on the range of a projectile with a given initial speed. Note that any combination of trajectories that add to 90 degrees will have the same range in the absence of air resistance, although the maximum heights of those paths are different.}
+    \label{6hKQ2Y}
+\end{center}
+
+How does the initial velocity of a projectile affect its range? Obviously, the greater the initial speed $v_0$, the greater the range, as shown in the figure above. The initial angle $\theta_0$ also has a dramatic effect on the range. When air resistance is negligible, the range $R$ of a projectile on level ground is
+
+\begin{equation} \label{GqvaN1}
+    R = \frac{v_0^2 \sin{(2\theta_0)}}{g}
+\end{equation}
+
+where $v_0$ is the initial speed and $\theta_0$ is the initial angle relative to the horizontal. It is important to note that the range doesn't apply to problems where the initial and final $y$ position are different, or to cases where the object is launched perfectly horizontally.
+
 \end{document}

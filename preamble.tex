@@ -135,7 +135,15 @@ color(50.00000000000000bp)=(violet)
         \end{axis}
 }
 
-\tikzset{declare function = {patheq(\x,\yi,\vi,\thetai)= \yi + tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);}}
+\tikzset{
+    declare function = {patheq(\x,\yi,\vi,\thetai)= \yi + tan(\thetai)*\x - 9.8*\x^2/(2*(\vi*cos(\thetai))^2);},
+    declare function = {patheqten(\x,\yi,\vi,\thetai)= \yi + tan(\thetai)*\x - 10*\x^2/(2*(\vi*cos(\thetai))^2);} %like patheq but with gravity = 10
+}
+
+\def\mystep{\rotatebox[origin=c]{-90}{\faEject}}
+
+
+
 
 
 
