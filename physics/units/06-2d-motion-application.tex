@@ -20,9 +20,11 @@
 
 In this unit, we explore two types of two-dimensional motion: projectile motion and uniform circular motion (UCM). The first 10 lessons address projectile motion; the last 8 lessons, UCM.
 
-\begin{mdframed}[backgroundcolor=black!10]
+\begin{mdframed}[backgroundcolor=cpBlue]
+{\color{white}
 \textbf{Note on Section Numbering}\\
-Subsections are labeled according to the Day in the Lesson Plan of this unit. For example, Section \ref{tMF7JY} corresponds to Day 3 of Unit 6.
+Subsections are labeled according to the Day in the Lesson Plan of this unit.\\ For example, Section \hypersetup{linkcolor=.}\ref{tMF7JY} below corresponds to Day 3 of the Unit 6 Lesson Plan.
+}
 \end{mdframed}
 
 \vspace{1ex}
@@ -78,9 +80,9 @@ Subsections are labeled according to the Day in the Lesson Plan of this unit. Fo
 
 
 \clearpage
-\subsection{Relevant Application: Factors that Affect Path and Hang Time} \label{1hGIbN}
+\subsection{Lab: Factors that Affect Path and Hang Time \texttt{(Monday 01/08/2024)}} \label{1hGIbN}
 
-\begin{mdframed}[backgroundcolor=Green!10]
+\begin{mdframed}[backgroundcolor=csOrange]
     \textbf{Warm-Up}. Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{click here}). Click the \texttt[red]{Lab} panel. Locate the following three functions on your screen: the fire button, the first measuring tool, and the reset button, which are shown below:
 \end{mdframed}
 
@@ -169,10 +171,10 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
 
 \vspace{1em}
 
-\subsection{Relevant Application ({\small \textit{cont}.}): Launch Angle and Projectile Path}
+\subsection{Lab {\small (\textit{cont}.)}: Launch Angle and Projectile Path \texttt{(Tuesday 01/09/2024)}} \label{9UH4Uj}
 
-\begin{mdframed}[backgroundcolor=Green!10]
-    \textbf{Warm-Up}: See Warm-Up from Section \ref{1hGIbN}.
+\begin{mdframed}[backgroundcolor=csOrange]
+    \textbf{Warm-Up}. See Warm-Up from Section \ref{1hGIbN}.
 \end{mdframed}
 
 \textbf{Part IV: How Launch Velocity Changes Projectile Path}
@@ -204,8 +206,8 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
 
 \subsection{Vertical \& Horizontal Vectors of Position, Velocity, and Acceleration} \label{tMF7JY}
 
-\begin{mdframed}[backgroundcolor=Green!10]
-    \textbf{Warm-Up}. List what you know about the following quantities, including their SI units. Then, list what you want to know about them in two-dimensional motion.
+\begin{mdframed}[backgroundcolor=csOrange]
+    \textbf{Warm-Up}. List what you know about the following quantities---including, if applicable, their SI units. Then, list what you want to know about them in two-dimensional motion.
 
     \begin{center}
         \textbf{position} \hspace{2em}
@@ -214,6 +216,10 @@ When you press the \texttt[red]{Fire} button, a projectile is launched through t
     \end{center}
 \end{mdframed}
 
+
+\vspace{1em}
+
+In Sections \ref{1hGIbN} and \ref{9UH4Uj} we launched projectiles at a variety of angles above the horizontal. A special case of projectile motion occurs when the object is launched from some height above ground at angle of \ang{0} with the horizontal. A \gls{horizontally launched projectile}, as we call it, is a projectile whose initial velocity is entirely in the horizontal direction, as its launch angle is zero. Such a projectile must be launched above ground-level so that the object may experience a drop. Figure \ref{lTQ6jX} represents a horizontally launched projectile. In Section \ref{Qxc2Cv}, we will show how to set-up and analyze problems related to horizontally launched projectiles.
 
 \vspace{1em}
 
@@ -274,7 +280,7 @@ We'll call the horizontal axis the $x$-axis and the vertical axis the $y$-axis. 
             ylabel = $y$,
             xlabel = $x$,
             xmin=0, xmax=20,
-            ymin=0, ymax=18,
+            ymin=0, ymax=16,
         ]
         \node at (15.6,0.35) {$\square$};
         \draw[dashed,domain=0:16,variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,70)}) node[above left=-4pt] {\faSoccerBallO};
@@ -291,7 +297,7 @@ We'll call the horizontal axis the $x$-axis and the vertical axis the $y$-axis. 
     \label{i1Y7vV}
 \end{center}
 
-\subsubsection*{\ref{tMF7JY} Exercises}
+\subsection*{\ref{tMF7JY} Exercises}
 
 \begin{exercise} \label{KU3Mnf}
 Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{click here}). Click the \texttt[red]{Vectors} panel, and take the following steps:
@@ -300,7 +306,7 @@ Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://ph
     \item Un-check the \texttt[red]{Air Resistance} box. (Leave it blank.)
     \item Raise the cannon to a height of \SI{11}{m}, change the launch angle to \ang{0} for a horizontal launch, and decrease the \texttt[red]{Initial Speed} to \SI{10}{m/s}.
     \item Click the \texttt[red]{Components} option, and check the \texttt[red]{Velocity Vectors} box.
-    \item Press \texttt[red]{Pause} (\small \faPause).
+    \item Press \texttt[red]{Pause} ({\small \faPause}).
     \item Press the \texttt[red]{Fire} button. The initial velocity, which is entirely horizontal is displayed. Notice that vertical velocity is not shown because it's zero.
     \item Sketch the horizontal and vertical velocity vectors of this snapshot in a motion map. 
     \item To the right of the \texttt{Play} ({\small \faPlay}) button there is the \texttt[red]{Step} ({\small \mystep}) button. Press the \texttt[red]{Step} button several times to view the evolution of the horizontal and vertical velocity vectors. 
@@ -312,35 +318,15 @@ Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://ph
     Repeat Step \ref{LSagnx} of Exercise \ref{KU3Mnf}, drawing horizontal and vertical velocity components at 7 to 8 instances, but this time launch the cannon from ground level ($\text{height} = 0$), at an launch angle of \ang{70}, with an initial speed of \SI{15}{m/s}. Be sure to include the first point, the last point, and the point at which the projectile is at maximum height. Compare your finalized sketch to Figure \ref{xRbMxN}.
 \end{exercise}
 
-\begin{exercise} \label{nmtty2}
-    What is projectile motion?
-    
-    \begin{enumerate}[label=\Alph*.]
-        \item Projectile motion is the motion of an object projected into the air and moving under the influence of gravity.
-        \item Projectile motion is the motion of an object projected into the air and moving independently of gravity.
-        \item Projectile motion is the motion of an object projected vertically upward into the air and moving under the influence of gravity.
-        \item Projectile motion is the motion of an object projected horizontally into the air and moving independently of gravity.
-    \end{enumerate}
-\end{exercise}
 
-\begin{exercise} \label{uLtw6P}
-    What is the force experienced by a projectile after the initial force that launched it into the air in the absence of air resistance?
-
-    \begin{enumerate}[label=\Alph*.]
-        \item The nuclear force
-        \item The gravitational force
-        \item The electromagnetic force
-        \item The contact force
-    \end{enumerate}
-\end{exercise}
 
 \begin{exercise} \label{sy5RGT}
     After a projectile is launched in the air, in which direction does it experience constant, non-zero acceleration, ignoring air resistance?
 
     \begin{enumerate}[label=\Alph*.]
-        \item The x direction
-        \item The y direction
-        \item Both the x and y directions
+        \item The $x$ direction
+        \item The $y$ direction
+        \item Both the x and $y$ directions
         \item Neither direction
     \end{enumerate}
 \end{exercise}
@@ -429,29 +415,36 @@ Access the \texttt[red]{PhET Simulation} ``Projectile Motion'' (\href{https://ph
 \end{center}
 
 
-\subsection{Describing Vertical and Horizontal Motion}
+\subsection{Describing Vertical and Horizontal Motion} \label{pW3BPZ}
 
-\begin{mdframed}[backgroundcolor=Green!10]
-    \textbf{Warm-Up}. Exercises \ref{MbIMKN}, \ref{tnuYO3}, and \ref{ObtV91}.
+\begin{mdframed}[backgroundcolor=csOrange]
 
-    \vspace{1em}
+\textbf{Warm-Up.}
+
+\vspace{-1ex}
+
+\begin{exercise} \label{nmtty2}
+    What is projectile motion?
     
-    A boulder is dropped from rest from the top of a tall cliff. The boulder accelerates downwards at a rate of \SI{10}{m/s^2}.
+    \begin{enumerate}[label=\Alph*.]
+        \item Projectile motion is the motion of an object projected into the air and moving under the influence of gravity.
+        \item Projectile motion is the motion of an object projected into the air and moving independently of gravity.
+        \item Projectile motion is the motion of an object projected vertically upward into the air and moving under the influence of gravity.
+        \item Projectile motion is the motion of an object projected horizontally into the air and moving independently of gravity.
+    \end{enumerate}
+\end{exercise}
 
-    \begin{exercise} \label{MbIMKN}
-        Create a table listing the boulder's speed at times $t = \SI{0}{s}$, \SI{1}{s}, \SI{2}{s}, \SI{3}{s}, \SI{4}{s}, and \SI{5}{s} after being dropped.
-    \end{exercise}
+\begin{exercise} \label{uLtw6P}
+    What is the force experienced by a projectile after the initial force that launched it into the air in the absence of air resistance?
 
-    \begin{exercise} \label{tnuYO3}
-        The bolder has a mass of \SI{5}{kg}. (a) What is it's initial momentum? (b) What is its initial kinetic energy?
-    \end{exercise}
-
-    \begin{exercise} \label{ObtV91}
-        (a) Calculate the momentum of the 5-kg boulder 3 seconds into its free fall. (b) Calculate its kinetic energy at $t = \SI{1}{s}$.
-    \end{exercise}
+    \begin{enumerate}[label=\Alph*.]
+        \item The nuclear force
+        \item The gravitational force
+        \item The electromagnetic force
+        \item The contact force
+    \end{enumerate}
+\end{exercise}
 \end{mdframed}
-
-
 
 
 As usual, we use velocity, acceleration, and displacement to describe motion. We must also find the components of these variables along the $x$- and $y$-axes. The components of acceleration are then very simple. In the vertical direction,
@@ -478,7 +471,63 @@ Both accelerations are constant, so we can use the kinematic equations. For revi
 
 where $x$ is position, $x_0$ is initial position, $v$ is velocity, $v_{\text{avg}}$ is average velocity, $t$ is time, and $a$ is acceleration.
 
-\subsection{How to Set-Up and Analyze Projectile Motion Problems}
+\subsection*{\ref{pW3BPZ} Exercises}
+
+\begin{exercise} \label{YYBBp5}
+    Using the conventional choice for positive and negative axes described in the text, what is the $y$-component of the acceleration of an object experiencing projectile motion?
+\end{exercise}
+
+\begin{enumerate}[label=\Alph*.]
+    \item $\SI{-10}{m/s}$
+    \item $\SI{-10}{m/s^2}$
+    \item \SI{10}{m/s}
+    \item \SI{10}{m/s^2}
+\end{enumerate}
+
+\begin{exercise} \label{EykTi8}
+    If an object is thrown horizontally, travels with an average $x$-component of its velocity equal to \SI{5}{m/s}, and does not hit the ground, what will be the $x$-component of the displacement after \SI{20}{s}? 
+
+    \begin{enumerate}[label=\Alph*.]
+        \item \SI{-100}{m}
+        \item \SI{-4}{m}
+        \item \SI{4}{m}
+        \item \SI{100}{m}
+    \end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{wlbvvu}
+    How can you express the velocity, $v$, of a projectile in terms of its initial velocity, $v_0$, acceleration, $g$, and time, $t$?
+\end{exercise}
+
+\begin{enumerate}[label=\Alph*.]
+    \item $v = at$
+    \item $v = v_0 + a t$
+    \item $v + v_0 = at$
+    \item $v_0 + v + at$
+\end{enumerate} 
+
+\subsection{How to Set-Up and Analyze Projectile Motion Problems} \label{Qxc2Cv}
+
+\begin{mdframed}[backgroundcolor=csOrange]
+    \textbf{Warm-Up}. Exercises \ref{MbIMKN}, \ref{tnuYO3}, and \ref{ObtV91}.
+
+    \vspace{1ex}
+    
+    A boulder is dropped from rest from the top of a tall cliff. The boulder accelerates downwards at a rate of \SI{10}{m/s^2}.
+
+    \begin{exercise} \label{MbIMKN}
+        Create a table listing the boulder's speed at times $t = \SI{0}{s}$, \SI{1}{s}, \SI{2}{s}, \SI{3}{s}, \SI{4}{s}, and \SI{5}{s} after being dropped.
+    \end{exercise}
+
+    \begin{exercise} \label{tnuYO3}
+        The bolder has a mass of \SI{5}{kg}. (a) What is it's initial momentum? (b) What is its initial kinetic energy?
+    \end{exercise}
+
+    \begin{exercise} \label{ObtV91}
+        (a) Draw a qualitative (no numbers) \textbf{momentum vs.~time} graph representing the free fall of the boulder. (b) Draw a qualitative graph of \textbf{net force vs.~time}.
+    \end{exercise}
+\end{mdframed}
+
 
 The following four steps are used to analyze projectile motion:
 
@@ -490,6 +539,8 @@ The following four steps are used to analyze projectile motion:
 
 \textbf{Step 2}: Treat the motion as two independent one-dimensional motions, one horizontal and the other vertical. The kinematic equations for horizontal motion take the following forms under the condition that horizontal acceleration is zero ($a_x = 0$):
 
+\vspace{-1em}
+
 \begin{align}
     x &= x_0 + v_x t \label{7fMAPG}\\[0.5ex]
     v_x &= v_{0x} = \text{velocity is a constant} \label{dCvDf4}
@@ -500,8 +551,7 @@ For vertical motion, the kinematic equations take the following forms under the 
 \begin{align}
     y &= y_0 + \frac{1}{2}\left(v_{0y} + v_y\right)t\\[0.5ex]
     v_y &= v_{0y} - gt \label{SjYaoE} \\[0.5ex]
-    y &= y_0 + v_{0y}t - \frac{1}{2}  g t^2  \label{36YuvF} \\[0.5ex]
-    % v_y^2 &= v_{0y}^2 - 2 g (y - y_0) \label{wROSXN}
+    y &= y_0 + v_{0y}t - \frac{1}{2}  g t^2  \label{36YuvF}
 \end{align}
 
 \vspace{1em}
@@ -517,9 +567,11 @@ For vertical motion, the kinematic equations take the following forms under the 
     v &= \sqrt{v_x^2 + v_y^2} \label{glASeI}
 \end{align}
 
-\begin{mdframed}[backgroundcolor=black!10]
+\begin{mdframed}[backgroundcolor=cpBlue]
+{\color{white}
     \textbf{Tips For Success}\\
     For problems of projectile motion, it is important to set up a coordinate system. The first step is to choose an initial position for $x$ and $y$. Usually, it is simplest to set the initial position of the object so that $x_0 = 0$ and $y_0 = 0$.
+}
 \end{mdframed}
 
 \vspace{1em}
@@ -551,8 +603,6 @@ For vertical motion, the kinematic equations take the following forms under the 
 
 
 \clearpage
-
-
 
 
 \begin{example} \label{ER19WG}
@@ -627,7 +677,7 @@ To finish solving this equation for time ($t$), we take the following steps:
     \textbf{Write $t$ on left} \qquad & 5 t^2 = 12\\[1ex]
     \textbf{Divide by 5} \qquad & \frac{\cancel{5} t^2}{\textcolor{red}{\cancel{5}}} = \frac{12}{\textcolor{red}{5}}\\[1ex]
     \textbf{Simplify} \qquad & t^2 = \frac{12}{5}\\[1ex]
-    \textbf{Simplify} \qquad & t^2 = 2.4\\[1ex]
+    \textbf{Compute} \qquad & t^2 = 2.4\\[1ex]
     \textbf{Take square root} \qquad & \sqrt{t^2} = \sqrt{2.4}\\[1ex]
     \textbf{Simplify} \qquad & t = 1.5
 \end{align*}
@@ -636,7 +686,39 @@ Therefore, it takes the cannonball 1.5 seconds after being launched by the canno
 
 \endsolution
 
-\subsection{Solving Problems in Projectile Motion \texttt{(PART I)}}
+\subsection*{\ref{Qxc2Cv} Exercises}
+
+\begin{exercise} \label{ADuHT8}
+    How does the answer to Example \ref{ER19WG}, $t=\SI{1.5}{s}$, change if the projectile's initial speed is doubled?
+\end{exercise}
+
+\begin{exercise} \label{mT7mjd}
+    The cannon from Example \ref{ER19WG} is raised to a new height of \SI{80}{m} and fires the cannonball at the same initial speed, \SI{18}{m/s}. Calculate how long it will take the projectile to impact the ground now.
+\end{exercise}
+
+\begin{exercise} \label{VllZAi}
+    Determine time $t$ for the horizontally launched projectile shown below.
+\end{exercise}
+    
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,height=7cm,
+            ticks=none,
+            xmin=0,xmax=32,
+            ymin=0,ymax=15,
+            clip=false,
+            axis lines=left,
+        ]
+            \draw[RoyalBlue,domain=0:28.15,variable=\x,samples=100] plot(\x,{patheq(\x,12,18,0)}) node[black,below] {$t =\ ?$} node[black,below=4mm] {\StopWatchEnd}; 
+            \fill (0,{patheq(0,12,18,0)}) circle (3pt) node[left=2pt] {$t_0 = 0$} node[below left=2mm] {\StopWatchStart};
+            \draw[red,thick,->] (0,{patheq(0,12,18,0)}) -- ++(6,0) node[right] {\SI{9}{m/s}};
+            \draw[<->,dashed] (1,0) -- ++(0,12) node[right,pos=0.5] {\SI{52}{m}};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+
+\subsection{Solving Problems in Projectile Motion \texttt{(PART I)} \label{NruNJk}}
 
 \begin{example} \label{jKndVF}
     What is the range of the projectile from Example \ref{ER19WG}? (Calculate the horizontal displacement from its origin.)
@@ -718,6 +800,33 @@ Substituting known values leads to
 
 \endsolution
 
+\subsection*{\ref{NruNJk} Exercises}
+
+\begin{exercise} \label{Oj68jK}
+    Revisit the projectile from Exercise \ref{VllZAi} above. Calculate its horizontal displacement (range) after falling for 2 seconds.
+\end{exercise}
+
+\begin{exercise} \label{BqN1QL}
+    Morgan kicks a soccer ball, which, as shown in the snapshot below, reaches a range and height of 16 meters and 23 meters, respectively. What is the magnitude of the ball's displacement from the origin?
+\end{exercise}
+
+\begin{center}
+    \begin{tikzpicture} 
+        \begin{axis}[width=7cm,height=7cm,ticks=none,
+            axis lines = center,
+            clip=false,
+            ylabel = $y$,
+            xlabel = $x$,
+            xmin=0, xmax=20,
+            ymin=0, ymax=16,
+        ]
+        \draw[dashed,domain=0:16,variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,70)}) node[above left=-4pt] {\faSoccerBallO};
+        \draw[RoyalBlue,->,thick] (0,0) -- ++(16,{patheq(16,0,18,70)}) node[pos=0.5,above=3pt]{$d$} node[black,right] {$(16,23)$};
+        \draw (0,0) node [left] {$(0,0)$} node[left=1cm] {\Strichmaxerl[3]};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
 \subsection{Solving Problems in Projectile Motion \texttt{(PART II)}}
 
 \begin{example}
@@ -792,31 +901,10 @@ Therefore, the impact velocity is 23 meters per second, below and to the right.
 
 % \subsubsection*{\nameref{tMF7JY}}
 
-\begin{exercise} \label{EykTi8}
-    If an object is thrown horizontally, travels with an average $x$-component of its velocity equal to \SI{5}{m/s}, and does not hit the ground, what will be the $x$-component of the displacement after \SI{20}{s}? 
 
-    \begin{enumerate}[label=\Alph*.]
-        \item \SI{-100}{m}
-        \item \SI{-4}{m}
-        \item \SI{4}{m}
-        \item \SI{100}{m}
-    \end{enumerate}
-\end{exercise}
 
-\begin{exercise} \label{V9LJjv}
-    If a ball is thrown straight up with an initial velocity of \SI{20}{m/s} upward, what is the maximum height it will reach?
 
-    \begin{enumerate}[label=\Alph*.]
-        \item \SI{-20.4}{m}
-        \item \SI{-1.02}{m}
-        \item \SI{1.02}{m}
-        \item \SI{20.4}{m}
-    \end{enumerate}
-\end{exercise}
 
-\begin{exercise} \label{YYBBp5}
-    Using the conventional choice for positive and negative axes described in the text, what is the $y$-component of the acceleration of an object experiencing projectile motion?
-\end{exercise}
 
 % \begin{exercise}  \label{agp59Z}
 %     Two identical items, object 1 and object 2, are dropped from the top of a \SI{50.0}{m} building. Object 1 is dropped with an initial velocity of \SI{0}{m/s}, while object 2 is thrown straight downward with an initial velocity of \SI{13.0}{m/s}. What is the difference in time, in seconds rounded to the nearest tenth, between when the two objects hit the ground?
@@ -843,9 +931,7 @@ Therefore, the impact velocity is 23 meters per second, below and to the right.
 %     A large rock is ejected from a volcano with a speed of \SI{30}{m/s} and at an angle \ang{60} above the horizontal. The rock strikes the side of the volcano at an altitude of \SI{10.0}{m} lower than its starting point. Calculate the horizontal displacement of the rock.
 % \end{exercise}
 
-\begin{exercise} \label{wlbvvu}
-    How can you express the velocity, $v$, of a projectile in terms of its initial velocity, $v_0$, acceleration, $g$, and time, $t$?
-\end{exercise}
+
 
 % \begin{exercise}
 %     In the equation for the maximum height of a projectile, what does $v_{0y}$ stand for?
@@ -859,17 +945,43 @@ Therefore, the impact velocity is 23 meters per second, below and to the right.
     True or False? Range is defined as the maximum vertical distance travelled by a projectile. 
 \end{exercise}
 
+\begin{enumerate}[label=\Alph*.]
+    \item True
+    \item False
+\end{enumerate}
+
 \begin{exercise} \label{5wfdN0}
     For what angle of a projectile is its range equal to zero?
 \end{exercise}
+
+\begin{enumerate}[label=\Alph*.]
+    \item \ang{0} or \ang{30}
+    \item \ang{0} or \ang{45}
+    \item \ang{90} or \ang{0}
+    \item \ang{90} or \ang{45}
+\end{enumerate}
 
 \begin{exercise} \label{DnqDpu}
     Ignoring drag, what is the $x$-component of the acceleration of a projectile? Why?
 \end{exercise}
 
+\begin{enumerate}[label=\Alph*.]
+    \item The $x$-component of the acceleration of a projectile is zero because acceleration of a projectile is due to gravity, which acts in the $y$ direction.
+    \item The $x$-component of the acceleration of a projectile is $g$ because acceleration of a projectile is due to gravity, which acts in the $x$ direction.
+    \item The $x$-component of the acceleration of a projectile is 0 because acceleration of a projectile is due to gravity, which acts in the $x$ direction.
+    \item The $x$-component of the acceleration of a projectile is $g$ because acceleration of a projectile is due to gravity, which acts in the $y$ direction.
+\end{enumerate}
+
 \begin{exercise} \label{QsBUvP}
     What is the optimum angle at which a projectile should be launched in order to cover the maximum distance?
 \end{exercise}
+
+\begin{enumerate}[label=\Alph*.]
+    \item \ang{0}
+    \item \ang{45}
+    \item \ang{60}
+    \item \ang{90}
+\end{enumerate}
 
 \vspace{1em}
 
@@ -925,6 +1037,16 @@ Therefore, the impact velocity is 23 meters per second, below and to the right.
 
 \cyanhrule
 
+\begin{exercise} \label{V9LJjv}
+    If a ball is thrown straight up with an initial velocity of \SI{20}{m/s} upward, what is the maximum height it will reach?
+
+    \begin{enumerate}[label=\Alph*.]
+        \item \SI{-20.4}{m}
+        \item \SI{-1.02}{m}
+        \item \SI{1.02}{m}
+        \item \SI{20.4}{m}
+    \end{enumerate}
+\end{exercise}
 
 
 \clearpage
@@ -937,27 +1059,31 @@ Therefore, the impact velocity is 23 meters per second, below and to the right.
 \clearpage
 
 \subsection{Answers to Select Exercises \texttt{(INSTRUCTORS ONLY)}}
-\ref{EykTi8}. D. \SI{100}{m}\\
-\ref{V9LJjv}. D. \SI{20.4}{m}\\
+\ref{EykTi8}. D.~\SI{100}{m}\\
+\ref{V9LJjv}. D.~\SI{20.4}{m}\\
 \ref{nmtty2}. A. \\
 \ref{uLtw6P}. B.\\
 \ref{90PABl}. \ang{90}\\
 \ref{8I1QP6}. A.\\
 \ref{MbIMKN}. $v = \SI{0}{m/s}$, \SI{10}{m/s}, \SI{20}{m/s}, \SI{30}{m/s}, \SI{40}{m/s}, and \SI{50}{m/s}.\\
 \ref{tnuYO3}. (a) $p_0 = 0$; \hspace{1em} (b) $\text{KE}_0 = 0$\\
-\ref{ObtV91}. (a) \SI{150}{kg \cdot m/s}; \hspace{1em} (b) \SI{250}{J};\\
-\ref{YYBBp5}. \SI{-10}{m/s^2}\\
+\ref{YYBBp5}. B.~\SI{-10}{m/s^2}\\
 % \ref{agp59Z}. \SI{1.1}{s}\\
 % \ref{Xu3FK9}. \SI{90.4}{m}\\
 % \ref{piJ9kJ}. \SI{31.3}{m/s}\\
 \ref{sy5RGT}. Vertical (or $y$)\\
 % \ref{N0Bwou}. \SI{21.8}{m/s}\\
 % \ref{lhjg95}. \SI{84.9}{m}\\
-\ref{wlbvvu}. See Equation \eqref{SjYaoE}\\
-\ref{xj6gln}. Range is horizontal.\\
-\ref{5wfdN0}. \ang{0} or \ang{90}\\
-\ref{DnqDpu}. \SI{0}{m/s^2}. Gravitational acceleration is vertical only.\\
-\ref{QsBUvP}. \ang{45}\\
+\ref{wlbvvu}. B.~See Equation \eqref{SjYaoE}\\
+\ref{ADuHT8}. It doesn't change, since both projectiles fall from the same height at the same rate.\\
+\ref{mT7mjd}. \SI{4.0}{s}\\
+\ref{VllZAi}. \SI{3.2}{s}\\
+\ref{Oj68jK}. \SI{18}{m}\\
+\ref{BqN1QL}. \SI{28}{m}\\
+\ref{xj6gln}. B.~False. Range is horizontal.\\
+\ref{5wfdN0}. C.~\ang{90} or \ang{0}\\
+\ref{DnqDpu}. A.\\
+\ref{QsBUvP}. B.~\ang{45}\\
 \ref{X0YL6f}. $-\SI{15}{m}$\\
 \ref{9w3tAm}. \SI{1.75}{s}\\
 \ref{k9Vh0r}. \SI{40.2}{m}\\

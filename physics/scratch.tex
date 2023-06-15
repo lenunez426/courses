@@ -6,47 +6,7 @@
 \begin{document}
 
 
-\begin{center}
-    \begin{tikzpicture}[declare function={t(\x)=\x/(\vi*cos(\thetai));}]
-    \tikzmath{
-        \grav = 10;
-        \vi = 20;
-        \yi = 0;
-        \thetai = 45.0;
-        \viy = \vi*sin(\thetai);
-        \ymax = (\viy^2)/(2*\grav);
-        \tmax = 2*\ymax/\viy;
-        \vix = \vi*cos(\thetai);
-        \xmax = \vix*\tmax;
-        \sf = 0.3; %scale factor for vector components
-    }
-    % \pgfplotsset{compat=1.11}
-        \begin{axis}[width=16cm,height=9cm,ticks=none,
-        axis lines = none,
-        clip=false,
-        ylabel = $y$,
-        xlabel = $x$,
-        xmin=0, xmax=50,
-        ymin=0, ymax=15,
-        ]
-        \draw[red,domain=0:45,samples=100,variable=\x] plot(\x,{patheqten(\x,0,20,45)});
-        \draw[->] (0,0) -- ++(\vix*\sf,\viy*\sf) node[above=3mm,pos=0.8] {$v_0$};
-        \draw[dashed,->] (0,0) -- ++(0,{\sf*\vi*sin(\thetai)}) node[above] {$v_{0y}$};
-        \draw[dashed,->] (0,0) -- ++(\vix*\sf,0) node[right] {$v_{0x}$};
 
-        \draw[fill=black] (\xmax,\ymax) circle (2pt);
-        \draw[thick,->] (\xmax,\ymax) -- ++(\vix*\sf,0);
-        
-        \pgfplotsinvokeforeach{0,5,10,15,25,30,35,40,45}{
-                \draw[fill=black] (#1,{patheqten(#1,0,20,45)}) circle (2pt);
-                \draw[dashed,->] (#1,{patheqten(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))});
-                \draw[dashed,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,0);
-                \draw[thick,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))});
-                }
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-
+return patheq(16,0,18,70)
 
 \end{document}
