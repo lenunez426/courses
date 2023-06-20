@@ -974,7 +974,7 @@ The plus sign means that acceleration is to the right. This is reasonable becaus
 
 Perhaps the most important thing to note about these examples is the signs of the answers. In our chosen coordinate system, plus means the quantity is to the right and minus means it is to the left. This is easy to imagine for displacement and velocity. But it is a little less obvious for acceleration. Most people interpret negative acceleration as the slowing of an object. This was not the case in Example \ref{2453yE}, where a positive acceleration slowed a negative velocity. The crucial distinction was that the acceleration was in the opposite direction from the velocity. In fact, a negative acceleration will increase a negative velocity. For example, the train moving to the left in Figure \ref{GMa3RN}(b) is sped up by an acceleration to the left. In that case, both $v$ and $a$ are negative. The plus and minus signs give the directions of the accelerations. If acceleration has the same sign as the velocity, the object is speeding up. If acceleration has the opposite sign as the velocity, the object is slowing down.
 
-\subsubsection{Motion Equations for Constant Acceleration in One Dimension} \label{WbwyTy}
+\subsection{Motion Equations for Constant Acceleration in One Dimension} \label{WbwyTy}
 
 We might know that the greater the acceleration of, say, a car moving away from a stop sign, the greater the displacement in a given time. But we have not developed a specific equation that relates acceleration and displacement. In this section, we develop some convenient equations for kinematic relationships, starting from the definitions of displacement, velocity, and acceleration already covered.
 
@@ -2146,6 +2146,315 @@ Thus, it takes about 2.5 seconds for the piece of ice to hit the water.
 \endsolution
 
 % Insert Phet Explorations, Equation Grapher
+
+\subsection{Graphical Analysis of One-Dimensional Motion}
+
+A graph, like a picture, is worth a thousand words. Graphs not only contain numerical information; they also reveal relationships between physical quantities. This section uses graphs of position, velocity, and acceleration versus time to illustrate one-dimensional kinematics.
+
+\subsubsection*{Slopes and General Relationships}
+
+First note that graphs in this text have perpendicular axes, one horizontal and the other vertical. When two physical quantities are plotted against one another in such a graph, the horizontal axis is usually considered to be an \gls{independent variable} and the vertical axis a \gls{dependent variable}. If we call the horizontal axis the  $x$-axis and the vertical axis the $y$-axis, as in Figure ?.??, a straight-line graph has the general form
+
+\begin{equation}
+    y = mx + b
+\end{equation}
+
+Here $m$ is the \gls{slope}, defined to be the rise divided by the run (as seen in the figure) of the straight line. The letter $b$ is used for the \gls{y-intercept}, which is the point at which the line crosses the vertical axis.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=5cm,
+            height=5cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            clip=false,
+            xlabel={$x$},
+            ylabel={$y$},
+            ticks=none,
+            axis lines=left,
+            y label style={at={(axis description cs:0,1)},rotate=-90,anchor=south},
+            x label style={at={(axis description cs:1,0)},anchor=west},
+        ]
+        \draw[thick,red,domain=-1:8] plot(\x,\x+2);
+        \fill (0,2) circle (2pt) node[above left=-1pt] {$b$};
+        \draw[<->] (0.3,0) -- ++(0,2) node[pos=0.5,right] {$b$};
+        \node[rotate=45,red] at (5,8) {$y = mx + b$};
+        \node[right] at (3,3) {$\text{Slope} = \frac{\text{rise}}{\text{run}} = \frac{\Delta y}{\Delta x} = m$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\subsubsection*{Graph of Position vs.~Time ($a = 0$, so $v$ is constant)}
+
+Time is usually an independent variable that other quantities, such as position, depend upon. A graph of position versus time would, thus, have $x$ on the vertical axis and $t$ on the horizontal axis. Figure ?.?? is just such a straight-line graph. It shows a graph of position versus time for a jet-powered car on a very flat dry lake bed in Nevada.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=8cm,height=6cm,
+            clip=false,
+            xlabel={Time, $t$ (s)},
+            ylabel={Position, $x$ (m)},
+            xmin=0,xmax=8,
+            ymin=0,ymax=2400,
+            xtick={0,1,...,8},
+            ytick={0,400,...,2400},
+            axis lines = left,
+            extra x ticks={0.5,6.4},
+            extra x tick labels={0.5,6.4},
+            extra x tick style={xticklabel style={yshift=0.5ex, anchor=south}},
+        ]
+        \draw[very thick,domain=0:8] plot(\x, 250*\x + 400);
+        \draw[<->,dashed] (0.5,525) -- ++(5.9,0) node[pos=0.5,below] {$\Delta t$};
+        \draw[<->,dashed] (6.4,525) -- ++(0,1475) node[right,pos=0.5] {$\Delta x$};
+        \node[right] at (2.8,880) {$\text{Slope} = \bar{v} = \frac{\Delta x}{\Delta t}$};
+        \draw[dashed] (0,2000) -- ++(6.4,0);
+        \node[rotate=30] at (2.5,1200) {$x = x_0 + \bar{v} t$};
+        \node[below=1pt] at (0.75,525) {\small \SI{525}{m}};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure, margin=1in, font=scriptsize}
+    \captionof{figure}{Graph of position versus time for a jet-powered car on the Bonneville Salt Flats.}
+    \label{n9ejY0}
+\end{center}
+
+Using the relationship between dependent and independent variables, we see that the slope in the graph above is average velocity $\bar{v}$ and the intercept is position at time zero---that is, $x_0$. Substituting these symbols into $y = mx + b$ gives
+
+\begin{equation}
+    x = \bar{v} t + x_0
+\end{equation}
+
+or
+
+\begin{equation}
+    x = x_0 + \bar{v} t
+\end{equation}
+
+Thus a graph of position versus time gives a general relationship among displacement(change in position), velocity, and time, as well as giving detailed numerical information about a specific situation.
+
+\vspace{1em}
+
+\begin{mdframed}[backgroundcolor=black!10]
+\textbf{The Slope of $x$ vs.~$t$}\\
+The slope of the graph of position $x$ vs.~time $t$ is velocity $v$.
+
+\begin{equation}
+    \text{slope} = \frac{\Delta x}{\Delta t} = v
+\end{equation}
+
+Notice that this equation is the same as that derived algebraically from other motion equations in \nameref{WbwyTy}. 
+\end{mdframed}
+
+From the figure we can see that the car has a position of \SI{525}{m} at \SI{0.50}{s} and \SI{2000}{m} at \SI{6.40}{s}. Its position at other times can be read from the graph; furthermore, information about its velocity and acceleration can also be obtained from the graph.
+
+\begin{example}
+    \textit{Determining Average Velocity from a Graph of Position versus Time: Jet Car}. Find the average velocity of the car whose position is graphed in Figure \ref{n9ejY0}.
+\end{example}
+
+\Solution The slope of a graph of $x$ vs.~$t$ is average velocity, since slope equals rise over run. In this case, rise = change in position and run = change in time, so that
+
+\begin{equation*}
+    \text{slope} = \frac{\Delta x}{\Delta t} = \bar{v}
+\end{equation*}
+
+Since the slope is constant here, any two points on the graph can be used to find the slope. (Generally speaking, it is most accurate to use two widely separated points on the straight line. This is because any error in reading data from the graph is proportionally smaller if the interval is larger.)
+
+\vspace{1em}
+
+\textbf{1}. Choose two points on the line. In this case, we choose the points labeled on the graph: $\left(\SI{6.4}{s}, \SI{2000}{m}\right)$ and $\left(\SI{0.50}{s}, \SI{525}{m}\right)$. (Note, however, that you could choose any two points.)
+
+\vspace{1em}
+
+\textbf{2}. Substitute the $x$ and $t$ values of the chosen points into the equation. Remember: in calculating change ($\Delta$) we always use final value minus initial value:
+
+\begin{equation*}
+    \bar{v} = \frac{\Delta x}{\Delta t} = \frac{\SI{2000}{m} - 
+    \SI{525}{m}}{\SI{6.4}{s} - \SI{0.50}{s}}
+\end{equation*}
+
+yielding
+
+\begin{equation*}
+    \bar{v} = \SI{250}{m/s}
+\end{equation*}
+
+\textbf{Discussion}: This is an impressively large land speed (\SI{900}{km/h}, or about \SI{560}{mi/h}): much greater than the typical highway speed limit of \SI{60}{mi/h} (\SI{27}{m/s} or \SI{96}{km/h}), but considerably shy of the record of \SI{343}{m/s} (\SI{1234}{km/h} or \SI{766}{mi/h}) set in 1997.
+
+\endsolution
+
+\subsubsection*{Graphs of Motion When $a$ is Constant but $a \neq 0$}
+
+The graphs in Figure ?.?? below represent the motion of the jet-powered car as it accelerates toward its top speed, but only during the time when its acceleration is constant. Time starts at zero for this motion (as if measured with a stopwatch), and the position and velocity are initially \SI{200}{m} and \SI{15}{m/s}, respectively.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            axis lines=left,
+            xmin=0,xmax=40,
+            ymin=0,ymax=3500,
+            ylabel={Position, $x$ (m)},
+            xlabel={Time, $t$ (s)},
+            ytick={0,500,...,3500},
+            xtick={0,10,...,40},
+            clip=false,
+        ]
+        \draw[RoyalBlue,thick,domain=0:30] plot(\x,200 + 15*\x + 0.5*5*\x^2);   
+        \node[right] at (5,2000) {$\text{Slope} = v$};
+        \end{axis}
+    \end{tikzpicture}
+
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            axis lines=left,
+            xmin=0,xmax=40,
+            xtick={0,10,...,40},
+            ymin=0,ymax=180,
+            ytick={0,20,...,180},
+            ylabel={Velocity, $v$ (m/s)},
+            xlabel={Time, $t$ (s)},
+            clip = false,        
+        ]
+        \draw[red,thick,domain=0:30] plot(\x,15 + 5*\x);
+        \node[right] at (2,120) {$\text{Slope} = a$};
+        \end{axis}
+    \end{tikzpicture}
+
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            axis lines=left,
+            xmin=0,xmax=40,
+            xtick={0,10,...,40},
+            ymin=0,ymax=6,
+            ytick={0,1,...,6},
+            clip=false,
+            ylabel={Acceleration, $a$ (\SI{}{m/s^2})},
+            xlabel={Time, $t$ (s)}
+        ]
+        \draw[Green,thick] (0,5) -- ++(30,0);
+        \end{axis}
+    \end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{Graphs of motion of a jet-powered car during the time span when its acceleration is constant. (a) The slope of an $x$ vs.~$t$ graph is velocity. This is shown at two points, and the instantaneous velocities obtained are plotted in the next graph. Instantaneous velocity at any point is the slope of the tangent at that point. (b) The slope of the $v$ vs.~$t$ graph is constant for this part of the motion, indicating constant acceleration. (c) Acceleration has the constant value of \SI{5.0}{m/s^2}over the time interval plotted.}
+\label{OqciLI}
+\end{center}
+
+The graph of position versus time in Figure \ref{OqciLI}(a) is a curve rather than a straight line. The slope of the curve becomes steeper as time progresses, showing that the velocity is increasing over time. The slope at any point on a position-versus-time graph is the instantaneous velocity at that point. It is found by drawing a straight line tangent to the curve at the point of interest and taking the slope of this straight line. Tangent lines are shown for two points in Figure \ref{OqciLI}(a). If this is done at every point on the curve and the values are plotted against time, then the graph of velocity versus time shown in Figure \ref{OqciLI}(b) is obtained. Furthermore, the slope of the graph of velocity versus time is acceleration, which is shown in Figure \ref{OqciLI}(c).
+
+\begin{example}
+    \textit{Determining Instantaneous Velocity from the Slope at a Point: Jet Car}. Calculate the velocity of the jet car at a time of 25 s by finding the slope of the $x$ vs.~$t$ graph in the graph below.
+
+\begin{center}
+\begin{minipage}{6cm}
+\centering
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            axis lines=left,
+            xmin=0,xmax=35,
+            ymin=0,ymax=3000,
+            ytick={0,500,...,3000},
+            xtick={0,5,...,35},
+            clip=false,
+            ylabel={Position, $x$ (m)},
+            xlabel={Time, $t$ (s)},
+        ]
+        \addplot[RoyalBlue,mark=*,mark size=1pt,only marks] coordinates{(0,200)(10,600)(15,988)(20,1500)(25,2138)(30,2900)};
+        \draw[RoyalBlue,thick,domain=0:30] plot(\x,200 + 15.6*\x + 0.5*4.96*\x^2);
+        \draw[black,thick,domain=18:32] plot(\x,140*\x-1350);
+        \node[above left=-2pt] at (25,2138) {Q};
+        \draw[dashed] (18,1170) -- ++(14,0) node[below,pos=0.5] {$\Delta t_{\text{Q}}$};  %140*18-1350 = 1170
+        \draw[dashed] (32,1170) -- ++(0,1960) node[right,pos=0.5] {$\Delta x_{\text{Q}}$}; %140*32 - 1350 - 1170 = 1960
+        \end{axis}
+    \end{tikzpicture}%
+\end{minipage}%
+\hspace{1em}
+\begin{minipage}{6cm}
+\centering
+    \begin{tabular}{c|c}
+        t (s) & x (m) \\ \hline
+        0 & 200\\
+        5 & 338\\
+        10 & 600\\
+        15 & 988\\
+        20 & 1500\\
+        25 & 2138\\
+        30 & 2900\\ \hline
+    \end{tabular}
+\end{minipage}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{The slope of an $x$ vs.~$t$ graph is velocity. This is shown at two points. Instantaneous velocity at any point is the slope of the tangent at that point.}
+\label{oRv2rJ}
+\end{center}
+\end{example}
+
+\Solution The slope of a curve at a point is equal to the slope of a straight line tangent to the curve at that point. This principle is illustrated in Figure \ref{oRv2rJ}, where Q is the point at $t=\SI{25}{s}$.
+
+\vspace{1em}
+
+\textbf{1}. 1. Find the tangent line to the curve at $t = \SI{25}{s}$.
+
+\vspace{1em}
+
+\textbf{2}. Determine the endpoints of the tangent. These correspond to a position of \SI{1300}{m} at time \SI{19}{s} and a position of \SI{3120}{m} at time \SI{32}{s}.
+
+\vspace{1em}
+
+\textbf{3}. Plug these endpoints into the equation to solve for the slope, $v$.
+
+\begin{equation*}
+    \text{slope} = v_{\text{Q}} = \frac{\Delta x_{\text{Q}}}{\Delta t_{\text{Q}}} = \frac{\SI{3120}{m} - \SI{1300}{m}}{\SI{32}{s} - \SI{19}{s}}
+\end{equation*}
+
+Thus,
+
+\begin{equation*}
+    v_{\text{Q}} = \frac{\SI{1820}{m}}{\SI{13}{s}} = \SI{140}{m/s}
+\end{equation*}
+
+\textbf{Discussion}: This is the value given in this figure's table for $v$ at  $t = \SI{25}{s}$. The value of \SI{140}{m/s} for $v={\text{Q}}$ is plotted in Figure \ref{oRv2rJ}. The entire graph of $v$ vs.~$t$ can be obtained in this fashion.
+
+\vspace{1ex}
+
+\endsolution
+
+\vspace{1em}
+
+Carrying this one step further, we note that the slope of a velocity versus time graph is acceleration. Slope is rise divided by run; on a $v$ vs.~$t$ graph, rise = change in velocity $\Delta v$ and run = change in time $\Delta t$.
+
+\begin{mdframed}[backgroundcolor=black!10]
+    \textbf{The Slope of $v$ vs.~$t$}\\
+    The slope of a graph of velocity $v$ vs.~time $t$ is acceleration $a$.
+
+    \begin{equation*}
+        \text{slope} = \frac{\Delta v}{\Delta t} = a
+    \end{equation*}
+\end{mdframed}
+
+Since the velocity versus time graph in Figure \ref{OqciLI}(b) is a straight line, its slope is the same everywhere, implying that acceleration is constant. Acceleration versus time is graphed in Figure \ref{OqciLI}(c).
+
+\vspace{1em}
+
+Additional general information can be obtained from Figure \ref{oRv2rJ} and the expression for a straight line, $y = mx + b$.
+
+\vspace{1em}
+
+In this case, the vertical axis $y$ is $v$, the intercept $b$ is $v_0$, the slope $m$ is $a$, and the horizontal axis $x$ is $t$. Substituting these symbols yields
+
+\begin{equation}
+    v = v_0 + at
+\end{equation}
+
+A general relationship for velocity, acceleration, and time has again been obtained from a graph. Notice that this equation was also derived algebraically from other motion equations in \nameref{WbwyTy}.
+
+\vspace{1em}
+
+It is not accidental that the same equations are obtained by graphical analysis as by algebraic techniques. In fact, an important way to discover physical relationships is to measure various physical quantities and then make graphs of one quantity against another to see if they are correlated in any way. Correlations imply physical relationships and might be shown by smooth graphs such as those above. From such graphs, mathematical relationships can sometimes be postulated. Further experiments are then performed to determine the validity of the hypothesized relationships.
+
+% Skip \subsubsection*{Graphs of Motion Where Acceleration is Not Constant}
+
+% Skip Figure 2.49 and EXAMPLE 2.19 Calculating Acceleration from a Graph of Velocity versus Time
+
+A graph of position versus time can be used to generate a graph of velocity versus time, and a graph of velocity versus time can be used to generate a graph of acceleration versus time. We do this by finding the slope of the graphs at every point. If the graph is linear (i.e., a line with a constant slope), it is easy to find the slope at any point and you have the slope for every point. Graphical analysis of motion can be used to describe both specific and general characteristics of kinematics. Graphs can also be used for other topics in physics. An important aspect of exploring physical relationships is to graph them and look for underlying relationships.
+
+%Skip Check Your Understanding
 
 
 \clearpage
