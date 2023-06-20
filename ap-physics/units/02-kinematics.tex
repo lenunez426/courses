@@ -1719,6 +1719,434 @@ This velocity is about four times greater than a person can run---so it is too l
 \textbf{Step 3}\\
 \textit{If the answer is unreasonable, look for what specifically could cause the identified difficulty}. In the example of the runner, there are only two assumptions that are suspect. The acceleration could be too great or the time too long. First look at the acceleration and think about what the number means. If someone accelerates at \SI{0.40}{m/s^2}, their velocity is increasing by 0.4 m/s each second. Does this seem reasonable? If so, the time must be too long. It is not possible for someone to accelerate at a constant rate of \SI{0.40}{m/s^2} for 100 s (almost two minutes).
 
+\subsection{Falling Objects}
+
+Falling objects form an interesting class of motion problems. For example, we can estimate the depth of a vertical mine shaft by dropping a rock into it and listening for the rock to hit the bottom. By applying the kinematics developed so far to falling objects, we can examine some interesting situations and learn much about gravity in the process.
+
+\subsubsection*{Gravity}
+
+The most remarkable and unexpected fact about falling objects is that, if air resistance and friction are negligible, then in a given location all objects fall toward the center of Earth with the \textit{same constant acceleration, independent of their mass}. This experimentally determined fact is unexpected, because we are so accustomed to the effects of air resistance and friction that we expect light objects to fall slower than heavy ones.
+
+\vspace{1em} %Figure
+
+In the real world, air resistance can cause a lighter object to fall slower than a heavier object of the same size. A tennis ball will reach the ground after a hard baseball dropped at the same time. (It might be difficult to observe the difference if the height is not large.) Air resistance opposes the motion of an object through the air, while friction between objects---such as between clothes and a laundry chute or between a stone and a pool into which it is dropped---also opposes motion between them. For the ideal situations of these first few chapters, an object \textit{falling without air resistance or friction} is defined to be in \gls{free-fall}.
+
+\vspace{1em}
+
+The force of gravity causes objects to fall toward the center of Earth. The acceleration of free-falling objects is therefore called the \gls{acceleration due to gravity}. The acceleration due to gravity is \textit{constant}, which means we can apply the kinematics equations to any falling object where air resistance and friction are negligible. This opens a broad class of interesting situations to us. The acceleration due to gravity is so important that its magnitude is given its own symbol, $g$. It is constant at any given location on Earth and has the average value
+
+\begin{equation}
+    g = \SI{9.80}{m/s^2}
+\end{equation}
+
+Although $g$ varies from \SI{9.78}{m/s^2} to \SI{9.83}{m/s^2}, depending on latitude, altitude, underlying geological formations, and local topography, the average value of \SI{9.80}{m/s^2} will be used in this text unless otherwise specified. The direction of the acceleration due to gravity is downward (towards the center of Earth). In fact, its direction defines what we call vertical. Note that whether the acceleration $a$ in the kinematic equations has the value $+g$ or $-g$ depends on how we define our coordinate system. If we define the upward direction as positive, then $a = -g = -\SI{9.80}{m/s^2}$, and if we define the downward direction as positive, then $a = g = \SI{9.80}{m/s^2}$.
+
+\subsubsection*{One-Dimensional Motion Involving Gravity}
+
+The best way to see the basic features of motion involving gravity is to start with the simplest situations and then progress toward more complex ones. So we start by considering straight up and down motion with no air resistance or friction. These assumptions mean that the velocity (if there is any) is vertical. If the object is dropped, we know the initial velocity is zero. Once the object has left contact with whatever held or threw it, the object is in free-fall. Under these circumstances, the motion is one-dimensional and has constant acceleration of magnitude $g$. We will also represent vertical displacement with the symbol $y$ and use $x$ for horizontal displacement.
+
+\vspace{1em}
+
+\cyanhrule
+
+\begin{center}
+    \texttt{KINEMATIC EQUATIONS FOR OBJECTS IN FREE-FALL WHERE ACCELERATION $= -g$}
+\end{center}
+
+\vspace{-1em}
+
+\begin{align}
+    v &= v_0 - gt \label{HyF2SE} \\[1ex]
+    y &= y_0 + v_0 t - \frac{1}{2} g t^2 \label{aobjvO} \\[1ex]
+    v^2 &= v_0^2 - 2 g \left(y - y_0\right) \label{rYOesE}
+\end{align}
+
+\cyanhrule
+
+\begin{example} \label{zPUpxb}
+    \textit{Calculating Position and Velocity of a Falling Object: A Rock Thrown Upward}. A person standing on the edge of a high cliff throws a rock straight up with an initial velocity of \SI{13.0}{m/s}. The rock misses the edge of the cliff as it falls back to earth. Calculate the position and velocity of the rock \SI{1.00}{s}, \SI{2.00}{s}, and \SI{3.00}{s} after it is thrown, neglecting the effects of air resistance.
+\end{example}
+
+\Solution Draw a sketch.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[->,red,thick] (0,0) -- ++(0,1.5) node[left=4pt,pos=0.5,black] {$v_0 = \SI{13}{m/s}$};
+    \draw[->,Green,thick] (1,1.3) -- ++(0,-1) node[right=2pt,pos=0.5,black] {$a = -\SI{9.8}{m/s^2}$}; 
+    \draw[->] (5,0) -- ++(0,0.8) node[above] {$y$};
+    \draw[->] (5,0) -- ++(0.8,0) node[right] {$x$};
+\end{tikzpicture}
+\end{center}
+
+We are asked to determine the position $y$ at various times. It is reasonable to take the initial position $y_0$ to be zero. This problem involves one-dimensional motion in the vertical direction. We use plus and minus signs to indicate direction, with up being positive and down negative. Since up is positive, and the rock is thrown upward, the initial velocity must be positive too. The acceleration due to gravity is downward, so $a$ is negative. It is crucial that the initial velocity and the acceleration due to gravity have opposite signs. Opposite signs indicate that the acceleration due to gravity opposes the initial motion and will slow and eventually reverse it.
+
+\vspace{1em}
+
+Since we are asked for values of position and velocity at three times, we will refer to these as $y_1$ and $v_1$; $y_2$ and $v_2$; and $y_3$ and $v_3$.
+
+\vspace{1em}
+
+\textbf{Solution for position}\\
+\textbf{1}. Identify the knowns. We know initial position, initial velocity, acceleration, and time:
+
+\begin{equation*}
+    y_0 = 0 \ , \quad
+    v_0 = \SI{13}{m/s}  \ , \quad
+    a = -g = -\SI{9.80}{m/s^2}  \ , \quad
+    t = \SI{1.00}{s}
+\end{equation*}
+
+\textbf{2}. Identify the best equation to use. We will use Equation \eqref{aobjvO}, $y = y_0 + v_0 t - \frac{1}{2} g t^2$, because it includes only one unknown, $y$ (or $y_1$, here), which is the value we want to find.
+
+\vspace{1em}
+
+\textbf{3}. Plug in the known values and solve for $y_1$.
+
+\begin{equation*}
+    y = 0 + \left(\SI{13.0}{m/s}\right) \left(\SI{1.00}{s}\right)
+        + \frac{1}{2} \left(-\SI{9.80}{m/s^2}\right) \left(\SI{1.00}{s}\right)^2
+        = \SI{8.10}{m}
+\end{equation*}
+
+\textbf{Discussion}: The rock is \SI{8.10}{m} above its starting point at $t = \SI{1.00}{s}$, since $y_1 > y_0$. It could be \textit{moving} up or down; the only way to tell is to calculate $v_1$ and find out if it is positive or negative.
+
+\vspace{1em}
+
+\textbf{Solution for velocity}\\
+\textbf{1}. Identify the knowns. We know, as stated above, that 
+
+\begin{equation*}
+    y_0 = 0 \ , \quad
+    v_0 = \SI{13}{m/s}  \ , \quad
+    a = -g = -\SI{9.80}{m/s^2}  \ , \quad
+    t = \SI{1.00}{s}
+\end{equation*}
+
+We also know from the solution above that 
+
+\begin{equation*}
+    y_1 = \SI{8.10}{m}
+\end{equation*}
+
+\textbf{2}. Identify the best equation to use. The most straightforward is Equation \eqref{HyF2SE}, $v = v_0 - gt$.
+
+\vspace{1em}
+
+\textbf{3}. Plug in the knowns and solve.
+
+\begin{equation*}
+    v_1 = v_0 - gt = \SI{13.0}{m/s} - \left(\SI{9.80}{m/s^2}\right) \left(\SI{1.00}{s}\right) = \SI{3.20}{m/s}
+\end{equation*}
+
+\textbf{Discussion}: The positive value for $v_1$ means that the rock is still heading upward at $t = \SI{1.00}{s}$. However, it has slowed from its original \SI{13.0}{m/s}, as expected.
+
+\vspace{1em}
+
+\textbf{Solution for Remaining Times}\\
+The procedures for calculating the position and velocity at $t = \SI{2.00}{s}$ and \SI{3.00}{s} are the same as those above. The results are summarized in the table and figure below.
+
+\begin{center}
+    \begin{tabular}{c|c|c|c}
+        \textbf{time, $t$} & \textbf{Position, $y$} & \textbf{Velocity, $v$} & \textbf{Acceleration, $a$} \\ \hline
+        \SI{1.00}{s} & \SI{8.10}{m} & \SI{3.20}{m/s} & \SI{-9.80}{m/s^2}\\ 
+        \SI{2.00}{s} & \SI{6.40}{m} & \SI{-6.60}{m/s} & \SI{-9.80}{m/s^2}\\
+        \SI{3.00}{s} & \SI{-5.10}{m} & \SI{-16.4}{m/s} & \SI{-9.80}{m/s^2}\\ \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            axis lines = center,
+            ymin=-6,ymax=10,
+            xmin=0, xmax=4,
+            ytick={-6,-4,...,10},
+            xtick={1,2,3,4},
+            ylabel={Vertical Position (m)},
+            xlabel={Time (s)},
+            clip=false,
+            y label style={at={(axis description cs:-0.1,.5)},rotate=90,anchor=south},
+        ]
+        \draw[RoyalBlue,thick,domain=0:3,variable=\x] plot(\x,13*\x -0.5*9.8*\x^2);
+        \end{axis}
+    \end{tikzpicture}
+
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            axis lines = center,
+            ymin=-20,ymax=15,
+            xmin=0, xmax=4,
+            ytick={-20,-15,...,15},
+            xtick={1,2,3,4},
+            ylabel={Velocity (m/s)},
+            xlabel={Time (s)},
+            clip=false,
+            y label style={at={(axis description cs:-0.1,.5)},rotate=90,anchor=south},
+        ]
+        \draw[red,thick,domain=0:3,variable=\x] plot(\x,13 - 9.8*\x);
+        \end{axis}
+    \end{tikzpicture}    
+
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            axis lines = center,
+            ymin=-12,ymax=0,
+            xmin=0, xmax=4,
+            ytick={-12,-10,...,0},
+            xtick={1,2,3,4},
+            ylabel={Acceleration (\SI{}{m/s^2})},
+            xlabel={Time (s)},
+            clip=false,
+            y label style={at={(axis description cs:-0.1,.5)},rotate=90,anchor=south},
+        ]
+        \draw[Green,thick,domain=0:3,variable=\x] plot(\x,-9.8);
+        \end{axis}
+    \end{tikzpicture}   
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{Vertical position, vertical velocity, and vertical acceleration vs.~time for a rock thrown vertically up at the edge of a cliff. Notice that velocity changes linearly with time and that acceleration is constant. \textit{Misconception Alert}! Notice that the position vs.~time graph shows vertical position only. It is easy to get the impression that the graph shows some horizontal motion---the shape of the graph looks like the path of a projectile. But this is not the case; the horizontal axis is \textit{time}, not space. The actual path of the rock in space is straight up, and straight down.}
+\end{center}
+
+\textbf{Discussion}\\
+The interpretation of these results is important. At \SI{1.00}{s} the rock is above its starting point and heading upward, since $y_1$ and $v_1$ are both positive. At \SI{2.00}{s}, the rock is still above its starting point, but the negative velocity means it is moving downward. At \SI{3.00}{s}, both $y_3$ and $v_3$ are negative, meaning the rock is below its starting point and continuing to move downward. Notice that when the rock is at its highest point (at \SI{1.33}{s}), its velocity is zero, but its acceleration is still \SI{-9.80}{m/s^2}. Its acceleration is \SI{-9.80}{m/s^2} for the whole trip---while it is moving up and while it is moving down. Note that the values for $y$ are the positions (or displacements) of the rock, not the total distances traveled. Finally, note that free-fall applies to upward motion as well as downward. Both have the same acceleration---the acceleration due to gravity, which remains constant the entire time. Astronauts training in the famous Vomit Comet, for example, experience free-fall while arcing up as well as down, as we will discuss in more detail later.
+
+\endsolution
+
+\vspace{1em} % Skip "Making Connections"
+
+\begin{example}
+    \textit{Calculating Velocity of a Falling Object: A Rock Thrown Down}. What happens if the person on the cliff throws the rock straight down, instead of straight up? To explore this question, calculate the velocity of the rock when it is \SI{5.10}{m} below the starting point, and has been thrown downward with an initial speed of \SI{13.0}{m/s}.
+\end{example}
+
+\Solution Draw a sketch.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw[<-,red,thick] (0,0) -- ++(0,1.5) node[left=4pt,pos=0.5,black] {$v_0 = -\SI{13}{m/s}$};
+    \draw[->,Green,thick] (1,1.3) -- ++(0,-1) node[right=2pt,pos=0.5,black] {$a = -\SI{9.8}{m/s^2}$}; 
+    \draw[->] (5,0) -- ++(0,0.8) node[above] {$y$};
+    \draw[->] (5,0) -- ++(0.8,0) node[right] {$x$};
+\end{tikzpicture}
+\end{center}
+
+Since up is positive, the final position of the rock will be negative because it finishes below the starting point at $y_0 = 0$. Similarly, the initial velocity is downward and therefore negative, as is the acceleration due to gravity. We expect the final velocity to be negative since the rock will continue to move downward.
+
+\textbf{1}. Identify the knowns. We are given initial position, final position, initial velocity, and acceleration:
+
+\begin{equation*}
+    y_0 = 0\ , \quad
+    y_1 = \SI{-5.10}{m}\ , \quad
+    v_0 = \SI{-13.0}{m/s}\ , \quad
+    a = -g = -\SI{9.80}{m/s^2}
+\end{equation*}
+
+\textbf{2}. Choose the kinematic equation that makes it easiest to solve the problem. Equation \eqref{rYOesE}, $v^2 = v_0^2 + 2 a (y - y_0)$, works well because the only unknown in it is $v$. (We will plug in $y_1$ for $y$.)
+
+\vspace{1em}
+
+\textbf{3}. Enter the known values:
+
+\begin{equation*}
+    v^2 = \left(\SI{-13.0}{m/s}\right)^2 + 2 \left(\SI{-9.80}{m/s^2}\right) \left(\SI{-5.10}{m} - \SI{0}{m}\right) = \SI{268.96}{m^2/s^2}
+\end{equation*}
+
+where we have retained extra significant figures because this is an intermediate result.
+
+\vspace{1em}
+
+Taking the square root, and noting that a square root can be positive or negative, gives
+
+\begin{equation*}
+    v = \pm \SI{16.4}{m/s}
+\end{equation*}
+
+The negative root is chosen to indicate that the rock is still heading down. Thus,
+
+\begin{equation*}
+    v = -\SI{16.4}{m/s}
+\end{equation*}
+
+Note that \textit{this is exactly the same velocity the rock had at this position when it was thrown straight upward with the same initial speed}. (See Example \ref{zPUpxb} and Figure ?.??(a).) This is not a coincidental result. Because we only consider the acceleration due to gravity in this problem, the speed of a falling object depends only on its initial speed and its vertical position relative to the starting point. For example, if the velocity of the rock is calculated at a height of \SI{8.10}{m} above the starting point (using the method from Example \ref{zPUpxb}) when the initial velocity is 13.0 m/s straight up, a result of $\pm \SI{3.20}{m/s}$ is obtained. Here both signs are meaningful; the positive value occurs when the rock is at \SI{8.10}{m} and heading up, and the negative value occurs when the rock is at \SI{8.10}{m} and heading back down. It has the same speed but the opposite direction.
+
+\vspace{1em}
+
+Another way to look at it is this: In Example \ref{zPUpxb}, the rock is thrown up with an initial velocity of \SI{13.0}{m/s}. It rises and then falls back down. When its position is $y = 0$ on its way back down, its velocity is \SI{-13.0}{m/s}. That is, it has the same speed on its way down as on its way up. We would then expect its velocity at a position of $y = \SI{-5.10}{m}$ to be the same whether we have thrown it upwards at $+\SI{13.0}{m/s}$ or thrown it downwards at \SI{-13.0}{m/s}. The velocity of the rock on its way down from $y = 0$ is the same whether we have thrown it up or down to start with, as long as the speed with which it was initially thrown is the same.
+
+\endsolution
+
+\begin{example}
+    The acceleration due to gravity on Earth differs slightly from place to place, depending on topography (e.g., whether you are on a hill or in a valley) and subsurface geology (whether there is dense rock like iron ore as opposed to light rock like salt beneath you.) The precise acceleration due to gravity can be calculated from data taken in an introductory physics laboratory course. An object, usually a metal ball for which air resistance is negligible, is dropped and the time it takes to fall a known distance is measured. See, for example, Figure ?.??. Very precise results can be produced with this method if sufficient care is taken in measuring the distance fallen and the elapsed time.
+
+    \begin{center}
+        \begin{tabular}{c|c|c}
+            \textbf{$y$ (m)} & \textbf{$v$ (m/s)}  & \textbf{$t$ (s)}\\ \hline
+             0 & 0 & 0\\
+             $-0.049$ & $-0.98$ & 0.1\\
+             $-0.196$ & $-1.96$ & 0.2\\
+             $-0.441$ & $-2.94$ & 0.3\\
+             $-0.784$ & $-3.92$ & 0.4\\
+             $-1.225$ & $-4.90$ & 0.5 \\ \hline
+        \end{tabular}
+    \end{center}
+\end{example}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            clip=false,
+            axis lines = center,
+            ymin=-1.4, ymax=0,
+            xmin=0, xmax=0.6,
+            ytick={-1.4,-1.2,...,0},
+            xtick={0,0.1,...,0.6},
+            ylabel = {Position $y$ (m)},
+            xlabel = {Time $t$ (s)},
+            y label style={at={(axis description cs:-0.15,.5)},rotate=90,anchor=south},
+        ]
+        \draw[RoyalBlue,thick,domain=0:0.5] plot(\x,-0.5*9.8*\x^2);
+        \end{axis}
+    \end{tikzpicture}
+
+    \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            clip=false,
+            axis lines = center,
+            ymin=-6, ymax=0,
+            xmin=0, xmax=0.6,
+            ytick={-6,-5,...,0},
+            xtick={0,0.1,...,0.6},
+            ylabel = {Velocity $v$ (m/s)},
+            xlabel = {Time $t$ (s)},
+            y label style={at={(axis description cs:-0.15,.5)},rotate=90,anchor=south},
+        ]
+        \draw[red,thick,domain=0:0.5] plot(\x,-9.8*\x);
+        \end{axis}
+    \end{tikzpicture}%
+    \hspace{2em}%
+        \begin{tikzpicture}
+        \begin{axis}[width=7cm,
+            clip=false,
+            axis lines = center,
+            ymin=-10, ymax=0,
+            xmin=0, xmax=0.6,
+            ytick={-10,-8,...,0},
+            xtick={0,0.1,...,0.6},
+            ylabel = {Acceleration $a$ (\SI{}{m/s^2})},
+            xlabel = {Time $t$ (s)},
+            y label style={at={(axis description cs:-0.15,.5)},rotate=90,anchor=south},
+        ]
+        \draw[Green,thick,domain=0:0.5] plot(\x,-9.8);
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Suppose the ball falls \SI{1.0000}{m} in \SI{0.45173}{s}. Assuming the ball is not affected by air resistance, what is the precise acceleration due to gravity at this location?
+
+\vspace{1em}
+
+\Solution Draw a sketch.
+
+\begin{center}
+\begin{tikzpicture}
+    \fill[red] (0,0.8) circle (2pt) node[left=4pt,black] {$v_0 = -\SI{13}{m/s}$};
+    \draw[->,Green,thick] (1,1.3) -- ++(0,-1) node[right=2pt,pos=0.5,black] {$a =\ ?$}; 
+    \draw[->] (5,0) -- ++(0,0.8) node[above] {$y$};
+    \draw[->] (5,0) -- ++(0.8,0) node[right] {$x$};
+\end{tikzpicture}
+\end{center}
+
+We need to solve for acceleration $a$. Note that in this case, displacement is downward and therefore negative, as is acceleration.
+
+\vspace{1em}
+
+\textbf{1}. Identify the knowns. We know initial position, final position, time, and initial velocity:
+
+\begin{equation*}
+    y_0 = 0\ , \quad
+    y = \SI{1.0000}{m}\ , \quad
+    t = \SI{0.45173}{s}\ , \quad
+    v_0 = 0
+\end{equation*}
+
+\textbf{2}. Choose the equation that allows you to solve for $a$ using the known values---Equation \eqref{aobjvO}:
+
+\begin{equation*}
+    y = y_0 + v_0 t + \frac{1}{2} a t^2 
+\end{equation*}
+
+\textbf{3}. Substitute 0 for $v_0$ and rearrange the equation to solve for $a$. Substituting 0 for $v_0$ yields
+
+\begin{equation*}
+    y = y_0 + \frac{1}{2} a t^2
+\end{equation*}
+
+Solving for $a$ gives 
+
+\begin{equation*}
+    a = \frac{2 \left(y - y_0\right)}{t^2}
+\end{equation*}
+
+\textbf{4}. Substituting known values yields
+
+\begin{equation*}
+    a = \frac{2 \left(-\SI{1.0000}{m} - 0\right)}{\left(\SI[group-separator=\,]{0.45173}{s}\right)^2} = -\SI{9.8010}{m/s^2}
+\end{equation*}
+
+so, because $a = -g$ with the directions we have chosen,
+
+\begin{equation*}
+    g = \SI{9.8010}{m/s^2}
+\end{equation*}
+
+\textbf{Discussion}\\
+The negative value for $a$ indicates that the gravitational acceleration is downward, as expected. We expect the value to be somewhere around the average value of \SI{9.80}{m/s^2}, so \SI{9.8010}{m/s^2} makes sense. Since the data going into the calculation are relatively precise, this value for $g$ is more precise than the average value of $\SI{9.80}{m/s^2}$; it represents the local value for the acceleration due to gravity.
+
+\vspace{1em}
+
+\endsolution
+
+\begin{example}
+    A chunk of ice breaks off a glacier and falls 30.0 meters before it hits the water. Assuming it falls freely (there is no air resistance), how long does it take to hit the water?
+\end{example}
+
+\Solution We know initial position, final position, initial velocity, and acceleration:
+
+\begin{equation*}
+    y_0 = 0\ , \quad
+    y = \SI{-30.0}{m}\ , \quad
+    v_0 = 0\ , \quad
+    a = -g = -\SI{9.80}{m/s^2}
+\end{equation*}
+
+We can then use the Equation \eqref{aobjvO}, $y = y_0 + v_0 t + \frac{1}{2} a t^2$, to solve for $t$. Inserting $a = -g$, we obtain
+
+\begin{equation*}
+    y = 0 + (0) t - \frac{1}{2} g t^2
+\end{equation*}
+
+or,
+
+\begin{equation*}
+    y = -\frac{1}{2} g t^2
+\end{equation*}
+
+Solving for $t$ leads to 
+
+\begin{equation*}
+    t = \pm \sqrt{\frac{2y}{-g}} = \pm \sqrt{\frac{2\left(-\SI{30.0}{m}\right)}{-\SI{9.80}{m/s^2}}} = \pm \sqrt{\SI{6.12}{s^2}}
+\end{equation*}
+
+We take the positive value as the physically relevant answer:
+
+\begin{equation*}
+    t = \sqrt{\SI{6.12}{s^2}} = \SI{2.47}{s}
+\end{equation*}
+
+Thus, it takes about 2.5 seconds for the piece of ice to hit the water.
+
+\endsolution
+
+% Insert Phet Explorations, Equation Grapher
+
 
 \clearpage
 
