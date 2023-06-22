@@ -4,7 +4,7 @@
 
 \section{Kinematics}
 
-\subsection{Displacement}
+\subsection{Displacement} \label{iThIct}
 
 \subsubsection*{Position}
 
@@ -2358,10 +2358,10 @@ The graph of position versus time in Figure \ref{OqciLI}(a) is a curve rather th
         ]
         \addplot[RoyalBlue,mark=*,mark size=1pt,only marks] coordinates{(0,200)(10,600)(15,988)(20,1500)(25,2138)(30,2900)};
         \draw[RoyalBlue,thick,domain=0:30] plot(\x,200 + 15.6*\x + 0.5*4.96*\x^2);
-        \draw[black,thick,domain=18:32] plot(\x,140*\x-1350);
+        \draw[black,thick,domain=19:32] plot(\x,140*\x-1350);
         \node[above left=-2pt] at (25,2138) {Q};
-        \draw[dashed] (18,1170) -- ++(14,0) node[below,pos=0.5] {$\Delta t_{\text{Q}}$};  %140*18-1350 = 1170
-        \draw[dashed] (32,1170) -- ++(0,1960) node[right,pos=0.5] {$\Delta x_{\text{Q}}$}; %140*32 - 1350 - 1170 = 1960
+        \draw[dashed] (19,1300) -- ++(13,0) node[below,pos=0.5] {$\Delta t_{\text{Q}}$};  %140*19-1360 = 1300
+        \draw[dashed] (32,1300) -- ++(0,1820) node[right,pos=0.5] {$\Delta x_{\text{Q}}$}; %140*32 - 1360 = 3120; 3120 - 1300 = 1820
         \end{axis}
     \end{tikzpicture}%
 \end{minipage}%
@@ -2461,35 +2461,121 @@ A graph of position versus time can be used to generate a graph of velocity vers
 
 \subsection{Exercises}
 
-\subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
+\subsubsection*{\ref{iThIct} \nameref{iThIct}}
 
-\begin{exercise} \label{hJNNqd}
-    A person's speed can stay the same as they round a corner and changes direction. Given this information, is speed a scalar or a vector quantity? Explain.
+\begin{center}
+    \begin{tikzpicture}
+    \begin{axis}[width=8cm,height=5cm,
+        axis lines = left,
+        axis y line=none,
+        xlabel = {Position (m)},
+        ymin=0, ymax=6, 
+        xmin=0, xmax=12,
+        xtick={0,2,...,12},
+        clip=false,
+        ]
+        \draw[->,thick] (0,4) node[above] {A} -- ++(7,0) ;
+        \draw[->,thick] (12,3) node[above] {B} -- ++(-5,0) ;
+        \draw[->,rounded corners=1pt,thick] (2,2) node[above] {C} -- ++(8,0) -- ++(0,0.2) -- ++(-2,0) -- ++(0,0.2) -- ++(2,0);
+        \draw[->,rounded corners=2pt,thick] (9,1) node[above] {D} -- ++(-6,0) -- ++(0,0.2) -- ++(2,0);
+    \end{axis}
+    \end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{}
+\label{ljFwNL}
+\end{center}
+
+\begin{exercise}
+    Find the following for path A in Figure \ref{ljFwNL}: (a) The distance traveled. (b) The magnitude of the displacement from start to finish. (c) The displacement from start to finish.
 \end{exercise}
 
-\subsubsection*{\nameref{LgXYss}} %Acceleration
-
-\begin{exercise} \label{OKpKf5}
-    An airplane lands on a runway traveling east. Describe its acceleration.
+\begin{exercise}
+    Find the following for path B in Figure \ref{ljFwNL}: (a) The distance traveled. (b) The magnitude of the displacement from start to finish. (c) The displacement from start to finish.
 \end{exercise}
 
-\subsubsection*{\nameref{WbwyTy}} %Motion Equations
-
-\begin{exercise} \label{HbNHjj}
-A rocket accelerates at a rate of \SI{20}{m/s^2} during launch. How long does it take the rocket to reach a velocity of \SI{400}{m/s}?
+\begin{exercise}
+    Find the following for path C in Figure \ref{ljFwNL}: (a) The distance traveled. (b) The magnitude of the displacement from start to finish. (c) The displacement from start to finish.
 \end{exercise}
 
-\subsection{Answers to Select Exercises}
+\begin{exercise}
+    Find the following for path D in Figure \ref{ljFwNL}: (a) The distance traveled. (b) The magnitude of the displacement from start to finish. (c) The displacement from start to finish.
+\end{exercise}
 
-\subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
+\subsubsection*{\ref{3hdww6} \nameref{3hdww6}}
 
-\ref{hJNNqd}. Speed is a scalar quantity. It does not change at all with direction changes; therefore, it has magnitude only. If it were a vector quantity, it would change as direction changes (even if its magnitude remained constant).\\
+\begin{exercise}
+    (a) Calculate Earth's average speed relative to the Sun. (b) What is its average velocity over a period of one year?
+\end{exercise}
 
-\subsubsection*{\nameref{LgXYss}} %Acceleration
+\begin{exercise}
+    A helicopter blade spins at exactly 100 revolutions per minute. Its tip is \SI{5.00}{m} from the center of rotation. (a) Calculate the average speed of the blade tip in the helicopter’s frame of reference. (b) What is its average velocity over one revolution?
+\end{exercise}
 
-\ref{OKpKf5}. If we take east to be positive, then the airplane has negative acceleration, as it is accelerating toward the west. It is also decelerating: its acceleration is opposite in direction to its velocity.\\
+\begin{exercise}
+    The North American and European continents are moving apart at a rate of about \SI{3}{cm/y}. At this rate how long will it take them to drift \SI{500}{km} farther apart than they are at present?
+\end{exercise}
 
-\subsubsection*{\nameref{WbwyTy}} %Motion Equations
-\ref{HbNHjj}. \SI{20}{s}\\
+\begin{exercise}
+    Land west of the San Andreas fault in southern California is moving at an average velocity of about \SI{6}{cm/y} northwest relative to land east of the fault. Los Angeles is west of the fault and may thus someday be at the same latitude as San Francisco, which is east of the fault. How far in the future will this occur if the displacement to be made is \SI{590}{km} northwest, assuming the motion remains constant?
+\end{exercise}
+
+\begin{exercise}
+    On May 26, 1934, a streamlined, stainless steel diesel train called the Zephyr set the world’s nonstop long-distance speed record for trains. Its run from Denver to Chicago took 13 hours, 4 minutes, 58 seconds, and was witnessed by more than a million people along the route. The total distance traveled was \SI{1633.8}{km}. What was its average speed in km/h and m/s?
+\end{exercise}
+
+\begin{exercise}
+    Tidal friction is slowing the rotation of the Earth. As a result, the orbit of the Moon is increasing in radius at a rate of approximately \SI{4}{cm/year}. Assuming this to be a constant rate, how many years will pass before the radius of the Moon’s orbit increases by \SI{3.84e6}{m} (1\%)?
+\end{exercise}
+
+\begin{exercise}
+    A student drove to the university from their home and noted that the odometer reading of their car increased by \SI{12.0}{km}. The trip took \SI{18.0}{min}. (a) What was their average speed? (b) If the straight-line distance from their home to the university is \SI{10.3}{km} in a direction \ang{25} south of east, what was their average velocity? (c) If they returned home by the same path \SI{7}{h} \SI{30}{min} after they left, what were their average speed and velocity for the entire trip?
+\end{exercise}
+
+\begin{exercise}
+    The speed of propagation of the action potential (an electrical signal) in a nerve cell depends (inversely) on the diameter of the axon (nerve fiber). If the nerve cell connecting the spinal cord to your feet is \SI{1.1}{m} long, and the nerve impulse speed is \SI{18}{m/s}, how long does it take for the nerve signal to travel this distance?
+\end{exercise}
+
+\begin{exercise}
+    Conversations with astronauts on the lunar surface were characterized by a kind of echo in which the earthbound person's voice was so loud in the astronaut's space helmet that it was picked up by the astronaut's microphone and transmitted back to Earth. It is reasonable to assume that the echo time equals the time necessary for the radio wave to travel from the Earth to the Moon and back (that is, neglecting any time delays in the electronic equipment). Calculate the distance from Earth to the Moon given that the echo time was \SI{2.56}{s} and that radio waves travel at the speed of light (\SI{3.00e8}{m/s}).
+\end{exercise}
+
+\begin{exercise}
+    A football quarterback runs \SI{15.0}{m} straight down the playing field in \SI{2.50}{s}. He is then hit and pushed \SI{3.00}{m} straight backward in \SI{1.75}{s}. He breaks the tackle and runs straight forward another \SI{21.0}{m} in \SI{5.20}{s}. Calculate his average velocity (a) for each of the three intervals and (b) for the entire motion.
+\end{exercise}
+
+\begin{exercise}
+    The planetary model of the atom pictures electrons orbiting the atomic nucleus much as planets orbit the Sun. In this model you can view hydrogen, the simplest atom, as having a single electron in a circular orbit \SI{1.06e-10}{m} in diameter. (a) If the average speed of the electron in this orbit is known to be \SI{2.20e6}{m/s}, calculate the number of revolutions per second it makes about the nucleus. (b) What is the electron's average velocity per revolution?
+\end{exercise}
+
+% \subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
+
+% \begin{exercise} \label{hJNNqd}
+%     A person's speed can stay the same as they round a corner and changes direction. Given this information, is speed a scalar or a vector quantity? Explain.
+% \end{exercise}
+
+% \subsubsection*{\nameref{LgXYss}} %Acceleration
+
+% \begin{exercise} \label{OKpKf5}
+%     An airplane lands on a runway traveling east. Describe its acceleration.
+% \end{exercise}
+
+% \subsubsection*{\nameref{WbwyTy}} %Motion Equations
+
+% \begin{exercise} \label{HbNHjj}
+% A rocket accelerates at a rate of \SI{20}{m/s^2} during launch. How long does it take the rocket to reach a velocity of \SI{400}{m/s}?
+% \end{exercise}
+
+% \subsection{Answers to Select Exercises}
+
+% \subsubsection*{\nameref{1QLrzP}} %Vectors, Scalars,...
+
+% \ref{hJNNqd}. Speed is a scalar quantity. It does not change at all with direction changes; therefore, it has magnitude only. If it were a vector quantity, it would change as direction changes (even if its magnitude remained constant).\\
+
+% \subsubsection*{\nameref{LgXYss}} %Acceleration
+
+% \ref{OKpKf5}. If we take east to be positive, then the airplane has negative acceleration, as it is accelerating toward the west. It is also decelerating: its acceleration is opposite in direction to its velocity.\\
+
+% \subsubsection*{\nameref{WbwyTy}} %Motion Equations
+% \ref{HbNHjj}. \SI{20}{s}\\
 
 \end{document}
