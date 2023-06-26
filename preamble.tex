@@ -163,7 +163,9 @@ color(50.00000000000000bp)=(violet)
             ticks=none,
             axis lines=center,
             ylabel=$y$,
-            xlabel=$x$
+            xlabel=$x$,
+            xmin=0,xmax=1,
+            ymin=0,ymax=1
         ]
         \end{axis}
 }
@@ -184,6 +186,58 @@ color(50.00000000000000bp)=(violet)
 \definecolor{csBlue}{RGB}{27,46,112}
 \definecolor{csViolet}{RGB}{69,58,147}
 \definecolor{csOrange}{RGB}{251,197,116}
+
+\usetikzlibrary{fadings}
+
+\newcommand{\gradientstart}[1]{%
+    \vspace{1em}
+    \begin{tikzpicture}
+        \fill[gray,path fading=south] (0,1em) rectangle (\linewidth,2em);
+    \end{tikzpicture}
+
+    \vspace{-1em}
+
+    \begin{center}
+        \texttt{#1}
+    \end{center}
+
+    \vspace{-1ex}%
+}
+
+\def\gradientend{%
+    \vspace{1em}
+    
+    \begin{tikzpicture}
+        \fill[gray,path fading=north] (0,-1em) rectangle (\linewidth,-2em);
+    \end{tikzpicture}%
+}
+
+\newenvironment{gradient}[1]
+    {\vspace{1em}
+    
+    \begin{tikzpicture}
+        \fill[RoyalBlue,path fading=south] (0,1em) rectangle (\linewidth,2em);
+    \end{tikzpicture}
+    
+    \vspace{-1em}
+
+    \begin{center}
+        \texttt[RoyalBlue]{#1}
+    \end{center}
+
+    \vspace{-1ex}
+        }
+        {
+
+        \vspace{1ex}
+        
+    \begin{tikzpicture}
+        \fill[RoyalBlue,path fading=north] (0,-1em) rectangle (\linewidth,-2em);
+    \end{tikzpicture}
+
+    \vspace{1em}
+    }
+
 
 
 
