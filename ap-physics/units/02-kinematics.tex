@@ -1,4 +1,4 @@
-\documentclass[main-ap-physics.tex]{subfiles}
+\documentclass[../../main-ap-physics.tex]{subfiles}
 
 \begin{document}
 
@@ -1288,13 +1288,7 @@ What else can we learn by examining the Equation \eqref{03Tfzm} $x = x_0 + v_0 t
     \item if acceleration is zero, then the initial velocity equals average velocity ($v_0 = \bar{v}$) and $x = x_0 + v_0 t + \frac{1}{2} a t^2$ (Eq.~\ref{03Tfzm}) becomes $x = x_0 + v_0 t$ (Eq.~\ref{FokTWv}).
 \end{itemize}
 
-\cyanhrule
-
-\vspace{1em}
-
-\texttt{SOLVING FOR FINAL VELOCITY WHEN VELOCITY IS NOT CONSTANT} ($a \neq 0 $)
-
-\vspace{1em}
+\begin{gradient}{SOLVING FOR FINAL VELOCITY WHEN VELOCITY IS NOT CONSTANT ($a \neq 0 $)}
 
 A fourth useful equation can be obtained from another algebraic manipulation of previous equations.
 
@@ -1312,9 +1306,7 @@ Substituting this and $\bar{v} = \frac{v_0 + v}{2}$ into $x = x_0 + \bar{v} t$, 
     v^2 = v_0^2 + 2 a (x-x_0)
 \end{equation}
 
-\cyanhrule
-
-\vspace{1em}
+\end{gradient}
 
 \begin{example}
     \textit{Calculating Final Velocity: Dragsters}. Calculate the final velocity of the dragster in Example \ref{7ddBPA} without using information about time.
@@ -1867,6 +1859,8 @@ The interpretation of these results is important. At \SI{1.00}{s} the rock is ab
 
 Since up is positive, the final position of the rock will be negative because it finishes below the starting point at $y_0 = 0$. Similarly, the initial velocity is downward and therefore negative, as is the acceleration due to gravity. We expect the final velocity to be negative since the rock will continue to move downward.
 
+\vspace{1em}
+
 \textbf{1}. Identify the knowns. We are given initial position, final position, initial velocity, and acceleration:
 
 \begin{equation*}
@@ -2218,7 +2212,7 @@ yielding
 
 \subsubsection*{Graphs of Motion When $a$ is Constant but $a \neq 0$}
 
-The graphs in Figure ?.?? below represent the motion of the jet-powered car as it accelerates toward its top speed, but only during the time when its acceleration is constant. Time starts at zero for this motion (as if measured with a stopwatch), and the position and velocity are initially \SI{200}{m} and \SI{15}{m/s}, respectively.
+The graphs in Figure \ref{OqciLI} below represent the motion of the jet-powered car as it accelerates toward its top speed, but only during the time when its acceleration is constant. Time starts at zero for this motion (as if measured with a stopwatch), and the position and velocity are initially \SI{200}{m} and \SI{15}{m/s}, respectively.
 
 \begin{center}
     \begin{tikzpicture}
@@ -2278,7 +2272,7 @@ The graph of position versus time in Figure \ref{OqciLI}(a) is a curve rather th
     \textit{Determining Instantaneous Velocity from the Slope at a Point: Jet Car}. Calculate the velocity of the jet car at a time of 25 s by finding the slope of the $x$ vs.~$t$ graph in the graph below.
 
 \begin{center}
-\begin{minipage}{6cm}
+\begin{minipage}{7cm}
 \centering
     \begin{tikzpicture}
         \begin{axis}[width=6cm,height=6cm,
@@ -2301,7 +2295,7 @@ The graph of position versus time in Figure \ref{OqciLI}(a) is a curve rather th
     \end{tikzpicture}%
 \end{minipage}%
 \hspace{1em}
-\begin{minipage}{6cm}
+\begin{minipage}{5cm}
 \centering
     \begin{tabular}{c|c}
         t (s) & x (m) \\ \hline

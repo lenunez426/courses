@@ -13,3 +13,4 @@ main-physics.pdf
 *.gz
 *.toc
 *.pdf
+.DS_Store
