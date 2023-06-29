@@ -71,6 +71,51 @@ Kepler's second law deals with the speed with which each planet moves along its 
 
 If a planet moves in a circular orbit, the elastic line is always stretched the same amount and the planet moves at a constant speed around its orbit. But, as Kepler discovered, in most orbits that speed of a planet orbiting its star (or moon orbiting its planet) tends to vary because the orbit is elliptical.
 
+\begin{center}
+\begin{tikzpicture}[
+    declare function={f(\x)=\a*(1-\e^2)/(1+\e*cos(\x));}
+  ]
+\tikzmath{
+        \a = 1;
+        \e = 0.6;
+        \b = \a*sqrt(1-\e^2);
+        \c = sqrt(\a^2 - \b^2);
+        % The following four angles came from Rebound using same elapsed time. Use mathematica to check that areas swept are equal.
+        \fone = 5.6859; 
+        \ftwo = 0.59715;
+        \fthree = 3.1025;
+        \ffour = 3.18068;
+    }
+  \begin{polaraxis}[width=15cm,
+  axis lines=none,
+  axis equal image,
+  clip=false
+  ]
+    \addplot[domain=0:2*pi r,samples=300,color=RoyalBlue,thick] {f(\x)};
+    \fill[thick,domain=\fone r:2*pi r,fill=yellow!80] (0,0) -- plot (\x,{f(\x)}); 
+    \fill[thick,domain=0:\ftwo r,fill=yellow!80] (0,0) -- plot (\x,{f(\x)});
+    \fill[thick,domain=\fthree r:\ffour r,fill=yellow!80] (0,0) -- plot (\x,{f(\x)});
+    \draw[fill=yellow!80] (0,0) circle (1.5mm) node[above=1.5mm] {Sun};
+
+    % Annotations
+    \node[below] at (\fone r,{f(\fone)*1.2}) {1};
+    \draw[domain=\fone r:2*pi r] plot (\x,{f(\x)*1.2});
+    \draw[domain=0:\ftwo r,->] plot (\x,{f(\x)*1.2});
+    \node[right=2pt] at (0,{f(0)*1.2}) {$t$};
+    \node[above] at (\ftwo r,{f(\ftwo)*1.2}) {2};
+    \node[left=2mm] at (0,{f(0)}) {B};
+    
+    \node[above] at (\fthree r,{f(\fthree r)*1.05}) {3};
+    \draw[domain=\fthree r:\ffour r,->] plot (\x,{f(\x)*1.05});
+    \node[below] at (\ffour r,{f(\ffour r)*1.05}) {4};
+    \node[left=2pt] at (pi r,{f(pi r)*1.05}) {$t$};
+    \node[right=2mm] at (pi r,{f(pi r)}) {A};
+  \end{polaraxis}
+\end{tikzpicture}
+\captionsetup{type=figure,margin=1in,font=scriptsize}
+\captionof{figure}{\textbf{Kepler's Second Law: The Law of Equal Areas}. The orbital speed of a planet traveling around the Sun (the circular object inside the ellipse) varies in such a way that in equal intervals of time (t), a line between the Sun and a planet sweeps out equal areas (A and B). Note that the eccentricities of the planets’ orbits in our solar system are substantially less than shown here.}
+\end{center}
+
 
 
 
