@@ -1,78 +1,11 @@
 \documentclass[main-ap-physics.tex]{subfiles}
-
+\usetikzlibrary{decorations.markings}
 
 \begin{document}
-
-\subsection{Vector Addition and Subtraction: Graphical Methods}
-
-\subsubsection*{Vectors in Two Dimensions}
-
-A \gls{vector} is a quantity that has magnitude and direction. Displacement, velocity, acceleration, and force, for example, are all vectors. In one-dimensional, or straight-line, motion, the direction of a vector can be given simply by a plus or minus sign. In two dimensions (2-d), however, we specify the direction of a vector relative to some reference frame (i.e., coordinate system), using an arrow having length proportional to the vector's magnitude and pointing in the direction of the vector.
-
-\vspace{1em}
-Figure ?.?? shows such a graphical representation of a vector, using as an example the total displacement for the person walking in a city considered in Kinematics in Two Dimensions: An Introduction. We shall use the notation that a boldface symbol, such as $\mathbf{D}$, stands for a vector. Its magnitude is represented by the symbol in italics, \textbf{\textit{D}}, and its direction by $\theta$.
-
-\begin{gradient}{VECTORS IN THIS TEXT}
-    In this text, we will represent a vector with a boldface variable. For example, we will represent the quantity force with the vector $\textbf{F}$, which has both magnitude and direction. The magnitude of the vector will be represented by a variable in italics, such as \textbf{\textit{F}}, and the direction of the variable will be given by an angle $\theta$.
-\end{gradient}
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=8cm, height=5cm,
-            xmin=0,xmax=9,
-            ymin=0,ymax=5,
-            xtick={0,1,...,9},
-            ytick={0,1,...,5},
-            clip=false,
-            axis lines = left,
-            xlabel={9 blocks east},
-        ]
-        \draw[->,ultra thick,red] (0,0) -- (9,0);
-        \draw[->,ultra thick,red] (0,0) -- ++(0,5);
-        \draw[->,ultra thick,red] (0,0) -- (9,5) node[pos=0.6, above left=1mm,rotate=29,align=center,black] {Helicopter path\\10.3 blocks} node[black,below,pos=0.5,rotate=29] {\Large \myheli};
-        \node[left=4mm] at (0,0) {Starting point};
-        \draw (9,5) -- ++(-1,0.5) node[above left] {Destination};
-        \draw (1.5,0) arc (0:29.1:1.5) node[right,pos=0.6] {$\theta = \ang{29.1}$};
-        \node[rotate=90] at (9,2.5) {5 blocks north};
-        \begin{scope}[shift={(13,3)}]
-            \draw[->] (0,0) node[below] {S} -- ++(0,1) node[above] {N};
-            \draw (-0.5,0.5) node[left] {E} -- ++(1,0) node [right] {W};
-        \end{scope}
-        \end{axis}
-    \end{tikzpicture}
-    \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{A person walks 9 blocks east and 5 blocks north. The displacement is 10.3 blocks at an angle \ang{29.1} north of east.}
-\end{center}
 
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=10,
-            ymin=0,ymax=10,
-            ticks=none,
-            axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
-            clip=false
-        ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,5) node[pos=0.5,above,rotate=29.1] {10.3 units};
-        \draw (1.5,0) arc (0:29:1.5) node[pos=0.6,right] {$\theta = \ang{29.1}$};
-        \end{axis}
-        \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(-0.5,1)},Echelle=0.4,Rotation=29.1]
-        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.3,Origine={(2,-1.5)},AfficheAngles=false]
-        \draw[very thick,->] (2,-1.5) -- ++(0.2*9,0.2*5);
-    \end{tikzpicture}
-    \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{To describe the resultant vector for the person walking in a city considered in Figure ?.?? graphically, draw an arrow to represent the total displacement vector $\textbf{D}$. Using a protractor, draw a line at an angle $\theta$ relative to the east-west axis. The length \textbf{\textit{D}} of the arrow is proportional to the vector's magnitude and is measured along the line with a ruler. In this example, the magnitude \textbf{\textit{D}} of the vector is 10.3 units, and the direction $\theta$ is \ang{29.1} north of east.}
-\end{center}
-
-\subsubsection*{Vector Addition: Head-to-Tail Method}
-
-The head-to-tail method is a graphical way to add vectors, described in Figure ?.?? below and in the steps following. The tail of the vector is the starting point of the vector, and the head (or tip) of a vector is the final, pointed end of the arrow.
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=5cm,height=5cm,
             xmin=0,xmax=11,
             ymin=0,ymax=11,
             axis lines=center,
@@ -86,9 +19,74 @@ The head-to-tail method is a graphical way to add vectors, described in Figure ?
         \draw[ultra thick,violet,->] (0,0) -- ++(9,0) node[pos=0.2,above,black] {$\theta = \ang{0}$} node[pos=0.7,above=2pt,black] {9 units};
         \end{axis}
     \end{tikzpicture}%
-    \hspace{1em}
-        \begin{tikzpicture}
-        \begin{axis}[width=5cm,height=5cm,
+    \hspace{2em}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=11,
+            ymin=0,ymax=11,
+            axis lines=center,
+            xlabel={$x$},
+            ylabel={$y$},
+            clip=false,
+            xtick={9},
+            ytick=\empty,
+            xticklabels={},
+        ]
+        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
+        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
+        \end{axis}
+    \end{tikzpicture}%
+    \hspace{2em}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=11,
+            ymin=0,ymax=11,
+            axis lines=center,
+            xlabel={$x$},
+            ylabel={$y$},
+            clip=false,
+            xtick={9},
+            ytick=\empty,
+            xticklabels={},
+        ]
+        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
+        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
+        \draw[ultra thick,violet,->] (0,0) -- (9,5) node[pos=0.75,above left,rotate=29.1,black] {10.3 units};
+        \draw (1.5,0) arc (0:29.1:1.5) node[pos=0.75,right=2pt] {$\theta = \ang{29.1}$};
+        \end{axis}
+    \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(0.2,1.2)},Echelle=0.3,Rotation=29.1]
+        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.1,Origine={(2.8,0.8)},AfficheAngles=false]
+        \draw[very thick,->] (2.8,0.8) -- ++(0.05*9,0.05*5);
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{\textbf{Head-to-Tail Method}: The head-to-tail method of graphically adding vectors is illustrated for the two displacements of the person walking in a city considered in Figure ?.??. (a) Draw a vector representing the displacement to the east. (b) Draw a vector representing the displacement to the north. The tail of this vector should originate from the head of the first, east-pointing vector. (c) Draw a line from the tail of the east-pointing vector to the head of the north-pointing vector to form the sum or \textbf{resultant vector} $\textbf{D}$. The length of the arrow $\textbf{D}$ is proportional to the vector’s magnitude and is measured to be 10.3 units . Its direction, described as the angle with respect to the east (or horizontal axis) $\theta$ is measured with a protractor to be \ang{29.1}.}
+\end{center}
+
+\textbf{Step 1}. \textit{Draw an arrow to represent the first vector (9 blocks to the east) using a ruler and protractor.}
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=11,
+            ymin=0,ymax=11,
+            axis lines=center,
+            xlabel={$x$},
+            ylabel={$y$},
+            clip=false,
+            xtick={0,1,...,9},
+            ytick=\empty,
+            xticklabels={},
+        ]
+        \draw[ultra thick,violet,->] (0,0) -- ++(9,0) node[pos=0.2,above,black] {$\theta = \ang{0}$} node[pos=0.7,above=2pt,black] {9 units};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\textbf{Step 2}. Now draw an arrow to represent the second vector (5 blocks to the north). \textit{Place the tail of the second vector at the head of the first vector}.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
             xmin=0,xmax=11,
             ymin=0,ymax=11,
             axis lines=center,
@@ -103,9 +101,244 @@ The head-to-tail method is a graphical way to add vectors, described in Figure ?
         \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
         \end{axis}
     \end{tikzpicture}
-    \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{}
 \end{center}
+
+\textbf{Step 3}. \textit{If there are more than two vectors, continue this process for each vector to be added. Note that in our example, we have only two vectors, so we have finished placing arrows tip to tail.}
+
+\vspace{1em}
+
+\textbf{Step 4}. \textit{Draw an arrow from the tail of the first vector to the head of the last vector}. This is the resultant, or the sum, of the other vectors.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=11,
+            ymin=0,ymax=11,
+            axis lines=center,
+            xlabel={$x$},
+            ylabel={$y$},
+            clip=false,
+            xtick={9},
+            ytick=\empty,
+            xticklabels={},
+        ]
+        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
+        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
+        \draw[ultra thick,violet,->] (0,0) -- (9,5) node[pos=0.75,above left,rotate=29.1,black] {10.3 units};
+        \draw (1.5,0) arc (0:29.1:1.5) node[pos=0.75,right=2pt] {$\theta = \ang{29.1}$};
+        \end{axis}
+    \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(0.2,1.2)},Echelle=0.3,Rotation=29.1]
+        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.1,Origine={(2.8,0.8)},AfficheAngles=false]
+        \draw[very thick,->] (2.8,0.8) -- ++(0.05*9,0.05*5);
+    \end{tikzpicture}
+\end{center}
+
+\textbf{Step 5}. \textit{To get the magnitude of the resultant, measure its length with a ruler. (Note that in most calculations, we will use the Pythagorean theorem to determine this length.)}
+
+\vspace{1em}
+
+\textbf{Step 6}. \textit{To get the direction of the resultant, measure the angle it makes with the reference frame using a protractor. (Note that in most calculations, we will use trigonometric relationships to determine this angle.)}
+
+\vspace{1em}
+
+The graphical addition of vectors is limited in accuracy only by the precision with which the drawings can be made and the precision of the measuring tools. It is valid for any number of vectors.
+
+\begin{example}
+    \textit{Adding Vectors Graphically Using the Head-to-Tail Method: A Woman Takes a Walk}. Use the graphical technique for adding vectors to find the total displacement of a person who walks the following three paths (displacements) on a flat field. First, she walks \SI{25.0}{m} in a direction  \ang{49.0} north of east. Then, she walks \SI{23.0}{m} heading \ang{15.0} north of east. Finally, she turns and walks \ang{32.0}{m} in a direction \ang{68.0} south of east.
+\end{example}
+
+\Solution \textit{Strategy}: Represent each displacement vector graphically with an arrow, labeling the first $\textbf{A}$, the second $\textbf{B}$, and the third  $\textbf{C}$, making the lengths proportional to the distance and the directions as specified relative to an east-west line. The head-to-tail method outlined above will give a way to determine the magnitude and direction of the resultant displacement, denoted $\textbf{R}$.
+
+\vspace{1em}
+
+(1) Draw the three displacement vectors.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=25,
+            ymin=0,ymax=25,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            ticks=none,
+            axis lines=center
+        ]
+        \draw[very thick,->,violet] (0,0) -- ({25*cos(49)},{25*sin(49)}) node[pos=0.6,black,above left,rotate=49] {\SI{25}{m}} node[black,below=2mm] {$\textbf{A}$};
+        \draw (3,0) arc (0:49:3) node[pos=0.7,right=2pt] {$\theta_{\text{A}} = \ang{49}$};
+        \end{axis}
+    \end{tikzpicture}%
+    \hspace{2em}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=25,
+            ymin=0,ymax=25,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            ticks=none,
+            axis lines=center
+        ]
+        \draw[very thick,->,violet] (0,0) -- ({23*cos(15)},{23*sin(15)}) node[pos=0.8,black,above left,rotate=15] {\SI{23}{m}} node[black,below=2mm] {$\textbf{B}$};
+        \draw (8,0) arc (0:15:8) node[pos=0.6,right=2pt] {$\theta_{\text{B}} = \ang{15}$};
+        \end{axis}
+    \end{tikzpicture}%
+    \hspace{2em}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,height=6cm,
+            xmin=0,xmax=34,
+            ymin=-32,ymax=2,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            ticks=none,
+            axis lines=center,
+            clip=false,
+        ]
+        \draw[very thick,->,violet] (0,0) -- ({32*cos(-68)},{32*sin(-68)}) node[pos=0.5,black,above right,rotate=-68] {\SI{32}{m}} node[black,above right=1pt] {$\textbf{C}$};
+        \draw (4,0) arc (0:-68:4) node[pos=0.08,right=-1mm] {$\theta_{\text{C}} = \ang{68}$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+(2) Place the vectors head to tail retaining both their initial magnitude and direction.
+
+\begin{center}
+    \begin{tikzpicture}
+    
+        \begin{axis}[width=12cm,height=6cm,
+            xmin=0,xmax=60,
+            ymin=0,ymax=30,
+            axis lines=center,
+            ticks=none,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            clip=false,
+        ]
+        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
+        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
+        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
+        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
+        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
+        
+        \draw[very thick,violet,->] (0,0) -- (A) node[black,pos=0.5,below=1mm] {$\textbf{A}$};
+        \draw[very thick,violet,->] (A) -- ++(B) node[pos=0.5,black,below=1mm] {$\textbf{B}$};
+        \draw[very thick,violet,->] (AB) -- ++(C) node[pos=0.5,black,right=1mm] {$\textbf{C}$};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+(3) Draw the resultant vector,  $\textbf{R}$.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=12cm,height=6cm,
+            xmin=0,xmax=60,
+            ymin=0,ymax=30,
+            axis lines=center,
+            ticks=none,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            clip=false,
+        ]
+        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
+        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
+        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
+        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
+        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
+        
+        \draw[very thick,violet,->] (0,0) -- (A) node[black,pos=0.5,below=1mm] {$\textbf{A}$};
+        \draw[very thick,violet,->] (A) -- ++(B) node[pos=0.5,black,below=1mm] {$\textbf{B}$};
+        \draw[very thick,violet,->] (AB) -- ++(C) node[pos=0.5,black,right=1mm] {$\textbf{C}$};
+        \draw[ultra thick,violet,->] (0,0) -- (R) node[black,pos=0.5,below,rotate=-5.47] {\SI{50.8}{m}} node[pos=0.9,below,black] {$\textbf{R}$};
+        \draw (35,0) arc (0:-5.47:35) node[pos=0.5,right=1mm] {\ang{5.47}};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+(4) Use a ruler to measure the magnitude of $\textbf{R}$, and a protractor to measure the direction of $\textbf{R}$. While the direction of the vector can be specified in many ways, the easiest way is to measure the angle between the vector and the nearest horizontal or vertical axis. Since the resultant vector is south of the eastward pointing axis, we flip the protractor upside down and measure the angle between the eastward axis and the vector.
+
+\begin{center}
+    \begin{tikzpicture}
+    
+        \begin{axis}[width=12cm,height=6cm,
+            xmin=0,xmax=60,
+            ymin=0,ymax=30,
+            axis lines=center,
+            ticks=none,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            clip=false,
+        ]
+        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
+        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
+        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
+        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
+        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
+        
+        \draw[very thick,violet,->] (0,0) -- (A) node[black,pos=0.5,below=1mm] {$\textbf{A}$};
+        \draw[very thick,violet,->] (A) -- ++(B) node[pos=0.5,black,below=1mm] {$\textbf{B}$};
+        \draw[very thick,violet,->] (AB) -- ++(C) node[pos=0.5,black,right=1mm] {$\textbf{C}$};
+        \draw[ultra thick,violet,->] (0,0) -- (R) node[black,pos=0.5,below,rotate=-5.47] {\SI{50.8}{m}} node[pos=0.9,below,black] {$\textbf{R}$};
+        \draw (35,0) arc (0:-5.47:35) node[pos=0.5,right=1mm] {\ang{5.47}};
+        \end{axis}
+        \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(0.2,-0.6)},Echelle=0.6,Rotation=-5.47]
+        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.4,Origine={(4,-2.5)},AfficheAngles=false,Rotation=-180]
+        \draw[->] (4,-2.5) -- ++ ({0.05*50.8*cos(-5.47)},{0.05*50.8*sin(-5.47)});
+    \end{tikzpicture}
+\end{center}
+
+In this case, the total displacement $\textbf{R}$ is seen to have a magnitude of \SI{50.8}{m} and to lie in a direction  \ang{5.47} south of east. By using its magnitude and direction, this vector can be expressed as $\textbf{R} = \SI{50.8}{m}$ and $\theta = \ang{5.47}$ south of east.
+
+\vspace{1em}
+
+\textbf{Discussion}: The head-to-tail graphical method of vector addition works for any number of vectors. It is also important to note that the resultant is independent of the order in which the vectors are added. Therefore, we could add the vectors in any order as illustrated in Figure \ref{ondDEl} and we will still get the same solution.
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=12cm,height=6cm,
+            xmin=0,xmax=60,
+            ymin=0,ymax=30,
+            axis lines=center,
+            ticks=none,
+            clip=false,
+            ylabel=$y$,
+            xlabel=$x$,
+            clip=false,
+        ]
+        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
+        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
+        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
+        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
+        \coordinate (CA) at ({32*cos(-68)+25*cos(49)},{32*sin(-68)+25*sin(49)});
+        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
+        
+        \draw[very thick,violet,->] (0,0) -- (C) node[black,pos=0.5,below left] {$\textbf{C}$};
+        \draw[very thick,violet,->] (C) -- ++(A) node[pos=0.5,black,below right] {$\textbf{A}$};
+        \draw[very thick,violet,->] (CA) -- ++(B) node[pos=0.4,black,below right] {$\textbf{B}$};
+        \draw[ultra thick,violet,->] (0,0) -- (R) node[black,pos=0.5,below,rotate=-5.47] {\SI{50.8}{m}} node[pos=0.9,above,black] {$\textbf{R}$};
+        \draw (35,0) arc (0:-5.47:35) node[pos=0.5,right=1mm] {\ang{5.47}};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Here, we see that when the same vectors are added in a different order, the result is the same. This characteristic is true in every case and is an important characteristic of vectors. Vector addition is commutative. Vectors can be added in any order.
+
+\begin{equation}
+    \textbf{A} + \textbf{B} = \textbf{B} + \textbf{A}
+\end{equation}
+
+(This is true for the addition of ordinary numbers as well---you get the same result whether you add $2+3$ or $3+2$, for example).
+
+\endsolution
+
+ 
+
+
+
 \end{document}
 
 
