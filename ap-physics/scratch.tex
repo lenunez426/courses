@@ -3,339 +3,178 @@
 
 \begin{document}
 
+\subsubsection*{Adding Vectors Using Analytical Methods}
+
+To see how to add vectors using perpendicular components, consider Figure \ref{i2ER22}, in which the vectors \textbf{A} and \textbf{B} are added to produce the resultant \textbf{R}.
+
+
 \begin{center}
     \begin{tikzpicture}
         \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=11,
-            ymin=0,ymax=11,
             axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
+            xmin=0,xmax=75,
+            ymin=0,ymax=75,
+            ticks=none,
             clip=false,
-            xtick={0,1,...,9},
-            ytick=\empty,
-            xticklabels={},
+            xlabel=$x$,
+            ylabel=$y$
         ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,0) node[pos=0.2,above,black] {$\theta = \ang{0}$} node[pos=0.7,above=2pt,black] {9 units};
+        \coordinate (R) at ({81.2*cos(36.6)},{81.2*sin(36.6)});
+        \coordinate (A) at ({53*cos(20)},{53*sin(20)});
+        \coordinate (B) at ({34*cos(63)},{34*sin(63)});
+        \draw[ultra thick,->] (0,0) -- (R) node[below=2pt,pos=0.6] {\textbf{R}} node[above=1cm,pos=0.5] {$\textbf{A} + \textbf{B} = \textbf{R}$};
+        \draw[ultra thick,->,red] (0,0) -- (A) node[below,pos=0.6,black] {\textbf{A}};
+        \draw[ultra thick,->,RoyalBlue] (A) -- ++(B) node[below right=-1mm,pos=0.6,black] {\textbf{B}};
+        \begin{scope}[shift={(-20,30)}]
+            \draw[->] (0,0) node[below] {S} -- ++(0,12) node[above] {N};
+            \draw (-5,5) node[left] {E} -- ++(10,0) node [right] {W};
+        \end{scope}
         \end{axis}
-    \end{tikzpicture}%
-    \hspace{2em}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=11,
-            ymin=0,ymax=11,
-            axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
-            clip=false,
-            xtick={9},
-            ytick=\empty,
-            xticklabels={},
-        ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
-        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
-        \end{axis}
-    \end{tikzpicture}%
-    \hspace{2em}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=11,
-            ymin=0,ymax=11,
-            axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
-            clip=false,
-            xtick={9},
-            ytick=\empty,
-            xticklabels={},
-        ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
-        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
-        \draw[ultra thick,violet,->] (0,0) -- (9,5) node[pos=0.75,above left,rotate=29.1,black] {10.3 units};
-        \draw (1.5,0) arc (0:29.1:1.5) node[pos=0.75,right=2pt] {$\theta = \ang{29.1}$};
-        \end{axis}
-    \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(0.2,1.2)},Echelle=0.3,Rotation=29.1]
-        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.1,Origine={(2.8,0.8)},AfficheAngles=false]
-        \draw[very thick,->] (2.8,0.8) -- ++(0.05*9,0.05*5);
     \end{tikzpicture}
     \captionsetup{type=figure,margin=1in,font=scriptsize}
-    \captionof{figure}{\textbf{Head-to-Tail Method}: The head-to-tail method of graphically adding vectors is illustrated for the two displacements of the person walking in a city considered in Figure ?.??. (a) Draw a vector representing the displacement to the east. (b) Draw a vector representing the displacement to the north. The tail of this vector should originate from the head of the first, east-pointing vector. (c) Draw a line from the tail of the east-pointing vector to the head of the north-pointing vector to form the sum or \textbf{resultant vector} $\textbf{D}$. The length of the arrow $\textbf{D}$ is proportional to the vector’s magnitude and is measured to be 10.3 units . Its direction, described as the angle with respect to the east (or horizontal axis) $\theta$ is measured with a protractor to be \ang{29.1}.}
+    \captionof{figure}{Vectors \textbf{A} and \textbf{B} are two legs of a walk, and \textbf{R} is the resultant or total displacement. You can use analytical methods to determine the magnitude and direction of \textbf{R}.}
+    \label{i2ER22}
 \end{center}
 
-\textbf{Step 1}. \textit{Draw an arrow to represent the first vector (9 blocks to the east) using a ruler and protractor.}
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=11,
-            ymin=0,ymax=11,
-            axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
-            clip=false,
-            xtick={0,1,...,9},
-            ytick=\empty,
-            xticklabels={},
-        ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,0) node[pos=0.2,above,black] {$\theta = \ang{0}$} node[pos=0.7,above=2pt,black] {9 units};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-\textbf{Step 2}. Now draw an arrow to represent the second vector (5 blocks to the north). \textit{Place the tail of the second vector at the head of the first vector}.
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=11,
-            ymin=0,ymax=11,
-            axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
-            clip=false,
-            xtick={9},
-            ytick=\empty,
-            xticklabels={},
-        ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
-        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-\textbf{Step 3}. \textit{If there are more than two vectors, continue this process for each vector to be added. Note that in our example, we have only two vectors, so we have finished placing arrows tip to tail.}
+If \textbf{A} and \textbf{B} represent two legs of a walk (two displacements), then \textbf{R} is the total displacement. The person taking the walk ends up at the tip of \textbf{R}. There are many ways to arrive at the same point. In particular, the person could have walked first in the $x$-direction and then in the $y$-direction. Those paths are the $x$- and $y$-components of the resultant, $\textbf{R}_x$ and $\textbf{R}_y$. If we know $\textbf{R}_x$ and $\textbf{R}_y$, we can find $R$ and $\theta$ using the equations $A = \sqrt{A_x^2 + A_y^2}$ and $\theta = \tan^{-1} (A_y/A_x)$. When you use the analytical method of vector addition, you can determine the components or the magnitude and direction of a vector.
 
 \vspace{1em}
 
-\textbf{Step 4}. \textit{Draw an arrow from the tail of the first vector to the head of the last vector}. This is the resultant, or the sum, of the other vectors.
+\textbf{Step 1}. \textit{Identify the x- and y-axes that will be used in the problem. Then, find the components of each vector to be added along the chosen perpendicular axes}. Use the equations $A_x = A \cos{\theta}$ and $A_y = A \sin{\theta}$ to find the components. In Figure \ref{0kxQWq}, these components are $A_x$, $A_y$, $B_x$, and $B_y$. The angles that vectors \textbf{A} and \textbf{B} make with the $x$-axis are $\theta_{\text{A}}$ and $\theta_{\text{B}}$, respectively.
 
 \begin{center}
     \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=11,
-            ymin=0,ymax=11,
+        \begin{axis}[width=8cm,height=8cm,
             axis lines=center,
-            xlabel={$x$},
-            ylabel={$y$},
-            clip=false,
-            xtick={9},
-            ytick=\empty,
-            xticklabels={},
-        ]
-        \draw[ultra thick,violet,->] (0,0) -- ++(9,0);
-        \draw[ultra thick,violet,->] (9,0) -- ++(0,5);
-        \draw[ultra thick,violet,->] (0,0) -- (9,5) node[pos=0.75,above left,rotate=29.1,black] {10.3 units};
-        \draw (1.5,0) arc (0:29.1:1.5) node[pos=0.75,right=2pt] {$\theta = \ang{29.1}$};
-        \end{axis}
-    \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(0.2,1.2)},Echelle=0.3,Rotation=29.1]
-        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.1,Origine={(2.8,0.8)},AfficheAngles=false]
-        \draw[very thick,->] (2.8,0.8) -- ++(0.05*9,0.05*5);
-    \end{tikzpicture}
-\end{center}
-
-\textbf{Step 5}. \textit{To get the magnitude of the resultant, measure its length with a ruler. (Note that in most calculations, we will use the Pythagorean theorem to determine this length.)}
-
-\vspace{1em}
-
-\textbf{Step 6}. \textit{To get the direction of the resultant, measure the angle it makes with the reference frame using a protractor. (Note that in most calculations, we will use trigonometric relationships to determine this angle.)}
-
-\vspace{1em}
-
-The graphical addition of vectors is limited in accuracy only by the precision with which the drawings can be made and the precision of the measuring tools. It is valid for any number of vectors.
-
-\begin{example}
-    \textit{Adding Vectors Graphically Using the Head-to-Tail Method: A Woman Takes a Walk}. Use the graphical technique for adding vectors to find the total displacement of a person who walks the following three paths (displacements) on a flat field. First, she walks \SI{25.0}{m} in a direction  \ang{49.0} north of east. Then, she walks \SI{23.0}{m} heading \ang{15.0} north of east. Finally, she turns and walks \ang{32.0}{m} in a direction \ang{68.0} south of east.
-\end{example}
-
-\Solution \textit{Strategy}: Represent each displacement vector graphically with an arrow, labeling the first $\textbf{A}$, the second $\textbf{B}$, and the third  $\textbf{C}$, making the lengths proportional to the distance and the directions as specified relative to an east-west line. The head-to-tail method outlined above will give a way to determine the magnitude and direction of the resultant displacement, denoted $\textbf{R}$.
-
-\vspace{1em}
-
-(1) Draw the three displacement vectors.
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=25,
-            ymin=0,ymax=25,
-            clip=false,
-            ylabel=$y$,
-            xlabel=$x$,
-            ticks=none,
-            axis lines=center
-        ]
-        \draw[very thick,->,violet] (0,0) -- ({25*cos(49)},{25*sin(49)}) node[pos=0.6,black,above left,rotate=49] {\SI{25}{m}} node[black,below=2mm] {$\textbf{A}$};
-        \draw (3,0) arc (0:49:3) node[pos=0.7,right=2pt] {$\theta_{\text{A}} = \ang{49}$};
-        \end{axis}
-    \end{tikzpicture}%
-    \hspace{2em}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=25,
-            ymin=0,ymax=25,
-            clip=false,
-            ylabel=$y$,
-            xlabel=$x$,
-            ticks=none,
-            axis lines=center
-        ]
-        \draw[very thick,->,violet] (0,0) -- ({23*cos(15)},{23*sin(15)}) node[pos=0.8,black,above left,rotate=15] {\SI{23}{m}} node[black,below=2mm] {$\textbf{B}$};
-        \draw (8,0) arc (0:15:8) node[pos=0.6,right=2pt] {$\theta_{\text{B}} = \ang{15}$};
-        \end{axis}
-    \end{tikzpicture}%
-    \hspace{2em}
-    \begin{tikzpicture}
-        \begin{axis}[width=6cm,height=6cm,
-            xmin=0,xmax=34,
-            ymin=-32,ymax=2,
-            clip=false,
-            ylabel=$y$,
-            xlabel=$x$,
-            ticks=none,
-            axis lines=center,
-            clip=false,
-        ]
-        \draw[very thick,->,violet] (0,0) -- ({32*cos(-68)},{32*sin(-68)}) node[pos=0.5,black,above right,rotate=-68] {\SI{32}{m}} node[black,above right=1pt] {$\textbf{C}$};
-        \draw (4,0) arc (0:-68:4) node[pos=0.08,right=-1mm] {$\theta_{\text{C}} = \ang{68}$};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-(2) Place the vectors head to tail retaining both their initial magnitude and direction.
-
-\begin{center}
-    \begin{tikzpicture}
-    
-        \begin{axis}[width=12cm,height=6cm,
-            xmin=0,xmax=60,
-            ymin=0,ymax=30,
-            axis lines=center,
+            xmin=0,xmax=75,
+            ymin=0,ymax=75,
             ticks=none,
             clip=false,
-            ylabel=$y$,
             xlabel=$x$,
-            clip=false,
+            ylabel=$y$
         ]
-        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
-        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
-        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
-        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
-        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
+        \coordinate (R) at ({81.2*cos(36.6)},{81.2*sin(36.6)});
+        \coordinate (Rx) at ({81.2*cos(36.6)},0);
+        \coordinate (A) at ({53*cos(20)},{53*sin(20)});
+        \coordinate (Ax) at ({53*cos(20)},0);
+        \coordinate (Ay) at (0,{53*sin(20)});
+        \coordinate (B) at ({34*cos(63)},{34*sin(63)});
+        \coordinate (Bx) at ({34*cos(63)},0);
+        \coordinate (By) at (0,{34*sin(63)});
+        \draw[ultra thick,->] (0,0) -- (R) node[below=2pt,pos=0.6] {\textbf{R}};
+        \node at (25,35) {$\textbf{A} + \textbf{B} = \textbf{R}$};
+        \draw[ultra thick,->,red] (0,0) -- (A) node[below,pos=0.6,black] {\textbf{A}};
+        \draw[ultra thick,->,RoyalBlue] (A) -- ++(B) node[below right=-1mm,pos=0.6,black] {\textbf{B}};
         
-        \draw[very thick,violet,->] (0,0) -- (A) node[black,pos=0.5,below=1mm] {$\textbf{A}$};
-        \draw[very thick,violet,->] (A) -- ++(B) node[pos=0.5,black,below=1mm] {$\textbf{B}$};
-        \draw[very thick,violet,->] (AB) -- ++(C) node[pos=0.5,black,right=1mm] {$\textbf{C}$};
+        \draw[dashed] (R) -- ++({-81.2*cos(36.6)},0);
+        \draw[dashed] (A) -- ++({-53*cos(20)},0);
+        \draw[thick,red,->] (-5,0) -- ++(Ay) node[left,black,pos=0.5] {$\textbf{A}_y$};
+        \draw[thick,RoyalBlue,->] (-5,{53*sin(20)}) -- ++(By) node[left,black,pos=0.5] {$\textbf{B}_y$};
+        \draw[dashed] (0,{53*sin(20)+34*sin(63)}) -- ++(-7,0);
+        \draw[dashed] (0,{53*sin(20)}) -- ++(-7,0);
+        \draw[dashed] (0,0) -- ++(-7,0);
+
+        \draw[dashed] (R) -- ++(0,{-81.2*sin(36.6)});
+        \draw[dashed] (A) -- ++(0,{-53*sin(20)});
+        \draw[thick,red,->] (0,-5) -- ++(Ax) node[below,black,pos=0.5] {$\textbf{A}_x$};
+        \draw[thick,RoyalBlue,->] ({53*cos(20)},-5) -- ++(Bx) node[below,black,pos=0.5] {$\textbf{B}_x$};
+        \draw[dashed] (0,0) -- ++(0,-7);
+        \draw[dashed] ({53*cos(20)+34*cos(63)},0) -- ++(0,-7);
+        \draw[dashed] ({53*cos(20)},0) -- ++(0,-7);
+        
+
+        % \begin{scope}[shift={(-20,30)}]
+        %     \draw[->] (0,0) node[below] {S} -- ++(0,12) node[above] {N};
+        %     \draw (-5,5) node[left] {E} -- ++(10,0) node [right] {W};
+        % \end{scope}
         \end{axis}
     \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{To add vectors \textbf{A} and \textbf{B}, first determine the horizontal and vertical components of each vector. These are the dotted vectors $\textbf{A}_x$, $\textbf{A}_y$, $\textbf{B}_x$ and $\textbf{B}_y$ shown in the image.}
+    \label{0kxQWq}
 \end{center}
 
-(3) Draw the resultant vector,  $\textbf{R}$.
+\textbf{Step 2}. \textit{Find the components of the resultant along each axis by adding the components of the individual vectors along that axis}. That is, as shown in Figure \ref{QVly9l},
+
+\begin{equation*}
+    R_x = A_x + B_x
+\end{equation*}
+
+and
+
+\begin{equation*}
+    R_y = A_y + B_y
+\end{equation*}
+
 
 \begin{center}
     \begin{tikzpicture}
-        \begin{axis}[width=12cm,height=6cm,
-            xmin=0,xmax=60,
-            ymin=0,ymax=30,
+        \begin{axis}[width=8cm,height=8cm,
             axis lines=center,
+            xmin=0,xmax=75,
+            ymin=0,ymax=75,
             ticks=none,
             clip=false,
-            ylabel=$y$,
             xlabel=$x$,
-            clip=false,
+            ylabel=$y$
         ]
-        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
-        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
-        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
-        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
-        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
+        \coordinate (R) at ({81.2*cos(36.6)},{81.2*sin(36.6)});
+        \coordinate (Rx) at ({81.2*cos(36.6)},0);
+        \coordinate (Ry) at (0,{81.2*sin(36.6)});
+        \coordinate (A) at ({53*cos(20)},{53*sin(20)});
+        \coordinate (Ax) at ({53*cos(20)},0);
+        \coordinate (Ay) at (0,{53*sin(20)});
+        \coordinate (B) at ({34*cos(63)},{34*sin(63)});
+        \coordinate (Bx) at ({34*cos(63)},0);
+        \coordinate (By) at (0,{34*sin(63)});
+        \draw[ultra thick,->] (0,0) -- (R) node[below=2pt,pos=0.6] {\textbf{R}};
+        \node at (25,35) {$\textbf{A} + \textbf{B} = \textbf{R}$};
+        \draw[ultra thick,->,red] (0,0) -- (A) node[below,pos=0.6,black] {\textbf{A}};
+        \draw[ultra thick,->,RoyalBlue] (A) -- ++(B) node[below right=-1mm,pos=0.6,black] {\textbf{B}};
         
-        \draw[very thick,violet,->] (0,0) -- (A) node[black,pos=0.5,below=1mm] {$\textbf{A}$};
-        \draw[very thick,violet,->] (A) -- ++(B) node[pos=0.5,black,below=1mm] {$\textbf{B}$};
-        \draw[very thick,violet,->] (AB) -- ++(C) node[pos=0.5,black,right=1mm] {$\textbf{C}$};
-        \draw[ultra thick,violet,->] (0,0) -- (R) node[black,pos=0.5,below,rotate=-5.47] {\SI{50.8}{m}} node[pos=0.9,below,black] {$\textbf{R}$};
-        \draw (35,0) arc (0:-5.47:35) node[pos=0.5,right=1mm] {\ang{5.47}};
+        \draw[dashed] (R) -- ++({-81.2*cos(36.6)},0);
+        \draw[dashed] (A) -- ++({-53*cos(20)},0);
+        \draw[thick,red,->] (-5,0) -- ++(Ay) node[left,black,pos=0.5] {$\textbf{A}_y$};
+        \draw[thick,RoyalBlue,->] (-5,{53*sin(20)}) -- ++(By) node[left,black,pos=0.5] {$\textbf{B}_y$};
+        \draw[dashed] (0,{53*sin(20)+34*sin(63)}) -- ++(-15,0);
+        \draw[dashed] (0,{53*sin(20)}) -- ++(-15,0);
+        \draw[dashed] (0,0) -- ++(-15,0);
+        
+        \draw[thick,dashed,->] (-15,0) -- ++(Ry) node[left=3.5mm,pos=0.7,rotate=90] {$R_y = A_y + B_y$};
+
+        \draw[dashed] (R) -- ++(0,{-81.2*sin(36.6)});
+        \draw[dashed] (A) -- ++(0,{-53*sin(20)});
+        \draw[thick,red,->] (0,-5) -- ++(Ax) node[below,black,pos=0.5] {$\textbf{A}_x$};
+        \draw[thick,RoyalBlue,->] ({53*cos(20)},-5) -- ++(Bx) node[below,black,pos=0.5] {$\textbf{B}_x$};
+        \draw[dashed] (0,0) -- ++(0,-15);
+        \draw[dashed] ({53*cos(20)+34*cos(63)},0) -- ++(0,-15);
+        \draw[dashed] ({53*cos(20)},0) -- ++(0,-15);
+
+        \draw[thick,dashed,->] (0,-15) -- ++(Rx) node[below,pos=0.5] {$R_x = A_x + B_x$};
         \end{axis}
     \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{The magnitude of the vectors $\textbf{A}_x$ and $\textbf{B}_x$ add to give the magnitude $R_x$ of the resultant vector in the horizontal direction. Similarly, the magnitudes of the vectors $\textbf{A}_y$ and $\textbf{B}_y$ add to give the magnitude $R_y$ of the resultant vector in the vertical direction.}
+    \label{QVly9l}
 \end{center}
 
-(4) Use a ruler to measure the magnitude of $\textbf{R}$, and a protractor to measure the direction of $\textbf{R}$. While the direction of the vector can be specified in many ways, the easiest way is to measure the angle between the vector and the nearest horizontal or vertical axis. Since the resultant vector is south of the eastward pointing axis, we flip the protractor upside down and measure the angle between the eastward axis and the vector.
-
-\begin{center}
-    \begin{tikzpicture}
-    
-        \begin{axis}[width=12cm,height=6cm,
-            xmin=0,xmax=60,
-            ymin=0,ymax=30,
-            axis lines=center,
-            ticks=none,
-            clip=false,
-            ylabel=$y$,
-            xlabel=$x$,
-            clip=false,
-        ]
-        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
-        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
-        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
-        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
-        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
-        
-        \draw[very thick,violet,->] (0,0) -- (A) node[black,pos=0.5,below=1mm] {$\textbf{A}$};
-        \draw[very thick,violet,->] (A) -- ++(B) node[pos=0.5,black,below=1mm] {$\textbf{B}$};
-        \draw[very thick,violet,->] (AB) -- ++(C) node[pos=0.5,black,right=1mm] {$\textbf{C}$};
-        \draw[ultra thick,violet,->] (0,0) -- (R) node[black,pos=0.5,below,rotate=-5.47] {\SI{50.8}{m}} node[pos=0.9,below,black] {$\textbf{R}$};
-        \draw (35,0) arc (0:-5.47:35) node[pos=0.5,right=1mm] {\ang{5.47}};
-        \end{axis}
-        \tkzRegle[Fond=true,Opacite=0.9,CouleurFond=yellow,AfficheValeurs=false,Origine={(0.2,-0.6)},Echelle=0.6,Rotation=-5.47]
-        \tkzRapporteur[Fond,CouleurFond=blue,Echelle=0.4,Origine={(4,-2.5)},AfficheAngles=false,Rotation=-180]
-        \draw[->] (4,-2.5) -- ++ ({0.05*50.8*cos(-5.47)},{0.05*50.8*sin(-5.47)});
-    \end{tikzpicture}
-\end{center}
-
-In this case, the total displacement $\textbf{R}$ is seen to have a magnitude of \SI{50.8}{m} and to lie in a direction  \ang{5.47} south of east. By using its magnitude and direction, this vector can be expressed as $\textbf{R} = \SI{50.8}{m}$ and $\theta = \ang{5.47}$ south of east.
+Components along the same axis, say the $x$-axis, are vectors along the same line and, thus, can be added to one another like ordinary numbers. The same is true for components along the $y$-axis. (For example, a 9-block eastward walk could be taken in two legs, the first 3 blocks east and the second 6 blocks east, for a total of 9, because they are along the same direction.) So resolving vectors into components along common axes makes it easier to add them. Now that the components of \textbf{R} are known, its magnitude and direction can be found.
 
 \vspace{1em}
 
-\textbf{Discussion}: The head-to-tail graphical method of vector addition works for any number of vectors. It is also important to note that the resultant is independent of the order in which the vectors are added. Therefore, we could add the vectors in any order as illustrated in Figure \ref{ondDEl} and we will still get the same solution.
-
-\begin{center}
-    \begin{tikzpicture}
-        \begin{axis}[width=12cm,height=6cm,
-            xmin=0,xmax=60,
-            ymin=0,ymax=30,
-            axis lines=center,
-            ticks=none,
-            clip=false,
-            ylabel=$y$,
-            xlabel=$x$,
-            clip=false,
-        ]
-        \coordinate (A) at ({25*cos(49)},{25*sin(49)});
-        \coordinate (B) at ({23*cos(15)},{23*sin(15)});
-        \coordinate (AB) at ({25*cos(49)+23*cos(15)},{25*sin(49)+23*sin(15)});
-        \coordinate (C) at ({32*cos(-68)},{32*sin(-68)});
-        \coordinate (CA) at ({32*cos(-68)+25*cos(49)},{32*sin(-68)+25*sin(49)});
-        \coordinate (R) at ({50.8*cos(-5.47)},{50.8*sin(-5.47)});
-        
-        \draw[very thick,violet,->] (0,0) -- (C) node[black,pos=0.5,below left] {$\textbf{C}$};
-        \draw[very thick,violet,->] (C) -- ++(A) node[pos=0.5,black,below right] {$\textbf{A}$};
-        \draw[very thick,violet,->] (CA) -- ++(B) node[pos=0.4,black,below right] {$\textbf{B}$};
-        \draw[ultra thick,violet,->] (0,0) -- (R) node[black,pos=0.5,below,rotate=-5.47] {\SI{50.8}{m}} node[pos=0.9,above,black] {$\textbf{R}$};
-        \draw (35,0) arc (0:-5.47:35) node[pos=0.5,right=1mm] {\ang{5.47}};
-        \end{axis}
-    \end{tikzpicture}
-\end{center}
-
-Here, we see that when the same vectors are added in a different order, the result is the same. This characteristic is true in every case and is an important characteristic of vectors. Vector addition is commutative. Vectors can be added in any order.
+\textbf{Step 3}. \textit{To get the magnitude \textbf{R} of the resultant, use the Pythagorean theorem:}
 
 \begin{equation}
-    \textbf{A} + \textbf{B} = \textbf{B} + \textbf{A}
+    R = \sqrt{R_x^2 + R_y^2}
 \end{equation}
 
-(This is true for the addition of ordinary numbers as well---you get the same result whether you add $2+3$ or $3+2$, for example).
+\textbf{Step 4}. \textit{To get the direction of the resultant relative to the $x$-axis:}
 
-\endsolution
+\begin{equation}
+    \theta = \tan^{-1}\left(\frac{R_y}{R_x}\right)
+\end{equation}
 
- 
+The following example illustrates this technique for adding vectors using perpendicular components.
 
 
 
