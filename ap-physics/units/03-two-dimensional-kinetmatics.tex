@@ -1365,5 +1365,293 @@ Analyzing vectors using perpendicular components is very useful in many areas of
     \href{https://phet.colorado.edu/sims/html/vector-addition/latest/vector-addition_all.html}{Click to view content}.
 \end{gradient}
 
+\subsection{Projectile Motion}
+
+\Gls{projectile motion} is the \gls{motion} of an object thrown or projected into the air, subject to only the acceleration of gravity. The object is called a \gls{projectile}, and its path is called its \gls{trajectory}. The motion of falling objects, as covered in ``Problem-Solving Basics for One-Dimensional Kinematics,'' is a simple one-dimensional type of projectile motion in which there is no horizontal movement. In this section, we consider two-dimensional projectile motion, such as that of a football or other object for which \gls{air resistance} is negligible.
+
+\vspace{1em}
+
+The most important fact to remember here is that \textit{motions along perpendicular axes are independent} and thus can be analyzed separately. This fact was discussed in ``Kinematics in Two Dimensions: An Introduction,'' where vertical and horizontal motions were seen to be independent. The key to analyzing two-dimensional projectile motion is to break it into two motions, one along the horizontal axis and the other along the vertical. (This choice of axes is the most sensible, because acceleration due to gravity is vertical---thus, there will be no acceleration along the horizontal axis when air resistance is negligible.) As is customary, we call the horizontal axis the x-axis and the vertical axis the y-axis. Figure \ref{vbEBfp} illustrates the notation for displacement, where \textbf{s} is defined to be the total displacement and \textbf{x} and \textbf{y} are its components along the horizontal and vertical axes, respectively. The magnitudes of these vectors are $s$, $x$, and $y$. (Note that in the last section we used the notation \textbf{A} to represent a vector with components $\textbf{A}_x$ and $\textbf{A}_y$. If we continued this format, we would call displacement \textbf{s} with components $\textbf{s}_x$ and $\textbf{s}_y$. However, to simplify the notation, we will simply represent the component vectors as \textbf{x} and \textbf{y}.)
+
+\vspace{1em}
+
+Of course, to describe motion we must deal with velocity and acceleration, as well as with displacement. We must find their components along the $x$- and $y$-axes, too. We will assume all forces except gravity (such as air resistance and friction, for example) are negligible. The components of acceleration are then very simple: $a_y = -g = -\SI{9.80}{m/s^2}$. (Note that this definition assumes that the upwards direction is defined as the positive direction. If you arrange the coordinate system instead such that the downwards direction is positive, then acceleration due to gravity takes a positive value.) Because gravity is vertical, $a_x = 0$. Both accelerations are constant, so the kinematic equations can be used.
+
+\begin{gradient}{REVIEW OF KINEMATIC EQUATIONS (CONSTANT $a$)}
+\vspace{-1em}
+    \begin{align}
+        x &= x_0 + \bar{v} t \\[1ex]
+        \bar{v} &= \frac{v_0 + v}{2} \\[1ex]
+        v &= v_0 + a t \\[1ex]
+        x &= x_0 + v_0 t + \frac{1}{2} a t^2 \\[1ex]
+        v^2 &= v_0^2 + 2 a \left(x - x_0\right)
+    \end{align}
+\vspace{-1em}
+\end{gradient}
+
+
+
+\begin{center}
+    \begin{tikzpicture} 
+        \begin{axis}[width=8cm,height=8cm,ticks=none,
+            axis lines = center,
+            clip=false,
+            ylabel = $y$,
+            xlabel = $x$,
+            xmin=0, xmax=20,
+            ymin=0, ymax=16,
+            axis equal image
+        ]
+        \node at (15.6,0.35) {$\square$};
+        \draw[red,domain=0:16,variable=\x,samples=200] plot ({\x},{patheq(\x,0,18,70)}) node[above left=-4pt,black] {\faSoccerBallO};
+        \draw[->,ultra thick,violet] (0,0) -- ++(16,{patheq(16,0,18,70)}) node[pos=0.5,above=3pt,black]{\textbf{s}};
+        \draw[->,dashed,thick,violet] (0,0) -- ++(16,0) node[pos=0.5,below] {\textbf{x}};
+        \draw[->,dashed,thick,violet] (16,0) -- ++(0,{patheq(16,0,18,70)}) node[pos=0.5,right] {\textbf{y}};
+        % \node at (2.5,0.65) {$\theta$};
+        \draw (2,0) arc (0:35:2) node[right=2pt,pos=0.7] {$\theta$}; 
+        \draw (0,0) node[left] {\Strichmaxerl[3]};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{The total displacement \textbf{s} of a soccer ball at a point along its path. The vector \textbf{s} has components \textbf{x} and \textbf{y} along the horizontal and vertical axes. Its magnitude is $s$, and it makes an angle $\theta$ with the horizontal.}
+    \label{vbEBfp}
+\end{center}
+
+Given these assumptions, the following steps are then used to analyze projectile motion:
+
+\vspace{1em}
+
+\textbf{Step 1}. \textit{Resolve or break the motion into horizontal and vertical components along the $x$- and $y$-axes.} These axes are perpendicular, so $A_x = A \cos{\theta}$ and $A_y = A \sin{\theta}$ are used. The magnitude of the components of displacement \textbf{s} along these axes are $x$ and $y$. The magnitudes of the components of the velocity \textbf{v} are $v_x = v \cos{\theta}$ and $v_y = \sin{\theta}$, where $v$ is the magnitude of the velocity and $\theta$ is its direction, as shown in Figure \ref{JdmgME}. Initial values are denoted with a subscript 0, as usual.
+
+\vspace{1em}
+
+\textbf{Step 2}. \textit{Treat the motion as two independent one-dimensional motions, one horizontal and the other vertical}. The kinematic equations for horizontal and vertical motion take the following forms:
+
+\begin{center}
+    \textbf{Horizontal Motion}
+\end{center}
+
+\vspace{-1em}
+
+\begin{align}
+    a_x &= 0 \\[1ex]
+    x &= x_0 + v_x t \\[1ex]
+    v_x &= v_{0x} = \text{velocity is a constant} \\[1ex]
+\end{align}
+
+\begin{center}
+    \textbf{Vertical Motion}
+\end{center}
+
+\vspace{-1em}
+
+\begin{align}
+    a_y &= -g = -\SI{9.80}{m/s^2} \\[1ex]
+    y &= y_0 + \frac{1}{2} \left(v_{0y} + v_y\right) t \\[1ex]
+    v_y &= v_{0y} - gt \\[1ex]
+    y &= y_0 + v_{0y} t - \frac{1}{2} g t^2 \\[1ex]
+    v_y^2 &= v_{0y}^2 - 2 g \left(y - y_0\right)
+\end{align}
+
+\textbf{Step 3}. \textit{Solve for the unknowns in the two separate motions---one horizontal and one vertical}. Note that the only common variable between the motions is time $t$. The problem solving procedures here are the same as for one-dimensional \gls{kinematics} and are illustrated in the solved examples below.
+
+\vspace{1em}
+
+\textbf{Step 4}. Recombine the two motions to find the total displacement \textbf{s} and velocity \textbf{v}. Because the $x$- and $y$-motions are perpendicular, we determine these vectors by using the techniques outlined in the ``Vector Addition and Subtraction: Analytical Methods'' and employing $A = \sqrt{A_x^2 + A_y^2}$ and  $\theta = \tan^{-1} \left(A_y/A_x\right)$ in the following form, where $\theta$ is the direction of the displacement \textbf{s} and $\theta_{\text{v}}$ is the direction of the velocity \textbf{v}:
+
+\vspace{1em}
+
+\textbf{Total displacement and velocity}
+
+\begin{align}
+    s &= \sqrt{x^2 + y^2} \\[1ex]
+    \theta &= \tan^{-1} \left(\frac{y}{x}\right) \\[1ex]
+    v &= \sqrt{v_x^2 + v_y^2} \\[1ex]
+    \theta_{\text{v}} &= \tan^{-1} \left(\frac{v_y}{v_x}\right)
+\end{align}
+
+\begin{center}
+    \begin{tikzpicture}[declare function={t(\x)=\x/(\vi*cos(\thetai));}]
+    \tikzmath{
+        \grav = 10;
+        \vi = 20;
+        \yi = 0;
+        \thetai = 45.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*\tmax;
+        \sf = 0.3; %scale factor for vector components
+    }
+    % \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,ticks=none,
+        axis lines = none,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=50,
+        ymin=0, ymax=15,
+        ]
+        \draw[gray,->] (0,0) -- ++(0,10) node[right] {$y$};
+        \draw[gray,->] (0,0) -- ++(48,0) node[above] {$x$};
+        \draw[fill=black] (0,0) circle (2pt);
+        \draw[thick,violet,->] (0,0) -- ++(\vix*\sf,\viy*\sf) node[below right] {$v_0$};
+        \draw[thick,dashed,red,->] (0,0) -- ++(0,{\sf*\vi*sin(\thetai)}) node[right=-2pt] {$v_{0y}$};
+        \draw[thick,dashed,RoyalBlue,->] (0,0) -- ++(\vix*\sf,0) node[pos=1.3, above=-2pt] {$v_{0x}$};
+        \draw (1,0) arc (0:75:0.6) node[midway,right=-1pt] {$\theta_0$};
+        
+        \pgfplotsinvokeforeach{5,10,15}{
+                \draw[fill=black] (#1,{patheqten(#1,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (#1,{patheqten(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v_y$};
+                \draw[thick,dashed,RoyalBlue,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
+                \draw[thick,violet,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[above=-2pt] {$v$};
+                }
+                
+        \draw[fill=black] (\xmax,\ymax) circle (2pt);
+        \draw[thick,violet,->] (\xmax,\ymax) -- ++(\vix*\sf,0) node[right=-2pt] {$v = v_x$};
+        
+        \pgfplotsinvokeforeach{25,30,35,45}{
+                \draw[fill=black] (#1,{patheqten(#1,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (#1,{patheqten(#1,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v_y$};
+                \draw[thick,dashed,RoyalBlue,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,0) node[right=-2pt] {$v_x$};
+                \draw[thick,violet,->] (#1,{patheqten(#1,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(#1))}) node[below=-2pt] {$v$};
+                }
+
+                \draw[fill=black] (40,{patheqten(40,0,20,45)}) circle (2pt);
+                \draw[thick,dashed,red,->] (40,{patheqten(40,0,20,45)}) -- ++(0,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[left=-2pt] {$v_y=-v_{0y}$};
+                \draw[thick,dashed,RoyalBlue,->] (40,{patheqten(40,0,20,45)}) -- ++(\vix*\sf,0) node[above=-2pt] {$v_x$};
+                \draw[thick,violet,->] (40,{patheqten(40,0,20,45)}) -- ++(\vix*\sf,{\sf*(\vi*sin(\thetai) - \grav*t(40))}) node[below=-2pt] {$v$};
+                % \draw (40.8,0) arc (0:-\thetai:0.8) node[midway,right=-1pt] {$\theta =-\theta_0$};
+                \draw (5.8,{patheqten(5,0,20,45)}) arc (0:40:0.8) node[midway,right] {$\theta$};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,font=scriptsize}
+    \captionof{figure}{We analyze two-dimensional projectile motion by breaking it into two independent one-dimensional motions along the vertical and horizontal axes.}
+    \label{JdmgME}
+\end{center}
+
+\begin{example}
+    \textit{A Fireworks Projectile Explodes High and Away}\\
+    During a fireworks display, a shell is shot into the air with an initial speed of \SI{70.0}{m/s} at an angle of \ang{75.0} above the horizontal, as illustrated in Figure \ref{ZxjpEr}. The fuse is timed to ignite the shell just as it reaches its highest point above the ground. (a) Calculate the height at which the shell explodes. (b) How much time passed between the launch of the shell and the explosion? (c) What is the horizontal displacement of the shell when it explodes?
+\end{example}
+
+\begin{center}
+    \begin{tikzpicture}
+    \tikzmath{
+        \grav = 9.8;
+        \vi = 70;
+        \yi = 0.0;
+        \thetai = 75.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*\tmax;
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=10cm,ticks=none,
+        axis lines = center,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=175,
+        ymin=0, ymax=275,
+        axis equal image
+        ]
+        \draw[violet,domain=0:\xmax,variable=\x,samples=250] plot ({\x},{patheq(\x,0,70,75)});
+        \draw (13,0) arc (0:75:13) node[pos=0.9,right=2mm] {$\theta_0 = \ang{75}$};
+        \draw[dashed] (0,\ymax) node[left] {$h = \SI{233}{m}$} -- ++(\xmax,0);
+        \draw[dashed] (\xmax,0) node[below] {$x = \SI{125}{m}$} -- ++(0,\ymax);
+        \draw[ultra thick,Green,->] (0,0) -- ++({1.2*\vi*cos(\thetai)},{1.2*\vi*sin(\thetai)}) node[right,pos=0.7,black] {$v_0$};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{The trajectory of a fireworks shell. The fuse is set to explode the shell at the highest point in its trajectory, which is found to be at a height of \SI{233}{m} and \SI{125}{m} away horizontally.}
+    \label{ZxjpEr}
+\end{center}
+
+\Solution \textbf{Strategy}: Because air resistance is negligible for the unexploded shell, the analysis method outlined above can be used. The motion can be broken into horizontal and vertical motions in which $a_x = 0$ and $a_y = -g$. We can then define  $x_0$ and $y_0$ to be zero and solve for the desired quantities.
+
+\vspace{1em}
+
+\textbf{Solution for (a)}: By ``height'' we mean the altitude or vertical position $y$ above the starting point. The highest point in any trajectory, called the apex, is reached when $v_y = 0$. Since we know the initial and final velocities as well as the initial position, we use the following equation to find $y$:
+
+\begin{equation*}
+    v_y^2 = v_{0y}^2 - 2 g \left(y - y_0\right)
+\end{equation*}
+
+Because $y_0$ and $v_y$ are both zero, the equation simplifies to
+
+\begin{equation*}
+    0 = v_{0y}^2 - 2gy
+\end{equation*}
+
+Solving for $y$ gives
+
+\begin{equation*}
+    y = \frac{v_{0y}^2}{2g}
+\end{equation*}
+
+Now we must find $v_{0y}$, the component of the initial velocity in the y-direction. It is given by $v_{0y} = v_0 \sin{\theta}$, where $v_{0y}$ is the initial velocity of \SI{70.0}{m/s}, and $\theta_0 = \ang{75.0}$ is the initial angle. Thus,
+
+\begin{equation*}
+    v_{0y} = v_0 \sin{\theta} = \left(\SI{70.0}{m/s}\right) \left(\sin{\ang{75.0}}\right) = \SI{67.6}{m/s}
+\end{equation*}
+
+and $y$ is
+
+\begin{equation*}
+    y = \frac{\left(\SI{67.6}{m/s}\right)^2}{2\left(\SI{9.80}{m/s^2}\right)}
+\end{equation*}
+
+so that
+
+\begin{equation*}
+    y = \SI{233}{m}
+\end{equation*}
+
+\textbf{Discussion for (a)}: Note that because up is positive, the initial velocity is positive, as is the maximum height, but the acceleration due to gravity is negative. Note also that the maximum height depends only on the vertical component of the initial velocity, so that any projectile with a \SI{67.6}{m/s} initial vertical component of velocity will reach a maximum height of \SI{233}{m} (neglecting air resistance). The numbers in this example are reasonable for large fireworks displays, the shells of which do reach such heights before exploding. In practice, air resistance is not completely negligible, and so the initial velocity would have to be somewhat larger than that given to reach the same height.
+
+\vspace{1em}
+
+\textbf{Solution for (b)}: As in many physics problems, there is more than one way to solve for the time to the highest point. In this case, the easiest method is to use $y = y_0 + \frac{1}{2}\left(v_{0y} + v_y\right)t$. Because $y_0$ is zero, this equation reduces to simply
+
+\begin{equation*}
+    y = \frac{1}{2}\left(v_{0y} + v_y\right)t
+\end{equation*}
+
+Note that the final vertical velocity, $v_y$, at the highest point is zero. Thus,
+
+\begin{equation*}
+    t = \frac{2y}{v_{0y} + v_y} = \frac{2 \left(\SI{233}{m}\right)}{\SI{67.6}{m/s}} = \SI{6.90}{s}
+\end{equation*}
+
+\textbf{Discussion for (b)}: This time is also reasonable for large fireworks. When you are able to see the launch of fireworks, you will notice several seconds pass before the shell explodes. (Another way of finding the time is by using $y = y_0 + v_{0y} t - \frac{1}{2} g t^2$, and solving the quadratic equation for $t$.)
+
+\vspace{1em}
+
+\textbf{Solution for (c)}: Because air resistance is negligible, $a_x = 0$ and the horizontal velocity is constant, as discussed above. The horizontal displacement is horizontal velocity multiplied by time as given by $x = x_0 + v_x t$, where $x_0$ is equal to zero:
+
+\begin{equation*}
+    x = v_x t
+\end{equation*}
+
+where $v_x$ is the $x$-component of the velocity, which is given by $v_x = v_0 \cos{\theta_0}$. Now,
+
+\begin{equation*}
+    v_x = v_0 \cos{\theta_0} = \left(\SI{70.0}{m/s}\right) \left(\cos{\ang{75.0}}\right) = \SI{18.1}{m/s}
+\end{equation*}
+
+The time $t$ for both motions is the same, and so $x$ is
+
+\begin{equation*}
+    x = \left(\SI{18.1}{m/s}\right) \left(\SI{6.90}{s}\right) = \SI{125}{m}
+\end{equation*}
+
+\textbf{Discussion (c)}: The horizontal motion is a constant velocity in the absence of air resistance. The horizontal displacement found here could be useful in keeping the fireworks fragments from falling on spectators. Once the shell explodes, air resistance has a major effect, and many fragments will land directly below.
+
+\endsolution
+
 
 \end{document}
