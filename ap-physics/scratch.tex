@@ -3,6 +3,111 @@
 
 \begin{document}
 
+\begin{center}
+    \begin{tikzpicture}[
+        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
+        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \sf = 0.5; %scale factor for vector components
+        \a = 1.5;
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,
+        ticks=none,
+        axis x line = left,
+        axis y line = none,
+        clip=false,
+        xmin=0, xmax=260,
+        ymin=0, ymax={h(50,45)*1.1},
+        axis equal image,
+        ]
+        \node at (250,60) {(a)};
+        \draw[dashed] (91.8/2,22.96) -- ++(0,-22.96);
+        \draw[dashed] (163/2,40.82) -- ++(0,-40.82);
+        \draw[dashed] (255/2,63.78) -- ++(0,-63.78);
+        \coordinate (A) at ({\a*50*cos(45)},{\a*50*sin(45)});
+        \coordinate (B) at ({\a*40*cos(45)},{\a*40*sin(45)});
+        \coordinate (C) at ({\a*30*cos(45)},{\a*30*sin(45)});
+        \draw[Green,thick,->] (0,0) -- ++(A) node[left=2mm,black] {\SI{50}{m/s}};
+        \draw[violet,thick,->] (0,0) -- ++(B) node[left=2mm,black] {\SI{40}{m/s}};
+        \draw[red,thick,->] (0,0) -- ++(C) node[left=2mm,black] {\SI{30}{m/s}};
+        \draw[Green,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)});
+        \draw[violet,thick,domain=0:{R(40,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,40,45)});
+        \draw[red,thick,domain=0:{R(30,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,30,45)});
+        \draw[|<->|,thick] (0,-10) -- ++(91.8,0) node[pos=0.5] {\mybox{$R = \SI{91.8}{m}$}};
+        \draw[|<->|,thick] (0,-20) -- ++(163,0) node[pos=0.5] {\mybox{$R = \SI{163}{m}$}};
+        \draw[|<->|,thick] (0,-30) -- ++(255,0) node[pos=0.5] {\mybox{$R = \SI{255}{m}$}};
+        \draw (10,0) arc (0:45:10) node[right,pos=0.7] {\ang{45}};
+        \end{axis}
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    \begin{tikzpicture}[
+        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
+        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \sf = 0.5; %scale factor for vector components
+        \a = 1.5;
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,ticks=none,
+        axis y line = none,
+        axis x line = left,
+        clip=false,
+        xmin=0, xmax=260,
+        ymin=0, ymax={h(50,75)*1.1},
+        axis equal image,
+        ]
+        \node at (250,100) {(b)};
+        \draw[dashed] (128/2,119) -- ++(0,-119);
+        \draw[dashed] (255/2,63.78) -- ++(0,-63.78);
+        \coordinate (A) at ({\a*50*cos(75)},{\a*50*sin(75)});
+        \coordinate (B) at ({\a*50*cos(45)},{\a*50*sin(45)});
+        \coordinate (C) at ({\a*50*cos(15)},{\a*50*sin(15)});
+        \draw[Green,thick,->] (0,0) -- ++(A) node[black,left,pos=1.1] {$v_0 = \SI{50}{m/s}$};
+        \draw[Green,thick,domain=0:{R(50,75)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,75)});
+        \draw[violet,thick,->] (0,0) -- ++(B);
+        \draw[violet,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)});
+        \draw[red,thick,->] (0,0) -- ++(C);
+        \draw[red,thick,domain=0:{R(50,15)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,15)});
+        \node at (30,3) {\ang{15}};
+        \draw (40,0) arc (0:45:40) node[below left=-1mm,pos=0.7] {\ang{45}};
+        \draw (50,0) arc (0:75:50) node[below left=-1mm,pos=0.8] {\ang{75}};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{Trajectories of projectiles on level ground. (a) The greater the initial speed $v_0$, the greater the range for a given initial angle. (b) The effect of initial angle $\theta_0$ on the range of a projectile with a given initial speed. Note that the range is the same for \ang{15} and \ang{75}, although the maximum heights of those paths are different.}
+    \label{6hKQ2Y}
+\end{center}
+
+How does the initial velocity of a projectile affect its range? Obviously, the greater the initial speed $v_0$, the greater the range, as shown in Figure \ref{6hKQ2Y}(a). The initial angle $\theta_0$ also has a dramatic effect on the range, as illustrated in Figure \ref{6hKQ2Y}(b). For a fixed initial speed, such as might be produced by a cannon, the maximum range is obtained with $\theta_0=\ang{45}$. This is true only for conditions neglecting air resistance. If air resistance is considered, the maximum angle is approximately \ang{38}. Interestingly, for every initial angle except \ang{45}, there are two angles that give the same range---the sum of those angles is \ang{90}. The range also depends on the value of the acceleration of gravity $g$. The lunar astronaut Alan Shepherd was able to drive a golf ball a great distance on the Moon because gravity is weaker there. The range $R$ of a projectile on level ground for which air resistance is negligible is given by
+
+\begin{equation}
+    R = \frac{v_0^2 \sin{2 \theta_0}}{g}
+\end{equation}
+
+where $v_0$ is the initial speed and $\theta_0$ is the initial angle relative to the horizontal. The proof of this equation is left as an end-of-chapter problem (hints are given), but it does fit the major features of projectile range as described.
+
+\vspace{1em}
+
+When we speak of the range of a projectile on level ground, we assume that $R$ is very small compared with the circumference of the Earth. If, however, the range is large, the Earth curves away below the projectile and acceleration of gravity changes direction along the path. The range is larger than predicted by the range equation given above because the projectile has farther to fall than it would on level ground. (See Figure ?.??.) If the initial speed is great enough, the projectile goes into orbit. This possibility was recognized centuries before it could be accomplished. When an object is in orbit, the Earth curves away from underneath the object at the same rate as it falls. The object thus falls continuously but never hits the surface. These and other aspects of orbital motion, such as the rotation of the Earth, will be covered analytically and in greater depth later in this text.
+
+\vspace{1em}
+
+Once again we see that thinking about one topic, such as the range of a projectile, can lead us to others, such as the Earth orbits. In ``Addition of Velocities,'' we will examine the addition of velocities, which is another important aspect of two-dimensional kinematics and will also yield insights beyond the immediate topic.
+
+\begin{gradient}{PHET EXPLORATIONS}
+    \textbf{Projectile Motion}: Blast a Buick out of a cannon! Learn about projectile motion by firing various objects. Set the angle, initial speed, and mass. Add air resistance. Make a game out of this simulation by trying to hit a target.   
+
+    \vspace{1em}
+
+    \href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{Click here to view content}.
+\end{gradient}
 
 \end{document}
 

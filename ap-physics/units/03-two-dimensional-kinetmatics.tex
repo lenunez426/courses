@@ -1653,5 +1653,285 @@ The time $t$ for both motions is the same, and so $x$ is
 
 \endsolution
 
+In solving part (a) of the preceding example, the expression we found for $y$ is valid for any projectile motion where air resistance is negligible. Call the maximum height $y=h$; then,
+
+\begin{equation}
+    h = \frac{v_{0y}^2}{2g}
+\end{equation}
+
+This equation defines the \textit{maximum height of a projectile} and depends only on the vertical component of the initial velocity.
+
+\begin{gradient}{DEFINING A COORDINATE SYSTEM}
+    It is important to set up a coordinate system when analyzing projectile motion. One part of defining the coordinate system is to define an origin for the $X$ and $Y$ positions. Often, it is convenient to choose the initial position of the object as the origin such that $x_0 = 0$ and $y_0 = 0$. It is also important to define the positive and negative directions in the $x$ and $y$ directions. Typically, we define the positive vertical direction as upwards, and the positive horizontal direction is usually the direction of the object’s motion. When this is the case, the vertical acceleration, $g$, takes a negative value (since it is directed downwards towards the Earth). However, it is occasionally useful to define the coordinates differently. For example, if you are analyzing the motion of a ball thrown downwards from the top of a cliff, it may make sense to define the positive direction downwards since the motion of the ball is solely in the downwards direction. If this is the case, $g$ takes a positive value.
+\end{gradient}
+
+\begin{example}
+\textit{Calculating Projectile Motion: Hot Rock Projectile}\\
+    Kilauea in Hawaii is the world's most continuously active volcano. Very active volcanoes characteristically eject red-hot rocks and lava rather than smoke and ash. Suppose a large rock is ejected from the volcano with a speed of \SI{25.0}{m/s} and at an angle \ang{35.0} above the horizontal, as shown in Figure \ref{KoIsTr}. The rock strikes the side of the volcano at an altitude \SI{20.0}{m} lower than its starting point. (a) Calculate the time it takes the rock to follow this path. (b) What are the magnitude and direction of the rock's velocity at impact?
+\end{example}
+
+\begin{center}
+    \begin{tikzpicture}[
+        declare function={f(\x)=\yi + tan(\thetai)*\x - \grav*\x^2/(2*(\vi*cos(\thetai))^2);},
+        declare function={t(\x)=\x/(\vi*cos(\thetai));}
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \vi = 25;
+        \yi = 0.0;
+        \thetai = 35.0;
+        \viy = \vi*sin(\thetai);
+        \ymax = (\viy^2)/(2*\grav);
+        \tmax = 2*\ymax/\viy;
+        \vix = \vi*cos(\thetai);
+        \xmax = \vix*3.96; %t = 3.96 s
+        \sf = 0.5; %scale factor for vector components
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=12cm,height=7cm,ticks=none,
+        axis lines = center,
+        clip=false,
+        ylabel = $y$,
+        xlabel = $x$,
+        xmin=0, xmax=100,
+        ymin=-30, ymax=10,
+        ]
+        \draw[red,domain=0:\xmax,variable=\x,samples=250] plot ({\x},{f(\x)});
+        \draw[ultra thick,Green,->] (0,0) -- ++(axis direction cs: {\sf*\vix},{\sf*\viy}) node[above=-1pt] {$\SI{25}{m/s}$};
+        \draw (5,0) arc (0:35:5) node[pos=0.1,right=-1pt] {\ang{35}};
+        \draw[<->] (\xmax+2,-20) -- ++(axis direction cs: 0,20) node[pos=0.5,right] {-\SI{20}{m}};
+        \draw[fill=black] (\xmax,-20) circle (2pt);
+        \draw (\xmax,-20) -- ++(axis direction cs: 12,0);
+        \draw[ultra thick,->,Green] (\xmax,-20) -- ++(axis direction cs: {\sf*\vix},{\sf*(\viy -\grav*3.96)}) node[below=-2pt] {$v$};
+        \draw (\xmax+5,-20) arc (0:-48:5) node[pos=0.1,right=-1pt] {$\theta$};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{The trajectory of a rock ejected from the Kilauea volcano.}
+    \label{KoIsTr}
+\end{center}
+
+\Solution \textit{Strategy}: Again, resolving this two-dimensional motion into two independent one-dimensional motions will allow us to solve for the desired quantities. The time a projectile is in the air is governed by its vertical motion alone. We will solve for $t$ first. While the rock is rising and falling vertically, the horizontal motion continues at a constant velocity. This example asks for the final velocity. Thus, the vertical and horizontal results will be recombined to obtain $v$ and $\theta_v$ at the final time $t$ determined in the first part of the example.
+
+\vspace{1em}
+
+\textbf{Solution for (a)}: While the rock is in the air, it rises and then falls to a final position \SI{20.0}{m} lower than its starting altitude. We can find the time for this by using
+
+\begin{equation*}
+    y = y_0 + v_{0y}t -\frac{1}{2} g t^2
+\end{equation*}
+
+If we take the initial position $y_0$ to be zero, then the final position is  $y = -\SI{20.0}{m}$. Now the initial vertical velocity is the vertical component of the initial velocity, found from 
+
+\begin{equation*}
+    v_{0y} = v_0 \sin{\theta_0} = \left(\SI{25.0}{m/s}\right) \left(\sin{\ang{35.0}}\right) = \SI{14.3}{m/s}
+\end{equation*}
+
+Substituting known values yields
+
+\begin{equation*}
+    -\SI{20.0}{m} = \left(\SI{14.3}{m/s}\right) t - \left(\SI{4.90}{m/s^2}\right) t^2
+\end{equation*}
+
+Rearranging terms gives a quadratic equation in $t$:
+
+\begin{equation*}
+    \left(\SI{4.90}{m/s^2}\right) t^2 - \left(\SI{14.3}{m/s}\right) t -\SI{20.0}{m} = 0
+\end{equation*}
+
+This expression is a quadratic equation of the form
+
+\begin{equation*}
+    at^2 + bt + c = 0
+\end{equation*}
+
+where the constants are 
+
+\begin{equation*}
+    a = 4.90\ ,\quad b = -14.3\ , \quad c = -20.0
+\end{equation*}
+
+Its solutions are given by the quadratic formula:
+
+\begin{equation*}
+    t = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\end{equation*}
+
+This equation yields two solutions: $t = 3.96$ and $t = -1.03$. (It is left as an exercise for the reader to verify these solutions.) The time is $t = \SI{3.96}{s}$ or $-\SI{1.03}{s}$. The negative value of time implies an event before the start of motion, and so we discard it. Thus,
+
+\begin{equation*}
+    t = \SI{3.96}{s}
+\end{equation*}
+
+\textbf{Discussion for (a)}: The time for projectile motion is completely determined by the vertical motion. So any projectile that has an initial vertical velocity of \SI{14.3}{m/s} and lands \SI{20.0}{m} below its starting altitude will spend \SI{3.96}{s} in the air.
+
+\vspace{1em}
+
+\textbf{Solution for (b)}: From the information now in hand, we can find the final horizontal and vertical velocities $v_x$ and $v_y$ and combine them to find the total velocity $v$ and the angle $\theta_v$ it makes with the horizontal. Of course, $v_x$ is constant so we can solve for it at any horizontal location. In this case, we chose the starting point since we know both the initial velocity and initial angle. Therefore:
+
+\begin{equation*}
+    v_x = v_0 \cos{\theta_0} = \left(\SI{25.0}{m/s}\right) \left(\cos{\ang{35}}\right) = \SI{20.5}{m/s}
+\end{equation*}
+
+The final vertical velocity is given by the following equation:
+
+\begin{equation*}
+    v_y = v_{0y} - gt
+\end{equation*}
+
+where $v_{0y}$ was found in part (a) to be \SI{14.3}{m/s}. Thus,
+
+\begin{equation*}
+    v_y = \SI{14.3}{m/s} - \left(\SI{9.80}{m/s^2}\right) \left(\SI{3.96}{s}\right)
+\end{equation*}
+
+so that
+
+\begin{equation*}
+    v_y = -\SI{24.5}{m/s}
+\end{equation*}
+
+To find the magnitude of the final velocity $v$ we combine its perpendicular components, using the following equation:
+
+\begin{equation*}
+    v = \sqrt{v_x^2 + v_y^2} = \sqrt{\left(\SI{20.5}{m/s}\right)^2 + \left(-\SI{24.5}{m/s}\right)^2}
+\end{equation*}
+
+which gives
+
+\begin{equation*}
+    v = \SI{31.9}{m/s}
+\end{equation*}
+
+The direction $\theta_v$ is found from the equation:
+
+\begin{equation*}
+    \theta_v = \tan^{-1} \left(\frac{v_y}{v_x}\right)
+\end{equation*}
+
+so that
+
+\begin{equation*}
+    \theta_v = \tan^{-1} \left(\frac{-24.5}{20.5}\right) = \tan^{-1} (-1.19)
+\end{equation*}
+
+Thus,
+
+\begin{equation*}
+    \theta_v = \ang{-50.1}
+\end{equation*}
+
+\textbf{Discussion for (b)}: The negative angle means that the velocity is \ang{50.1} below the horizontal. This result is consistent with the fact that the final vertical velocity is negative and hence downward---as you would expect because the final altitude is \SI{20.0}{m} lower than the initial altitude. (See Figure \ref{KoIsTr}.)
+
+\endsolution
+
+One of the most important things illustrated by projectile motion is that vertical and horizontal motions are independent of each other. Galileo was the first person to fully comprehend this characteristic. He used it to predict the range of a projectile. On level ground, we define \gls{range} to be the horizontal distance $R$ traveled by a projectile. Galileo and many others were interested in the range of projectiles primarily for military purposes---such as aiming cannons. However, investigating the range of projectiles can shed light on other interesting phenomena, such as the orbits of satellites around the Earth. Let us consider projectile range further.
+
+\begin{center}
+    \begin{tikzpicture}[
+        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
+        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \sf = 0.5; %scale factor for vector components
+        \a = 1.5;
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,
+        ticks=none,
+        axis x line = left,
+        axis y line = none,
+        clip=false,
+        xmin=0, xmax=260,
+        ymin=0, ymax={h(50,45)*1.1},
+        axis equal image,
+        ]
+        \node at (250,60) {(a)};
+        \draw[dashed] (91.8/2,22.96) -- ++(0,-22.96);
+        \draw[dashed] (163/2,40.82) -- ++(0,-40.82);
+        \draw[dashed] (255/2,63.78) -- ++(0,-63.78);
+        \coordinate (A) at ({\a*50*cos(45)},{\a*50*sin(45)});
+        \coordinate (B) at ({\a*40*cos(45)},{\a*40*sin(45)});
+        \coordinate (C) at ({\a*30*cos(45)},{\a*30*sin(45)});
+        \draw[Green,thick,->] (0,0) -- ++(A) node[left=2mm,black] {\SI{50}{m/s}};
+        \draw[violet,thick,->] (0,0) -- ++(B) node[left=2mm,black] {\SI{40}{m/s}};
+        \draw[red,thick,->] (0,0) -- ++(C) node[left=2mm,black] {\SI{30}{m/s}};
+        \draw[Green,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)});
+        \draw[violet,thick,domain=0:{R(40,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,40,45)});
+        \draw[red,thick,domain=0:{R(30,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,30,45)});
+        \draw[|<->|,thick] (0,-10) -- ++(91.8,0) node[pos=0.5] {\mybox{$R = \SI{91.8}{m}$}};
+        \draw[|<->|,thick] (0,-20) -- ++(163,0) node[pos=0.5] {\mybox{$R = \SI{163}{m}$}};
+        \draw[|<->|,thick] (0,-30) -- ++(255,0) node[pos=0.5] {\mybox{$R = \SI{255}{m}$}};
+        \draw (10,0) arc (0:45:10) node[right,pos=0.7] {\ang{45}};
+        \end{axis}
+    \end{tikzpicture}
+
+    \vspace{1em}
+
+    \begin{tikzpicture}[
+        declare function ={R(\vi,\thetai)= \vi^2*sin(2*\thetai)/\grav;}, %range
+        declare function={h(\vi,\thetai)=(\vi*sin(\thetai))^2/(2*\grav);}, %maximum height
+    ]
+    \tikzmath{
+        \grav = 9.8;
+        \sf = 0.5; %scale factor for vector components
+        \a = 1.5;
+    }
+    \pgfplotsset{compat=1.11}
+        \begin{axis}[width=16cm,ticks=none,
+        axis y line = none,
+        axis x line = left,
+        clip=false,
+        xmin=0, xmax=260,
+        ymin=0, ymax={h(50,75)*1.1},
+        axis equal image,
+        ]
+        \node at (250,100) {(b)};
+        \draw[dashed] (128/2,119) -- ++(0,-119);
+        \draw[dashed] (255/2,63.78) -- ++(0,-63.78);
+        \coordinate (A) at ({\a*50*cos(75)},{\a*50*sin(75)});
+        \coordinate (B) at ({\a*50*cos(45)},{\a*50*sin(45)});
+        \coordinate (C) at ({\a*50*cos(15)},{\a*50*sin(15)});
+        \draw[Green,thick,->] (0,0) -- ++(A) node[black,left,pos=1.1] {$v_0 = \SI{50}{m/s}$};
+        \draw[Green,thick,domain=0:{R(50,75)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,75)});
+        \draw[violet,thick,->] (0,0) -- ++(B);
+        \draw[violet,thick,domain=0:{R(50,45)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,45)});
+        \draw[red,thick,->] (0,0) -- ++(C);
+        \draw[red,thick,domain=0:{R(50,15)},variable=\x,samples=250] plot ({\x},{patheq(\x,0,50,15)});
+        \node at (30,3) {\ang{15}};
+        \draw (40,0) arc (0:45:40) node[below left=-1mm,pos=0.7] {\ang{45}};
+        \draw (50,0) arc (0:75:50) node[below left=-1mm,pos=0.8] {\ang{75}};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{Trajectories of projectiles on level ground. (a) The greater the initial speed $v_0$, the greater the range for a given initial angle. (b) The effect of initial angle $\theta_0$ on the range of a projectile with a given initial speed. Note that the range is the same for \ang{15} and \ang{75}, although the maximum heights of those paths are different.}
+    \label{6hKQ2Y}
+\end{center}
+
+How does the initial velocity of a projectile affect its range? Obviously, the greater the initial speed $v_0$, the greater the range, as shown in Figure \ref{6hKQ2Y}(a). The initial angle $\theta_0$ also has a dramatic effect on the range, as illustrated in Figure \ref{6hKQ2Y}(b). For a fixed initial speed, such as might be produced by a cannon, the maximum range is obtained with $\theta_0=\ang{45}$. This is true only for conditions neglecting air resistance. If air resistance is considered, the maximum angle is approximately \ang{38}. Interestingly, for every initial angle except \ang{45}, there are two angles that give the same range---the sum of those angles is \ang{90}. The range also depends on the value of the acceleration of gravity $g$. The lunar astronaut Alan Shepherd was able to drive a golf ball a great distance on the Moon because gravity is weaker there. The range $R$ of a projectile on level ground for which air resistance is negligible is given by
+
+\begin{equation}
+    R = \frac{v_0^2 \sin{2 \theta_0}}{g}
+\end{equation}
+
+where $v_0$ is the initial speed and $\theta_0$ is the initial angle relative to the horizontal. The proof of this equation is left as an end-of-chapter problem (hints are given), but it does fit the major features of projectile range as described.
+
+\vspace{1em}
+
+When we speak of the range of a projectile on level ground, we assume that $R$ is very small compared with the circumference of the Earth. If, however, the range is large, the Earth curves away below the projectile and acceleration of gravity changes direction along the path. The range is larger than predicted by the range equation given above because the projectile has farther to fall than it would on level ground. (See Figure ?.??.) If the initial speed is great enough, the projectile goes into orbit. This possibility was recognized centuries before it could be accomplished. When an object is in orbit, the Earth curves away from underneath the object at the same rate as it falls. The object thus falls continuously but never hits the surface. These and other aspects of orbital motion, such as the rotation of the Earth, will be covered analytically and in greater depth later in this text.
+
+\vspace{1em}
+
+Once again we see that thinking about one topic, such as the range of a projectile, can lead us to others, such as the Earth orbits. In ``Addition of Velocities,'' we will examine the addition of velocities, which is another important aspect of two-dimensional kinematics and will also yield insights beyond the immediate topic.
+
+\begin{gradient}{PHET EXPLORATIONS}
+    \textbf{Projectile Motion}: Blast a Buick out of a cannon! Learn about projectile motion by firing various objects. Set the angle, initial speed, and mass. Add air resistance. Make a game out of this simulation by trying to hit a target.   
+
+    \vspace{1em}
+
+    \href{https://phet.colorado.edu/sims/html/projectile-motion/latest/projectile-motion_all.html}{Click here to view content}.
+\end{gradient}
+
 
 \end{document}

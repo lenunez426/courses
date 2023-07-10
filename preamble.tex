@@ -122,7 +122,7 @@
 \let\oldtexttt\texttt% Store \texttt
 \renewcommand{\texttt}[2][black]{\textcolor{#1}{\ttfamily #2}}% 
 
-\newcommand\mybox[2][]{\tikz[overlay]\node[fill=black!20,inner sep=2pt, anchor=text, rectangle, rounded corners=1mm,#1] {#2};\phantom{#2}}
+\newcommand\mybox[2][]{\tikz[overlay]\node[fill=white,inner sep=2pt, anchor=text,rectangle,#1] {#2};\phantom{#2}} %Used in chapter 3, projectile motion. See Range plots.
 
 \setlength{\columnsep}{1cm}
 \setlength{\columnseprule}{1pt}
