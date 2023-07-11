@@ -56,11 +56,12 @@
 \newtheorem{example}{Example}[section]
 \newtheorem{exercise}{}[section]
 \newtheorem{regla}{Rule}
+\newtheorem{cfu}{Check For Understanding}
 
 
 \newcommand{\Solution}{{\footnotesize \color{cyan} SOLUTION }}
 
-\newcommand{\solutionEnd}{{\footnotesize \color{cyan} \hfill END OF SOLUTION }}
+\def\endsolution{{\footnotesize \color{cyan} \hfill END OF SOLUTION }}
 
 \newcommand{\cyanhrule}{{\color{cyan} \hrule }}
 
@@ -203,5 +204,31 @@ color(50.00000000000000bp)=(violet)
 inner color=transparent!80,
 outer color=transparent!30]
 
+
+\newenvironment{gradient}[1]
+    {\vspace{1em}
+    
+    \begin{tikzpicture}
+        \fill[RoyalBlue,path fading=south] (0,1em) rectangle (\linewidth,2em);
+    \end{tikzpicture}
+    
+    \vspace{-1em}
+
+    \begin{center}
+        \texttt[RoyalBlue]{#1}
+    \end{center}
+
+    \vspace{-1ex}
+        }
+        {
+
+        \vspace{1ex}
+        
+    \begin{tikzpicture}
+        \fill[RoyalBlue,path fading=north] (0,-1em) rectangle (\linewidth,-2em);
+    \end{tikzpicture}
+
+    \vspace{1em}
+    }
 
 
