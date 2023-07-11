@@ -1,7 +1,60 @@
-\documentclass[main-ap-physics.tex]{subfiles}
-
+\documentclass[../../main-ap-physics.tex]{subfiles}
 
 \begin{document}
+
+\section{Dynamics: Force and Newton's Laws of Motion}
+
+\subsection{Development of Force Concept}
+
+\Gls{dynamics} is the study of the forces that cause objects and systems to move. To understand this, we need a working definition of \gls{force}. Our intuitive definition of force---that is, a push or a pull---is a good place to start. We know that a push or pull has both magnitude and direction (therefore, it is a vector quantity) and can vary considerably in each regard. For example, a cannon exerts a strong force on a cannonball that is launched into the air. In contrast, Earth exerts only a tiny downward pull on a flea. Our everyday experiences also give us a good idea of how multiple forces add. If two people push in different directions on a third person, as illustrated in Figure \ref{KPYGZu}, we might expect the total force to be in the direction shown. Since force is a vector, it adds just like other vectors, as illustrated in Figure \ref{KPYGZu}(a) for two ice skaters. Forces, like other vectors, are represented by arrows and can be added using the familiar head-to-tail method or by trigonometric methods. These ideas were developed in ``Two-Dimensional Kinematics.''
+
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            ticks=none,
+            axis line style={draw=none},
+            clip=false,
+        ]
+        \draw[->,red,thick] (0,5) node[below,black] {$F_1$} -- ++(5,0);
+        \draw[->,red,thick] (5,0) node[left,black] {$F_2$} -- ++(0,5);
+        \begin{scope}[shift={(5.25,0.25)}]
+            \draw[->,red,dashed] (0,5) -- ++(5,0) node[below,pos=0.5,black] {$F_1$};
+            \draw[->,red,dashed] (5,5) -- ++(0,5) node[right,pos=0.5,black] {$F_2$};
+            \draw[->,red,thick] (0,5) -- ++(5,5) node[above left,pos=0.5,black] {$F_{\text{tot}}$};
+        \end{scope}
+        \node at (1,9) {(a)};
+        \end{axis}
+    \end{tikzpicture}%
+    \hspace{1cm}
+    \begin{tikzpicture}
+        \begin{axis}[width=6cm,
+            xmin=0,xmax=10,
+            ymin=0,ymax=10,
+            ticks=none,
+            axis line style={draw=none},
+            clip=false,
+        ]
+        \draw[->,thick] (5pt,0) -- ++(5,0) node[below,pos=0.5] {$F_1$};
+        \draw[->,thick] (0,5pt) -- ++(0,5) node[left,pos=0.5] {$F_2$};
+        \fill[red] (0,0) circle (3pt);
+        \node[right] at (1,6) {Free-body diagram};
+        \node at (1,8) {(b)};
+        \end{axis}
+    \end{tikzpicture}
+    \captionsetup{type=figure,margin=1in,font=scriptsize}
+    \captionof{figure}{Part (a) shows an overhead view of two ice skaters pushing on a third. Forces are vectors and add like other vectors, so the total force on the third skater is in the direction shown. In part (b), we see a free-body diagram representing the forces acting on the third skater.}
+    \label{KPYGZu}
+\end{center}
+
+Figure \ref{KPYGZu}(b) is our first example of a \gls{free-body diagram}, which is a technique used to illustrate all the \gls{external force}s acting on a body. The body is represented by a single isolated point (or free body), and only those forces acting on the body from the outside (external forces) are shown. (These forces are the only ones shown, because only external forces acting on the body affect its motion. We can ignore any internal forces within the body.) Free-body diagrams are very useful in analyzing forces acting on a system and are employed extensively in the study and application of Newton's laws of motion.
+
+\vspace{1em}
+
+% A more quantitative definition of force can be based on some standard force, just as distance is measured in units relative to a standard distance. One possibility is to stretch a spring a certain fixed distance, as illustrated in Figure ?.??, and use the force it exerts to pull itself back to its relaxed shape---called a restoring force---as a standard. The magnitude of all other forces can be stated as multiples of this standard unit of force. Many other possibilities exist for standard forces. (One that we will encounter in Magnetism is the magnetic force between two wires carrying electric current.) Some alternative definitions of force will be given later in this chapter.
+
+% Skip Figure 4.4
 
 \subsection{Newton's First Law of Motion: Inertia}
 
@@ -36,9 +89,5 @@ The property of a body to remain at rest or to remain in motion with constant ve
 \Solution They are equal. A kilogram of one substance is equal in mass to a kilogram of another substance. The quantities that might differ between them are volume and density.
 
 \endsolution
+
 \end{document}
-
-
-
-
-
