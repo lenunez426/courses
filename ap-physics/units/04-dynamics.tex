@@ -90,4 +90,108 @@ The property of a body to remain at rest or to remain in motion with constant ve
 
 \endsolution
 
+\subsection{Newton's Second Law of Motion: Concept of a System}
+
+\gls{Newton's second law of motion} is closely related to Newton's first law of motion. It mathematically states the cause and effect relationship between force and changes in motion. Newton's second law of motion is more quantitative and is used extensively to calculate what happens in situations involving a force. Before we can write down Newton's second law as a simple equation giving the exact relationship of force, mass, and acceleration, we need to sharpen some ideas that have already been mentioned.
+
+\vspace{1em}
+
+First, what do we mean by a change in motion? The answer is that a change in motion is equivalent to a change in velocity. A change in velocity means, by definition, that there is an \gls{acceleration}. Newton's first law says that a net external force causes a change in motion; thus, we see that \textit{a net external force causes acceleration}.
+
+\vspace{1em}
+
+Another question immediately arises. What do we mean by an external force? An intuitive notion of external is correct---an \gls{external force} acts from outside the \gls{system} (object or collection of objects) of interest. For example, in Figure ?.??(a) the system of interest is the wagon plus the child in it. The two forces exerted by the other children are external forces. An internal force acts between elements of the system. Again looking at Figure ?.??(a), the force the child in the wagon exerts to hang onto the wagon is an internal force between elements of the system of interest. Only external forces affect the motion of a system, according to Newton's first law. (The internal forces actually cancel, as we shall see in the next section.) You must define the boundaries of the system before you can determine which forces are external. Sometimes the system is obvious, whereas other times identifying the boundaries of a system is more subtle. The concept of a system is fundamental to many areas of physics, as is the correct application of Newton's laws. This concept will be revisited many times on our journey through physics.
+
+\vspace{1em} %Skip figure
+
+Now, it seems reasonable that acceleration should be directly proportional to and in the same direction as the net (total) external force acting on a system. This assumption has been verified experimentally and is illustrated in Figure ?.??. In part (a), a smaller force causes a smaller acceleration than the larger force illustrated in part (c). For completeness, the vertical forces are also shown; they are assumed to cancel since there is no acceleration in the vertical direction. The vertical forces are the weight \textbf{w} and the support of the ground \textbf{N}, and the horizontal force \textbf{f} represents the force of friction. These will be discussed in more detail in later sections. For now, we will define \gls{friction} as a force that opposes the motion past each other of objects that are touching. Figure ?.??(b) shows how vectors representing the external forces add together to produce a net force,  $\textbf{F}_{\text{net}}$.
+
+\vspace{1em}
+
+To obtain an equation for Newton's second law, we first write the relationship of acceleration and net external force as the proportionality
+
+\begin{equation*}
+    \textbf{a} \propto \textbf{F}_{\text{net}}
+\end{equation*}
+
+where the symbol $\propto$ means ``proportional to,'' and  $\textbf{F}_{\text{net}}$ is the net external force. (The net external force is the vector sum of all external forces and can be determined graphically, using the head-to-tail method, or analytically, using components. The techniques are the same as for the addition of other vectors, and are covered in ``Two-Dimensional Kinematics.'') This proportionality states what we have said in words---acceleration is directly proportional to the net external force. Once the system of interest is chosen, it is important to identify the external forces and ignore the internal ones. It is a tremendous simplification not to have to consider the numerous internal forces acting between objects within the system, such as muscular forces within the child's body, let alone the myriad of forces between atoms in the objects, but by doing so, we can easily solve some very complex problems with only minimal error due to our simplification.
+
+\vspace{1em}
+
+Now, it also seems reasonable that acceleration should be inversely proportional to the mass of the system. In other words, the larger the mass (the inertia), the smaller the acceleration produced by a given force. And indeed, as illustrated in Figure ?.??, the same net external force applied to a car produces a much smaller acceleration than when applied to a basketball. The proportionality is written as
+
+\begin{equation*}
+    \textbf{a} \propto \frac{1}{m}
+\end{equation*}
+
+where $m$ is the mass of the system. Experiments have shown that acceleration is exactly inversely proportional to mass, just as it is exactly linearly proportional to the net external force.
+
+\vspace{1em} %Skip figure
+
+It has been found that the acceleration of an object depends \textit{only} on the net external force and the mass of the object. Combining the two proportionalities just given yields Newton's second law of motion.
+
+\begin{gradient}{NEWTON'S SECOND LAW OF MOTION}
+    The acceleration of a system is directly proportional to and in the same direction as the net external force acting on the system, and inversely proportional to its mass.
+
+    \vspace{1em}
+
+    In equation form, Newton's second law of motion is
+
+    \begin{equation}
+        \vec{a} = \frac{\vec{F}_{\text{net}}}{m}
+    \end{equation}
+
+    This is often written in the more familiar form
+
+    \begin{equation}
+        \vec{F}_{\text{net}} = m \vec{a}
+    \end{equation}
+
+    When only the magnitude of force and acceleration are considered, this equation is simply
+
+    \begin{equation*}
+        F_{\text{net}} = m a
+    \end{equation*}
+\end{gradient}
+
+Although these last two equations are really the same, the first gives more insight into what Newton’s second law means. The law is a \textit{cause and effect relationship} among three quantities that is not simply based on their definitions. The validity of the second law is completely based on experimental verification.
+
+\subsubsection*{Units of Force}
+
+$\vec{F}_{\text{net}} = m \vec{a}$ is used to define the units of force in terms of the three basic units for mass, length, and time. The SI unit of force is called the \gls{newton} (abbreviated N) and is the force needed to accelerate a 1-kg system at the rate of \SI{1}{m/s^2}. That is, since $\vec{F}_{\text{net}} = m \vec{a}$,
+
+\begin{equation}
+    \SI{1}{N} = \SI{1}{kg} \cdot \SI{}{m/s^2}
+\end{equation}
+
+While almost the entire world uses the newton for the unit of force, in the United States the most familiar unit of force is the pound (lb), where $\SI{1}{N} = \SI{0.225}{lb}$.
+
+\subsubsection*{Weight and the Gravitational Force}
+
+When an object is dropped, it accelerates toward the center of Earth. Newton’s second law states that a net force on an object is responsible for its acceleration. If air resistance is negligible, the net force on a falling object is the gravitational force, commonly called its \gls{weight} $\vec{w}$. Weight can be denoted as a vector $\vec{w}$ because it has a direction; down is, by definition, the direction of gravity, and hence weight is a downward force. The magnitude of weight is denoted as $w$. Galileo was instrumental in showing that, in the absence of air resistance, all objects fall with the same acceleration $g$. Using Galileo’s result and Newton’s second law, we can derive an equation for weight.
+
+\vspace{1em}
+
+Consider an object with mass $m$ falling downward toward Earth. It experiences only the downward force of gravity, which has magnitude $w$. Newton’s second law states that the magnitude of the net external force on an object is $F_{\text{net}} = m a$.
+
+\vspace{1em}
+
+Since the object experiences only the downward force of gravity, $F_{\text{net}} = w$. We know that the acceleration of an object due to gravity is $g$, or $a = g$. Substituting these into Newton’s second law gives $w = mg$.
+
+\begin{gradient}{WEIGHT}
+    This is the equation for weight---the gravitational force on a mass $m$:
+
+    \begin{equation}
+        w = mg
+    \end{equation}
+
+    Since $g = \SI{9.80}{m/s^2}$ on Earth, the weight of a \SI{1.0}{kg} object on Earth is \SI{9.8}{N}, as we see:
+
+    \begin{equation*}
+        w = m g = \left(\SI{1.0}{kg}\right) \left(\SI{9.80}{m/s^2}\right) = \SI{9.8}{N}
+    \end{equation*}
+
+    Recall that $g$ can take a positive or negative value, depending on the positive direction in the coordinate system. Be sure to take this into consideration when solving problems with weight.
+\end{gradient}
+
 \end{document}
